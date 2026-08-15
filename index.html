@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v3.2 -->
+<!-- 오사카 가족여행 가이드북 v3.3 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -36,6 +36,33 @@
   }
   img{max-width:100%;display:block;}
   .wrap{max-width:880px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- GUIDE TABS ---------- */
+  .guide-tabs-shell{position:sticky;top:0;z-index:100;background:rgba(246,239,225,.96);border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(42,33,24,.08);backdrop-filter:blur(10px);}
+  .guide-tabs{max-width:880px;margin:0 auto;padding:10px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .guide-tabs::-webkit-scrollbar{display:none;}
+  .guide-tab{flex:1 0 auto;min-width:118px;border:1px solid var(--line);border-radius:999px;background:var(--paper-card);color:var(--ink-soft);padding:10px 14px;font:700 12.5px 'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;}
+  .guide-tab[aria-selected="true"]{background:var(--indigo);border-color:var(--indigo);color:#fff;box-shadow:0 5px 14px rgba(31,58,95,.22);}
+  .guide-tab:focus-visible{outline:3px solid rgba(200,152,59,.5);outline-offset:2px;}
+  .guide-tab-panel-hidden{display:none !important;}
+  .tab-intro{margin:24px auto 0;padding:14px 18px;border-radius:13px;background:var(--paper-deep);color:var(--ink-soft);font-size:12.8px;text-align:center;}
+
+  /* ---------- PREPARATION ---------- */
+  .booking-card{background:var(--paper-card);border:2px solid var(--pine);border-radius:18px;overflow:hidden;margin-bottom:22px;}
+  .booking-card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;background:rgba(60,110,92,.12);}
+  .booking-card-head h3{margin:0;font:700 18px 'Noto Sans KR',sans-serif;}
+  .confirmed-badge{padding:5px 10px;border-radius:999px;background:var(--pine);color:#fff;font-size:11px;font-weight:700;white-space:nowrap;}
+  .booking-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);}
+  .booking-fact{padding:16px;background:var(--paper-card);}
+  .booking-fact span{display:block;color:var(--ink-soft);font-size:10.5px;margin-bottom:5px;}
+  .booking-fact b{font-size:13.5px;line-height:1.5;}
+  .prep-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
+  .prep-card{background:var(--paper-card);border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .prep-card h3{margin:0 0 10px;font:700 15.5px 'Noto Sans KR',sans-serif;}
+  .prep-card ul{margin:0;padding-left:19px;}
+  .prep-card li{margin:7px 0;color:var(--ink-soft);font-size:12.8px;}
+  .prep-status{display:inline-block;margin-left:5px;padding:2px 7px;border-radius:10px;background:rgba(60,110,92,.12);color:var(--pine);font-size:10px;font-weight:700;}
+  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid{grid-template-columns:1fr}.guide-tabs{padding:9px 14px}.guide-tab{min-width:auto}.tab-intro{text-align:left}}
 
   h1,h2,h3,.font-display{font-family:'Gowun Batang',serif;}
 
@@ -445,6 +472,8 @@
     .day-head{page-break-after:avoid;break-after:avoid;}
 
     .torii-divider{page-break-after:avoid;break-after:avoid;}
+    .guide-tabs-shell{display:none !important;}
+    .guide-tab-panel-hidden{display:block !important;}
   }
 </style>
 </head>
@@ -452,7 +481,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v3.2</div>
+    <div class="page-version">GUIDE v3.3</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -469,7 +498,7 @@
         </div>
         <div class="bp-item">
           <div class="bp-label">숙소</div>
-          <div class="bp-value">난바 오리엔탈 호텔</div>
+          <div class="bp-value">리가레 난바 아넥스</div>
         </div>
       </div>
       <div class="bp-flight">
@@ -480,8 +509,46 @@
     </div>
   </div>
 
+  <nav class="guide-tabs-shell" aria-label="가이드 항목">
+    <div class="guide-tabs" role="tablist">
+      <button class="guide-tab" type="button" role="tab" aria-selected="true" data-tab="overview">여행 개요</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="usj">USJ</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="explore">맛집·쇼핑</button>
+    </div>
+  </nav>
+
 
   <div class="wrap">
+
+    <p class="tab-intro" data-guide-tab="overview">원하는 항목만 골라 보세요. 긴 가이드를 한 번에 스크롤하지 않아도 됩니다.</p>
+
+    <!-- ============ TRIP PREPARATION ============ -->
+    <section id="trip-prep" data-guide-tab="prep">
+      <div class="section-head">
+        <div class="kicker">Before You Go</div>
+        <h2>여행 준비 체크리스트</h2>
+      </div>
+      <article class="booking-card">
+        <div class="booking-card-head"><h3>🏨 리가레 난바 아넥스</h3><span class="confirmed-badge">예약 완료</span></div>
+        <div class="booking-facts">
+          <div class="booking-fact"><span>숙박 일정</span><b>10/16(금)–10/19(월)<br>3박</b></div>
+          <div class="booking-fact"><span>객실</span><b>디럭스 트윈룸<br>4인</b></div>
+          <div class="booking-fact"><span>결제 금액</span><b>₩945,947</b></div>
+          <div class="booking-fact"><span>주소</span><b>난바나카 1-4-7<br>오사카</b></div>
+        </div>
+      </article>
+      <div class="prep-grid">
+        <article class="prep-card"><h3>✅ 예약·입장권</h3><ul><li>항공권 및 숙소 예약 <span class="prep-status">완료</span></li><li>USJ 1데이 패스와 익스프레스 필요 여부 결정</li><li>공항 픽업·샌딩 밴 예약 및 수하물 개수 전달</li><li>Day 2 오사카 주유패스 구매</li><li>인기 식당은 방문 2~4주 전 예약 확인</li></ul></article>
+        <article class="prep-card"><h3>🛡️ 여행자보험</h3><ul><li>해외 의료비·상해·배상책임 보장금액 비교</li><li>항공 지연·수하물 지연 및 휴대품 손해 확인</li><li>가족 4명 영문 보험증서와 긴급 연락처 저장</li><li>기존 카드 부가보험은 보장 개시 조건 확인</li></ul></article>
+        <article class="prep-card"><h3>📱 유심·통신</h3><ul><li>eSIM 지원 휴대폰이면 일본 데이터 eSIM 우선 비교</li><li>아이 기기까지 연결하면 데이터 넉넉한 포켓 Wi-Fi 고려</li><li>출국 전 설치하고 현지에서 데이터 로밍만 전환</li><li>호텔·USJ·항공권 QR은 화면 캡처로 오프라인 저장</li></ul></article>
+        <article class="prep-card"><h3>💴 결제·교통</h3><ul><li>ICOCA 4장 준비 또는 현지 구매</li><li>해외결제 카드 2장과 소액 엔화 분산 보관</li><li>카드 해외원화결제(DCC) 차단 및 일본 엔화 결제 선택</li><li>Google 지도·번역 앱·USJ 공식 앱 설치</li></ul></article>
+        <article class="prep-card"><h3>🧳 서류·짐</h3><ul><li>여권 유효기간, 영문 이름과 항공권 표기 재확인</li><li>Visit Japan Web 입국 정보는 출발 전 최신 절차 확인</li><li>10월용 얇은 겉옷, 접이식 우산, 편한 운동화</li><li>상비약·멀미약·보조배터리와 충전 케이블</li></ul></article>
+        <article class="prep-card"><h3>⏰ 출발 직전</h3><ul><li>항공편·터미널·위탁수하물 규정 재확인</li><li>숙소 체크인 안내와 출입 방법을 가족에게 공유</li><li>USJ 운영시간·운휴·쇼 일정 확인</li><li>날씨와 태풍 가능성 확인 후 옷차림 조정</li></ul></article>
+      </div>
+      <p class="guide-note">보험 조건, 통신상품, 입국 절차와 시설 운영시간은 바뀔 수 있으므로 결제 전과 출발 1주 전에 공식 안내를 다시 확인하세요.</p>
+    </section>
 
     <!-- ============ OSAKA INTRO ============ -->
     <section id="osaka-intro">
@@ -710,7 +777,7 @@
         <article class="guide-card recommended">
           <span class="guide-badge">짐 많은 가족 추천</span>
           <h3>사설 공항 픽업·샌딩 밴</h3>
-          <p>예약한 승합차로 <b>간사이공항 ↔ 난바 오리엔탈 호텔</b>을 환승 없이 이동하는 상품입니다. 확인한 상품 가격이 1인 편도 2,190엔이라면 4인 가족은 편도 8,760엔이며, 공항철도보다 비싸지만 캐리어를 끌고 역과 호텔 사이를 이동하지 않아도 되는 것이 가장 큰 장점입니다.</p>
+          <p>예약한 승합차로 <b>간사이공항 ↔ 리가레 난바 아넥스</b>를 환승 없이 이동하는 상품입니다. 확인한 상품 가격이 1인 편도 2,190엔이라면 4인 가족은 편도 8,760엔이며, 공항철도보다 비싸지만 캐리어를 끌고 역과 숙소 사이를 이동하지 않아도 되는 것이 가장 큰 장점입니다.</p>
           <p><b>예약 전 확인:</b> 단독 차량인지 다른 여행객과 함께 타는 합승인지, 호텔 정문 승하차 가능 여부, 무료 캐리어 개수와 대형 수하물 추가요금, 아동도 동일 요금인지, 항공편 지연 시 대기시간을 반드시 확인하세요. 가격은 예약일·시간·인원에 따라 달라질 수 있습니다.</p>
           <p><b>선택 기준:</b> 4명이 모두 2,190엔이면 편도 8,760엔입니다. 이동비 절약은 라피트, 문 앞 이동과 짐 편의는 사설 밴이 우세합니다. 특히 귀국일에는 정해진 픽업 시간에 호텔 앞에서 바로 출발할 수 있어 편합니다.</p>
         </article>
@@ -750,9 +817,9 @@
             <tr>
               <th>아침</th>
               <td class="empty">– (기내/공항)</td>
-              <td class="filled">호텔 조식</td>
+              <td class="filled">숙소 또는 난바 카페</td>
               <td class="filled">편의점 간편식</td>
-              <td class="filled">호텔 조식</td>
+              <td class="filled">숙소 또는 난바 카페</td>
             </tr>
             <tr>
               <th>점심</th>
@@ -785,7 +852,7 @@
         <div class="kicker">Budget</div>
         <h2>예상 경비 · 4인 가족 기준</h2>
       </div>
-      <p class="budget-note">항공료는 확정된 실제 가격이고, 나머지는 예약 시점·환율(100엔 기준)에 따라 달라질 수 있는 <b>대략적인 참고 예산</b>이에요.</p>
+      <p class="budget-note">항공료와 숙박비는 결제한 실제 금액이고, 나머지는 예약 시점·환율(100엔 기준)에 따라 달라질 수 있는 <b>대략적인 참고 예산</b>이에요.</p>
 
       <div class="meal-wrap">
         <table class="meal budget-table">
@@ -801,8 +868,8 @@
             </tr>
             <tr>
               <th>🏨 숙박비</th>
-              <td style="text-align:left;">난바 오리엔탈 호텔 4인 가족실 3박</td>
-              <td class="filled">약 90만원</td>
+              <td style="text-align:left;">리가레 난바 아넥스 디럭스 트윈룸 · 4인 3박 (예약 완료)</td>
+              <td class="filled">₩945,947</td>
             </tr>
             <tr>
               <th>🚄 시내 교통</th>
@@ -838,11 +905,11 @@
           <tfoot>
             <tr class="budget-total-row">
               <th colspan="2" style="text-align:left;">합계 (4인)</th>
-              <td>약 456만원</td>
+              <td>약 460만원</td>
             </tr>
             <tr class="budget-total-row sub">
               <th colspan="2" style="text-align:left;">1인 평균 / 1박 평균</th>
-              <td>약 114만원 · 약 152만원</td>
+              <td>약 115만원 · 약 153만원</td>
             </tr>
           </tfoot>
         </table>
@@ -859,9 +926,9 @@ var map_day1 = L.map('leaflet-day1', {zoomControl:false, attributionControl:true
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
 }).addTo(map_day1);
-L.polyline([[34.6657666,135.5037294],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {color:'#BD4226', weight:4, opacity:0.85}).addTo(map_day1);
+L.polyline([[34.6654716,135.4988018],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {color:'#BD4226', weight:4, opacity:0.85}).addTo(map_day1);
 
-L.marker([34.6657666,135.5037294], {icon: L.divIcon({
+L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#BD4226;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">H</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">호텔</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
@@ -881,7 +948,7 @@ L.marker([34.6692979,135.5026443], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#BD4226;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">4</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">돈키호테</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day1);
-map_day1.fitBounds([[34.6657666,135.5037294],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {padding:[38,38]});
+map_day1.fitBounds([[34.6654716,135.4988018],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {padding:[38,38]});
 
 var map_day2 = L.map('leaflet-day2', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -900,9 +967,9 @@ var map_day3 = L.map('leaflet-day3', {zoomControl:false, attributionControl:true
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
 }).addTo(map_day3);
-L.polyline([[34.6657666,135.5037294],[34.6872571,135.5258546],[34.705287,135.489650],[34.710180,135.511570],[34.7040684,135.5000945],[34.6657666,135.5037294]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
+L.polyline([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.705287,135.489650],[34.710180,135.511570],[34.7040684,135.5000945],[34.6654716,135.4988018]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
 
-L.marker([34.6657666,135.5037294], {icon: L.divIcon({
+L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">H</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">호텔</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
@@ -927,15 +994,15 @@ L.marker([34.710180,135.511570], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">3</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">주택박물관</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
-map_day3.fitBounds([[34.6657666,135.5037294],[34.6872571,135.5258546],[34.705287,135.489650],[34.710180,135.511570],[34.7040684,135.5000945]], {padding:[38,38]});
+map_day3.fitBounds([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.705287,135.489650],[34.710180,135.511570],[34.7040684,135.5000945]], {padding:[38,38]});
 
 var map_day4 = L.map('leaflet-day4', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
 }).addTo(map_day4);
-L.polyline([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.6725086,135.5013657]], {color:'#7C4A62', weight:4, opacity:0.85}).addTo(map_day4);
+L.polyline([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.6725086,135.5013657]], {color:'#7C4A62', weight:4, opacity:0.85}).addTo(map_day4);
 
-L.marker([34.6657666,135.5037294], {icon: L.divIcon({
+L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#7C4A62;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">H</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">호텔</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
@@ -950,7 +1017,7 @@ L.marker([34.6725086,135.5013657], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#7C4A62;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">2</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">신사이바시</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day4);
-map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.6725086,135.5013657]], {padding:[38,38]});
+map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.6725086,135.5013657]], {padding:[38,38]});
     });
     </script>
 
@@ -990,9 +1057,9 @@ map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.672508
             <li><div class="t-time">06:40–08:40</div><div class="t-thumb icon">🅿️</div><div class="t-body"><div class="t-title">인천공항 T1 주차 &amp; 탑승수속</div><div class="t-desc">이스타항공 체크인 카운터와 탑승구를 당일 확인하고, 다자녀가정 사전등록 시 주차요금 50% 할인 적용</div></div></li>
             <li><div class="t-time">09:15–11:10</div><div class="t-thumb icon">✈️</div><div class="t-body"><div class="t-title">인천공항 출발 (이스타항공 ZE0611)</div><div class="t-desc">인천 T1→간사이 T1, 약 1시간 55분 비행 · 위탁수하물 1인 15kg</div></div></li>
             <li><div class="t-time">11:10–12:00</div><div class="t-thumb icon">✈️</div><div class="t-body"><div class="t-title">간사이공항 T1 도착</div><div class="t-desc">입국 수속 및 짐 찾기 · 오사카 남쪽 인공섬에 지어진, 세계 최초의 완전 해상공항이에요.</div></div></li>
-            <li><div class="t-time">12:00–13:20</div><div class="t-thumb icon">🚐</div><div class="t-body"><div class="t-title">간사이공항 → 호텔 사설 픽업 밴 <span class="meal-tag">짐 많을 때 추천</span></div><div class="t-desc">예약 기사와 미팅 후 난바 오리엔탈 호텔까지 환승 없이 이동합니다. 제시가 1인 2,190엔이면 4인 편도 8,760엔. 합승 여부, 미팅 장소, 무료 캐리어 수, 비행 지연 대기 규정을 예약 화면에서 확인하세요. 교통상황에 따라 약 50~80분을 잡고, 비용 절약을 원하면 라피트를 선택하세요.</div></div></li>
+            <li><div class="t-time">12:00–13:20</div><div class="t-thumb icon">🚐</div><div class="t-body"><div class="t-title">간사이공항 → 숙소 사설 픽업 밴 <span class="meal-tag">짐 많을 때 추천</span></div><div class="t-desc">예약 기사와 미팅 후 리가레 난바 아넥스까지 환승 없이 이동합니다. 제시가 1인 2,190엔이면 4인 편도 8,760엔. 합승 여부, 미팅 장소, 무료 캐리어 수, 비행 지연 대기 규정을 예약 화면에서 확인하세요. 교통상황에 따라 약 50~80분을 잡고, 비용 절약을 원하면 라피트를 선택하세요.</div></div></li>
             <li class="highlight-row"><div class="t-time">13:30–14:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yamato%20Pork%20Cutlet%20by%20TonQ.jpg?width=200" alt="돈카츠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 1</span>난바역 인근 우동 · 돈카츠 전문점 (점심)</div></div></li>
-            <li><div class="t-time">14:30–14:45</div><div class="t-thumb icon">🛏️</div><div class="t-body"><div class="t-title">난바 오리엔탈 호텔 체크인 및 짐 보관</div><div class="t-desc">난바역에서 도보 3분</div></div></li>
+            <li><div class="t-time">14:30–14:45</div><div class="t-thumb icon">🛏️</div><div class="t-body"><div class="t-title">리가레 난바 아넥스 체크인 및 짐 보관</div><div class="t-desc">난바나카 1-4-7 · 오사카난바역 인근</div></div></li>
             <li><div class="t-time">15:00–17:00</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">다이마루 백화점 (포켓몬 센터 DX &amp; 닌텐도 스토어)</div><div class="t-desc">호텔에서 신사이바시스지 아케이드 통과 도보 12분, 포켓몬과 마리오 캐릭터 굿즈 쇼핑. 1717년 교토에서 시작된 일본 대표 백화점 체인으로, 신사이바시 본점은 아르데코 양식 건물로도 유명해요.</div></div></li>
             <li><div class="t-time">17:30–19:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glico%20Man%20sign%2C%20Dotonbori.JPG?width=200" alt="도톤보리 리버크루즈"></div><div class="t-body"><div class="t-title">도톤보리 거닐기 &amp; 톤보리 리버크루즈 탑승</div><div class="t-desc">다이마루에서 도보 5분, 글리코상 전광판 앞 가족 인증샷 촬영. 오사카를 대표하는 유흥·상업 지구로, 운하를 따라 늘어선 대형 간판들이 명물이에요.</div></div></li>
             <li class="highlight-row"><div class="t-time">19:00–20:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20Takoyaki.jpg?width=200" alt="타코야키"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 2</span>타코야키 &amp; 오코노미야키 탐방 (저녁)</div></div></li>
@@ -1032,7 +1099,7 @@ map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.672508
 
         <div class="day-body">
           <ul class="timeline">
-            <li class="highlight-row"><div class="t-time">08:00–08:40</div><div class="t-thumb icon">☕</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 3</span>호텔 조식 &amp; 주유패스 사용 시작</div><div class="t-desc">가족별 전자티켓 QR을 미리 열고 화면 밝기와 배터리를 확인하세요.</div></div></li>
+            <li class="highlight-row"><div class="t-time">08:00–08:40</div><div class="t-thumb icon">☕</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 3</span>숙소 간편식 또는 난바 카페 &amp; 주유패스 사용 시작</div><div class="t-desc">아침 식사를 마치고 가족별 전자티켓 QR을 미리 열어 화면 밝기와 배터리를 확인하세요.</div></div></li>
             <li><div class="t-time">08:40–09:20</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">난바 → 다니마치욘초메</div><div class="t-desc">미도스지선으로 혼마치 환승 후 츄오선 이용. 주유패스 교통 범위라 추가 결제 없이 이동합니다.</div></div></li>
             <li><div class="t-time">09:20–10:20</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osaka%20Castle%2001bs3200.jpg?width=200" alt="오사카성 천수각"></div><div class="t-body"><div class="t-title">오사카성 천수각 &amp; 도요토미 이시가키관 <span class="meal-tag">패스 무료</span></div><div class="t-desc">천수각과 이시가키관을 같은 날 함께 이용합니다. 일반요금 1,200엔 상당이며, 혼잡하면 전시를 빠르게 보고 전망층 중심으로 관람하세요.</div></div></li>
             <li><div class="t-time">10:20–10:35</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">고자부네 지정 승선권 교환</div><div class="t-desc">10시 운영 시작 이후 매표소에서 가능한 이른 편으로 교환하세요. 좌석이 한정되고 전화 예약은 불가능하며 출항 10분 전까지 승선장에 도착해야 합니다.</div></div></li>
@@ -1097,7 +1164,7 @@ map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.672508
       <div class="section-head"><div class="kicker">USJ Complete Guide</div><h2>유니버설 스튜디오 재팬 완벽분석</h2></div>
       <p class="usj-lead">제공한 영상의 핵심인 입장권·정리권·확약권·익스프레스 선택 전략을 2026년 USJ 공식정보로 보완했습니다. 기준은 <b>초등학교 2학년·5학년 여자아이, 무서운 놀이기구를 잘 못 타는 가족</b>입니다.</p>
       <div class="usj-grid">
-        <article class="usj-card"><h3>🚆 난바 오리엔탈 호텔에서 가는 법</h3><div class="usj-route"><b>06:30</b><span>호텔 출발, 오사카난바역까지 도보</span><b>전철</b><span>한신 난바선으로 니시쿠조역 이동</span><b>환승</b><span>JR 유메사키선 사쿠라지마행 → 유니버설시티역</span><b>도착</b><span>역에서 파크 입구까지 도보 약 5분</span></div><p class="usj-note">열차 자체는 약 13~20분이지만 도보·대기·환승을 포함해 35~45분을 잡으세요. 일요일은 공식 개장 60~90분 전 파크 도착을 권장합니다.</p></article>
+        <article class="usj-card"><h3>🚆 리가레 난바 아넥스에서 가는 법</h3><div class="usj-route"><b>06:30</b><span>숙소 출발, 오사카난바역까지 도보</span><b>전철</b><span>한신 난바선으로 니시쿠조역 이동</span><b>환승</b><span>JR 유메사키선 사쿠라지마행 → 유니버설시티역</span><b>도착</b><span>역에서 파크 입구까지 도보 약 5분</span></div><p class="usj-note">열차 자체는 약 13~20분이지만 도보·대기·환승을 포함해 35~45분을 잡으세요. 일요일은 공식 개장 60~90분 전 파크 도착을 권장합니다.</p></article>
         <article class="usj-card"><h3>🎟️ 입장권과 익스프레스 판단</h3><ul><li><b>1데이 스튜디오 패스:</b> 파크 입장과 일반 어트랙션 이용 포함. 만 4~11세는 어린이, 만 12세 이상은 성인입니다.</li><li><b>가격:</b> 날짜별 변동제이며 현재 공식 안내 최저가는 성인 8,200엔·어린이 5,400엔부터입니다. 2026년 9월 이후에는 판매 중에도 수요에 따라 가격이 조정될 수 있어 10월 18일 가격은 구매 화면에서 확정해야 합니다.</li><li><b>익스프레스 패스:</b> 입장권과 별도입니다. 닌텐도 입장 확약권 및 실제 탈 기구가 포함된 구성인지 확인하세요.</li></ul><p class="usj-note">이번 가족은 플라잉 다이너소어·할리우드 드림 같은 스릴 기구가 포함된 패키지를 피하세요. 맞춤 구성이 없다면 오픈런과 무료 e정리권이 낫습니다.</p></article>
         <article class="usj-card wide"><h3>🎢 아이들 기준 어트랙션 판단표</h3><table class="fear-table"><thead><tr><th>어트랙션</th><th>공포도</th><th>아이 기준 설명</th><th>신장</th></tr></thead><tbody>
           <tr><td>요시 어드벤처</td><td class="fear-low">★☆☆☆☆ 강력 추천</td><td>느린 차량으로 닌텐도 월드를 내려다봅니다. 작은 회전·완만한 움직임 정도라 첫 탑승으로 적합합니다.</td><td>92cm 이상</td></tr>
@@ -1157,7 +1224,7 @@ map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.672508
 
         <div class="day-body">
           <ul class="timeline">
-            <li class="highlight-row"><div class="t-time">09:00–09:30</div><div class="t-thumb icon">☕</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 9</span>호텔 조식 (아침) 및 체크아웃</div><div class="t-desc">프런트에 짐 보관 요청 (역 직결이 아니라 미리 맡겨두면 편해요)</div></div></li>
+            <li class="highlight-row"><div class="t-time">09:00–09:30</div><div class="t-thumb icon">☕</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 9</span>숙소 간편식 또는 난바 카페 (아침) 및 체크아웃</div><div class="t-desc">리가레 난바 아넥스에 체크아웃 후 짐 보관 가능 여부를 미리 확인하세요.</div></div></li>
             <li><div class="t-time">09:30–11:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kuromon-ichiba%20in%20201408.JPG?width=200" alt="구로몬시장"></div><div class="t-body"><div class="t-title">구로몬시장 산책</div><div class="t-desc">호텔에서 도보 12분(또는 닛폰바시역 도보 2분), 신선한 해산물·간식거리 구경. 190년 역사를 가진 '오사카의 부엌'으로 불리는 전통시장이에요.</div></div></li>
             <li><div class="t-time">11:00–12:15</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shinsaibashi-suji%20201408.JPG?width=200" alt="신사이바시 쇼핑"></div><div class="t-body"><div class="t-title">신사이바시스지 &amp; 아메리카무라 쇼핑</div><div class="t-desc">구로몬시장에서 도보 15분, 트렌디한 숍·캐주얼 브랜드 쇼핑. 약 600m 길이의 아케이드 상점가와, 그 옆 캐주얼·빈티지 패션의 성지 아메리카무라예요.</div></div></li>
             <li class="highlight-row"><div class="t-time">12:15–13:10</div><div class="t-thumb icon">🍽️</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 10</span>신사이바시 주변 식당가 (점심)</div></div></li>
@@ -1651,7 +1718,7 @@ map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v3.2</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v3.3</div>
   </footer>
 
   <script>
@@ -1806,6 +1873,58 @@ map_day4.fitBounds([[34.6657666,135.5037294],[34.6653511,135.5062417],[34.672508
           foodGuide.appendChild(section);
         });
       }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tabGroups = {
+        overview: ['osaka-intro', 'area-guide', 'smart-guide'],
+        prep: ['trip-prep', 'tips'],
+        itinerary: ['meals', 'budget', 'day1', 'day2', 'day3', 'day4'],
+        usj: ['usj-complete'],
+        explore: ['five-zone-guide', 'food-guide', 'convenience-guide', 'shopping-guide']
+      };
+      Object.keys(tabGroups).forEach(function (tabName) {
+        tabGroups[tabName].forEach(function (id) {
+          var section = document.getElementById(id);
+          if (!section) return;
+          section.dataset.guideTab = tabName;
+          section.setAttribute('role', 'tabpanel');
+          var divider = section.nextElementSibling;
+          if (divider && divider.classList.contains('torii-divider')) divider.dataset.guideTab = tabName;
+        });
+      });
+
+      var buttons = Array.from(document.querySelectorAll('.guide-tab'));
+      var panels = Array.from(document.querySelectorAll('[data-guide-tab]:not(.guide-tab)'));
+      function showTab(tabName, updateHash, moveToTabs) {
+        if (!tabGroups[tabName]) tabName = 'overview';
+        buttons.forEach(function (button) {
+          var active = button.dataset.tab === tabName;
+          button.setAttribute('aria-selected', active ? 'true' : 'false');
+          button.tabIndex = active ? 0 : -1;
+        });
+        panels.forEach(function (panel) {
+          var active = panel.dataset.guideTab === tabName;
+          panel.classList.toggle('guide-tab-panel-hidden', !active);
+          if (panel.getAttribute('role') === 'tabpanel') panel.hidden = !active;
+        });
+        if (updateHash) history.replaceState(null, '', '#' + tabName);
+        if (moveToTabs) document.querySelector('.guide-tabs-shell').scrollIntoView({behavior:'smooth', block:'start'});
+        setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 80);
+      }
+      buttons.forEach(function (button, index) {
+        button.addEventListener('click', function () { showTab(button.dataset.tab, true, true); });
+        button.addEventListener('keydown', function (event) {
+          if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+          event.preventDefault();
+          var direction = event.key === 'ArrowRight' ? 1 : -1;
+          var next = buttons[(index + direction + buttons.length) % buttons.length];
+          next.focus(); next.click();
+        });
+      });
+      showTab(location.hash.slice(1), false, false);
     });
   </script>
 
