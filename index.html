@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v3.6 -->
+<!-- 오사카 가족여행 가이드북 v3.7 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -45,6 +45,13 @@
   .guide-tab[aria-selected="true"]{background:var(--indigo);border-color:var(--indigo);color:#fff;box-shadow:0 5px 14px rgba(31,58,95,.22);}
   .guide-tab:focus-visible{outline:3px solid rgba(200,152,59,.5);outline-offset:2px;}
   .guide-tab-panel-hidden{display:none !important;}
+  .info-hero{width:100%;height:300px;object-fit:cover;border-radius:18px;border:1px solid var(--line);box-shadow:0 10px 24px rgba(42,33,24,.12);}
+  .photo-credit{margin:7px 4px 20px;text-align:right;font-size:11px;color:var(--ink-soft);}
+  .flight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+  .flight-card{background:var(--paper-card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 7px 18px rgba(42,33,24,.07);}
+  .flight-card h3{margin:0 0 12px;color:var(--indigo);}.flight-card p{margin:5px 0;color:var(--ink-soft);font-size:14px;}.flight-card strong{color:var(--ink);}
+  .schedule-map-link{color:inherit;text-decoration:none;border-bottom:1px dashed rgba(31,58,95,.45);}.schedule-map-link:hover{color:var(--indigo);border-bottom-style:solid;}
+  .map-action{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:999px;background:rgba(47,93,130,.1);color:var(--sora);font-size:11px;font-weight:700;}
   .tab-intro{margin:24px auto 0;padding:14px 18px;border-radius:13px;background:var(--paper-deep);color:var(--ink-soft);font-size:12.8px;text-align:center;}
 
   /* ---------- PREPARATION ---------- */
@@ -62,7 +69,7 @@
   .prep-card ul{margin:0;padding-left:19px;}
   .prep-card li{margin:7px 0;color:var(--ink-soft);font-size:12.8px;}
   .prep-status{display:inline-block;margin-left:5px;padding:2px 7px;border-radius:10px;background:rgba(60,110,92,.12);color:var(--pine);font-size:10px;font-weight:700;}
-  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid{grid-template-columns:1fr}.guide-tabs{padding:9px 14px}.guide-tab{min-width:auto}.tab-intro{text-align:left}}
+  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid,.flight-grid{grid-template-columns:1fr}.guide-tabs{padding:9px 14px}.guide-tab{min-width:auto}.tab-intro{text-align:left}.info-hero{height:220px}}
 
   h1,h2,h3,.font-display{font-family:'Gowun Batang',serif;}
 
@@ -481,7 +488,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v3.6</div>
+    <div class="page-version">GUIDE v3.7</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -512,6 +519,8 @@
   <nav class="guide-tabs-shell" aria-label="가이드 항목">
     <div class="guide-tabs" role="tablist">
       <button class="guide-tab" type="button" role="tab" aria-selected="true" data-tab="overview">여행 개요</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="flight">항공권</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="stay">숙박</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="usj">USJ</button>
@@ -524,21 +533,36 @@
 
     <p class="tab-intro" data-guide-tab="overview">원하는 항목만 골라 보세요. 긴 가이드를 한 번에 스크롤하지 않아도 됩니다.</p>
 
+    <!-- ============ FLIGHT ============ -->
+    <section id="flight-info" data-guide-tab="flight">
+      <div class="section-head"><div class="kicker">Flight Information</div><h2>항공권 정보</h2></div>
+      <div class="flight-grid">
+        <article class="flight-card"><h3>✈️ 가는 편 · ZE0611</h3><p><strong>2026.10.16(금) 09:15</strong> 인천공항 T1 출발</p><p><strong>11:10</strong> 간사이공항 T1 도착</p><p>비행시간 1시간 55분 · 일반석(O) · 위탁수하물 1인 15kg</p></article>
+        <article class="flight-card"><h3>🛬 오는 편 · ZE0614</h3><p><strong>2026.10.19(월) 18:00</strong> 간사이공항 T1 출발</p><p><strong>19:55</strong> 인천공항 T1 도착</p><p>비행시간 1시간 55분 · 일반석(N) · 위탁수하물 1인 15kg</p></article>
+      </div>
+      <p class="guide-note">이스타항공 왕복 4인 결제 완료 · 총 ₩1,387,200. 항공편 시각과 탑승구는 출발 전 공식 안내에서 다시 확인하세요.</p>
+    </section>
+
+    <!-- ============ STAY ============ -->
+    <section id="stay-info" data-guide-tab="stay">
+      <div class="section-head"><div class="kicker">Accommodation</div><h2>숙박 정보</h2></div>
+      <img class="info-hero" src="https://www.bon-lodging.com/wp-content/uploads/2026/05/dp_2507_RNA_s1.jpg" alt="리가레 난바 아넥스 디럭스 트윈룸" onerror="this.onerror=null;this.src='https://www.bon-lodging.com/wp-content/uploads/2026/05/dp_2507_RNA_main.jpg';">
+      <div class="photo-credit">리가레 난바 아넥스 디럭스 트윈룸 · BON Lodging 공식</div>
+      <article class="booking-card">
+        <div class="booking-card-head"><h3>🏨 리가레 난바 아넥스</h3><span class="confirmed-badge">예약 완료</span></div>
+        <div class="booking-facts">
+          <div class="booking-fact"><span>숙박 일정</span><b>10/16(금)–10/19(월)<br>3박</b></div><div class="booking-fact"><span>객실</span><b>디럭스 트윈룸<br>4인</b></div><div class="booking-fact"><span>결제 금액</span><b>₩945,947</b></div><div class="booking-fact"><span>주소</span><b>난바나카 1-4-7<br>오사카</b></div>
+        </div>
+      </article>
+      <p class="guide-note"><a href="https://www.google.com/maps/search/?api=1&amp;query=Regale+Namba+Annex+Osaka" target="_blank" rel="noopener noreferrer">📍 Google 지도에서 숙소 위치 보기</a> · 난바역 도보권, 객실 내 주방·세탁기·욕실건조기 구비.</p>
+    </section>
+
     <!-- ============ TRIP PREPARATION ============ -->
     <section id="trip-prep" data-guide-tab="prep">
       <div class="section-head">
         <div class="kicker">Before You Go</div>
         <h2>여행 준비 체크리스트</h2>
       </div>
-      <article class="booking-card">
-        <div class="booking-card-head"><h3>🏨 리가레 난바 아넥스</h3><span class="confirmed-badge">예약 완료</span></div>
-        <div class="booking-facts">
-          <div class="booking-fact"><span>숙박 일정</span><b>10/16(금)–10/19(월)<br>3박</b></div>
-          <div class="booking-fact"><span>객실</span><b>디럭스 트윈룸<br>4인</b></div>
-          <div class="booking-fact"><span>결제 금액</span><b>₩945,947</b></div>
-          <div class="booking-fact"><span>주소</span><b>난바나카 1-4-7<br>오사카</b></div>
-        </div>
-      </article>
       <div class="prep-grid">
         <article class="prep-card"><h3>✅ 예약·입장권</h3><ul><li>항공권 및 숙소 예약 <span class="prep-status">완료</span></li><li>USJ는 1데이 스튜디오 패스만 구매 <span class="prep-status">확정</span></li><li>익스프레스 패스는 구매하지 않음 <span class="prep-status">확정</span></li><li>간사이공항 ↔ 난바 라피트 왕복 지정석 예매 <span class="prep-status">우선</span></li><li>Day 2 오사카 주유패스 구매</li><li>인기 식당은 방문 2~4주 전 예약 확인</li></ul></article>
         <article class="prep-card"><h3>🛡️ 여행자보험</h3><ul><li>해외 의료비·상해·배상책임 보장금액 비교</li><li>항공 지연·수하물 지연 및 휴대품 손해 확인</li><li>가족 4명 영문 보험증서와 긴급 연락처 저장</li><li>기존 카드 부가보험은 보장 개시 조건 확인</li></ul></article>
@@ -620,6 +644,8 @@
       </div>
       <article class="pass-guide">
         <div class="pass-title"><h3>🎫 오사카 주유패스 완전 가이드</h3><p>교통 무제한 + 약 40개 관광시설 이용이 결합된 디지털 패스</p></div>
+        <img class="info-hero" src="https://osaka-amazing-pass.com/resource/img/top_slide_2b_en.png" alt="2026 오사카 주유패스" style="border-radius:0;box-shadow:none;object-fit:contain;background:#fff;">
+        <div class="photo-credit" style="padding-right:14px;">2026 오사카 주유패스 · SURUTTO KANSAI 공식</div>
         <div class="pass-summary">
           <div class="pass-stat"><b>¥3,500</b><span>일반 1일권</span></div>
           <div class="pass-stat"><b>¥5,000</b><span>일반 2일권</span></div>
@@ -768,7 +794,9 @@
         <article class="guide-card recommended">
           <span class="guide-badge">이번 일정 선택</span>
           <h3>난카이 라피트</h3>
+          <img class="info-hero" src="https://www.nankai.co.jp/sites/default/files/2026-02/visual_rapit.jpg" alt="난카이 특급 라피트 열차" style="height:190px;margin:8px 0 12px;">
           <p><b>이번 여행의 우선 이동수단입니다.</b> 전 좌석 지정제로 간사이공항역과 난카이 난바역을 환승 없이 연결하고, 좌석과 짐 보관 공간이 있어 가족여행에 잘 맞습니다. 출국 전 왕복권을 비교하고 실제 열차 시각은 방문 직전 공식 시간표에서 확인하세요.</p>
+          <p class="photo-credit" style="text-align:left;margin:0;"><a href="https://www.nankai.co.jp/en_railway/rapit" target="_blank" rel="noopener noreferrer">난카이전철 공식 라피트 안내</a></p>
         </article>
         <article class="guide-card">
           <h3>난카이 공항급행</h3>
@@ -1722,7 +1750,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v3.6</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v3.7</div>
   </footer>
 
   <script>
@@ -1882,8 +1910,35 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      function place(query) { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(query); }
+      function route(origin, destination, mode) { return 'https://www.google.com/maps/dir/?api=1&origin=' + encodeURIComponent(origin) + '&destination=' + encodeURIComponent(destination) + '&travelmode=' + (mode || 'transit'); }
+      var scheduleLinks = {
+        day1: [['route','광명시','인천국제공항 제1여객터미널','driving'],['place','인천국제공항 제1여객터미널'],['place','인천국제공항 제1여객터미널'],['place','간사이국제공항 제1터미널'],['route','간사이공항역','난카이 난바역','transit'],['place','난카이 난바역 우동 돈카츠'],['place','Regale Namba Annex Osaka'],['route','Regale Namba Annex Osaka','Daimaru Shinsaibashi','walking'],['route','Daimaru Shinsaibashi','Dotonbori Glico Sign','walking'],['place','도톤보리 타코야키 오코노미야키'],['route','Dotonbori Glico Sign','Don Quijote Dotonbori','walking']],
+        day2: [['place','Regale Namba Annex breakfast'],['route','Regale Namba Annex Osaka','Tanimachiyonchome Station','transit'],['place','Osaka Castle Museum'],['place','Osaka Castle Gozabune Boat'],['place','Osaka Castle Gozabune Boat'],['place','Nishinomaru Garden Osaka Castle'],['route','Osaka Castle','Umeda Sky Building','transit'],['place','Umeda lunch'],['place','Umeda Sky Building'],['route','Umeda Sky Building','Kiddy Land Osaka Umeda','walking'],['route','Kiddy Land Osaka Umeda','HEP FIVE Ferris Wheel','walking'],['place','HEP FIVE Ferris Wheel'],['place','Umeda dinner'],['route','HEP FIVE Ferris Wheel','Wonder Cruise Nipponbashi Pier','transit'],['place','Wonder Cruise Nipponbashi Pier Osaka'],['place','Wonder Cruise Nipponbashi Pier Osaka']],
+        day3: [['route','Regale Namba Annex Osaka','Universal Studios Japan','transit'],['place','Universal Studios Japan'],['place','Super Nintendo World Japan'],['place','Kinopio Cafe Universal Studios Japan'],['place','Universal Wonderland USJ'],['place','Wizarding World of Harry Potter Japan'],['route','Universal Studios Japan','Namba Osaka yakiniku','transit']],
+        day4: [['place','Regale Namba Annex Osaka'],['route','Regale Namba Annex Osaka','Kuromon Ichiba Market','walking'],['route','Kuromon Ichiba Market','Shinsaibashi-suji Shopping Street','walking'],['place','Shinsaibashi lunch'],['route','Shinsaibashi-suji Shopping Street','Regale Namba Annex Osaka','walking'],['route','Regale Namba Annex Osaka','Nankai Namba Station','walking'],['route','Nankai Namba Station','Kansai Airport Terminal 1','transit'],['place','Kansai Airport Terminal 1'],['route','Incheon Airport Terminal 1','Gwangmyeong-si','driving']]
+      };
+      Object.keys(scheduleLinks).forEach(function (dayId) {
+        var rows = document.querySelectorAll('#' + dayId + ' .timeline > li');
+        scheduleLinks[dayId].forEach(function (item, index) {
+          var row = rows[index], title = row && row.querySelector('.t-title');
+          if (!title) return;
+          var url = item[0] === 'place' ? place(item[1]) : route(item[1], item[2], item[3]);
+          var label = item[0] === 'place' ? '📍 Google 지도에서 보기' : (item[3] === 'walking' ? '🚶 Google 도보 경로' : item[3] === 'driving' ? '🚗 Google 차량 경로' : '🚇 Google 전철 경로');
+          var link = document.createElement('a'); link.className = 'schedule-map-link'; link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.setAttribute('aria-label', title.textContent.trim() + ' ' + label);
+          while (title.firstChild) link.appendChild(title.firstChild);
+          title.appendChild(link); var action = document.createElement('span'); action.className = 'map-action'; action.textContent = label; title.appendChild(document.createElement('br')); title.appendChild(action);
+        });
+      });
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
       var tabGroups = {
         overview: ['osaka-intro', 'area-guide', 'smart-guide'],
+        flight: ['flight-info'],
+        stay: ['stay-info'],
         prep: ['trip-prep', 'tips'],
         itinerary: ['meals', 'budget', 'day1', 'day2', 'day3', 'day4'],
         usj: ['usj-complete'],
