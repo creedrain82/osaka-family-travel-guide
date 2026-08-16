@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v3.5 -->
+<!-- 오사카 가족여행 가이드북 v3.6 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -481,7 +481,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v3.5</div>
+    <div class="page-version">GUIDE v3.6</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -634,8 +634,8 @@
           </ul>
           <h4>이번 일정과 겹치는 주요 시설</h4>
           <ul>
-            <li><b>Day 1:</b> 돈보리 리버크루즈. 저녁 편은 조기 매진될 수 있어 당일 낮에 QR코드를 승선권으로 교환하는 편이 안전합니다.</li>
-            <li><b>Day 2 주유패스 집중일:</b> 오사카성 천수각·도요토미 이시가키관, 고자부네 놀잇배, 망루 특별공개·니시노마루 정원, 우메다 공중정원, 오사카 시립 주택박물관, HEP FIVE 관람차를 한 동선으로 이용합니다.</li>
+            <li><b>Day 1:</b> 도톤보리와 글리코상은 산책·사진·식사 중심으로 여유 있게 즐깁니다.</li>
+            <li><b>Day 2 주유패스 집중일:</b> 오사카성 3종, 우메다 공중정원, HEP FIVE 관람차, 원더크루즈를 한 동선으로 이용합니다. 주택박물관은 제외합니다.</li>
             <li>각 관광시설은 원칙적으로 한 번만 이용할 수 있으며, 2일권도 같은 시설을 두 번 이용할 수 없습니다.</li>
           </ul>
           <h4>구매와 사용법</h4>
@@ -645,7 +645,7 @@
             <li>한 번에 최대 4장까지 구매하고 동행자에게 분배할 수 있습니다. 사용을 시작한 티켓은 환불할 수 없습니다.</li>
             <li>2026년판 판매기간은 2026년 3월 25일~2027년 3월 31일이며, 구입일부터 3개월 이내에 사용해야 합니다.</li>
           </ul>
-          <div class="pass-verdict"><b>이번 일정의 확정안:</b> Day 2에 1일권을 사용합니다. 성인 일반요금 기준 대상 시설 합계가 약 ¥7,500이고 지하철 이동도 포함되어 ¥3,500 패스의 효율이 높습니다. 단, 어린이권이 없어 초등학생도 ¥3,500이므로 아이는 연령별 개별 입장료 합계와 비교하세요. Day 1·3·4 교통은 ICOCA를 사용합니다.</div>
+          <div class="pass-verdict"><b>이번 일정의 확정안:</b> Day 2에 1일권을 사용합니다. 성인 일반요금 기준 대상 시설 합계가 약 ¥8,900이고 지하철 이동도 포함되어 ¥3,500 패스의 효율이 높습니다. HEP FIVE는 17:00, 원더크루즈는 21:00 회차를 목표로 하며 원더크루즈는 미리 웹 예약하세요. 단, 어린이권이 없어 아이는 연령별 개별 입장료 합계와 비교하세요. Day 1·3·4 교통은 ICOCA를 사용합니다.</div>
           <div class="official-links"><a href="https://osaka-amazing-pass.com/kr/howto_about_1day.html" target="_blank" rel="noopener noreferrer">공식 가격·유효기간</a><a href="https://osaka-amazing-pass.com/kr/service_free.html" target="_blank" rel="noopener noreferrer">공식 이용시설</a><a href="https://osaka-amazing-pass.com/kr/howto_guide.html" target="_blank" rel="noopener noreferrer">공식 이용방법</a></div>
         </div>
       </article>
@@ -701,9 +701,9 @@
       <h3 class="food-city-title">📍 놓치기 아까운 대표 관광지</h3>
       <div class="guide-grid">
         <article class="guide-card recommended">
-          <span class="guide-badge">일정 포함 · Day 1</span>
-          <h3>도톤보리 리버크루즈</h3>
-          <p>수면 위에서 난바의 네온사인과 글리코상을 감상하는 코스예요. 해 질 무렵부터 야간 시간대가 특히 인상적입니다.</p>
+          <span class="guide-badge">일정 포함 · Day 2</span>
+          <h3>원더크루즈</h3>
+          <p>니폰바시 선착장에서 출발해 도톤보리의 네온사인과 글리코상 일대를 왕복하는 야간 크루즈예요. 21:00 회차를 웹으로 미리 예약합니다.</p>
         </article>
         <article class="guide-card recommended">
           <span class="guide-badge">일정 포함 · Day 2</span>
@@ -967,7 +967,7 @@ var map_day3 = L.map('leaflet-day3', {zoomControl:false, attributionControl:true
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
 }).addTo(map_day3);
-L.polyline([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.705287,135.489650],[34.710180,135.511570],[34.7040684,135.5000945],[34.6654716,135.4988018]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
+L.polyline([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.705287,135.489650],[34.7040684,135.5000945],[34.66915,135.50595],[34.6654716,135.4988018]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
 
 L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
@@ -981,7 +981,7 @@ L.marker([34.6872571,135.5258546], {icon: L.divIcon({
 })}).addTo(map_day3);
 L.marker([34.7040684,135.5000945], {icon: L.divIcon({
   className: '',
-  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">4</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">HEP FIVE</div></div>',
+  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">3</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">HEP FIVE</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
 L.marker([34.705287,135.489650], {icon: L.divIcon({
@@ -989,12 +989,12 @@ L.marker([34.705287,135.489650], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">2</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">공중정원</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
-L.marker([34.710180,135.511570], {icon: L.divIcon({
+L.marker([34.66915,135.50595], {icon: L.divIcon({
   className: '',
-  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">3</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">주택박물관</div></div>',
+  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">4</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">원더크루즈</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
-map_day3.fitBounds([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.705287,135.489650],[34.710180,135.511570],[34.7040684,135.5000945]], {padding:[38,38]});
+map_day3.fitBounds([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.705287,135.489650],[34.7040684,135.5000945],[34.66915,135.50595]], {padding:[38,38]});
 
 var map_day4 = L.map('leaflet-day4', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -1061,7 +1061,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
             <li class="highlight-row"><div class="t-time">13:30–14:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Yamato%20Pork%20Cutlet%20by%20TonQ.jpg?width=200" alt="돈카츠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 1</span>난바역 인근 우동 · 돈카츠 전문점 (점심)</div></div></li>
             <li><div class="t-time">14:30–14:45</div><div class="t-thumb icon">🛏️</div><div class="t-body"><div class="t-title">리가레 난바 아넥스 체크인 및 짐 보관</div><div class="t-desc">난바나카 1-4-7 · 오사카난바역 인근</div></div></li>
             <li><div class="t-time">15:00–17:00</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">다이마루 백화점 (포켓몬 센터 DX &amp; 닌텐도 스토어)</div><div class="t-desc">호텔에서 신사이바시스지 아케이드 통과 도보 12분, 포켓몬과 마리오 캐릭터 굿즈 쇼핑. 1717년 교토에서 시작된 일본 대표 백화점 체인으로, 신사이바시 본점은 아르데코 양식 건물로도 유명해요.</div></div></li>
-            <li><div class="t-time">17:30–19:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glico%20Man%20sign%2C%20Dotonbori.JPG?width=200" alt="도톤보리 리버크루즈"></div><div class="t-body"><div class="t-title">도톤보리 거닐기 &amp; 톤보리 리버크루즈 탑승</div><div class="t-desc">다이마루에서 도보 5분, 글리코상 전광판 앞 가족 인증샷 촬영. 오사카를 대표하는 유흥·상업 지구로, 운하를 따라 늘어선 대형 간판들이 명물이에요.</div></div></li>
+            <li><div class="t-time">17:30–19:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glico%20Man%20sign%2C%20Dotonbori.JPG?width=200" alt="도톤보리 야경"></div><div class="t-body"><div class="t-title">도톤보리 거닐기 &amp; 글리코상 포토타임</div><div class="t-desc">글리코상 앞 가족사진과 운하 산책을 여유 있게 즐깁니다. 크루즈는 주유패스를 쓰는 Day 2의 원더크루즈로 옮겼습니다.</div></div></li>
             <li class="highlight-row"><div class="t-time">19:00–20:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20Takoyaki.jpg?width=200" alt="타코야키"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 2</span>타코야키 &amp; 오코노미야키 탐방 (저녁)</div></div></li>
             <li><div class="t-time">20:30–21:30</div><div class="t-thumb icon">🎁</div><div class="t-body"><div class="t-title">돈키호테 도톤보리점 쇼핑 (아이들 완소 코스!)</div><div class="t-desc">노란 관람차가 달린 도톤보리 상징 매장에서 산리오·캐릭터 굿즈, 현지 인기 과자 쇼핑. 일본 전역에 있는 대형 할인 잡화점 체인이에요.</div></div></li>
           </ul>
@@ -1089,11 +1089,12 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
           <span class="r-label">동선</span>
           <span class="route-stop">오사카성 3종</span><span class="route-arrow">→</span>
           <span class="route-stop">우메다 공중정원</span><span class="route-arrow">→</span>
-          <span class="route-stop">주택박물관</span><span class="route-arrow">→</span>
-          <span class="route-stop">HEP FIVE</span>
+          <span class="route-stop">HEP FIVE 17:00</span><span class="route-arrow">→</span>
+          <span class="route-stop">키디랜드·저녁</span><span class="route-arrow">→</span>
+          <span class="route-stop">원더크루즈 21:00</span>
         </div>
         <div class="real-map-item">
-          <div class="real-map-label"><span class="rm-dot" style="background:#3C6E5C;"></span><b>Day 2 지도</b>&nbsp;오사카성 → 공중정원 → 주택박물관 → HEP FIVE</div>
+          <div class="real-map-label"><span class="rm-dot" style="background:#3C6E5C;"></span><b>Day 2 지도</b>&nbsp;오사카성 → 공중정원 → HEP FIVE → 원더크루즈</div>
           <div id="leaflet-day3" class="real-map"></div>
         </div>
 
@@ -1108,14 +1109,16 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
             <li><div class="t-time">12:20–13:00</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">오사카성 → 우메다 이동</div><div class="t-desc">다니마치선으로 히가시우메다역까지 이동 후 우메다 스카이 빌딩으로 걸어갑니다.</div></div></li>
             <li class="highlight-row"><div class="t-time">13:00–13:40</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/%E3%83%8F%E3%83%B3%E3%83%90%E3%83%BC%E3%82%B0%E3%82%B9%E3%83%86%E3%83%BC%E3%82%AD.jpg?width=200" alt="함박스테이크"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 4</span>우메다에서 빠른 점심</div><div class="t-desc">공중정원 무료입장 마감이 15시이므로 웨이팅이 긴 식당은 피하세요.</div></div></li>
             <li><div class="t-time">13:50–14:50</div><div class="t-thumb icon">🌇</div><div class="t-body"><div class="t-title">우메다 스카이 빌딩 공중정원 <span class="meal-tag">15시 전 패스 무료</span></div><div class="t-desc">지상 173m 개방형 전망대. 주유패스 무료입장은 15시까지이며 이후에는 10% 할인만 적용되므로 늦어도 14:40까지 입구에 도착하세요.</div></div></li>
-            <li><div class="t-time">15:00–15:30</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">우메다 → 덴진바시스지로쿠초메</div><div class="t-desc">다니마치선으로 이동합니다. 주택박물관 입장 마감은 16:30입니다.</div></div></li>
-            <li><div class="t-time">15:30–16:30</div><div class="t-thumb icon">🏘️</div><div class="t-body"><div class="t-title">오사카 시립 주택박물관 <span class="meal-tag">패스 무료</span></div><div class="t-desc">에도시대 오사카 거리를 실물 크기로 재현한 상설전 중심으로 관람합니다. 일반요금 600엔 상당이며 기모노 체험은 별도 요금입니다.</div></div></li>
-            <li><div class="t-time">16:40–17:40</div><div class="t-thumb icon">🎁</div><div class="t-body"><div class="t-title">한큐 삼번가 키디랜드</div><div class="t-desc">다니마치선으로 히가시우메다에 돌아와 산리오·미피 등 캐릭터 굿즈를 쇼핑합니다.</div></div></li>
-            <li><div class="t-time">18:00–18:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/HEP%20Five%20Ferris%20Wheel.jpg?width=200" alt="HEP FIVE 관람차"></div><div class="t-body"><div class="t-title">HEP FIVE 관람차 야경 <span class="meal-tag">패스 무료</span></div><div class="t-desc">일몰 후 도심 야경을 감상합니다. 일반요금 1,000엔 상당이며 공식 운행 여부를 당일 확인하세요.</div></div></li>
-            <li class="highlight-row"><div class="t-time">18:40–20:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shabu%20Shabu%20photo%20Don%20Ramey%20Logan.jpg?width=200" alt="샤브샤브"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 5</span>우메다 저녁 &amp; 난바 복귀</div><div class="t-desc">샤브샤브 또는 일식 경양식으로 마무리하고 미도스지선으로 난바까지 직통 이동합니다.</div></div></li>
+            <li><div class="t-time">15:00–16:10</div><div class="t-thumb icon">🎁</div><div class="t-body"><div class="t-title">한큐 삼번가 키디랜드</div><div class="t-desc">산리오·미피 등 캐릭터 굿즈를 쇼핑합니다. 주택박물관은 제외해 이동과 휴식 여유를 확보했습니다.</div></div></li>
+            <li><div class="t-time">16:10–16:50</div><div class="t-thumb icon">☕</div><div class="t-body"><div class="t-title">HEP FIVE 이동 · 탑승 대기</div><div class="t-desc">잠시 쉬고 17시 탑승을 목표로 관람차 입구에 여유 있게 도착하세요.</div></div></li>
+            <li><div class="t-time">17:00–17:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/HEP%20Five%20Ferris%20Wheel.jpg?width=200" alt="HEP FIVE 관람차"></div><div class="t-body"><div class="t-title">HEP FIVE 관람차 일몰 <span class="meal-tag">패스 무료</span></div><div class="t-desc">10월 17일 일몰은 17:22경이라 밝은 도심에서 매직아워로 바뀌는 풍경을 보기 좋습니다.</div></div></li>
+            <li class="highlight-row"><div class="t-time">17:40–19:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shabu%20Shabu%20photo%20Don%20Ramey%20Logan.jpg?width=200" alt="샤브샤브"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 5</span>우메다에서 이른 저녁</div><div class="t-desc">샤브샤브 또는 일식 경양식으로 식사합니다.</div></div></li>
+            <li><div class="t-time">19:00–20:35</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">우메다 → 난바 · 도톤보리 이동</div><div class="t-desc">미도스지선으로 난바까지 이동한 뒤 니폰바시 선착장으로 걸어갑니다.</div></div></li>
+            <li><div class="t-time">20:40–21:00</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">원더크루즈 승선 접수</div><div class="t-desc">21:00 회차를 미리 웹 예약하고 최소 20분 전 도착해 주유패스 QR과 예약을 확인받습니다.</div></div></li>
+            <li><div class="t-time">21:00–21:20</div><div class="t-thumb icon">🚤</div><div class="t-body"><div class="t-title">원더크루즈 도톤보리 야경 <span class="meal-tag">패스 무료</span></div><div class="t-desc">니폰바시 선착장에서 도톤보리 수로를 왕복하며 글리코상과 네온사인을 감상합니다.</div></div></li>
           </ul>
         </div>
-        <div class="day-tip"><span class="icon">🎫</span><div><b>주유패스 활용 예상</b>천수각·이시가키관 1,200엔 + 고자부네 1,800엔 + 망루·정원 900엔 + 공중정원 2,000엔 + 주택박물관 600엔 + HEP FIVE 1,000엔 = 성인 일반요금 약 7,500엔 상당이며 지하철도 포함됩니다. 고자부네 시간 확보와 공중정원 15시 전 입장이 핵심입니다.</div></div>
+        <div class="day-tip"><span class="icon">🎫</span><div><b>주유패스 활용 예상</b>천수각·이시가키관 1,200엔 + 고자부네 1,800엔 + 망루·정원 900엔 + 공중정원 2,000엔 + HEP FIVE 1,000엔 + 원더크루즈 2,000엔 = 성인 일반요금 약 8,900엔 상당이며 지하철도 포함됩니다. 공중정원 15시 전 입장, HEP FIVE 17시 탑승, 원더크루즈 21시 웹 예약이 핵심입니다.</div></div>
       </div>
     </section>
 
@@ -1258,7 +1261,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
           <div class="zone-head"><span class="zone-no">1</span><div><h3>난바 &amp; 도톤보리</h3><p>오사카 여행의 핵심 · 먹거리·야경·쇼핑</p></div></div>
           <div class="place-list">
             <div class="place-item"><div class="place-name">글리코사인 <span class="place-tag">일정 포함</span></div><p>오사카 대표 인증사진 명소. 해가 진 뒤 네온사인이 켜지면 낮과 전혀 다른 도톤보리의 활기를 느낄 수 있어요.</p></div>
-            <div class="place-item"><div class="place-name">도톤보리 리버크루즈 <span class="place-tag">일정 포함</span></div><p>약 20분 동안 강 위에서 도심 풍경을 감상하는 인기 체험. 야간 회차는 빨리 마감될 수 있어 당일 일찍 시간표와 잔여석을 확인하세요.</p></div>
+            <div class="place-item"><div class="place-name">원더크루즈 <span class="place-tag">일정 포함 · Day 2</span></div><p>니폰바시 선착장에서 약 20분 동안 도톤보리 수로를 왕복하는 야경 코스. 21:00 회차를 웹으로 예약하고 20분 전 도착하세요.</p></div>
             <div class="place-item"><div class="place-name">구로몬시장 <span class="place-tag">일정 포함</span></div><p>해산물과 소고기 등 다양한 먹거리를 골라 맛볼 수 있는 전통시장. 오전에 방문하면 비교적 활기찬 시장 분위기를 볼 수 있어요.</p></div>
             <div class="place-item"><div class="place-name">신사이바시스지 <span class="place-tag">일정 포함</span></div><p>도톤보리에서 이어지는 대형 아케이드 쇼핑거리. SPA 브랜드, 백화점, 드럭스토어를 한 동선에서 둘러보기 좋습니다.</p></div>
             <div class="place-item"><div class="place-name">호젠지·호젠지요코초 <span class="place-tag alt">추가 후보</span></div><p>번화가 한복판에서 만나는 차분한 사찰과 돌길 골목. 이끼 낀 미즈카케후도상에 물을 끼얹으며 소원을 비는 풍경으로 유명해요.</p></div>
@@ -1273,7 +1276,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
             <div class="place-item"><div class="place-name">우메다 쇼핑몰·백화점 <span class="place-tag">일정 포함</span></div><p>그란프론트 오사카와 한큐·한신 백화점 등이 밀집한 대형 상권. 지하 식품관과 캐릭터 매장을 함께 보기 좋아요.</p></div>
             <div class="place-item"><div class="place-name">헵파이브 관람차 <span class="place-tag">일정 포함</span></div><p>빨간 관람차를 타고 도심을 내려다보는 체험. 탑승과 대기시간을 포함해 다음 일정에 여유를 두세요.</p></div>
             <div class="place-item"><div class="place-name">우메다 스카이빌딩 공중정원 <span class="place-tag alt">추가 후보</span></div><p>고층 전망 공간과 독특한 공중 에스컬레이터가 인상적인 명소. 맑은 날 일몰 전후 방문하기 좋습니다.</p></div>
-            <div class="place-item"><div class="place-name">오사카 시립주택박물관 <span class="place-tag alt">비 오는 날 후보</span></div><p>근세 오사카 거리를 실물 크기로 재현한 실내 박물관. 날씨가 좋지 않을 때 가족 대체 일정으로 활용하기 좋아요.</p></div>
+            <div class="place-item"><div class="place-name">오사카 시립주택박물관 <span class="place-tag alt">이번 일정 제외</span></div><p>근세 오사카 거리를 실물 크기로 재현한 실내 박물관이지만 이번 여행에서는 방문하지 않습니다.</p></div>
             <div class="place-item"><div class="place-name">텐진바시스지 상점가 <span class="place-tag alt">추가 후보</span></div><p>긴 아케이드 아래 현지 상점과 식당이 이어지는 거리. 비를 피하며 로컬 쇼핑을 즐길 수 있습니다.</p></div>
             <div class="place-item"><div class="place-name">우메다 맛집 후보</div><p>개인 화로에 구워 먹는 모토무라 규카츠와 채소가 풍성한 담백한 국물의 카무쿠라 라멘을 후보로 저장해두세요.</p></div>
           </div>
@@ -1719,7 +1722,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v3.5</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v3.6</div>
   </footer>
 
   <script>
