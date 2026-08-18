@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.4 -->
+<!-- 오사카 가족여행 가이드북 v4.7 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -50,6 +50,11 @@
   .flight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
   .flight-card{background:var(--paper-card);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 7px 18px rgba(42,33,24,.07);}
   .flight-card h3{margin:0 0 12px;color:var(--indigo);}.flight-card p{margin:5px 0;color:var(--ink-soft);font-size:14px;}.flight-card strong{color:var(--ink);}
+  .airport-service{margin-top:20px;border:2px solid #151515;border-radius:18px;overflow:hidden;background:var(--paper-card);box-shadow:0 8px 22px rgba(42,33,24,.09)}
+  .airport-head{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 22px;background:#151515;color:#fff}.airport-head h3{margin:0;font-size:20px}.airport-price{text-align:right;white-space:nowrap}.airport-price b{display:block;color:#d7b77b;font-size:22px}.airport-price span{font-size:10px;opacity:.8}
+  .airport-body{padding:21px}.airport-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:17px}.airport-step{padding:14px 10px;border-radius:12px;background:var(--paper-deep);text-align:center;font-size:11.5px;line-height:1.55}.airport-step b{display:block;margin-bottom:5px;color:var(--indigo)}
+  .airport-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.airport-fact{padding:15px;border:1px solid var(--line);border-radius:12px}.airport-fact h4{margin:0 0 7px;font-size:13px}.airport-fact p{margin:0;color:var(--ink-soft);font-size:11.8px;line-height:1.7}
+  @media(max-width:680px){.airport-head{align-items:flex-start}.airport-flow{grid-template-columns:repeat(2,1fr)}.airport-facts{grid-template-columns:1fr}}
   .schedule-map-link{color:inherit;text-decoration:none;border-bottom:1px dashed rgba(31,58,95,.45);}.schedule-map-link:hover{color:var(--indigo);border-bottom-style:solid;}
   .map-action{display:inline-block;margin-top:5px;padding:3px 8px;border-radius:999px;background:rgba(47,93,130,.1);color:var(--sora);font-size:11px;font-weight:700;}
   .tab-intro{margin:24px auto 0;padding:14px 18px;border-radius:13px;background:var(--paper-deep);color:var(--ink-soft);font-size:12.8px;text-align:center;}
@@ -63,12 +68,24 @@
   .booking-fact{padding:16px;background:var(--paper-card);}
   .booking-fact span{display:block;color:var(--ink-soft);font-size:10.5px;margin-bottom:5px;}
   .booking-fact b{font-size:13.5px;line-height:1.5;}
+  .cancel-alert{margin:0;padding:14px 18px;background:rgba(60,110,92,.1);border-top:1px solid var(--line);color:var(--pine);font-size:12.5px;line-height:1.65}.cancel-alert b{font-size:14px}
   .prep-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;}
   .prep-card{background:var(--paper-card);border:1px solid var(--line);border-radius:14px;padding:20px;}
   .prep-card h3{margin:0 0 10px;font:700 15.5px 'Noto Sans KR',sans-serif;}
   .prep-card ul{margin:0;padding-left:19px;}
   .prep-card li{margin:7px 0;color:var(--ink-soft);font-size:12.8px;}
   .prep-status{display:inline-block;margin-left:5px;padding:2px 7px;border-radius:10px;background:rgba(60,110,92,.12);color:var(--pine);font-size:10px;font-weight:700;}
+  .icoca-hero{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;align-items:stretch;margin-bottom:20px;}
+  .icoca-hero img{width:100%;height:100%;min-height:280px;object-fit:cover;border-radius:17px;}
+  .icoca-lead{padding:25px;border-radius:17px;background:linear-gradient(145deg,#17365d,#2877a5);color:#fff;display:flex;flex-direction:column;justify-content:center;}
+  .icoca-lead h3{margin:0 0 12px;font-size:23px}.icoca-lead p{margin:6px 0;line-height:1.75;font-size:13px}.icoca-lead .mini{opacity:.82;font-size:11px}
+  .icoca-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin:18px 0;}.icoca-card{padding:20px;border:1px solid var(--line);border-radius:15px;background:var(--paper-card)}
+  .icoca-card h3{margin:0 0 9px;font-size:17px;color:var(--indigo)}.icoca-card p,.icoca-card li{font-size:12.8px;line-height:1.75;color:var(--ink-soft)}.icoca-card ul{margin:0;padding-left:18px}
+  .icoca-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.icoca-gallery figure{margin:0}.icoca-gallery img{width:100%;height:205px;object-fit:cover;border-radius:13px;border:1px solid var(--line)}.icoca-gallery figcaption{font-size:10.5px;color:var(--ink-soft);padding:6px 3px;line-height:1.5}
+  .icoca-cost{overflow-x:auto;margin:15px 0}.icoca-cost table{width:100%;border-collapse:collapse;min-width:650px;background:var(--paper-card);border-radius:14px;overflow:hidden}.icoca-cost th,.icoca-cost td{padding:12px 10px;border-bottom:1px solid var(--line);font-size:12px;text-align:center}.icoca-cost th{background:var(--indigo);color:#fff}.icoca-cost td:first-child{text-align:left;font-weight:700}.icoca-cost tr:last-child td{border-bottom:0}
+  .icoca-total{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.icoca-total article{padding:19px;border-radius:15px;border:2px solid var(--sora);background:rgba(47,93,130,.07)}.icoca-total h3{margin:0 0 8px;font-size:17px}.icoca-total .yen{font-size:23px;font-weight:900;color:var(--indigo)}
+  .source-box{margin-top:18px;padding:16px 18px;border-left:4px solid var(--gold);background:rgba(200,152,59,.09);font-size:12px;line-height:1.75;color:var(--ink-soft)}
+  @media(max-width:680px){.icoca-hero,.icoca-grid,.icoca-total{grid-template-columns:1fr}.icoca-gallery{grid-template-columns:1fr 1fr}.icoca-gallery img{height:180px}}
   @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid,.flight-grid{grid-template-columns:1fr}.guide-tabs{padding:9px 14px}.guide-tab{min-width:auto}.tab-intro{text-align:left}.info-hero{height:220px}}
 
   h1,h2,h3,.font-display{font-family:'Gowun Batang',serif;}
@@ -503,7 +520,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.4</div>
+    <div class="page-version">GUIDE v4.7</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -537,6 +554,7 @@
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="flight">항공권</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="stay">숙박</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="icoca">ICOCA</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="usj">USJ</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="kyoto">교토</button>
@@ -557,6 +575,22 @@
         <article class="flight-card"><h3>🛬 오는 편 · ZE0614</h3><p><strong>2026.10.19(월) 18:00</strong> 간사이공항 T1 출발</p><p><strong>19:55</strong> 인천공항 T1 도착</p><p>비행시간 1시간 55분 · 일반석(N) · 위탁수하물 1인 15kg</p></article>
       </div>
       <p class="guide-note">이스타항공 왕복 4인 결제 완료 · 총 ₩1,387,200. 항공편 시각과 탑승구는 출발 전 공식 안내에서 다시 확인하세요.</p>
+      <article class="airport-service">
+        <div class="airport-head"><h3>GENESIS · 인천 에어포트 서비스</h3><div class="airport-price"><b>77,000원</b><span>3박 4일 · VAT 포함</span></div></div>
+        <div class="airport-body">
+          <p style="margin-top:0;line-height:1.75;font-size:13px"><b>이번 여행 이용 예정.</b> 2026.10.16 출국부터 10.19 귀국까지는 3박 4일이므로, 공식 요금의 ‘4박 5일까지 70,000원(VAT 별도)’ 구간에 해당합니다. 따라서 예상 결제액은 <b>부가세 포함 77,000원</b>이며, 짧게 이용해도 일할 할인 없이 같은 기본 구간 요금으로 계산합니다.</p>
+          <div class="airport-flow">
+            <div class="airport-step"><b>1 · 사전 예약</b>080-700-6000<br>성수기 조기 예약</div><div class="airport-step"><b>2 · 차량 입고</b>블루핸즈<br>인천공항점</div><div class="airport-step"><b>3 · 출국 이동</b>전용 셔틀로<br>인천공항 T1</div><div class="airport-step"><b>4 · 귀국 인수</b>수하물 수령 후<br>담당자 연락</div>
+          </div>
+          <div class="airport-facts">
+            <div class="airport-fact"><h4>🚘 포함 서비스</h4><p>제네시스 전용 안심 실내주차, 공항 왕복 셔틀, 차량 클리닝, 안심점검 19종과 보유 쿠폰 범위의 소모품 교체가 안내되어 있습니다.</p></div>
+            <div class="airport-fact"><h4>🎫 이용 조건</h4><p>소모품 교체·홈투홈 무상 혜택을 보유한 고객 대상이며, 이용 시 해당 무상 혜택 횟수가 차감됩니다. 차종·잔여 쿠폰은 MY GENESIS 앱과 상담원에게 확인하세요.</p></div>
+            <div class="airport-fact"><h4>🕓 운영·예약</h4><p>공식 안내상 인천 서비스 이용 시간은 04:00~23:30입니다. 블로그 이용자는 최대 2개월 전부터 최소 2주 전 사이 전화 예약했다고 하므로, 우리 일정은 <b>8월 중순부터 예약 문의</b>하고 늦어도 10월 초 전에 확정하는 편이 안전합니다.</p></div>
+            <div class="airport-fact"><h4>🧳 실제 귀국 동선 참고</h4><p>블로그 후기에서는 T1 수하물 수령 뒤 담당자에게 전화하고, 1층 12번 게이트 밖 12C 부근에서 약 5~15분 기다려 차량을 인수했습니다. 당일 안내 장소가 달라질 수 있으므로 카카오톡 메시지를 우선하세요.</p></div>
+          </div>
+          <div class="source-box">후기 요약: 차량 상태를 사진과 카카오톡으로 확인하고, 출국 때 셔틀로 원하는 터미널 출입구까지 이동했으며 귀국 후 차량 점검·정비 내역을 확인하고 77,000원을 결제한 사례입니다. <a href="https://m.blog.naver.com/puhahoho/223612814659" target="_blank" rel="noopener noreferrer">쭈이모모맘 실제 이용 후기</a> · <a href="https://www.genesis.com/kr/ko/support/genesis-events/detail/0614.html" target="_blank" rel="noopener noreferrer">제네시스 공식 서비스·요금 안내</a> · <a href="tel:0807006000">제네시스 고객센터 080-700-6000</a></div>
+        </div>
+      </article>
     </section>
 
     <!-- ============ STAY ============ -->
@@ -567,8 +601,9 @@
       <article class="booking-card">
         <div class="booking-card-head"><h3>🏨 리가레 난바 아넥스</h3><span class="confirmed-badge">예약 완료</span></div>
         <div class="booking-facts">
-          <div class="booking-fact"><span>숙박 일정</span><b>10/16(금)–10/19(월)<br>3박</b></div><div class="booking-fact"><span>객실</span><b>디럭스 트윈룸<br>4인</b></div><div class="booking-fact"><span>결제 금액</span><b>₩945,947</b></div><div class="booking-fact"><span>주소</span><b>난바나카 1-4-7<br>오사카</b></div>
+          <div class="booking-fact"><span>숙박 일정</span><b>10/16(금)–10/19(월)<br>3박</b></div><div class="booking-fact"><span>객실</span><b>디럭스 트윈룸<br>4인</b></div><div class="booking-fact"><span>예약처·결제 금액</span><b>아고다<br>₩945,947</b></div><div class="booking-fact"><span>주소</span><b>난바나카 1-4-7<br>오사카</b></div>
         </div>
+        <p class="cancel-alert">✅ <b>무료 취소는 2026년 10월 12일까지 가능</b> · 취소가 필요하면 날짜 경계의 시각과 환불 조건을 아고다 예약 상세 화면에서 다시 확인하고, 마감 하루 전까지 처리하세요.</p>
       </article>
       <p class="guide-note"><a href="https://www.google.com/maps/search/?api=1&amp;query=Regale+Namba+Annex+Osaka" target="_blank" rel="noopener noreferrer">📍 Google 지도에서 숙소 위치 보기</a> · 난바역 도보권, 객실 내 주방·세탁기·욕실건조기 구비.</p>
       <div class="prep-grid" style="margin-top:18px;">
@@ -596,6 +631,45 @@
         <article class="prep-card"><h3>⏰ 출발 직전</h3><ul><li>항공편·터미널·위탁수하물 규정 재확인</li><li>숙소 체크인 안내와 출입 방법을 가족에게 공유</li><li>USJ 운영시간·운휴·쇼 일정 확인</li><li>날씨와 태풍 가능성 확인 후 옷차림 조정</li></ul></article>
       </div>
       <p class="guide-note">보험 조건, 통신상품, 입국 절차와 시설 운영시간은 바뀔 수 있으므로 결제 전과 출발 1주 전에 공식 안내를 다시 확인하세요.</p>
+    </section>
+
+    <!-- ============ ICOCA GUIDE ============ -->
+    <section id="icoca-guide" data-guide-tab="icoca" aria-label="ICOCA 카드 상세 가이드">
+      <div class="section-head"><div class="kicker">IC Card Guide</div><h2>ICOCA 카드 완전 가이드</h2></div>
+      <div class="icoca-hero">
+        <img src="https://mblogthumb-phinf.pstatic.net/MjAyNDA5MDJfMjA3/MDAxNzI1MjUzOTk2MjM4.Cr89dkOVhXqYU01_qqXMjrc7_1pBxJzVPJ26Lj_8jbMg.BPrEsFSbtNJeOnKzaysCmPZXelZ82nvbJ3pHgPmjsMog.JPEG/output_2427826635.jpg?type=w800" alt="ICOCA 카드와 Suica 카드를 함께 든 모습">
+        <div class="icoca-lead"><h3>간사이 여행의 교통 지갑</h3><p>ICOCA는 JR서일본의 충전식 IC 카드입니다. 오사카 지하철·JR·사철·버스의 IC 개찰구를 한 장으로 통과하고, IC 마크가 있는 편의점·자판기·코인로커·음식점에서도 결제할 수 있습니다.</p><p>Suica와 발행사는 다르지만 전국 상호이용 구역에서 대부분 같은 방식으로 쓸 수 있습니다.</p><p class="mini">사진·체험 내용: 여행중 미유 네이버 블로그 · 공식 제도: JR서일본</p></div>
+      </div>
+
+      <div class="icoca-grid">
+        <article class="icoca-card"><h3>💳 구매 금액과 잔액</h3><ul><li>일반 ICOCA 최초 구매 예시: <b>2,000엔 결제 = 보증금 500엔 + 사용 가능 1,500엔</b></li><li>충전 잔액 상한은 20,000엔이며 구매·충전은 현금이 기본입니다.</li><li>블로그 작성자는 3,000엔으로 구매해 보증금을 뺀 2,500엔을 사용했습니다.</li></ul></article>
+        <article class="icoca-card"><h3>👧 어린이용 ICOCA</h3><ul><li>초2·초5 두 아이는 어린이 운임 적용을 위해 <b>어린이용 ICOCA</b>를 준비하세요.</li><li>일반 성인 카드처럼 무인 화면에서 바로 사지 말고 직원 창구에 문의합니다.</li><li>아이 여권 등 생년월일 확인 서류를 준비하고 간사이공항역 JR 매표소에서 발급 가능 여부를 먼저 확인하세요.</li></ul></article>
+        <article class="icoca-card"><h3>➕ 충전과 잔액 확인</h3><ul><li>역의 IC 대응 발매기·정산기 또는 편의점 계산대에서 현금 충전합니다.</li><li>개찰구 화면과 영수증에서 잔액을 확인하고, 1,000엔 아래로 내려가면 다음 장거리 이동 전에 보충하세요.</li><li>개찰구에서 잔액 부족이면 당황하지 말고 출구 전 정산기에서 충전합니다.</li></ul></article>
+        <article class="icoca-card"><h3>↩️ 환불과 보증금</h3><ul><li>JR서일본 관할 JR 매표소에서 반환합니다. 다른 발행 지역에서는 환불이 제한될 수 있습니다.</li><li>반환액은 원칙적으로 <b>잔액 − 수수료 220엔 + 보증금 500엔</b>입니다.</li><li>잔액이 220엔 이하라면 잔액은 수수료로 소진되고 보증금 500엔만 돌아오므로, 편의점에서 잔액을 먼저 쓰는 편이 낫습니다.</li></ul></article>
+      </div>
+
+      <div class="icoca-gallery">
+        <figure><img src="https://mblogthumb-phinf.pstatic.net/MjAyNDA5MDJfMTc5/MDAxNzI1MjU2MjQ0MzY0.3ojkP6WN_I15BdjnGdvjvq7TGNIkZPA9puveekEZd7Ig.1p1Ltekal8el3GOSjBw7-Xho_n8jn4vLqbRJ3vLk8tAg.JPEG/output_1845570363.jpg?type=w800" alt="난바역의 분홍색 ICOCA 발매기"><figcaption>분홍색 발매기 찾기 · 사진: 여행중 미유</figcaption></figure>
+        <figure><img src="https://mblogthumb-phinf.pstatic.net/MjAyNDA5MDJfNjYg/MDAxNzI1MjU2MzUyMzM0.40gnAg4GuXU7PbxJ22pJn85dUSK6b1YwaL5K8KEmeTUg.NOfVCCSuqjlVMEgBvVHNTkJiIslUYftFEhK9__id0YUg.JPEG/output_754510333.jpg?type=w800" alt="발매기의 Buy ICOCA 선택 화면"><figcaption>화면에서 Buy ICOCA 선택 · 사진: 여행중 미유</figcaption></figure>
+        <figure><img src="https://mblogthumb-phinf.pstatic.net/MjAyNDA5MDJfMTM1/MDAxNzI1MjU2NDg5NTc0.uR5KNrbdcd9811nMoeb_4_W_CqORc9DsaKhQ4fkb88wg.SZB0SF3k8t2jDeS0tEFZDCCcairGKJJmhdIXVjSaRyQg.JPEG/output_1479726331.jpg?type=w800" alt="발급된 실제 ICOCA 카드"><figcaption>발급된 ICOCA 카드 · 사진: 여행중 미유</figcaption></figure>
+      </div>
+
+      <div class="section-head"><div class="kicker">Our Family Estimate</div><h2>우리 일정 기준 얼마가 필요할까</h2></div>
+      <p class="guide-note"><b>계산 기준:</b> 성인 2명 + 만 6~11세 어린이 2명, 숙소는 리가레 난바 아넥스. Day 1·4 라피트, Day 2 성인 주유패스, Day 3 버스투어 요금은 별도 결제이므로 ICOCA 차감액에서 제외했습니다. 실제 운임은 이용 노선과 2026년 개정에 따라 달라질 수 있습니다.</p>
+      <div class="icoca-cost"><table><thead><tr><th>일정</th><th>성인 1명</th><th>어린이 1명</th><th>가족 합계</th><th>계산 메모</th></tr></thead><tbody>
+        <tr><td>Day 1 · 난바 도착</td><td>0엔</td><td>0엔</td><td>0엔</td><td>라피트 별도, 이후 도보</td></tr>
+        <tr><td>Day 2 · 주유패스 관광</td><td>0엔</td><td>약 360엔</td><td>약 720엔</td><td>성인은 패스, 어린이는 패스 미판매라 ICOCA 3회 예상</td></tr>
+        <tr><td>Day 3A · USJ 왕복</td><td>약 840엔</td><td>약 420엔</td><td>약 2,520엔</td><td>오사카난바↔니시쿠조↔유니버설시티</td></tr>
+        <tr><td>Day 3B · 교토 버스투어</td><td>0엔</td><td>0엔</td><td>0엔</td><td>도톤보리 집합·닛폰바시 해산, 숙소에서 도보</td></tr>
+        <tr><td>Day 4 · 귀국</td><td>0엔</td><td>0엔</td><td>0엔</td><td>난바권 도보 + 라피트 별도</td></tr>
+      </tbody></table></div>
+
+      <div class="icoca-total">
+        <article><h3>🎢 USJ를 선택하면</h3><div class="yen">예상 차감 3,240엔</div><p>성인 1인 840엔, 어린이 1인 780엔(Day 2 포함). <b>4명 모두 2,000엔짜리로 구매</b>하면 카드당 사용 잔액 1,500엔이라 추가 충전 없이 충분합니다. 결제 현금은 8,000엔이며 이 중 보증금은 총 2,000엔입니다.</p></article>
+        <article><h3>⛩️ 교토 투어를 선택하면</h3><div class="yen">예상 차감 720엔</div><p>Day 2 어린이 교통비만 예상됩니다. 성인은 계획상 ICOCA 차감이 없고, 어린이는 각 약 360엔입니다. 그래도 편의점·예비 이동까지 생각하면 카드당 사용 잔액 1,500엔이면 넉넉합니다.</p></article>
+      </div>
+      <p class="guide-note"><b>결론:</b> 지금 일정에는 별도 추가 충전 없이 <b>ICOCA 4장을 각 2,000엔에 최초 구매</b>하는 안이 가장 단순합니다. USJ 선택 시에도 계획 교통비를 충당하고, 남는 금액은 편의점에서 사용하세요. 성인 주유패스만 빼고 순수하게 Day 1·3·4만 계산하면 USJ안 2,520엔, 교토안 0엔이며, 위 추천액에는 실제 필요한 Day 2 어린이 운임 720엔을 추가했습니다.</p>
+      <div class="source-box">블로그 인용: “저는 3000엔 충전했는데 여행 일정에 맞게 충전하시면 됩니다.” 구매 화면과 사진은 작성자의 실제 체험을 인용했으며, 보증금·충전 한도·환불 규정은 JR서일본 공식 안내로 교차 확인했습니다. <a href="https://blog.naver.com/miumiu8232/223569419286" target="_blank" rel="noopener noreferrer">원문 블로그 보기</a> · <a href="https://www.westjr.co.jp/global/kr/howto/icoca/" target="_blank" rel="noopener noreferrer">JR서일본 ICOCA 공식 안내</a> · <a href="https://osaka-amazing-pass.com/kr/faq.html" target="_blank" rel="noopener noreferrer">주유패스 공식 FAQ</a></div>
     </section>
 
     <!-- ============ OSAKA INTRO ============ -->
@@ -1816,7 +1890,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.4</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.7</div>
   </footer>
 
   <script>
@@ -2009,6 +2083,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
         flight: ['flight-info'],
         stay: ['stay-info'],
         prep: ['trip-prep', 'tips'],
+        icoca: ['icoca-guide'],
         itinerary: ['meals', 'budget', 'day1', 'day2', 'day3', 'day4'],
         usj: ['usj-complete'],
         kyoto: ['kyoto-guide'],
