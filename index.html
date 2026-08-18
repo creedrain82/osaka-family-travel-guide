@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.2 -->
+<!-- 오사카 가족여행 가이드북 v4.3 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -400,6 +400,17 @@
   }
   .day-tip .icon{flex:none;font-size:17px;line-height:1.3;}
   .day-tip b{display:block;margin-bottom:3px;font-size:13.8px;}
+  .day-choice{margin:20px 26px 0;border:1px solid rgba(60,110,92,.28);border-radius:16px;overflow:hidden;background:#f8faf7;}
+  .day-choice-head{padding:18px 20px;background:linear-gradient(120deg,#315d4e,#477a68);color:#fff;}
+  .day-choice-head .choice-label{font-size:11px;font-weight:700;letter-spacing:.12em;opacity:.85;}
+  .day-choice-head h4{margin:4px 0 5px;font-size:20px;}.day-choice-head p{margin:0;font-size:12.8px;line-height:1.6;color:#eef7f2;}
+  .day-choice-photo{width:100%;height:260px;object-fit:cover;display:block;background:var(--paper-deep);}
+  .day-choice-body{padding:20px;}.choice-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px;}
+  .choice-fact{padding:11px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:11.5px;color:var(--ink-soft);}
+  .choice-fact b{display:block;margin-top:3px;font-size:13px;color:var(--ink);}.choice-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .choice-links a{display:inline-block;padding:8px 13px;border-radius:20px;background:var(--pine);color:#fff;font-size:11.5px;font-weight:700;}
+  .choice-caution{margin-top:14px;padding:12px 14px;border-radius:9px;background:#fff4d8;border-left:4px solid var(--gold);font-size:12.5px;line-height:1.65;color:var(--ink);}
+  @media(max-width:700px){.choice-facts{grid-template-columns:repeat(2,1fr)}.day-choice{margin:16px 18px 0}.day-choice-photo{height:210px}}
   .usj-guide{margin:30px 0 50px;padding:34px;border-radius:24px;background:linear-gradient(145deg,#17243d,#243e67);color:#fff;box-shadow:var(--shadow);}
   .usj-guide .section-head h2,.usj-guide .section-head .kicker{color:#fff}.usj-guide .section-head{margin-bottom:24px}
   .usj-lead{font-size:14px;line-height:1.8;color:#e7edf7;margin:-8px 0 24px}.usj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
@@ -488,7 +499,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.2</div>
+    <div class="page-version">GUIDE v4.3</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -572,7 +583,7 @@
         <h2>여행 준비 체크리스트</h2>
       </div>
       <div class="prep-grid">
-        <article class="prep-card"><h3>✅ 예약·입장권</h3><ul><li>항공권 및 숙소 예약 <span class="prep-status">완료</span></li><li>USJ는 1데이 스튜디오 패스만 구매 <span class="prep-status">확정</span></li><li>익스프레스 패스는 구매하지 않음 <span class="prep-status">확정</span></li><li>라피트 가는 편 예약: <b>9/16(수) 10:00</b>부터</li><li>라피트 오는 편 예약: <b>9/19(토) 10:00</b>부터</li><li>Day 2 오사카 주유패스 구매</li><li>인기 식당은 방문 2~4주 전 예약 확인</li></ul></article>
+        <article class="prep-card"><h3>✅ 예약·입장권</h3><ul><li>항공권 및 숙소 예약 <span class="prep-status">완료</span></li><li>Day 3는 USJ 또는 교토 일일투어 중 최종 선택 <span class="prep-status">결정 대기</span></li><li>USJ 선택 시 1데이 스튜디오 패스만 구매하고 익스프레스 패스는 구매하지 않음</li><li>라피트 가는 편 예약: <b>9/16(수) 10:00</b>부터</li><li>라피트 오는 편 예약: <b>9/19(토) 10:00</b>부터</li><li>Day 2 오사카 주유패스 구매</li><li>인기 식당은 방문 2~4주 전 예약 확인</li></ul></article>
         <article class="prep-card"><h3>🛡️ 여행자보험</h3><ul><li>해외 의료비·상해·배상책임 보장금액 비교</li><li>항공 지연·수하물 지연 및 휴대품 손해 확인</li><li>가족 4명 영문 보험증서와 긴급 연락처 저장</li><li>기존 카드 부가보험은 보장 개시 조건 확인</li></ul></article>
         <article class="prep-card"><h3>📱 유심·통신</h3><ul><li>eSIM 지원 휴대폰이면 일본 데이터 eSIM 우선 비교</li><li>아이 기기까지 연결하면 데이터 넉넉한 포켓 Wi-Fi 고려</li><li>출국 전 설치하고 현지에서 데이터 로밍만 전환</li><li>호텔·USJ·항공권 QR은 화면 캡처로 오프라인 저장</li></ul></article>
         <article class="prep-card"><h3>💴 결제·교통</h3><ul><li>ICOCA 4장 준비 또는 현지 구매</li><li>해외결제 카드 2장과 소액 엔화 분산 보관</li><li>카드 해외원화결제(DCC) 차단 및 일본 엔화 결제 선택</li><li>Google 지도·번역 앱·USJ 공식 앱 설치</li></ul></article>
@@ -1166,7 +1177,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
           <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">3</span></div>
           <div class="d-titles">
             <div class="d-date">10월 18일 · 일요일</div>
-            <h3>USJ 완전 정복</h3>
+            <h3>선택 A · USJ / 선택 B · 교토 일일투어</h3>
           </div>
         </div>
         <img class="day-photo" alt="유니버설 스튜디오 재팬 입구"
@@ -1196,13 +1207,33 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
             <li class="highlight-row"><div class="t-time">18:30–20:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyu-kaku%20yakiniku%20restaurant%20(20).jpg?width=200" alt="야키니쿠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 8</span>난바 복귀 후 야키니쿠(소고기 구이) (저녁)</div></div></li>
           </ul>
         </div>
-        <div class="day-tip"><span class="icon">💡</span><div><b>우리 가족 확정 티켓 전략</b>익스프레스 패스는 구매하지 않고 1데이 스튜디오 패스만 이용합니다. 공식 개장 60~90분 전에 도착해 오픈런하고, 입장 직후 공식 앱에서 슈퍼 닌텐도 월드 무료 e정리권을 가장 먼저 확보하세요.</div></div>
+        <div class="day-tip"><span class="icon">💡</span><div><b>선택 A · USJ 티켓 전략</b>USJ로 결정하면 익스프레스 패스는 구매하지 않고 1데이 스튜디오 패스만 이용합니다. 공식 개장 60~90분 전에 도착해 오픈런하고, 입장 직후 공식 앱에서 슈퍼 닌텐도 월드 무료 e정리권을 가장 먼저 확보하세요.</div></div>
+
+        <div class="day-choice">
+          <div class="day-choice-head"><div class="choice-label">DAY 3 · ALTERNATIVE PLAN</div><h4>선택 B · 한국어 가이드 교토 일일 버스투어</h4><p>USJ 대신 교토의 핵심 명소 4곳을 하루에 둘러보는 대체안입니다. 숙소가 난바라 도톤보리 집합·해산 동선이 편하고, 관광지 사이를 버스로 이동해 아이들의 체력 부담을 줄일 수 있습니다.</p></div>
+          <img class="day-choice-photo" alt="클룩 교토 일일 버스투어 대표 이미지" src="https://res.klook.com/images/fl_lossy.progressive%2Cq_65/c_fill%2Cw_1000%2Ch_811/w_61%2Cx_11%2Cy_11%2Cg_south_west%2Cl_Klook_water_br_trans_yhcmh3/activities/z4uzi5n9gyjfijhmifkk/%5B%ED%95%9C%EA%B5%AD%EC%96%B4%EA%B0%80%EC%9D%B4%EB%93%9C%EB%A6%AC%EB%B7%B0%EC%9D%B4%EB%B2%A4%ED%8A%B8%5D%EC%98%A4%EC%82%AC%EC%B9%B4%EA%B5%90%ED%86%A01%EC%9D%BC%EB%B2%84%EC%8A%A4%ED%88%AC%EC%96%B4%ED%94%84%EB%A1%9C%EC%82%AC%EC%A7%84%EC%B4%AC%EC%98%81%EC%95%84%EB%9D%BC%EC%8B%9C%EC%95%BC%EB%A7%88%EA%B8%88%EA%B0%81%EC%82%AC%EC%B2%AD%EC%88%98%EC%82%AC%ED%9B%84%EC%8B%9C%EB%AF%B8%EC%9D%B4%EB%82%98%EB%A6%AC%EC%9C%A0%ED%88%AC%EC%96%B4.webp" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Kinkaku-ji%20the%20Golden%20Temple%20in%20Kyoto%20overlooking%20the%20lake%20-%20high%20rez.JPG?width=1200';">
+          <div class="day-photo-credit">상품 대표 이미지 · Klook/유투어 (이미지 로딩 실패 시 금각사 대체 이미지)</div>
+          <div class="day-choice-body">
+            <div class="choice-facts"><div class="choice-fact">현재 표시 가격<b>1인 ₩39,900</b></div><div class="choice-fact">4인 단순 예상<b>₩159,600</b></div><div class="choice-fact">총 소요시간<b>약 10시간 30분</b></div><div class="choice-fact">형태<b>한국어 · 조인 버스</b></div></div>
+            <div class="route-flow"><span class="r-label">예상 동선</span><span class="route-stop">도톤보리 집합</span><span class="route-arrow">→</span><span class="route-stop">아라시야마</span><span class="route-arrow">→</span><span class="route-stop">금각사</span><span class="route-arrow">→</span><span class="route-stop">청수사</span><span class="route-arrow">→</span><span class="route-stop">후시미 이나리</span><span class="route-arrow">→</span><span class="route-stop">도톤보리 해산</span></div>
+            <ul class="timeline">
+              <li><div class="t-time">출발 전</div><div class="t-thumb icon">🚌</div><div class="t-body"><div class="t-title">도톤보리 지정 장소 집합</div><div class="t-desc">숙소에서 도보 이동이 가능한 편입니다. 미팅 시간과 출발 시간은 다르며 지각 시 노쇼 처리될 수 있으므로 바우처의 정확한 장소·시각보다 15~20분 일찍 도착하세요.</div></div></li>
+              <li><div class="t-time">오전</div><div class="t-thumb icon">🎋</div><div class="t-body"><div class="t-title">아라시야마 자유 관람</div><div class="t-desc">도게츠교와 대나무숲을 중심으로 산책합니다. 점심은 자유식이므로 가이드의 식당 안내·예약 가능 여부를 출발 후 확인하세요.</div></div></li>
+              <li><div class="t-time">낮</div><div class="t-thumb icon">🏯</div><div class="t-body"><div class="t-title">금각사</div><div class="t-desc">연못에 비치는 금빛 누각을 감상하는 대표 사진 코스입니다. 상품 후기상 이 구간에서 가이드 동행 촬영이 제공되는 경우가 있으나 당일 운영을 확인하세요.</div></div></li>
+              <li><div class="t-time">오후</div><div class="t-thumb icon">⛩️</div><div class="t-body"><div class="t-title">청수사 · 산넨자카·니넨자카</div><div class="t-desc">오르막과 돌길이 있어 편한 운동화가 필수입니다. 아이들과는 상점가 구경 시간을 포함해 반환 시각을 먼저 정하고 움직이세요.</div></div></li>
+              <li><div class="t-time">마지막</div><div class="t-thumb icon">🦊</div><div class="t-body"><div class="t-title">후시미 이나리 신사</div><div class="t-desc">붉은 센본도리이 초입을 중심으로 관람합니다. 정상까지 오르기보다 집합 시간에 맞춰 가족 사진과 완만한 구간을 우선하세요.</div></div></li>
+              <li><div class="t-time">저녁</div><div class="t-thumb icon">🌙</div><div class="t-body"><div class="t-title">도톤보리 복귀 · 난바 저녁</div><div class="t-desc">교통 상황에 따라 도착이 늦어질 수 있으므로 예약 식당보다 웨이팅이 짧은 난바 식당이나 편의점 보충식을 후보로 둡니다.</div></div></li>
+            </ul>
+            <div class="choice-caution"><b>예약 전 확인:</b> 가격은 2026년 8월 18일 페이지 표시 기준이며 날짜·옵션·할인에 따라 변동됩니다. 4인 예상액은 1인 표시가가 네 명 모두 동일하다고 가정한 단순 계산입니다. 관광지 입장료, 식사, 아동 요금, 정확한 미팅·해산 시각과 무료 사진 촬영 조건은 10월 18일 상품 옵션과 예약 바우처에서 다시 확인하세요. 최소 인원 미달 시 취소될 수 있으며, 상품 페이지 안내상 여행일 전날 오전 9시 이후에는 취소·환불이 어렵습니다.</div>
+            <div class="choice-links"><a href="https://www.klook.com/ko/activity/83627-kyoto-bus-tour/" target="_blank" rel="noopener noreferrer">클룩 상품·가격 확인</a><a href="https://www.google.com/maps/dir/?api=1&origin=Dotonbori%2C+Osaka&destination=Dotonbori%2C+Osaka&waypoints=Arashiyama%2C+Kyoto%7CKinkaku-ji%2C+Kyoto%7CKiyomizu-dera%2C+Kyoto%7CFushimi+Inari+Taisha%2C+Kyoto&travelmode=driving" target="_blank" rel="noopener noreferrer">교토 4곳 지도 보기</a></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="usj-complete" class="usj-guide">
       <div class="section-head"><div class="kicker">USJ Complete Guide</div><h2>유니버설 스튜디오 재팬 완벽분석</h2></div>
-      <p class="usj-lead">이번 여행은 <b>익스프레스 패스 없이 1데이 스튜디오 패스만 구매</b>하는 것으로 확정했습니다. 오픈런과 무료 e정리권을 활용하며, 기준은 초등학교 2학년·5학년 여자아이와 무서운 놀이기구를 잘 못 타는 가족입니다.</p>
+      <p class="usj-lead">Day 3를 USJ로 결정할 경우 <b>익스프레스 패스 없이 1데이 스튜디오 패스만 구매</b>하는 선택안입니다. 오픈런과 무료 e정리권을 활용하며, 기준은 초등학교 2학년·5학년 여자아이와 무서운 놀이기구를 잘 못 타는 가족입니다.</p>
       <div class="usj-grid">
         <article class="usj-card"><h3>🚆 리가레 난바 아넥스에서 가는 법</h3><div class="usj-route"><b>06:30</b><span>숙소 출발, 오사카난바역까지 도보</span><b>전철</b><span>한신 난바선으로 니시쿠조역 이동</span><b>환승</b><span>JR 유메사키선 사쿠라지마행 → 유니버설시티역</span><b>도착</b><span>역에서 파크 입구까지 도보 약 5분</span></div><p class="usj-note">열차 자체는 약 13~20분이지만 도보·대기·환승을 포함해 35~45분을 잡으세요. 일요일은 공식 개장 60~90분 전 파크 도착을 권장합니다.</p></article>
         <article class="usj-card"><h3>🎟️ 티켓 확정안</h3><ul><li><b>구매:</b> 가족 4명 모두 1데이 스튜디오 패스만 구매합니다.</li><li><b>미구매:</b> 익스프레스 패스와 닌텐도 월드 입장 확약권은 구매하지 않습니다.</li><li><b>가격:</b> 날짜별 변동제입니다. 만 4~11세는 어린이, 만 12세 이상은 성인으로 적용되므로 10월 18일 실제 가격과 연령 구분은 구매 화면에서 확정하세요.</li><li><b>운영 전략:</b> 공식 개장 60~90분 전 도착 → 입장 직후 무료 e정리권 확보 → 대기시간이 짧은 어린이용 어트랙션부터 이용합니다.</li></ul><p class="usj-note">익스프레스가 없으므로 모든 인기 어트랙션을 타는 것보다 닌텐도 월드와 아이들이 실제로 탈 기구를 우선하세요.</p></article>
@@ -1759,7 +1790,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.2</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.3</div>
   </footer>
 
   <script>
