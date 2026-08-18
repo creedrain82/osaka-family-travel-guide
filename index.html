@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.8 -->
+<!-- 오사카 가족여행 가이드북 v4.10 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -39,9 +39,9 @@
 
   /* ---------- GUIDE TABS ---------- */
   .guide-tabs-shell{position:sticky;top:0;z-index:100;background:rgba(246,239,225,.96);border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(42,33,24,.08);backdrop-filter:blur(10px);}
-  .guide-tabs{max-width:880px;margin:0 auto;padding:10px 20px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;}
+  .guide-tabs{max-width:880px;margin:0 auto;padding:10px 20px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;}
   .guide-tabs::-webkit-scrollbar{display:none;}
-  .guide-tab{flex:1 0 auto;min-width:118px;border:1px solid var(--line);border-radius:999px;background:var(--paper-card);color:var(--ink-soft);padding:10px 14px;font:700 12.5px 'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;}
+  .guide-tab{min-width:0;border:1px solid var(--line);border-radius:999px;background:var(--paper-card);color:var(--ink-soft);padding:10px 8px;font:700 12.5px 'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;}
   .guide-tab[aria-selected="true"]{background:var(--indigo);border-color:var(--indigo);color:#fff;box-shadow:0 5px 14px rgba(31,58,95,.22);}
   .guide-tab:focus-visible{outline:3px solid rgba(200,152,59,.5);outline-offset:2px;}
   .guide-tab-panel-hidden{display:none !important;}
@@ -86,7 +86,7 @@
   .icoca-total{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.icoca-total article{padding:19px;border-radius:15px;border:2px solid var(--sora);background:rgba(47,93,130,.07)}.icoca-total h3{margin:0 0 8px;font-size:17px}.icoca-total .yen{font-size:23px;font-weight:900;color:var(--indigo)}
   .source-box{margin-top:18px;padding:16px 18px;border-left:4px solid var(--gold);background:rgba(200,152,59,.09);font-size:12px;line-height:1.75;color:var(--ink-soft)}
   @media(max-width:680px){.icoca-hero,.icoca-grid,.icoca-total{grid-template-columns:1fr}.icoca-gallery{grid-template-columns:1fr 1fr}.icoca-gallery img{height:180px}}
-  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid,.flight-grid{grid-template-columns:1fr}.guide-tabs{padding:9px 14px}.guide-tab{min-width:auto}.tab-intro{text-align:left}.info-hero{height:220px}}
+  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid,.flight-grid{grid-template-columns:1fr}.guide-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:9px 14px;gap:6px}.guide-tab{padding:9px 4px;font-size:11.5px}.tab-intro{text-align:left}.info-hero{height:220px}}
 
   h1,h2,h3,.font-display{font-family:'Gowun Batang',serif;}
 
@@ -520,7 +520,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.8</div>
+    <div class="page-version">GUIDE v4.10</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -551,6 +551,7 @@
   <nav class="guide-tabs-shell" aria-label="가이드 항목">
     <div class="guide-tabs" role="tablist">
       <button class="guide-tab" type="button" role="tab" aria-selected="true" data-tab="overview">여행 개요</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="budget">경비</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="flight">항공권</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="stay">숙박</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
@@ -1890,7 +1891,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.8</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.10</div>
   </footer>
 
   <script>
@@ -2080,11 +2081,12 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
       if (kyotoChoice && kyotoGuide) kyotoGuide.appendChild(kyotoChoice);
       var tabGroups = {
         overview: ['osaka-intro', 'area-guide', 'smart-guide'],
+        budget: ['budget'],
         flight: ['flight-info'],
         stay: ['stay-info'],
         prep: ['trip-prep', 'tips'],
         icoca: ['icoca-guide'],
-        itinerary: ['meals', 'budget', 'day1', 'day2', 'day3', 'day4'],
+        itinerary: ['meals', 'day1', 'day2', 'day3', 'day4'],
         usj: ['usj-complete'],
         kyoto: ['kyoto-guide'],
         explore: ['five-zone-guide', 'food-guide', 'convenience-guide', 'shopping-guide']
