@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.12 -->
+<!-- 오사카 가족여행 가이드북 v4.13 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -76,6 +76,9 @@
   .prep-card ul{margin:0;padding-left:19px;}
   .prep-card li{margin:7px 0;color:var(--ink-soft);font-size:12.8px;}
   .prep-status{display:inline-block;margin-left:5px;padding:2px 7px;border-radius:10px;background:rgba(60,110,92,.12);color:var(--pine);font-size:10px;font-weight:700;}
+  .prep-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}.prep-summary-card{padding:16px 12px;border-radius:14px;text-align:center;border:1px solid var(--line);background:var(--paper-card)}.prep-summary-card b{display:block;font-size:26px;line-height:1.1;margin-bottom:5px}.prep-summary-card span{font-size:11px;color:var(--ink-soft)}.prep-summary-card.done b{color:var(--pine)}.prep-summary-card.now b{color:var(--vermilion)}.prep-summary-card.dated b{color:var(--sora)}.prep-summary-card.local b{color:#8b6914}
+  .prep-board{display:grid;gap:10px}.prep-row{display:grid;grid-template-columns:112px 1.1fr 1.3fr 120px;gap:12px;align-items:center;padding:15px 16px;border:1px solid var(--line);border-radius:14px;background:var(--paper-card)}.prep-row h3{margin:0;font:700 13px 'Noto Sans KR',sans-serif}.prep-row p{margin:0;color:var(--ink-soft);font-size:11.8px;line-height:1.55}.prep-row .next{color:var(--ink);font-weight:600}.status-chip{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:5px 10px;border-radius:999px;font-size:10.5px;font-weight:800;text-align:center}.status-chip.done{background:rgba(60,110,92,.13);color:var(--pine)}.status-chip.buy{background:rgba(189,66,38,.12);color:var(--vermilion)}.status-chip.date{background:rgba(47,93,130,.12);color:var(--sora)}.status-chip.decide{background:rgba(200,152,59,.17);color:#74550e}.status-chip.local{background:rgba(92,75,60,.12);color:#604b3a}
+  .prep-deadline{margin:18px 0;padding:18px;border-radius:15px;background:#fff8e8;border:1px solid rgba(200,152,59,.35)}.prep-deadline h3{margin:0 0 10px;font-size:16px}.prep-deadline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.prep-date{padding:11px;border-radius:10px;background:rgba(255,255,255,.7);font-size:10.8px;line-height:1.55}.prep-date b{display:block;color:var(--vermilion);font-size:12px;margin-bottom:3px}
   .icoca-hero{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;align-items:stretch;margin-bottom:20px;}
   .icoca-hero img{width:100%;height:100%;min-height:280px;object-fit:cover;border-radius:17px;}
   .icoca-lead{padding:25px;border-radius:17px;background:linear-gradient(145deg,#17365d,#2877a5);color:#fff;display:flex;flex-direction:column;justify-content:center;}
@@ -90,7 +93,7 @@
   .travel-card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.travel-card{padding:17px;border-radius:14px;border:1px solid var(--line);background:var(--paper-card)}.travel-card.recommend{border:2px solid var(--sora);background:rgba(47,93,130,.06)}.travel-card h3{margin:0 0 7px;font-size:15px}.travel-card p,.travel-card li{font-size:11.5px;line-height:1.7;color:var(--ink-soft)}.travel-card ul{margin:0;padding-left:17px}.travel-badge{display:inline-block;margin-bottom:8px;padding:3px 8px;border-radius:999px;background:var(--sora);color:#fff;font-size:10px;font-weight:800}
   @media(max-width:680px){.exchange-plan,.travel-card-grid{grid-template-columns:1fr}}
   @media(max-width:680px){.icoca-hero,.icoca-grid,.icoca-total{grid-template-columns:1fr}.icoca-gallery{grid-template-columns:1fr 1fr}.icoca-gallery img{height:180px}}
-  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid,.flight-grid{grid-template-columns:1fr}.guide-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:9px 14px;gap:6px}.guide-tab{padding:9px 4px;font-size:11.5px}.tab-intro{text-align:left}.info-hero{height:220px}}
+  @media(max-width:680px){.booking-facts{grid-template-columns:repeat(2,1fr)}.prep-grid,.flight-grid{grid-template-columns:1fr}.guide-tabs{grid-template-columns:repeat(3,minmax(0,1fr));padding:9px 14px;gap:6px}.guide-tab{padding:9px 4px;font-size:11.5px}.tab-intro{text-align:left}.info-hero{height:220px}.prep-summary{grid-template-columns:repeat(2,1fr)}.prep-row{grid-template-columns:92px 1fr}.prep-row .next{grid-column:1/-1;padding-top:8px;border-top:1px dashed var(--line)}.prep-row .status-chip{grid-column:1/-1;justify-self:start}.prep-deadline-grid{grid-template-columns:repeat(2,1fr)}}
 
   h1,h2,h3,.font-display{font-family:'Gowun Batang',serif;}
 
@@ -421,21 +424,6 @@
   }
   .day-tip .icon{flex:none;font-size:17px;line-height:1.3;}
   .day-tip b{display:block;margin-bottom:3px;font-size:13.8px;}
-  .day-choice{margin:20px 26px 0;border:1px solid rgba(60,110,92,.28);border-radius:16px;overflow:hidden;background:#f8faf7;}
-  .day-choice-head{padding:18px 20px;background:linear-gradient(120deg,#315d4e,#477a68);color:#fff;}
-  .day-choice-head .choice-label{font-size:11px;font-weight:700;letter-spacing:.12em;opacity:.85;}
-  .day-choice-head h4{margin:4px 0 5px;font-size:20px;}.day-choice-head p{margin:0;font-size:12.8px;line-height:1.6;color:#eef7f2;}
-  .day-choice-photo{width:100%;height:260px;object-fit:cover;display:block;background:var(--paper-deep);}
-  .day-choice-body{padding:20px;}.choice-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px;}
-  .choice-fact{padding:11px;border-radius:10px;background:#fff;border:1px solid var(--line);font-size:11.5px;color:var(--ink-soft);}
-  .choice-fact b{display:block;margin-top:3px;font-size:13px;color:var(--ink);}.choice-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
-  .choice-links a{display:inline-block;padding:8px 13px;border-radius:20px;background:var(--pine);color:#fff;font-size:11.5px;font-weight:700;}
-  .tour-benefits{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0;}.tour-benefit{padding:12px 10px;border-radius:11px;background:#eef5f1;border:1px solid rgba(60,110,92,.2);font-size:11.5px;line-height:1.5;color:var(--ink-soft);text-align:center;}.tour-benefit span{display:block;font-size:22px;margin-bottom:4px}.tour-benefit b{display:block;color:var(--ink);font-size:12.5px;margin-bottom:2px}
-  .kyoto-food-guide{margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}.kyoto-food-guide h5{margin:0 0 5px;font-size:17px;color:var(--pine)}.kyoto-food-guide>p{margin:0 0 13px;font-size:12.5px;line-height:1.65;color:var(--ink-soft)}.kyoto-food-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.kyoto-food{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fff}.kyoto-food h6{margin:0 0 6px;font-size:14px;color:var(--ink)}.kyoto-food p{margin:0;font-size:12px;line-height:1.6;color:var(--ink-soft)}.kyoto-food .food-point{display:inline-block;margin-top:7px;padding:3px 8px;border-radius:12px;background:#eef5f1;color:var(--pine);font-size:10.5px;font-weight:700}.kyoto-food a{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;color:var(--rust)}
-  .kyoto-guide{margin-bottom:54px}.kyoto-guide>.day-choice{margin:0}.kyoto-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;background:var(--paper-deep);padding:3px}.kyoto-gallery figure{position:relative;margin:0;height:210px;overflow:hidden}.kyoto-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}.kyoto-gallery figure:hover img{transform:scale(1.03)}.kyoto-gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.72));color:#fff;font-size:11.5px;font-weight:700}.day-alt-summary{margin:16px 26px 26px;padding:16px 18px;border:1px solid rgba(60,110,92,.28);border-radius:12px;background:#eef5f1;display:flex;justify-content:space-between;align-items:center;gap:16px}.day-alt-summary b{display:block;font-size:14px;color:var(--pine);margin-bottom:3px}.day-alt-summary p{margin:0;font-size:12.5px;line-height:1.6;color:var(--ink-soft)}.tab-jump{flex:none;border:0;border-radius:20px;padding:9px 14px;background:var(--pine);color:#fff;font-size:11.5px;font-weight:700;cursor:pointer}
-  .choice-caution{margin-top:14px;padding:12px 14px;border-radius:9px;background:#fff4d8;border-left:4px solid var(--gold);font-size:12.5px;line-height:1.65;color:var(--ink);}
-  @media(max-width:700px){.choice-facts{grid-template-columns:repeat(2,1fr)}.tour-benefits,.kyoto-food-grid{grid-template-columns:repeat(2,1fr)}.day-choice{margin:16px 18px 0}.day-choice-photo{height:210px}.kyoto-gallery{grid-template-columns:repeat(2,1fr)}.kyoto-gallery figure{height:180px}.day-alt-summary{margin:16px 18px 22px;align-items:flex-start;flex-direction:column}.tab-jump{width:100%}}
-  @media(max-width:460px){.kyoto-food-grid{grid-template-columns:1fr}}
   .usj-guide{margin:30px 0 50px;padding:34px;border-radius:24px;background:linear-gradient(145deg,#17243d,#243e67);color:#fff;box-shadow:var(--shadow);}
   .usj-guide .section-head h2,.usj-guide .section-head .kicker{color:#fff}.usj-guide .section-head{margin-bottom:24px}
   .usj-lead{font-size:14px;line-height:1.8;color:#e7edf7;margin:-8px 0 24px}.usj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
@@ -524,7 +512,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.12</div>
+    <div class="page-version">GUIDE v4.13</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -562,7 +550,6 @@
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="icoca">ICOCA</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="usj">USJ</button>
-      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="kyoto">교토</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="explore">맛집·쇼핑</button>
     </div>
   </nav>
@@ -633,17 +620,31 @@
     <section id="trip-prep" data-guide-tab="prep">
       <div class="section-head">
         <div class="kicker">Before You Go</div>
-        <h2>여행 준비 체크리스트</h2>
+        <h2>예약·준비 현황 대시보드</h2>
       </div>
+      <div class="prep-summary">
+        <div class="prep-summary-card done"><b>3</b><span>결제·예약 완료</span></div><div class="prep-summary-card now"><b>6</b><span>지금 구매·결정</span></div><div class="prep-summary-card dated"><b>2</b><span>날짜 맞춰 처리</span></div><div class="prep-summary-card local"><b>1</b><span>현지에서 구매</span></div>
+      </div>
+      <div class="prep-board">
+        <article class="prep-row"><h3>✈️ 항공권</h3><p>이스타항공 왕복 4인 · 1,387,200원<br>10/16 ZE0611 · 10/19 ZE0614</p><p class="next">다음 행동: 출발 24시간 전 운항·탑승구 확인</p><span class="status-chip done">결제 완료</span></article>
+        <article class="prep-row"><h3>🏨 숙소</h3><p>리가레 난바 아넥스 · 아고다 3박<br>945,947원 · 무료취소 10/12까지</p><p class="next">다음 행동: 10/14 전후 체크인 이메일·출입 QR 확인</p><span class="status-chip done">예약 완료</span></article>
+        <article class="prep-row"><h3>⚡ 익스프레스 4</h3><p>가족 4매 · 779,456원<br>10/18 닌텐도 16:30 · 마리오카트 · 동키콩</p><p class="next">다음 행동: 바우처 4매 QR 캡처 후 부모 휴대폰에 각각 저장</p><span class="status-chip done">구매 완료</span></article>
+        <article class="prep-row"><h3>🎟️ USJ 입장권</h3><p>1데이 스튜디오 패스 가족 4매<br>익스프레스와 별도로 반드시 필요</p><p class="next">다음 행동: 10/18 날짜 지정으로 구매 후 USJ 앱에 등록</p><span class="status-chip buy">구매 필요</span></article>
+        <article class="prep-row"><h3>🏯 주유패스</h3><p>Day 2 가족 4명 모두 이용<br>어린이용이 없어 아이도 성인권 구매</p><p class="next">다음 행동: 1일권 4매 구매, 가족별 QR 분리 저장</p><span class="status-chip buy">구매 필요</span></article>
+        <article class="prep-row"><h3>🚆 라피트 왕복</h3><p>간사이공항↔난카이 난바 · 가족 4명<br>가는 편 9/16, 오는 편 9/19 예약 시작</p><p class="next">다음 행동: 두 날짜 오전 10시에 좌석 지정·변경 조건 확인</p><span class="status-chip date">예약일 대기</span></article>
+        <article class="prep-row"><h3>🅿️ 공항 차량</h3><p>제네시스 77,000원 vs RPM 무료 발렛+주차 약 18,000원</p><p class="next">다음 행동: 방식 확정 → 다자녀 자동감면 승인 → 발렛/제네시스 예약</p><span class="status-chip decide">선택·예약 필요</span></article>
+        <article class="prep-row"><h3>🛡️ 여행자보험</h3><p>가족 4명 · 해외의료비·배상책임·항공/수하물 지연 비교</p><p class="next">다음 행동: 보장 중복 확인 후 가입하고 영문 증서 저장</p><span class="status-chip buy">가입 필요</span></article>
+        <article class="prep-row"><h3>📱 데이터</h3><p>부모 휴대폰 eSIM 우선, 아이 기기 공유 여부 결정</p><p class="next">다음 행동: 데이터 용량 비교 후 구매·출국 전 설치</p><span class="status-chip buy">구매 필요</span></article>
+        <article class="prep-row"><h3>💳 엔화·카드</h3><p>현금 30,000엔 + SOL트래블 90,000엔 계획</p><p class="next">다음 행동: SOL트래블 발급·JPY 충전, RPM·비상카드 함께 준비</p><span class="status-chip decide">발급·환전 필요</span></article>
+        <article class="prep-row"><h3>🚉 ICOCA</h3><p>USJ 왕복용 가족 4장 · 각 2,000엔 구매안</p><p class="next">다음 행동: 간사이공항 도착 후 성인 2장, 어린이용 2장 발급</p><span class="status-chip local">현지 구매</span></article>
+        <article class="prep-row"><h3>📝 입국 준비</h3><p>Visit Japan Web · 여권 유효기간·영문명 확인</p><p class="next">다음 행동: 가족 입국정보 등록 후 QR을 오프라인 저장</p><span class="status-chip date">출발 전 처리</span></article>
+      </div>
+      <div class="prep-deadline"><h3>📅 놓치면 안 되는 날짜</h3><div class="prep-deadline-grid"><div class="prep-date"><b>지금</b>USJ 1데이 패스·주유패스·보험·eSIM 비교</div><div class="prep-date"><b>9/16 · 10:00</b>가는 편 라피트 좌석 예약</div><div class="prep-date"><b>9/19 · 10:00</b>오는 편 라피트 좌석 예약</div><div class="prep-date"><b>10/12</b>아고다 숙소 무료취소 마감</div><div class="prep-date"><b>10/14 전후</b>숙소 무인 체크인 안내 확인</div><div class="prep-date"><b>10/15</b>날씨·운항·USJ 운영/운휴 최종 확인</div><div class="prep-date"><b>10/16 출국일</b>QR·여권·카드·현금 최종 점검</div><div class="prep-date"><b>현지 도착</b>ICOCA 4장 구매·잔액 확인</div></div></div>
       <div class="prep-grid">
-        <article class="prep-card"><h3>✅ 예약·입장권</h3><ul><li>항공권 및 숙소 예약 <span class="prep-status">완료</span></li><li>Day 3 USJ 일정 <span class="prep-status">확정</span></li><li>USJ 익스프레스 패스 4 · 가족 4매 <span class="prep-status">구매 완료</span></li><li>USJ 입장용 1데이 스튜디오 패스 4매는 별도 준비</li><li>라피트 가는 편 예약: <b>9/16(수) 10:00</b>부터</li><li>라피트 오는 편 예약: <b>9/19(토) 10:00</b>부터</li><li>Day 2 오사카 주유패스 구매</li><li>인기 식당은 방문 2~4주 전 예약 확인</li></ul></article>
-        <article class="prep-card"><h3>🛡️ 여행자보험</h3><ul><li>해외 의료비·상해·배상책임 보장금액 비교</li><li>항공 지연·수하물 지연 및 휴대품 손해 확인</li><li>가족 4명 영문 보험증서와 긴급 연락처 저장</li><li>기존 카드 부가보험은 보장 개시 조건 확인</li></ul></article>
-        <article class="prep-card"><h3>📱 유심·통신</h3><ul><li>eSIM 지원 휴대폰이면 일본 데이터 eSIM 우선 비교</li><li>아이 기기까지 연결하면 데이터 넉넉한 포켓 Wi-Fi 고려</li><li>출국 전 설치하고 현지에서 데이터 로밍만 전환</li><li>호텔·USJ·항공권 QR은 화면 캡처로 오프라인 저장</li></ul></article>
-        <article class="prep-card"><h3>💴 결제·교통</h3><ul><li>Day 3 USJ 선택 시에만 ICOCA 4장 구매</li><li>Day 3 교토 버스투어 선택 시 ICOCA 구매 불필요</li><li>해외결제 카드 2장과 소액 엔화 분산 보관</li><li>카드 해외원화결제(DCC) 차단 및 일본 엔화 결제 선택</li><li>Google 지도·번역 앱·USJ 공식 앱 설치</li></ul></article>
-        <article class="prep-card"><h3>🧳 서류·짐</h3><ul><li>여권 유효기간, 영문 이름과 항공권 표기 재확인</li><li>Visit Japan Web 입국 정보는 출발 전 최신 절차 확인</li><li>10월용 얇은 겉옷, 접이식 우산, 편한 운동화</li><li>상비약·멀미약·보조배터리와 충전 케이블</li></ul></article>
-        <article class="prep-card"><h3>⏰ 출발 직전</h3><ul><li>항공편·터미널·위탁수하물 규정 재확인</li><li>숙소 체크인 안내와 출입 방법을 가족에게 공유</li><li>USJ 운영시간·운휴·쇼 일정 확인</li><li>날씨와 태풍 가능성 확인 후 옷차림 조정</li></ul></article>
+        <article class="prep-card"><h3>🧳 가족 공통 짐</h3><ul><li>여권 4권·예약 QR·영문 보험증서</li><li>10월용 얇은 겉옷·접이식 우산·편한 운동화</li><li>상비약·멀미약·보조배터리·충전 케이블</li><li>아이별 이름표와 비상 연락처 카드</li></ul></article>
+        <article class="prep-card"><h3>📲 휴대폰 필수 저장</h3><ul><li>항공·숙소·USJ·익스프레스 QR 화면 캡처</li><li>Google 지도·번역·USJ 공식 앱 설치</li><li>카드 해외원화결제(DCC) 차단, JPY 결제 원칙 공유</li><li>부모 두 휴대폰에 예약자료를 중복 저장</li></ul></article>
       </div>
-      <p class="guide-note">보험 조건, 통신상품, 입국 절차와 시설 운영시간은 바뀔 수 있으므로 결제 전과 출발 1주 전에 공식 안내를 다시 확인하세요.</p>
+      <p class="guide-note">상태가 바뀌면 완료 항목과 남은 할 일을 함께 갱신합니다. 보험·통신·입국 절차와 시설 운영시간은 결제 전과 출발 1주 전에 공식 안내를 다시 확인하세요.</p>
     </section>
 
     <!-- ============ ICOCA GUIDE ============ -->
@@ -668,20 +669,18 @@
       </div>
 
       <div class="section-head"><div class="kicker">Our Family Estimate</div><h2>우리 일정 기준 얼마가 필요할까</h2></div>
-      <p class="guide-note"><b>계산 기준:</b> 성인 2명 + 만 6~11세 어린이 2명, 숙소는 리가레 난바 아넥스. <b>Day 2는 입장 혜택을 위해 아이들도 성인용 주유패스를 구매</b>하므로 4명 모두 교통비 0엔으로 계산합니다. Day 1·4 라피트와 Day 3 교토 버스투어는 별도 결제입니다. 실제 운임은 이용 노선과 2026년 개정에 따라 달라질 수 있습니다.</p>
+      <p class="guide-note"><b>계산 기준:</b> 성인 2명 + 만 6~11세 어린이 2명, 숙소는 리가레 난바 아넥스. <b>Day 2는 입장 혜택을 위해 아이들도 성인용 주유패스를 구매</b>하므로 4명 모두 교통비 0엔으로 계산합니다. Day 1·4 라피트는 별도 결제입니다. 실제 운임은 이용 노선과 2026년 개정에 따라 달라질 수 있습니다.</p>
       <div class="icoca-cost"><table><thead><tr><th>일정</th><th>성인 1명</th><th>어린이 1명</th><th>가족 합계</th><th>계산 메모</th></tr></thead><tbody>
         <tr><td>Day 1 · 난바 도착</td><td>0엔</td><td>0엔</td><td>0엔</td><td>라피트 별도, 이후 도보</td></tr>
         <tr><td>Day 2 · 주유패스 관광</td><td>0엔</td><td>0엔</td><td>0엔</td><td>아이들도 성인용 주유패스 구매 · 적용 교통수단 이용</td></tr>
-        <tr><td>Day 3A · USJ 왕복</td><td>약 840엔</td><td>약 420엔</td><td>약 2,520엔</td><td>오사카난바↔니시쿠조↔유니버설시티</td></tr>
-        <tr><td>Day 3B · 교토 버스투어</td><td>0엔</td><td>0엔</td><td>0엔</td><td>도톤보리 집합·닛폰바시 해산, 숙소에서 도보</td></tr>
+        <tr><td>Day 3 · USJ 왕복</td><td>약 840엔</td><td>약 420엔</td><td>약 2,520엔</td><td>오사카난바↔니시쿠조↔유니버설시티</td></tr>
         <tr><td>Day 4 · 귀국</td><td>0엔</td><td>0엔</td><td>0엔</td><td>난바권 도보 + 라피트 별도</td></tr>
       </tbody></table></div>
 
       <div class="icoca-total">
         <article><h3>🎢 USJ를 선택하면</h3><div class="yen">예상 차감 2,520엔</div><p>성인 1인 약 840엔, 어린이 1인 약 420엔입니다. <b>4명 모두 2,000엔짜리로 구매</b>하면 카드당 사용 잔액 1,500엔이라 추가 충전 없이 충분합니다. 결제 현금은 8,000엔이며 이 중 보증금은 총 2,000엔입니다.</p></article>
-        <article><h3>⛩️ 교토 투어를 선택하면</h3><div class="yen">예상 차감 0엔</div><p>Day 1·4는 라피트 별도 구매, Day 2는 가족 모두 주유패스, Day 3는 숙소에서 집합·해산 장소까지 도보이므로 <b>현재 확정 동선만 따르면 ICOCA를 살 필요가 없습니다.</b></p></article>
       </div>
-      <p class="guide-note"><b>결론:</b> <b>USJ 선택 시 ICOCA 4장을 각 2,000엔에 구매</b>하고, <b>교토 버스투어 선택 시에는 구매하지 않는 것</b>이 가장 합리적입니다. 교토안에서 갑자기 지하철을 타게 되면 그때 승차권을 현금으로 사거나 ICOCA를 추가 구매하면 됩니다. 주유패스는 어린이용 상품이 따로 없으므로 아이들도 성인과 같은 가격의 패스를 구매한다는 전제입니다.</p>
+      <p class="guide-note"><b>결론:</b> USJ 왕복이 확정되었으므로 <b>ICOCA 4장을 각 2,000엔에 구매</b>하는 것이 가장 단순합니다. 예상 교통 차감액은 가족 합계 약 2,520엔이며, 남는 잔액은 편의점에서 사용할 수 있습니다. 주유패스는 어린이용 상품이 따로 없어 아이들도 성인과 같은 가격의 패스를 구매한다는 전제입니다.</p>
       <div class="source-box">블로그 인용: “저는 3000엔 충전했는데 여행 일정에 맞게 충전하시면 됩니다.” 구매 화면과 사진은 작성자의 실제 체험을 인용했으며, 보증금·충전 한도·환불 규정은 JR서일본 공식 안내로 교차 확인했습니다. <a href="https://blog.naver.com/miumiu8232/223569419286" target="_blank" rel="noopener noreferrer">원문 블로그 보기</a> · <a href="https://www.westjr.co.jp/global/kr/howto/icoca/" target="_blank" rel="noopener noreferrer">JR서일본 ICOCA 공식 안내</a> · <a href="https://osaka-amazing-pass.com/kr/faq.html" target="_blank" rel="noopener noreferrer">주유패스 공식 FAQ</a></div>
     </section>
 
@@ -1057,7 +1056,7 @@
       <p class="budget-note">🅿️ 합계는 제네시스 에어포트 서비스 77,000원과 구매 완료한 USJ 익스프레스 패스 779,456원을 반영했습니다. RPM 무료 발렛과 다자녀 50% 감면을 이용하면 약 59,000원이 줄어 총예산은 약 485만원이 됩니다. 다자녀 자동감면은 출국 전에 승인 완료 상태를 확인하세요.</p>
 
       <div class="section-head"><div class="kicker">JPY &amp; Travel Card</div><h2>엔화 환전·트래블카드 계획</h2></div>
-      <p class="budget-note"><b>계획환율 100엔 = 950원</b>을 적용한 보수적 계산입니다. 실제 환전일 환율이 낮으면 남는 금액은 예비비로 두고, 숙박·항공·USJ/교토투어·주유패스·라피트처럼 한국에서 미리 결제할 항목은 아래 엔화 예산에서 제외합니다.</p>
+      <p class="budget-note"><b>계획환율 100엔 = 950원</b>을 적용한 보수적 계산입니다. 실제 환전일 환율이 낮으면 남는 금액은 예비비로 두고, 숙박·항공·USJ·주유패스·라피트처럼 한국에서 미리 결제할 항목은 아래 엔화 예산에서 제외합니다.</p>
       <div class="icoca-cost"><table><thead><tr><th>일본 현지 사용</th><th>원화 예산</th><th>엔화 환산</th><th>결제 방법</th></tr></thead><tbody>
         <tr><td>식비·편의점</td><td>약 550,000원</td><td>약 58,000엔</td><td>트래블카드 중심 + 노포 현금</td></tr>
         <tr><td>쇼핑·기념품</td><td>약 450,000원</td><td>약 47,000엔</td><td>트래블카드 중심</td></tr>
@@ -1286,7 +1285,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
           <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">3</span></div>
           <div class="d-titles">
             <div class="d-date">10월 18일 · 일요일</div>
-            <h3>선택 A · USJ / 선택 B · 교토 일일투어</h3>
+            <h3>유니버설 스튜디오 재팬 · 일정 확정</h3>
           </div>
         </div>
         <img class="day-photo" alt="유니버설 스튜디오 재팬 입구"
@@ -1310,16 +1309,17 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
             <li class="highlight-row"><div class="t-time">06:30–07:30</div><div class="t-thumb icon">🍙</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 6</span>편의점 아침 후 USJ 이동</div><div class="t-desc">오사카난바역→한신 난바선 니시쿠조→JR 유메사키선 유니버설시티. 열차 이동 약 20분, 도보·환승 포함 35~45분을 잡으세요.</div></div></li>
             <li><div class="t-time">07:30–08:30</div><div class="t-thumb icon">📱</div><div class="t-body"><div class="t-title">개장 60~90분 전 도착 &amp; 입장권 등록</div><div class="t-desc">1데이 스튜디오 패스와 익스프레스 QR을 가족별로 바로 열 수 있게 준비합니다. 닌텐도 월드는 16:30 입장 확약이 있으므로 아침에는 다른 인기 구역부터 이용하세요.</div></div></li>
             <li><div class="t-time">08:30–11:30</div><div class="t-thumb icon">🪄</div><div class="t-body"><div class="t-title">해리포터·원더랜드 우선</div><div class="t-desc">해리포터 마을 산책과 올리밴더스, 원더랜드의 플라잉 스누피·헬로키티 등 겁이 적은 체험을 오전의 짧은 대기시간에 이용합니다.</div></div></li>
-            <li class="highlight-row"><div class="t-time">11:00–12:00</div><div class="t-thumb icon">🍔</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 7</span>키노피오 카페 이른 점심</div><div class="t-desc">입구에서 당일 이용 신청 또는 모바일 오더를 확인하세요. 햄버거 키즈 세트는 만 11세 이하 대상입니다.</div></div></li>
-            <li><div class="t-time">12:10–15:00</div><div class="t-thumb icon">✨</div><div class="t-body"><div class="t-title">원더랜드 · 미니언 · 쇼</div><div class="t-desc">플라잉 스누피, 헬로키티 컵케이크, 미니언 미션, SING 또는 워터월드처럼 공포도가 낮은 체험 중심으로 이동합니다.</div></div></li>
-            <li><div class="t-time">15:00–18:00</div><div class="t-thumb icon">🪄</div><div class="t-body"><div class="t-title">해리포터 마을 &amp; 죠스 선택</div><div class="t-desc">올리밴더스·호그스미드 산책과 버터비어를 즐기세요. 포비든 저니는 강한 흔들림과 어두운 장면 때문에 이번 가족 추천 코스에서는 제외합니다.</div></div></li>
-            <li class="highlight-row"><div class="t-time">18:30–20:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyu-kaku%20yakiniku%20restaurant%20(20).jpg?width=200" alt="야키니쿠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 8</span>난바 복귀 후 야키니쿠(소고기 구이) (저녁)</div></div></li>
+            <li class="highlight-row"><div class="t-time">11:30–12:30</div><div class="t-thumb icon">🍔</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 7</span>스튜디오 스타즈 또는 디스커버리 레스토랑</div><div class="t-desc">닌텐도 월드는 16:30 입장이므로 점심은 구역 밖에서 먹습니다. 12시 전후 혼잡을 피하려면 11:30 입장을 목표로 하세요.</div></div></li>
+            <li><div class="t-time">12:30–15:30</div><div class="t-thumb icon">✨</div><div class="t-body"><div class="t-title">원더랜드 · 미니언 · 쇼 · 죠스</div><div class="t-desc">플라잉 스누피, 헬로키티 컵케이크, 미니언 미션, SING 또는 죠스처럼 아이들이 선택할 수 있는 체험 중심으로 이동합니다.</div></div></li>
+            <li><div class="t-time">15:30–16:15</div><div class="t-thumb icon">🍄</div><div class="t-body"><div class="t-title">닌텐도 월드 입구 이동 · 간식·화장실</div><div class="t-desc">15:40부터 긴 대기줄에 새로 들어가지 말고 구역 입구로 이동합니다. 바우처 4매를 열고 늦어도 16:15까지 도착하세요.</div></div></li>
+            <li><div class="t-time">16:30–17:30</div><div class="t-thumb icon">🏎️</div><div class="t-body"><div class="t-title">닌텐도 월드 · 마리오카트 → 동키콩</div><div class="t-desc">16:30 구역 입장과 마리오카트, 17:00 동키콩 지정 시간을 차례로 이용합니다. 동키콩은 아이 컨디션을 마지막으로 확인하세요.</div></div></li>
+            <li><div class="t-time">17:30–18:30</div><div class="t-thumb icon">🥚</div><div class="t-body"><div class="t-title">요시 어드벤처 또는 닌텐도 쇼핑</div><div class="t-desc">대기시간이 감당 가능하면 요시를 타고, 피곤하면 캐릭터 사진과 기념품 쇼핑으로 마무리합니다.</div></div></li>
+            <li class="highlight-row"><div class="t-time">19:30–21:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyu-kaku%20yakiniku%20restaurant%20(20).jpg?width=200" alt="야키니쿠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 8</span>난바 복귀 후 야키니쿠(소고기 구이) (저녁)</div></div></li>
           </ul>
         </div>
         <div class="day-tip"><span class="icon">💡</span><div><b>USJ 티켓 확정</b>익스프레스 패스 4 가족 4매를 779,456원에 구매했습니다. 닌텐도 월드 16:30 입장, 마리오 카트 16:30~17:00, 동키콩 17:00~17:30 지정이므로 늦어도 16:15까지 구역 입구에 도착하세요. 익스프레스 패스는 파크 입장권이 아니므로 1데이 스튜디오 패스 4매가 별도로 필요합니다.</div></div>
 
-        <div class="day-alt-summary"><div><b>선택 B · 교토 일일 버스투어</b><p>08:00 도톤보리 집합부터 18:40~19:00 닛폰바시 하차까지의 전체 시간표, 특전, 사진과 아라시야마 점심 후보는 별도 교토 탭에 정리했습니다.</p></div><button class="tab-jump" type="button" data-open-guide-tab="kyoto">교토 상세 일정 보기</button></div>
-
+        <!-- 삭제된 교토 대체 일정 보관 시작
         <div class="day-choice">
           <div class="day-choice-head"><div class="choice-label">DAY 3 · ALTERNATIVE PLAN</div><h4>선택 B · 한국어 가이드 교토 일일 버스투어</h4><p>USJ 대신 교토의 핵심 명소 4곳을 하루에 둘러보는 대체안입니다. 숙소가 난바라 도톤보리 집합·해산 동선이 편하고, 관광지 사이를 버스로 이동해 아이들의 체력 부담을 줄일 수 있습니다.</p></div>
           <img class="day-choice-photo" alt="클룩 교토 일일 버스투어 대표 이미지" src="https://res.klook.com/images/fl_lossy.progressive%2Cq_65/c_fill%2Cw_1000%2Ch_811/w_61%2Cx_11%2Cy_11%2Cg_south_west%2Cl_Klook_water_br_trans_yhcmh3/activities/z4uzi5n9gyjfijhmifkk/%5B%ED%95%9C%EA%B5%AD%EC%96%B4%EA%B0%80%EC%9D%B4%EB%93%9C%EB%A6%AC%EB%B7%B0%EC%9D%B4%EB%B2%A4%ED%8A%B8%5D%EC%98%A4%EC%82%AC%EC%B9%B4%EA%B5%90%ED%86%A01%EC%9D%BC%EB%B2%84%EC%8A%A4%ED%88%AC%EC%96%B4%ED%94%84%EB%A1%9C%EC%82%AC%EC%A7%84%EC%B4%AC%EC%98%81%EC%95%84%EB%9D%BC%EC%8B%9C%EC%95%BC%EB%A7%88%EA%B8%88%EA%B0%81%EC%82%AC%EC%B2%AD%EC%88%98%EC%82%AC%ED%9B%84%EC%8B%9C%EB%AF%B8%EC%9D%B4%EB%82%98%EB%A6%AC%EC%9C%A0%ED%88%AC%EC%96%B4.webp" onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Kinkaku-ji%20the%20Golden%20Temple%20in%20Kyoto%20overlooking%20the%20lake%20-%20high%20rez.JPG?width=1200';">
@@ -1356,10 +1356,9 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
             <div class="choice-links"><a href="https://www.klook.com/ko/activity/83627-kyoto-bus-tour/" target="_blank" rel="noopener noreferrer">클룩 상품·가격 확인</a><a href="https://www.google.com/maps/dir/?api=1&origin=Dotonbori%2C+Osaka&destination=Dotonbori%2C+Osaka&waypoints=Arashiyama%2C+Kyoto%7CKinkaku-ji%2C+Kyoto%7CKiyomizu-dera%2C+Kyoto%7CFushimi+Inari+Taisha%2C+Kyoto&travelmode=driving" target="_blank" rel="noopener noreferrer">교토 4곳 지도 보기</a></div>
           </div>
         </div>
+        삭제된 교토 대체 일정 보관 끝 -->
       </div>
     </section>
-
-    <section id="kyoto-guide" class="kyoto-guide" aria-label="교토 일일 버스투어 상세 가이드"></section>
 
     <section id="usj-complete" class="usj-guide">
       <div class="section-head"><div class="kicker">USJ Complete Guide</div><h2>유니버설 스튜디오 재팬 완벽분석</h2></div>
@@ -1382,7 +1381,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
         </tbody></table></article>
         <article class="usj-card"><h3>📱 닌텐도 월드 입장 확약</h3><ol><li>방문 전 공식 앱에 가족 4명의 1데이 입장권을 등록하고 익스프레스 바우처 QR은 오프라인 저장합니다.</li><li>16:15까지 닌텐도 월드 입구 도착 → 16:30 구역 입장 → 마리오 카트 → 동키콩 순서로 이동합니다.</li><li>아침에 닌텐도 월드를 한 번 더 보고 싶다면 입장 후 무료 e정리권을 확인할 수 있지만, 16:30 확약이 이미 있으므로 필수는 아닙니다.</li></ol><p class="usj-note">지정 시간에 늦으면 이용이 거절될 수 있습니다. 15:40부터는 먼 구역의 대기줄에 새로 들어가지 마세요.</p></article>
         <article class="usj-card"><h3>🗺️ 익스프레스 시간 반영 추천 코스</h3><div class="usj-route"><b>오픈 직후</b><span>해리포터 마을·올리밴더스</span><b>10시</b><span>원더랜드: 플라잉 스누피·헬로키티</span><b>11시 30분</b><span>이른 점심</span><b>13시</b><span>미니언·SING·죠스 또는 패스 포함 어트랙션</span><b>15시 40분</b><span>닌텐도 월드 방향 이동·화장실·간식</span><b>16:30</b><span>닌텐도 입장 → 마리오 카트 → 17:00 동키콩</span><b>17:30 이후</b><span>요시 대기 또는 기념품·저녁</span></div><p class="usj-note">패스의 나머지 두 어트랙션 지정 여부를 바우처에서 확인한 뒤 오전·오후 빈 시간에 끼워 넣으세요.</p></article>
-        <article class="usj-card"><h3>🍽️ 가족 식사 전략</h3><ul><li><b>키노피오 카페:</b> 테마 만족도가 가장 높습니다. 당일 입장 신청/모바일 오더를 확인하고 11시 전후 이른 점심 권장. 햄버거 키즈 세트는 만 11세 이하 대상입니다.</li><li><b>요시 스낵 아일랜드:</b> 등껍질 칼조네와 음료로 대기 중 간단히 보충하기 좋습니다.</li><li><b>스리 브룸스틱스:</b> 해리포터 분위기와 무알코올 버터비어. 만 11세 이하 샌드위치 키즈 플레이트는 1,800엔입니다.</li><li><b>절약 팁:</b> 물과 작은 간식은 입장 규정을 확인해 준비하고, 12~14시 혼잡을 피하세요. 키노피오 카페에 실패하면 닌텐도 밖 식당으로 즉시 전환합니다.</li></ul></article>
+        <article class="usj-card"><h3>🍽️ 가족 식사 전략</h3><ul><li><b>점심:</b> 닌텐도 입장이 16:30이므로 스튜디오 스타즈·디스커버리 레스토랑 등 구역 밖 식당을 11:30 전후 이용합니다.</li><li><b>키노피오 카페:</b> 17:30 이후 저녁 후보입니다. 당일 이용 신청·모바일 오더와 마지막 주문 시각을 확인하고, 자리가 없으면 미련 없이 다른 식당으로 전환하세요.</li><li><b>요시 스낵 아일랜드:</b> 등껍질 칼조네와 음료로 닌텐도 일정 후 간단히 보충하기 좋습니다.</li><li><b>스리 브룸스틱스:</b> 오전 해리포터 동선의 간식·이른 식사 후보이며 무알코올 버터비어를 판매합니다.</li></ul></article>
         <article class="usj-card"><h3>🎒 전날·당일 체크리스트</h3><ul><li>입장권 QR 4장과 공식 앱 등록 확인</li><li>휴대용 배터리 2개, 가족 연락처 메모</li><li>아이 키를 신발 착용 상태로 미리 측정</li><li>멀미약은 복용 가능 여부를 사전에 확인</li><li>10월 저녁용 얇은 겉옷과 우비 준비</li><li>재입장 불가 원칙이므로 물건을 두고 나오지 않기</li><li>당일 운휴·운영시간·정리권 상황 확인</li></ul></article>
       </div>
       <div class="usj-links"><a href="https://www.usj.co.jp/web/ko/kr/tickets" target="_blank" rel="noopener">공식 티켓</a><a href="https://www.usj.co.jp/web/ko/kr/service-guide/safe/height-restriction" target="_blank" rel="noopener">공식 신장 제한</a><a href="https://www.usj.co.jp/web/ko/kr/access/train" target="_blank" rel="noopener">공식 전철 안내</a><a href="https://www.usj.co.jp/web/ko/kr/restaurants/super-nintendo-world-food" target="_blank" rel="noopener">닌텐도 푸드</a><a href="https://www.youtube.com/watch?v=_e3FITEvtM0" target="_blank" rel="noopener">분석한 영상</a></div>
@@ -1920,7 +1919,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.12</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.13</div>
   </footer>
 
   <script>
@@ -2105,9 +2104,6 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var kyotoChoice = document.querySelector('#day3 .day-choice');
-      var kyotoGuide = document.getElementById('kyoto-guide');
-      if (kyotoChoice && kyotoGuide) kyotoGuide.appendChild(kyotoChoice);
       var tabGroups = {
         overview: ['osaka-intro', 'area-guide', 'smart-guide'],
         budget: ['budget'],
@@ -2117,7 +2113,6 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
         icoca: ['icoca-guide'],
         itinerary: ['meals', 'day1', 'day2', 'day3', 'day4'],
         usj: ['usj-complete'],
-        kyoto: ['kyoto-guide'],
         explore: ['five-zone-guide', 'food-guide', 'convenience-guide', 'shopping-guide']
       };
       Object.keys(tabGroups).forEach(function (tabName) {
