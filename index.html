@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.19 -->
+<!-- 오사카 가족여행 가이드북 v4.20 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -214,6 +214,9 @@
   }
   .guide-card.recommended{border-top:4px solid var(--vermilion);padding-top:19px;}
   .guide-card .guide-icon{font-size:25px;margin-bottom:10px;}
+  .snack-photo-link{display:block;margin:-22px -20px 15px;overflow:hidden;border-radius:13px 13px 0 0;background:#f4efe5}
+  .snack-photo{display:block;width:100%;height:176px;object-fit:contain;padding:10px;background:#fff;box-sizing:border-box;transition:transform .2s ease}
+  .snack-photo-link:hover .snack-photo{transform:scale(1.025)}
   .guide-card h3{font-family:'Noto Sans KR',sans-serif;font-size:16px;margin:0 0 7px;color:var(--ink);}
   .guide-card p{font-size:13.4px;color:var(--ink-soft);margin:0;line-height:1.72;}
   .guide-card .fit{margin-top:12px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:var(--ink);}
@@ -515,7 +518,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.19</div>
+    <div class="page-version">GUIDE v4.20</div>
     <div class="hero-eyebrow">Osaka Family Trip</div>
     <h1>오사카<br>가족여행 가이드북</h1>
     <p class="subtitle">사랑하는 두 딸과 함께하는 3박 4일 힐링 &amp; 테마파크 여행</p>
@@ -1827,16 +1830,30 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
       <div class="section-head"><div class="kicker">Japanese Seafood Snacks</div><h2>일본 건어물·해산물 간식 추천</h2></div>
       <p class="budget-note">포장지에서 <b>珍味(친미·별미), おつまみ(오츠마미·안주), 乾物(칸부쓰·건물)</b> 표기를 찾으세요. 무인양품·돈키호테·대형 슈퍼·편의점에서 소포장 제품을 쉽게 살 수 있습니다.</p>
       <div class="guide-grid">
-        <article class="guide-card recommended"><span class="guide-badge">아이들과 1순위</span><div class="guide-icon">🦑</div><h3>사키이카·이카소멘·스루메시트</h3><p><b>さきいか / いかソーメン / するめシート</b><br>오징어를 부드럽게 찢거나 얇게 잘라 달콤짭짤하게 양념한 간식입니다. 통오징어보다 덜 질기고 스루메시트는 단맛이 있어 아이들이 입문하기 좋습니다.</p><div class="fit"><b>구매:</b> 무인양품, 돈키호테, 편의점 · 매운맛 표기와 질긴 조각 확인</div></article>
-        <article class="guide-card"><span class="guide-badge">어른 안주</span><div class="guide-icon">🦑</div><h3>스루메·아타리메</h3><p><b>するめ / あたりめ</b><br>오징어를 통째 또는 다리째 말린 가장 전통적인 종류입니다. 씹을수록 감칠맛이 강하지만 상당히 질기고, 고추 양념 제품도 있어 어린아이보다는 어른 맥주 안주에 가깝습니다.</p><div class="fit"><b>구매:</b> 돈키호테·슈퍼 · 가족용은 미리 잘린 소포장 추천</div></article>
-        <article class="guide-card recommended"><span class="guide-badge">가족 추천</span><div class="guide-icon">🐚</div><h3>호타테 카이히모</h3><p><b>ほたて貝ひも</b><br>가리비 가장자리의 관자끈을 구워 만든 쫄깃한 간식입니다. 달고 짭짤한 감칠맛이 강하며, 무인양품에는 노프라이 방식의 가리비 관자끈 스낵이 안내되어 있습니다.</p><div class="fit"><b>구매:</b> 무인양품·돈키호테 · 조개 알레르기 확인</div></article>
-        <article class="guide-card"><span class="guide-badge">진한 감칠맛</span><div class="guide-icon">🐟</div><h3>사케토바</h3><p><b>鮭とば</b><br>연어를 길게 잘라 말린 홋카이도 계열 별미입니다. 훈연향과 기름진 감칠맛, 짠맛이 강해 술안주용으로 좋고, 처음 사면 한입 크기의 부드러운 제품이 편합니다.</p><div class="fit"><b>구매:</b> 무인양품·돈키호테·백화점 식품관 · 냄새가 있어 밀봉 보관</div></article>
-        <article class="guide-card recommended"><span class="guide-badge">아이 간식 후보</span><div class="guide-icon">🐟</div><h3>작은 생선&amp;아몬드</h3><p><b>小魚＆アーモンド</b><br>달콤짭짤하게 말린 멸치류와 아몬드를 섞은 바삭한 간식입니다. 생선 맛이 비교적 순하고 소포장이라 나눠 먹기 좋지만 단단한 뼈와 견과류 알레르기에 주의하세요.</p><div class="fit"><b>구매:</b> 무인양품·슈퍼·편의점 · 초2는 천천히 씹도록 확인</div></article>
-        <article class="guide-card"><span class="guide-badge">부드러운 안주</span><div class="guide-icon">🧀</div><h3>치즈타라</h3><p><b>チーズ鱈</b><br>대구 연육 사이에 치즈를 넣은 일본의 대표 오츠마미입니다. 전통 건어물보다 부드럽고 냄새가 약해 가족이 먹기 쉽지만, 생선·우유 성분 알레르기와 냉장 표시를 확인하세요.</p><div class="fit"><b>구매:</b> 돈키호테·슈퍼·편의점 · 마스카포네 치즈타라도 인기</div></article>
-        <article class="guide-card"><span class="guide-badge">어른 취향</span><div class="guide-icon">🍺</div><h3>에이히레</h3><p><b>えいひれ</b><br>가오리 지느러미를 말린 뒤 구워 먹는 이자카야 단골 안주입니다. 달큰한 훈연향과 쫄깃한 식감이 특징이며, 포장 간식도 질긴 편이라 아이용보다는 어른용입니다.</p><div class="fit"><b>구매:</b> 돈키호테·주류 코너·대형 슈퍼 · 마요네즈·시치미와 잘 어울림</div></article>
-        <article class="guide-card"><span class="guide-badge">고르는 법</span><div class="guide-icon">🛍️</div><h3>우리 가족 추천 조합</h3><p><b>아이용:</b> 스루메시트 + 작은 생선&amp;아몬드<br><b>가족 공용:</b> 사키이카 + 가리비 관자끈<br><b>어른용:</b> 아타리메 + 사케토바 + 에이히레</p><div class="fit"><b>포장 팁:</b> 미개봉·상온보관·개별포장 제품을 고르고 냄새 차단용 지퍼백에 한 번 더 넣기</div></article>
+        <article class="guide-card recommended"><a class="snack-photo-link" href="https://www.askul.co.jp/p/NN17026/" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://cdn.askul.co.jp/img/product/3L1/NN17026_3L1.jpg" alt="무인양품 스루메시트 실제 포장 사진"></a><span class="guide-badge">아이들과 1순위</span><h3>사키이카·이카소멘·스루메시트</h3><p><b>さきいか / いかソーメン / するめシート</b><br>오징어를 부드럽게 찢거나 얇게 잘라 달콤짭짤하게 양념한 간식입니다. 통오징어보다 덜 질기고 스루메시트는 단맛이 있어 아이들이 입문하기 좋습니다.</p><div class="fit"><b>구매:</b> 무인양품, 돈키호테, 편의점 · 매운맛 표기와 질긴 조각 확인</div></article>
+        <article class="guide-card"><a class="snack-photo-link" href="https://www.natori.co.jp/joy/power/ika.html" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://www.natori.co.jp/dcms_media/image/0192910.jpg" alt="나토리 아타리메 실제 제품 사진"></a><span class="guide-badge">어른 안주</span><h3>스루메·아타리메</h3><p><b>するめ / あたりめ</b><br>오징어를 통째 또는 다리째 말린 가장 전통적인 종류입니다. 씹을수록 감칠맛이 강하지만 상당히 질기고, 고추 양념 제품도 있어 어린아이보다는 어른 맥주 안주에 가깝습니다.</p><div class="fit"><b>구매:</b> 돈키호테·슈퍼 · 가족용은 미리 잘린 소포장 추천</div></article>
+        <article class="guide-card recommended"><a class="snack-photo-link" href="https://www.muji.com/jp/ja/store/cmdty/detail/4548076403739" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://item-shopping.c.yimg.jp/i/n/h-lohaco_aej4817_i_20251208193129" alt="무인양품 호타테 가리비 관자끈 스낵 실제 포장 사진"></a><span class="guide-badge">가족 추천</span><h3>호타테 카이히모</h3><p><b>ほたて貝ひも</b><br>가리비 가장자리의 관자끈을 구워 만든 쫄깃한 간식입니다. 달고 짭짤한 감칠맛이 강하며, 무인양품에는 노프라이 방식의 가리비 관자끈 스낵이 안내되어 있습니다.</p><div class="fit"><b>구매:</b> 무인양품·돈키호테 · 조개 알레르기 확인</div></article>
+        <article class="guide-card"><a class="snack-photo-link" href="https://www.natori.co.jp/joy/otsumami-tsu.html" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://www.natori.co.jp/dcms_media/image/tsuuseries_item2_package.png" alt="나토리 사케토바 실제 제품 사진"></a><span class="guide-badge">진한 감칠맛</span><h3>사케토바</h3><p><b>鮭とば</b><br>연어를 길게 잘라 말린 홋카이도 계열 별미입니다. 훈연향과 기름진 감칠맛, 짠맛이 강해 술안주용으로 좋고, 처음 사면 한입 크기의 부드러운 제품이 편합니다.</p><div class="fit"><b>구매:</b> 무인양품·돈키호테·백화점 식품관 · 냄새가 있어 밀봉 보관</div></article>
+        <article class="guide-card recommended"><a class="snack-photo-link" href="https://www.donki.com/campaign/coupon/dosusume/items-archive.php" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://www.donki.com/campaign/coupon/dosusume/assets/img/item/202605/item_2.jpg" alt="돈키호테 작은 생선 건어물 간식 실제 제품 사진"></a><span class="guide-badge">아이 간식 후보</span><h3>작은 생선 간식</h3><p><b>小魚 / 小魚＆アーモンド</b><br>달콤짭짤하게 말린 멸치류를 바삭하게 먹는 간식입니다. 사진처럼 생선만 든 돈키 PB와 아몬드를 섞은 제품이 있으므로 견과류 선호·알레르기에 맞춰 고르세요.</p><div class="fit"><b>구매:</b> 돈키호테·무인양품·슈퍼 · 초2는 단단한 뼈를 천천히 씹도록 확인</div></article>
+        <article class="guide-card"><a class="snack-photo-link" href="https://www.natori.co.jp/joy/cheese.html" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://www.natori.co.jp/dcms_media/image/cheese_item.png" alt="나토리 치즈타라 실제 제품 사진"></a><span class="guide-badge">부드러운 안주</span><h3>치즈타라</h3><p><b>チーズ鱈</b><br>대구 연육 사이에 치즈를 넣은 일본의 대표 오츠마미입니다. 전통 건어물보다 부드럽고 냄새가 약해 가족이 먹기 쉽지만, 생선·우유 성분 알레르기와 냉장 표시를 확인하세요.</p><div class="fit"><b>구매:</b> 돈키호테·슈퍼·편의점 · 마스카포네 치즈타라도 인기</div></article>
+        <article class="guide-card"><a class="snack-photo-link" href="https://www.natori.co.jp/joy/otsumami-tsu.html" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://www.natori.co.jp/dcms_media/image/tsuuseries_item5_package.png" alt="나토리 에이히레 실제 제품 사진"></a><span class="guide-badge">어른 취향</span><h3>에이히레</h3><p><b>えいひれ</b><br>가오리 지느러미를 말린 뒤 구워 먹는 이자카야 단골 안주입니다. 달큰한 훈연향과 쫄깃한 식감이 특징이며, 포장 간식도 질긴 편이라 아이용보다는 어른용입니다.</p><div class="fit"><b>구매:</b> 돈키호테·주류 코너·대형 슈퍼 · 마요네즈·시치미와 잘 어울림</div></article>
+        <article class="guide-card"><a class="snack-photo-link" href="https://www.natori.co.jp/joy/otsumami-tsu.html" target="_blank" rel="noopener noreferrer"><img class="snack-photo" src="https://www.natori.co.jp/dcms_media/image/tsuuseries_mv_1_pc.png" alt="일본 건어물 안주 제품 모음 사진"></a><span class="guide-badge">고르는 법</span><h3>우리 가족 추천 조합</h3><p><b>아이용:</b> 스루메시트 + 작은 생선&amp;아몬드<br><b>가족 공용:</b> 사키이카 + 가리비 관자끈<br><b>어른용:</b> 아타리메 + 사케토바 + 에이히레</p><div class="fit"><b>포장 팁:</b> 미개봉·상온보관·개별포장 제품을 고르고 냄새 차단용 지퍼백에 한 번 더 넣기</div></article>
       </div>
       <div class="source-box"><a href="https://www.muji.com/jp/ja/store/search/cmdty/%E7%8F%8D%E5%91%B3/" target="_blank" rel="noopener noreferrer">무인양품 친미·오츠마미 상품 목록</a> · 상품 구성과 가격은 점포·시기에 따라 달라집니다. 원재료의 오징어·생선·조개·우유·견과류 알레르기 표시와 상온보관 여부를 구매 전에 확인하세요.</div>
+
+      <div class="section-head" style="margin-top:42px"><div class="kicker">Don Quijote Must-Buy List</div><h2>돈키호테 필수 쇼핑목록</h2></div>
+      <p class="budget-note">식품·여행 회복용품을 한 칸씩 나눴습니다. 사진은 제품을 찾기 위한 참고이며 패키지·용량·재고·가격은 2026년 10월 방문 시점과 지점마다 달라질 수 있습니다.</p>
+      <div class="food-grid">
+        <article class="food-card"><a href="https://www.donki.com/campaign/coupon/dosusume/items-archive.php" target="_blank" rel="noopener noreferrer"><img src="https://www.donki.com/campaign/coupon/dosusume/assets/img/item/202605/item_2.jpg" alt="돈키호테 아몬드를 뺀 작은 생선 실제 제품"></a><div class="food-card-body"><div class="food-card-name">PB 아몬드를 뺀 작은 생선 <span class="food-badge">아이 후보</span></div><p>아몬드 없이 작은 생선만 담은 돈키 PB 간식. 바삭하고 짭짤하며 견과류를 원하지 않을 때 고르기 좋습니다.</p><p class="food-shop">🛍 情熱価格 코너 · 생선 뼈와 원재료 알레르기 확인</p></div></article>
+        <article class="food-card"><a href="https://www.donki.com/campaign/coupon/dosusume/items-archive.php" target="_blank" rel="noopener noreferrer"><img src="https://www.donki.com/campaign/coupon/dosusume/assets/img/item/202605/item_3.jpg" alt="돈키호테 고급 웨하스 실제 제품"></a><div class="food-card-body"><div class="food-card-name">PB 고급 웨하스</div><p>코코아·딸기 맛의 대용량 웨하스 후보. 낱개 포장 여부를 확인하면 회사·학교 선물로 나누기 편합니다.</p><p class="food-shop">🛍 情熱価格 과자 코너 · 부피가 커 캐리어 공간 확인</p></div></article>
+        <article class="food-card"><a href="https://www.donki.com/campaign/coupon/dosusume/items-archive.php" target="_blank" rel="noopener noreferrer"><img src="https://www.donki.com/campaign/coupon/dosusume/assets/img/item/202602/item_1.jpg" alt="돈키호테 새우 튀김 센베이 실제 제품"></a><div class="food-card-body"><div class="food-card-name">PB 끝까지 맛있는 새우 센베이</div><p>바삭하고 짭짤한 일본식 새우 쌀과자. 가족 간식이나 가벼운 선물로 무난하지만 잘 부서지므로 캐리어 위쪽에 넣으세요.</p><p class="food-shop">🛍 情熱価格 과자 코너 · 새우 알레르기 확인</p></div></article>
+        <article class="food-card"><a href="https://www.glico.com/jp/product/chocolate/pocky/" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Chocolate%20pocky%20sticks.JPG?width=500" alt="글리코 포키 과자"></a><div class="food-card-body"><div class="food-card-name">포키·프리츠 일본 한정맛</div><p>말차·딸기·지역 한정맛과 대용량 묶음이 선물용으로 편합니다. 일반맛은 한국 가격과 비교하고 일본 한정 표기를 우선하세요.</p><p class="food-shop">🛍 글리코 코너 · 여름·난방 환경에서 초콜릿 녹음 주의</p></div></article>
+        <article class="food-card"><a href="https://www.nestle.jp/brands/kitkat" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Japanese%20kit%20Kat%20varieties.jpg?width=500" alt="일본 지역 한정 킷캣 여러 종류"></a><div class="food-card-body"><div class="food-card-name">킷캣 일본·간사이 한정맛</div><p>말차·사케·지역 한정맛처럼 일본에서만 보기 쉬운 조합을 고르세요. 여러 명에게 나눌 때는 개별포장 대용량이 편합니다.</p><p class="food-shop">🛍 초콜릿 코너 · 술 함유 제품은 아이용과 분리</p></div></article>
+        <article class="food-card"><a href="https://www.nissin.com/jp/product/items/13417/" target="_blank" rel="noopener noreferrer"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cup%20Noodles.jpg?width=500" alt="일본 닛신 컵누들"></a><div class="food-card-body"><div class="food-card-name">닛신 컵누들·돈베이</div><p>일본 한정 육수와 맛을 고르는 재미가 있지만 부피가 큽니다. 캐리어에는 컵 제품보다 봉지면이나 소형 컵을 우선하세요.</p><p class="food-shop">🛍 라면 코너 · 귀국 수하물 공간을 먼저 계산</p></div></article>
+        <article class="food-card"><a href="https://www.kao.co.jp/megrhythm/" target="_blank" rel="noopener noreferrer"><img src="https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-co-jp/megrhythm/index_202508/kv_img_item01_lg.png?fmt=png-alpha" alt="메구리즘 증기 아이마스크 실제 제품"></a><div class="food-card-body"><div class="food-card-name">메구리즘 증기 아이마스크</div><p>개봉하면 약 40℃ 증기가 나오는 휴식용 아이마스크. 무향·라벤더 등 향을 확인하고 여행 중이나 귀국 후 사용하세요.</p><p class="food-shop">🛍 생활·뷰티 코너 · 어린이 사용은 제조사 안내 확인</p></div></article>
+        <article class="food-card"><a href="https://www.lion.co.jp/ja/products/brand/series/17" target="_blank" rel="noopener noreferrer"><img src="https://doc.lion.co.jp/uploads/grn/product/normal_image/341/012-01.png" alt="라이온 휴족시간 발 시트 실제 제품"></a><div class="food-card-body"><div class="food-card-name">휴족시간 발 시트</div><p>많이 걸은 날 종아리·발바닥 등에 붙이는 냉각 젤 시트입니다. 치료제가 아닌 휴식용 제품이며 피부가 민감하면 사용 전 표시사항을 확인하세요.</p><p class="food-shop">🛍 풋케어 코너 · 대용량과 휴대용 가격 비교</p></div></article>
+      </div>
+      <div class="guide-note"><b>돈키 쇼핑 순서:</b> ① 사진을 저장해 상품 검색 ② 일본 한정·PB 여부 확인 ③ 개별포장·유통기한·알레르기 확인 ④ 면세 대상 금액과 봉인 조건 확인 ⑤ 부피 큰 라면·과자는 마지막에 결정. 도톤보리점은 일정에 포함되어 있지만 혼잡하면 다른 난바·신사이바시 지점과 가격·재고를 비교하세요.</div>
 
       <div class="food-grid">
         <div class="food-card">
@@ -1974,7 +1991,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.672508
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.19</div>
+    <div class="sub">오사카 가족여행 · 2026.10.16 – 10.19 · v4.20</div>
   </footer>
 
   <script>
