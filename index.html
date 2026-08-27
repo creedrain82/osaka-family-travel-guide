@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.50 -->
+<!-- 오사카 가족여행 가이드북 v4.51 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -39,7 +39,7 @@
 
   /* ---------- GUIDE TABS ---------- */
   .guide-tabs-shell{position:sticky;top:0;z-index:100;background:rgba(246,239,225,.96);border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(42,33,24,.08);backdrop-filter:blur(10px);}
-  .guide-tabs{max-width:880px;margin:0 auto;padding:10px 20px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;}
+  .guide-tabs{max-width:1040px;margin:0 auto;padding:10px 20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;}
   .guide-tabs::-webkit-scrollbar{display:none;}
   .guide-tab{min-width:0;border:1px solid var(--line);border-radius:999px;background:var(--paper-card);color:var(--ink-soft);padding:10px 8px;font:700 12.5px 'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;}
   .guide-tab[aria-selected="true"]{background:var(--indigo);border-color:var(--indigo);color:#fff;box-shadow:0 5px 14px rgba(31,58,95,.22);}
@@ -528,7 +528,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.50</div>
+    <div class="page-version">GUIDE v4.51</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -541,6 +541,7 @@
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="icoca">ICOCA</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="planb">2일차 B안</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="usj">USJ</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="food">맛집</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="snacks">간식</button>
@@ -1285,7 +1286,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
           <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">2</span></div>
           <div class="d-titles">
             <div class="d-date">10월 17일 · 토요일</div>
-            <h3>주유패스 일정 · Plan A/B 선택</h3>
+            <h3>주유패스 일정 · Plan A(우메다 쇼핑 중심)</h3>
           </div>
         </div>
         <img class="day-photo" alt="오사카성 전경"
@@ -1328,6 +1329,26 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
             <li><div class="t-time">21:00–21:20</div><div class="t-thumb icon">🚤</div><div class="t-body"><div class="t-title">원더크루즈 도톤보리 야경 <span class="meal-tag">예약 완료 · 패스 무료</span></div><div class="t-desc">2026년 10월 17일 21:00 가족 4명 예약 확정. 니폰바시 선착장에서 도톤보리 수로를 왕복하며 글리코상과 네온사인을 감상합니다.</div></div></li>
           </ul>
         </div>
+        <div class="day-tip"><span class="icon">🅰️</span><div><b>Plan A를 선택하면</b>우메다 쇼핑과 도톤보리 오코노미야키 저녁을 여유 있게 즐기고, Day 4에 구로몬시장·신세카이·쿠시카츠를 방문합니다. 신세카이 야경까지 하루에 넣는 B안은 상단의 <b>2일차 B안</b> 탭에서 별도로 비교하세요.</div></div>
+      </div>
+    </section>
+
+    <!-- ============ DAY 2 PLAN B ============ -->
+    <section id="day2-planb" class="day day2">
+      <div class="day-card">
+        <div class="day-head">
+          <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">2B</span></div>
+          <div class="d-titles"><div class="d-date">10월 17일 · 토요일 · 선택안</div><h3>신세카이 야경 포함 Plan B</h3></div>
+        </div>
+        <div class="day-tip"><span class="icon">🗳️</span><div><b>가족 결정용 독립안</b>아직 최종 확정 전인 일정입니다. Plan A보다 우메다 쇼핑이 15분 짧고 이동이 많지만, 신세카이·쿠시카츠·츠텐카쿠를 이날 끝내서 Day 4를 난바 쇼핑과 이즈모 점심으로 바꿀 수 있습니다.</div></div>
+        <div class="airport-compare" style="margin:18px 28px"><table><thead><tr><th>비교</th><th>Plan A · 쇼핑 중심</th><th>Plan B · 신세카이 포함</th></tr></thead><tbody>
+          <tr><td>우메다 쇼핑</td><td class="best">14:45–16:35 · 1시간 50분</td><td>14:45–16:20 · 1시간 35분</td></tr>
+          <tr><td>HEP FIVE</td><td>17:00 · 일몰 무렵</td><td>16:25 · 낮 풍경</td></tr>
+          <tr><td>저녁·야경</td><td>도톤보리 오코노미야키</td><td class="best">신세카이 쿠시카츠 + 츠텐카쿠</td></tr>
+          <tr><td>이동 부담</td><td class="best">우메다 → 난바 1회</td><td>우메다 → 신세카이 → 도톤보리</td></tr>
+          <tr><td>Day 4</td><td>구로몬시장 + 신세카이</td><td class="best">난바 쇼핑 + 이즈모 난바점</td></tr>
+          <tr><td>추천 기준</td><td>쇼핑·여유 우선</td><td>지역 다양성·츠텐카쿠 야경 우선</td></tr>
+        </tbody></table></div>
         <div class="plan-label alt">PLAN B · 신세카이 저녁과 츠텐카쿠 야경 추가</div>
         <div class="route-flow plan-route">
           <span class="r-label">동선</span>
@@ -1355,6 +1376,20 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
         <div class="day-tip"><span class="icon">🚇</span><div><b>Day 2 교통</b>공통 구간은 신사이바시(N15)→오사카비즈니스파크(N21), 다니마치욘초메(T23)→히가시우메다(T20)입니다. Plan A는 우메다(M16)→난바(M20), Plan B는 우메다(M16)→도부츠엔마에(M22), 에비스초(K18)→닛폰바시(K17)를 이용합니다. 모두 Osaka Metro입니다. 성인은 주유패스, 아이들이 현장 입장권 방식을 선택하면 어린이 엔조이 에코카드 1일권 310엔을 사용하세요. JR 추천 경로는 선택하지 않습니다. <a href="https://osaka-amazing-pass.com/en/service_about_train.html" target="_blank" rel="noopener noreferrer">주유패스 공식 이용 노선</a></div></div>
         <div class="day-tip"><span class="icon">🚂</span><div><b>오사카성 로드트레인·일렉트릭카 정보</b>로드트레인은 모리노미야역·JO-TERRACE OSAKA와 천수각 북쪽 극락교를 연결하며, 편도 성인 400엔·초등학생 200엔, 통상 9:30~17:00 운행입니다. 남서쪽에서는 별도 일렉트릭카가 바바초~사쿠라몬을 약 10분 간격으로 운행하며 성인 300엔·초등학생 200엔입니다. 두 교통수단 1일권은 성인 1,000엔·어린이 600엔입니다. 주유패스로 무료 탑승하는 시설은 아니지만 1일권을 200엔 할인받는 특전이 있습니다. 이번 일정은 오사카비즈니스파크역→극락교로 들어가 서쪽 니시노마루 정원→다니마치욘초메역으로 빠지는 방향이라 로드트레인을 타면 동쪽으로 되돌아가게 됩니다. 따라서 정규 일정에서는 제외하고, 아이들이 많이 지쳤거나 현장에서 관람 순서를 바꿀 때만 선택하세요. 매월 첫째 목요일과 짝수월 넷째 목요일 휴무, 악천후·행사 시 운휴 가능성이 있어 당일 운행표 확인이 필요합니다. <a href="https://www.osakacastlepark.jp/pdf/OsakaCastleMainTower_BFmap_jp.pdf" target="_blank" rel="noopener noreferrer">공식 노선 지도</a></div></div>
         <div class="day-tip"><span class="icon">🎫</span><div><b>공중정원 제외 후 주유패스 가치</b>천수각·석벽관 1,200엔 + 고자부네 1,800엔 + YAGURA·정원 900엔 + HEP FIVE 1,000엔 + 원더크루즈 2,000엔 = 성인 일반요금 약 6,900엔 상당이며 지하철도 포함됩니다. 성인 2명은 주유패스가 확실히 유리합니다. 아이들은 YAGURA까지 현장 구매하면 에코카드를 포함해 1인 약 3,310~3,510엔으로 성인용 주유패스 3,500엔과 거의 같으므로, 전망대 추가 여부와 매표 편의에 따라 구매 직전에 결정하세요.</div></div>
+
+        <div class="plan-label alt">PLAN B 선택 시 · DAY 4 난바 쇼핑 대체 일정</div>
+        <div class="route-flow plan-route">
+          <span class="r-label">동선</span><span class="route-stop">체크아웃·짐 보관</span><span class="route-arrow">→</span><span class="route-stop">구로몬 간단 아침</span><span class="route-arrow">→</span><span class="route-stop">다카시마야·난바 쇼핑</span><span class="route-arrow">→</span><span class="route-stop">이즈모 난바점</span><span class="route-arrow">→</span><span class="route-stop">짐 픽업·라피트</span>
+        </div>
+        <div class="day-body"><ul class="timeline">
+          <li><div class="t-time">08:40–09:00</div><div class="t-thumb icon">🧳</div><div class="t-body"><div class="t-title">체크아웃 · 숙소에 짐 보관</div><div class="t-desc">리가레 난바에서 체크아웃하고 캐리어를 맡깁니다. 라피트 탑승 전에 바로 찾을 수 있도록 보관 위치와 회수 절차를 확인하세요.</div></div></li>
+          <li><div class="t-time">09:00–09:45</div><div class="t-thumb icon">🍣</div><div class="t-body"><div class="t-title">구로몬시장 간단 아침 <span class="meal-tag">선택</span></div><div class="t-desc">구로몬 산페이의 카이센동·초밥 또는 시장의 구운 생선·계란초밥으로 가볍게 먹습니다. 쇼핑 체력을 아끼려면 09:45에는 난바로 이동하세요.</div></div></li>
+          <li><div class="t-time">10:00–11:15</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">다카시마야 오사카점 B1 · 난바 CITY</div><div class="t-desc">백화점 지하 식품관에서 일심당 과일모찌·551호라이·선물용 과자를 먼저 보고, 난바 CITY에서 패션·잡화를 둘러봅니다. 냉장 제품은 귀국 이동시간을 고려해 마지막에 받으세요.</div></div></li>
+          <li class="highlight-row"><div class="t-time">11:20–12:20</div><div class="t-thumb icon">🍱</div><div class="t-body"><div class="t-title"><span class="meal-tag">Plan B 식사 10</span>이즈모 오사카 난바점 · 장어덮밥</div><div class="t-desc">두툼한 장어와 계란을 올린 큰 덮밥을 마지막 점심 후보로 둡니다. 가족이 적게 먹더라도 큰 메뉴 1개만 4명이 나누기보다는 메인 2개 또는 메인과 사이드·음료를 함께 주문하고 매장 최소 주문 기준을 확인하는 편이 안전합니다. 영업시간·휴무와 대기는 방문 직전에 지도에서 재확인하세요. <a href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%84%E3%81%A5%E3%82%82+%E5%A4%A7%E9%98%AA%E9%9B%A3%E6%B3%A2%E5%BA%97" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
+          <li><div class="t-time">12:20–13:00</div><div class="t-thumb icon">🎁</div><div class="t-body"><div class="t-title">난바 파크스·다카시마야 최종 쇼핑</div><div class="t-desc">빠진 선물과 간식을 보충합니다. 식당 대기가 생기면 이 구간부터 줄이고, 면세 물품은 수하물 무게와 밀봉 상태를 확인하세요.</div></div></li>
+          <li><div class="t-time">13:00–13:25</div><div class="t-thumb icon">🧳</div><div class="t-body"><div class="t-title">숙소 짐 수령 · 난카이 난바역 이동</div><div class="t-desc">13:25 역 도착을 마감으로 잡습니다. 이후 14:00 전후 라피트와 공항 일정은 기본 Day 4와 동일합니다.</div></div></li>
+        </ul></div>
+        <div class="day-tip"><span class="icon">⏱️</span><div><b>Plan B Day 4 안전 기준</b>이즈모 대기가 30분을 넘으면 12:20 쇼핑을 생략하거나 다른 난바 식당으로 바꿉니다. 13:00 숙소 복귀·13:25 난카이 난바역 도착 기준은 쇼핑보다 우선합니다.</div></div>
       </div>
     </section>
 
@@ -1478,7 +1513,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
           <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">4</span></div>
           <div class="d-titles">
             <div class="d-date">10월 19일 · 월요일</div>
-            <h3>구로몬시장·신세카이 &amp; 안전 귀국</h3>
+            <h3>Plan A 적용 · 구로몬시장·신세카이 &amp; 안전 귀국</h3>
           </div>
         </div>
         <div class="photo-duo">
@@ -2081,7 +2116,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.50</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.51</div>
   </footer>
 
   <script>
@@ -2300,6 +2335,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
         prep: ['trip-prep', 'tips'],
         icoca: ['icoca-guide'],
         itinerary: ['meals', 'day1', 'day2', 'day3', 'day4'],
+        planb: ['day2-planb'],
         usj: ['usj-complete'],
         food: ['food-guide'],
         snacks: ['snack-guide', 'convenience-guide'],
