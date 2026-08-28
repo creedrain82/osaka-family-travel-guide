@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.52 -->
+<!-- 오사카 가족여행 가이드북 v4.54 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -39,7 +39,7 @@
 
   /* ---------- GUIDE TABS ---------- */
   .guide-tabs-shell{position:sticky;top:0;z-index:100;background:rgba(246,239,225,.96);border-bottom:1px solid var(--line);box-shadow:0 6px 18px rgba(42,33,24,.08);backdrop-filter:blur(10px);}
-  .guide-tabs{max-width:1040px;margin:0 auto;padding:10px 20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;}
+  .guide-tabs{max-width:1180px;margin:0 auto;padding:10px 20px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;}
   .guide-tabs::-webkit-scrollbar{display:none;}
   .guide-tab{min-width:0;border:1px solid var(--line);border-radius:999px;background:var(--paper-card);color:var(--ink-soft);padding:10px 8px;font:700 12.5px 'Noto Sans KR',sans-serif;cursor:pointer;white-space:nowrap;}
   .guide-tab[aria-selected="true"]{background:var(--indigo);border-color:var(--indigo);color:#fff;box-shadow:0 5px 14px rgba(31,58,95,.22);}
@@ -82,6 +82,8 @@
   .prep-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}.prep-summary-card{padding:16px 12px;border-radius:14px;text-align:center;border:1px solid var(--line);background:var(--paper-card)}.prep-summary-card b{display:block;font-size:26px;line-height:1.1;margin-bottom:5px}.prep-summary-card span{font-size:11px;color:var(--ink-soft)}.prep-summary-card.done b{color:var(--pine)}.prep-summary-card.now b{color:var(--vermilion)}.prep-summary-card.dated b{color:var(--sora)}.prep-summary-card.local b{color:#8b6914}
   .prep-board{display:grid;gap:10px}.prep-row{display:grid;grid-template-columns:112px 1.1fr 1.3fr 120px;gap:12px;align-items:center;padding:15px 16px;border:1px solid var(--line);border-radius:14px;background:var(--paper-card)}.prep-row h3{margin:0;font:700 13px 'Noto Sans KR',sans-serif}.prep-row p{margin:0;color:var(--ink-soft);font-size:11.8px;line-height:1.55}.prep-row .next{color:var(--ink);font-weight:600}.status-chip{display:inline-flex;align-items:center;justify-content:center;min-height:30px;padding:5px 10px;border-radius:999px;font-size:10.5px;font-weight:800;text-align:center}.status-chip.done{background:rgba(60,110,92,.13);color:var(--pine)}.status-chip.buy{background:rgba(189,66,38,.12);color:var(--vermilion)}.status-chip.date{background:rgba(47,93,130,.12);color:var(--sora)}.status-chip.decide{background:rgba(200,152,59,.17);color:#74550e}.status-chip.local{background:rgba(92,75,60,.12);color:#604b3a}
   .prep-deadline{margin:18px 0;padding:18px;border-radius:15px;background:#fff8e8;border:1px solid rgba(200,152,59,.35)}.prep-deadline h3{margin:0 0 10px;font-size:16px}.prep-deadline-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.prep-date{padding:11px;border-radius:10px;background:rgba(255,255,255,.7);font-size:10.8px;line-height:1.55}.prep-date b{display:block;color:var(--vermilion);font-size:12px;margin-bottom:3px}
+  .packing-progress{position:sticky;top:90px;z-index:20;margin:0 0 18px;padding:14px 18px;border:1px solid var(--line);border-radius:15px;background:rgba(255,252,244,.96);box-shadow:0 5px 16px rgba(42,33,24,.08);backdrop-filter:blur(8px)}.packing-progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}.packing-progress-head b{color:var(--indigo);font-size:14px}.packing-reset{border:1px solid var(--line);border-radius:999px;background:#fff;padding:6px 10px;color:var(--ink-soft);font-size:10.5px;cursor:pointer}.packing-bar{height:9px;border-radius:999px;background:var(--paper-deep);overflow:hidden}.packing-bar span{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--sora),var(--pine));transition:width .25s ease}.packing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.packing-card{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--paper-card)}.packing-card h3{margin:0 0 7px;font-size:17px}.packing-card>p{margin:0 0 12px;color:var(--ink-soft);font-size:11px;line-height:1.6}.packing-items{display:grid;gap:7px}.pack-item{display:flex;align-items:flex-start;gap:9px;padding:9px 10px;border-radius:10px;background:rgba(246,239,225,.58);font-size:12px;line-height:1.5;cursor:pointer}.pack-item input{width:17px;height:17px;margin:1px 0 0;accent-color:var(--pine);flex:none}.pack-item:has(input:checked){background:rgba(60,110,92,.1);color:var(--ink-soft);text-decoration:line-through}.packing-alert{margin:16px 0;padding:16px 18px;border-left:4px solid var(--vermilion);background:rgba(189,66,38,.07);font-size:12px;line-height:1.75;color:var(--ink-soft)}
+  @media(max-width:680px){.packing-grid{grid-template-columns:1fr}.packing-progress{top:78px}.packing-progress-head{align-items:flex-start}}
   .icoca-hero{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;align-items:stretch;margin-bottom:20px;}
   .icoca-hero img{width:100%;height:100%;min-height:280px;object-fit:cover;border-radius:17px;}
   .icoca-lead{padding:25px;border-radius:17px;background:linear-gradient(145deg,#17365d,#2877a5);color:#fff;display:flex;flex-direction:column;justify-content:center;}
@@ -528,7 +530,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.52</div>
+    <div class="page-version">GUIDE v4.54</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -539,6 +541,7 @@
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="airport">공항/교통</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="stay">숙박</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="packing">준비물 체크</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="icoca">ICOCA</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="planb">2일차 B안</button>
@@ -624,7 +627,7 @@
         <h2>예약·준비 현황 대시보드</h2>
       </div>
       <div class="prep-summary">
-        <div class="prep-summary-card done"><b>5</b><span>결제·예약·등록 완료</span></div><div class="prep-summary-card now"><b>6</b><span>지금 구매·결정</span></div><div class="prep-summary-card dated"><b>1</b><span>날짜 맞춰 처리</span></div><div class="prep-summary-card local"><b>1</b><span>현지에서 구매</span></div>
+        <div class="prep-summary-card done"><b>6</b><span>결제·예약·등록 완료</span></div><div class="prep-summary-card now"><b>5</b><span>지금 구매·결정</span></div><div class="prep-summary-card dated"><b>1</b><span>날짜 맞춰 처리</span></div><div class="prep-summary-card local"><b>1</b><span>현지에서 구매</span></div>
       </div>
       <div class="prep-board">
         <article class="prep-row"><h3>✈️ 항공권</h3><p>인터파크 구매 · 이스타항공 왕복 4인 · 1,387,200원<br>여권번호 입력·e티켓 출력 완료</p><p class="next">남은 행동: 출발 24시간 전 ZE0611 운항·탑승구 확인, 귀국 전 ZE0614 재확인</p><span class="status-chip done">항공 준비 완료</span></article>
@@ -632,18 +635,18 @@
         <article class="prep-row"><h3>⚡ 익스프레스 4</h3><p>와그(WAUG) 구매 · 가족 4매 · 779,456원<br>10/18 닌텐도 16:30 · 마리오카트 · 동키콩</p><p class="next">다음 행동: QR만 자르지 말고 시간·어트랙션이 보이는 전체 바우처 4매를 PDF 저장·각 1부 인쇄</p><span class="status-chip done">구매 완료</span></article>
         <article class="prep-row"><h3>🚤 원더크루즈</h3><p>10/17(토) 21:00 · 가족 4명<br>도톤보리 20분 코스 · 니폰바시 선착장</p><p class="next">남은 행동: 예약확정 메일을 부모 휴대폰에 저장하고 20:40까지 접수처 도착</p><span class="status-chip done">예약 완료</span></article>
         <article class="prep-row"><h3>🎟️ USJ 입장권</h3><p>클룩 1데이 스튜디오 패스 가족 4매 · 316,261원<br>10/18 성인 2매 + 어린이 2매 · 취소 불가</p><p class="next">다음 행동: 확정 후 원본 PDF 저장·USJ 앱에 4매 등록·1인 1장씩 인쇄</p><span class="status-chip date">결제 완료 · 확정 대기</span></article>
-        <article class="prep-row"><h3>🏯 주유패스</h3><p>Day 2 성인 2매는 구매 확정<br>아이 2명은 성인용 패스 또는 현장 어린이권+에코카드 검토</p><p class="next">다음 행동: 전망대 추가 여부를 정한 뒤 아이 패스 2매 포함 여부 확정</p><span class="status-chip decide">성인 2매 필수 · 아이 결정</span></article>
+        <article class="prep-row"><h3>🏯 주유패스</h3><p>Day 2 가족 4명 모두 1일권 사용 확정<br>성인용 디지털 패스 4매 · 합계 14,000엔</p><p class="next">다음 행동: 가족 4매 구매 후 대표 휴대폰에서 사용 준비</p><span class="status-chip buy">4매 구매 필요</span></article>
         <article class="prep-row"><h3>🚆 공항 이동</h3><p>입국편: ICOCA 구매 후 난카이 공항급행<br>귀국편: 라피트 난바 14:00 전후</p><p class="next">입국편은 예약 없는 자유석 · 귀국편 라피트만 9/19부터 예약</p><span class="status-chip done">이동수단 확정</span></article>
         <article class="prep-row"><h3>🅿️ 공항 차량</h3><p>인천공항 T1 공식 발렛 이용 확정<br>예약번호 834533336267</p><p class="next">출국 전 RPM 무료 잔여횟수와 다자녀 주차 50% 자동감면 승인 상태 확인</p><span class="status-chip done">예약·이용 확정</span></article>
         <article class="prep-row"><h3>🛡️ 여행자보험</h3><p>가족 4명 · 해외의료비·배상책임·항공/수하물 지연 비교</p><p class="next">다음 행동: 보장 중복 확인 후 가입하고 영문 증서 저장</p><span class="status-chip buy">가입 필요</span></article>
         <article class="prep-row"><h3>📱 데이터</h3><p>부모 휴대폰 eSIM 우선, 아이 기기 공유 여부 결정</p><p class="next">다음 행동: 데이터 용량 비교 후 구매·출국 전 설치</p><span class="status-chip buy">구매 필요</span></article>
         <article class="prep-row"><h3>💳 여행 결제카드</h3><p><b>할인 우선:</b> SOL트립앤J JCB → <b>실 주력:</b> SOL Mastercard<br><b>비상:</b> 부부 각자 명의 토스</p><p class="next">J카드는 혜택 한도까지만 사용하고 이후 SOL로 결제. 토스는 분실·결제 오류·신한 장애 때만 사용</p><span class="status-chip decide">역할 확정 · 설정 필요</span></article>
-        <article class="prep-row"><h3>🇯🇵 SOL트립앤J</h3><p>본인 명의 JCB · 기존 SOL트래블 외화예금 연결<br>돈키호테·일본 편의점 50% 할인 준비</p><p class="next">9월 발급 신청 → 카드 수령·사용등록 → 9월 국내 이용 30만원을 매입 기준으로 완료 → 10월 혜택 적용상태 확인</p><span class="status-chip date">9월 발급·30만원 실적</span></article>
+        <article class="prep-row"><h3>🇯🇵 SOL트립앤J</h3><p>본인 명의 JCB · 카드 발급·수령·사용등록 완료<br>기존 SOL트래블 외화예금 연결</p><p class="next">남은 행동: 9월 국내 이용 30만원을 매입 기준으로 완료 → 10월 돈키호테·일본 편의점 혜택 적용상태 확인</p><span class="status-chip done">발급·등록 완료</span></article>
         <article class="prep-row"><h3>☕ 신한 RPM Platinum#</h3><p>인천공항 공식 발렛 무료 확인·결제<br>탑승권과 카드 제시 후 제휴매장 아메리카노 혜택</p><p class="next">9월 RPM 이용조건·발렛 무료 잔여횟수 확인 · 출국일 실물카드와 탑승권 지참 · 커피 제휴매장은 직전 재확인</p><span class="status-chip date">공항 혜택용 필수 지참</span></article>
         <article class="prep-row"><h3>🚉 ICOCA</h3><p>공항급행·USJ 왕복용 가족 4장 · 각 2,000엔 구매</p><p class="next">간사이공항에서 성인 2장·어린이 2장 발급, 성인 카드만 각 1,000엔 추가 충전</p><span class="status-chip local">현지 구매</span></article>
         <article class="prep-row"><h3>📝 입국 준비</h3><p>Visit Japan Web 가족 4명 입국·세관 정보 등록 완료<br>여권 유효기간·영문명 확인 완료</p><p class="next">남은 행동: 출발 전 등록 내용과 QR 표시를 재확인하고 부모 휴대폰에 오프라인 저장</p><span class="status-chip done">등록 완료</span></article>
       </div>
-      <div class="prep-deadline"><h3>📅 놓치면 안 되는 날짜</h3><div class="prep-deadline-grid"><div class="prep-date"><b>지금</b>USJ 입장권 확정·바우처 발급 확인, 주유패스·보험·eSIM 비교</div><div class="prep-date"><b>9월 초</b>SOL트립앤J 신청·수령·사용등록</div><div class="prep-date"><b>9/30까지</b>SOL트립앤J 국내 이용 30만원 매입 완료 · RPM 공항혜택 조건 확인</div><div class="prep-date"><b>10월 초</b>SOL트립앤J 일본 할인 적용상태 · 부부 토스 자동환전 설정 확인</div><div class="prep-date"><b>9/19</b>귀국편 라피트 구매 · 난바 14:00 전후 지정</div><div class="prep-date"><b>10/12</b>아고다 숙소 무료취소 마감</div><div class="prep-date"><b>10/14 전후</b>숙소 무인 체크인 안내 확인</div><div class="prep-date"><b>10/15</b>날씨·운항·USJ 운영/운휴 최종 확인</div><div class="prep-date"><b>10/16 출국일</b>QR·여권·본인 카드 4장·아내 토스·탑승권 최종 점검</div><div class="prep-date"><b>입국·짐 수령 후</b>JR 간사이공항역에서 ICOCA 4장 구매·충전 → 난카이 공항급행 탑승</div></div></div>
+      <div class="prep-deadline"><h3>📅 놓치면 안 되는 날짜</h3><div class="prep-deadline-grid"><div class="prep-date"><b>지금</b>USJ 입장권 확정·바우처 발급 확인, 주유패스 4매·보험·eSIM 구매</div><div class="prep-date"><b>완료</b>SOL트립앤J 발급·수령·사용등록</div><div class="prep-date"><b>9/30까지</b>SOL트립앤J 국내 이용 30만원 매입 완료 · RPM 공항혜택 조건 확인</div><div class="prep-date"><b>10월 초</b>SOL트립앤J 일본 할인 적용상태 · 부부 토스 자동환전 설정 확인</div><div class="prep-date"><b>9/19</b>귀국편 라피트 구매 · 난바 14:00 전후 지정</div><div class="prep-date"><b>10/12</b>아고다 숙소 무료취소 마감</div><div class="prep-date"><b>10/14 전후</b>숙소 무인 체크인 안내 확인</div><div class="prep-date"><b>10/15</b>날씨·운항·USJ 운영/운휴 최종 확인</div><div class="prep-date"><b>10/16 출국일</b>QR·여권·본인 카드 4장·아내 토스·탑승권 최종 점검</div><div class="prep-date"><b>입국·짐 수령 후</b>JR 간사이공항역에서 ICOCA 4장 구매·충전 → 난카이 공항급행 탑승</div></div></div>
       <div class="airport-compare" style="margin-top:18px"><table><thead><tr><th>티켓</th><th>휴대폰 저장</th><th>종이 출력</th><th>당일 사용법</th></tr></thead><tbody>
         <tr><td>클룩 USJ 입장권</td><td>확정 후 원본 PDF 4매를 부모 두 휴대폰에 저장하고 USJ 공식 앱에도 사전 등록</td><td class="best">권장 · 1인 1장</td><td>입장 게이트에서 각 QR 스캔</td></tr>
         <tr><td>와그 익스프레스 패스</td><td>QR·어트랙션명·지정시간이 모두 보이는 전체 바우처를 부모 두 휴대폰에 저장</td><td class="best">권장 · 1인 1장</td><td>각 어트랙션 익스프레스 입구에서 전체 티켓 제시</td></tr>
@@ -656,6 +659,96 @@
         <article class="prep-card"><h3>📲 휴대폰 필수 저장</h3><ul><li>항공·숙소 원본 PDF와 USJ 입장권·익스프레스 전체 바우처 저장</li><li>Visit Japan Web 가족 4명 QR과 등록 완료 화면을 부모 휴대폰에 오프라인 저장</li><li>주유패스는 캡처·복제 불가: 대표 휴대폰의 실시간 화면만 사용</li><li>라피트는 Ticket Wallet의 실시간 QR 사용</li><li>Google 지도·번역·USJ 공식 앱 설치</li><li>카드 해외원화결제(DCC) 차단, JPY 결제 원칙 공유</li><li>정적 예약자료는 부모 두 휴대폰과 종이 파일에 중복 보관</li></ul></article>
       </div>
       <p class="guide-note">상태가 바뀌면 완료 항목과 남은 할 일을 함께 갱신합니다. 보험·통신·입국 절차와 시설 운영시간은 결제 전과 출발 1주 전에 공식 안내를 다시 확인하세요.</p>
+    </section>
+
+    <!-- ============ PACKING CHECKLIST ============ -->
+    <section id="packing-list" aria-label="오사카 가족여행 준비물 체크리스트">
+      <div class="section-head"><div class="kicker">Packing Checklist</div><h2>여행 준비물 체크</h2></div>
+      <p class="budget-note">일반 해외여행 준비물에 <b>일본 100V A형 콘센트, 현금·동전, 휴대용 쓰레기봉투, USJ 보안검색</b>처럼 이번 여행에 특히 유용한 항목을 합쳤습니다. 체크 상태는 이 브라우저에 자동 저장되므로 실제 짐을 넣은 뒤 체크하세요.</p>
+      <div class="packing-progress"><div class="packing-progress-head"><b id="packing-count">준비 0 / 0 · 0%</b><button class="packing-reset" id="packing-reset" type="button">전체 체크 해제</button></div><div class="packing-bar" aria-hidden="true"><span id="packing-bar-fill"></span></div></div>
+
+      <div class="packing-grid">
+        <article class="packing-card"><h3>📄 여권·예약·증빙</h3><p>가족 공통 최우선 · 기내 휴대</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="passport"><span><b>여권 4권</b> · 유효기간·영문명 재확인</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="flight"><span>e티켓·탑승정보 출력본</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="visit-japan"><span>Visit Japan Web 가족 QR · 부모 휴대폰 저장</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="hotel"><span>아고다 숙소 확정서·주소·전화번호</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="usj-ticket"><span>클룩 USJ 입장권 PDF 4매 · 인쇄본</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="express"><span>와그 익스프레스 전체 바우처 4매 · 인쇄본</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="insurance"><span>여행자보험 영문 증서·긴급 연락처</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>💳 결제·교통</h3><p>부부가 다른 지갑에 분산</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="sol-master"><span><b>SOL트래블 Mastercard</b> · 일본 주력</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="trip-j"><span><b>SOL트립앤J JCB</b> · 발급·등록 완료</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="toss-self"><span>본인 명의 토스 · 비상용</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="toss-wife"><span>아내 명의 토스 · 별도 지갑</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="rpm"><span>신한 RPM · 인천공항 발렛·커피</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="yen"><span>엔화 잔액·30,000엔 현금 인출 계획 확인</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="coin-pouch"><span>작은 동전지갑 · 1·5·10·50·100·500엔</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>🔌 휴대폰·전원</h3><p>일본은 100V·A형 플러그</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="phones"><span>부모 휴대폰 2대·아이 기기</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="esim"><span>eSIM 설치·회선 전환 방법 캡처</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="chargers"><span>충전기·케이블·멀티포트 충전기</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="adapter"><span><b>A형 돼지코 어댑터 2개 이상</b></span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="voltage"><span>전열기기 입력전압 100–240V 확인</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="powerbank"><span>보조배터리 2개 · 단자 절연·개별 파우치</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="apps"><span>Google 지도·번역·USJ·은행 앱 로그인 확인</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>👕 옷·세면용품</h3><p>10월 오사카 · 겹쳐 입기 기준</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="outfits"><span>가족별 상·하의·속옷·양말</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="outer"><span>얇은 가디건·바람막이 · 야간용</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="shoes"><span>오래 걸어도 편한 운동화</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="sleep"><span>잠옷·아이 여벌옷 1세트</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="toiletries"><span>칫솔·치약·렌즈·기초화장품</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="liquid-bag"><span>기내 액체류 100ml 이하 · 1L 투명 지퍼백</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="folding-umbrella"><span>접이식 우산·얇은 우비</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>🩹 가족 상비약</h3><p>복용법을 부모가 함께 공유</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="prescription"><span>처방약 · 원래 포장·처방전 또는 영문 소견</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="fever"><span>해열·진통제 · 아이 체중별 용량 메모</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="stomach"><span>소화제·지사제·알레르기약</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="motion"><span>멀미약 · USJ·비행기 복용시점 확인</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="first-aid"><span>밴드·연고·소독티슈·마스크</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="thermometer"><span>소형 체온계·아이 보험 연락처</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>🎢 USJ 당일 가방</h3><p>가볍게 · 보안검색 가능한 구성</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="usj-qr"><span>입장권·익스프레스 QR 즉시 열기</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="usj-battery"><span>보조배터리·짧은 충전선</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="water-bottle"><span>완전히 닫히는 물병·페트병</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="poncho"><span>워터월드용 우비·작은 수건</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="zip-bag"><span>젖은 옷·전자기기용 지퍼백</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="child-contact"><span>아이 이름·부모 연락처 카드</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="no-selfie-stick"><span>셀카봉·삼각대는 두고 가기</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>🗾 일본에서 특히 유용</h3><p>작지만 체감이 큰 준비물</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="hand-towel"><span>개인 손수건·작은 수건</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="trash-bag"><span><b>휴대용 쓰레기봉투</b> · 공공 쓰레기통이 적음</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="eco-bag"><span>접이식 장바구니·여분 쇼핑백</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="wet-tissue"><span>물티슈·휴지·손 소독제</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="offline-map"><span>숙소·공항·USJ 오프라인 지도</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="address-card"><span>숙소 일본어 주소·가족 연락처 종이 메모</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="luggage-scale"><span>휴대용 저울 · 1인 위탁 15kg 관리</span></label>
+        </div></article>
+
+        <article class="packing-card"><h3>🧳 귀국·쇼핑 대비</h3><p>면세·수하물 정리</p><div class="packing-items">
+          <label class="pack-item"><input type="checkbox" data-pack="folding-bag"><span>접이식 보조가방·캐리어 여유 공간</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="packing-cube"><span>의류 압축팩·파우치</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="receipt-pouch"><span>여권·면세 영수증 보관 파우치</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="taxfree-seal"><span>면세 소모품 밀봉 유지 확인</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="fragile-wrap"><span>과자·컵·깨지는 물품 완충재</span></label>
+          <label class="pack-item"><input type="checkbox" data-pack="weight-plan"><span>가족 4개 수하물에 무게 분산</span></label>
+        </div></article>
+      </div>
+
+      <div class="packing-alert"><b>기내·입국 핵심 주의:</b> 보조배터리는 위탁수하물에 넣지 말고 단락 방지 후 직접 휴대합니다. 2026년 인천공항 안내 기준 160Wh 이하는 1인 최대 2개이며 100Wh 초과 제품은 항공사 승인이 필요합니다. 국제선 액체·젤은 용기당 100ml 이하를 1L 투명 지퍼백 1개에 넣습니다. 일본 반입 처방약·향정신성 의약품은 성분과 허용량이 다르므로 원래 포장과 처방 자료를 준비하고 사전에 일본 세관 기준을 확인하세요. USJ는 외부 음식 섭취와 셀카봉·삼각대를 제한하며, 완전히 닫히는 물병은 보안검색 때 별도로 제시합니다.</div>
+      <p class="source-box"><b>확인한 공식 자료:</b> <a href="https://www.airport.kr/ap_ko/1011/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGYXBfa28lMkYxNzUlMkYxMzkzNzYlMkZhcnRjbFZpZXcuZG8lM0ZwYWdlJTNEMSUyNmZpbmRUeXBlJTNEJTI2ZmluZFdvcmQlM0QlMjZmaW5kQ2xTZXElM0QlMjZyZ3NCZ25kZVN0ciUzRCUyNnJnc0VuZGRlU3RyJTNEJTI2cGFzc3dvcmQlM0QlMjZ0ZW1wUm93JTNEJTI2" target="_blank" rel="noopener noreferrer">인천공항 보조배터리 안내</a> · <a href="https://business.airport.kr/ap_ko/905/subview.do" target="_blank" rel="noopener noreferrer">인천공항 제한물품</a> · <a href="https://www.japan.travel/en/plan/plug-and-electricity/" target="_blank" rel="noopener noreferrer">JNTO 일본 전압·플러그</a> · <a href="https://www.japan.travel/en/faq/" target="_blank" rel="noopener noreferrer">JNTO 여행 FAQ</a> · <a href="https://www.customs.go.jp/english/c-answer_e/imtsukan/1806_e.htm" target="_blank" rel="noopener noreferrer">일본 세관 의약품 기준</a> · <a href="https://www.usj.co.jp/web/en/us/service-guide/park-entry" target="_blank" rel="noopener noreferrer">USJ 반입 규정</a></p>
     </section>
 
     <!-- ============ ICOCA GUIDE ============ -->
@@ -680,10 +773,10 @@
       </div>
 
       <div class="section-head"><div class="kicker">Our Family Estimate</div><h2>우리 일정 기준 얼마가 필요할까</h2></div>
-      <p class="guide-note"><b>계산 기준:</b> 성인 2명 + 만 6~11세 어린이 2명, 숙소는 리가레 난바 본관. Day 2 성인은 주유패스로 이동하고, 아이들은 성인용 주유패스를 사거나 어린이 엔조이 에코카드 310엔을 별도 구매하므로 <b>ICOCA 차감은 어느 선택에서도 0엔</b>으로 계산합니다. Day 1은 ICOCA로 공항급행, Day 4 라피트는 별도 결제입니다.</p>
+      <p class="guide-note"><b>계산 기준:</b> 성인 2명 + 만 6~11세 어린이 2명, 숙소는 리가레 난바 본관. Day 2는 가족 4명 모두 주유패스 1일권을 사용하므로 <b>ICOCA 차감은 0엔</b>입니다. Day 1은 ICOCA로 공항급행, Day 4 라피트는 별도 결제입니다.</p>
       <div class="icoca-cost"><table><thead><tr><th>일정</th><th>성인 1명</th><th>어린이 1명</th><th>가족 합계</th><th>계산 메모</th></tr></thead><tbody>
         <tr><td>Day 1 · 난바 도착</td><td>약 970엔</td><td>약 490엔</td><td>약 2,920엔</td><td>난카이 공항급행, 이후 도보</td></tr>
-        <tr><td>Day 2 · 주유패스 관광</td><td>0엔</td><td>0엔</td><td>0엔</td><td>성인 주유패스 · 아이는 패스 또는 에코카드 310엔 별도</td></tr>
+        <tr><td>Day 2 · 주유패스 관광</td><td>0엔</td><td>0엔</td><td>0엔</td><td>가족 4명 모두 주유패스 1일권 사용</td></tr>
         <tr><td>Day 3 · USJ 왕복</td><td>약 840엔</td><td>약 420엔</td><td>약 2,520엔</td><td>오사카난바↔니시쿠조↔유니버설시티</td></tr>
         <tr><td>Day 4 · 귀국</td><td>0엔</td><td>0엔</td><td>0엔</td><td>난바권 도보 + 라피트 별도</td></tr>
       </tbody></table></div>
@@ -691,7 +784,7 @@
       <div class="icoca-total">
         <article><h3>🚆 확정 ICOCA 사용</h3><div class="yen">예상 차감 5,440엔</div><p>입국일 공항급행과 Day 3 USJ 왕복 합계입니다. 4명 모두 2,000엔짜리로 구매하고 성인 카드 2장에 각각 1,000엔을 추가 충전합니다. 귀국일 라피트 디지털 티켓은 ICOCA 잔액에서 빠지지 않습니다.</p></article>
       </div>
-      <p class="guide-note"><b>결론:</b> 입국편 공항급행과 USJ 왕복에 <b>ICOCA 4장을 각 2,000엔에 구매</b>하고 성인 카드 2장만 각각 1,000엔 추가 충전합니다. 예상 교통 차감액은 가족 합계 약 5,440엔입니다. Day 2 어린이 에코카드를 선택할 경우 카드값 2명 합계 620엔은 ICOCA 충전액과 별도입니다.</p>
+      <p class="guide-note"><b>결론:</b> 입국편 공항급행과 USJ 왕복에 <b>ICOCA 4장을 각 2,000엔에 구매</b>하고 성인 카드 2장만 각각 1,000엔 추가 충전합니다. 예상 교통 차감액은 가족 합계 약 5,440엔입니다. Day 2는 주유패스 4매로 이동하므로 어린이 에코카드를 따로 살 필요가 없습니다.</p>
       <p class="guide-note"><b>확정 충전안:</b> 간사이공항에서 성인용 2장과 어린이용 2장을 각각 2,000엔에 구매한 뒤, 성인 카드에만 각각 1,000엔을 추가 충전하세요. 어린이 카드는 최초 사용잔액 1,500엔으로 입국 공항급행과 USJ 왕복을 충당할 수 있습니다.</p>
       <div class="source-box">블로그 인용: “저는 3000엔 충전했는데 여행 일정에 맞게 충전하시면 됩니다.” 구매 화면과 사진은 작성자의 실제 체험을 인용했으며, 보증금·충전 한도·환불 규정은 JR서일본 공식 안내로 교차 확인했습니다. <a href="https://blog.naver.com/miumiu8232/223569419286" target="_blank" rel="noopener noreferrer">원문 블로그 보기</a> · <a href="https://www.westjr.co.jp/global/kr/howto/icoca/" target="_blank" rel="noopener noreferrer">JR서일본 ICOCA 공식 안내</a> · <a href="https://osaka-amazing-pass.com/kr/faq.html" target="_blank" rel="noopener noreferrer">주유패스 공식 FAQ</a></div>
     </section>
@@ -797,7 +890,7 @@
             <li>휴대폰 고장 위험을 나누고 싶다면 <b>사용 시작 전에만 2매를 아내 계정으로 분배해 2장+2장으로 운영</b>할 수 있습니다. 이는 백업 복제가 아니라 소유 티켓을 나누는 방식이며, 이용 시작 후에는 분배·환불할 수 없습니다.</li>
             <li>2026년판 판매기간은 2026년 3월 25일~2027년 3월 31일이며, 구입일부터 3개월 이내에 사용해야 합니다.</li>
           </ul>
-          <div class="pass-verdict"><b>이번 일정의 현재안:</b> 공중정원은 제외하고 Plan A는 우메다 쇼핑과 HEP FIVE 17:00, Plan B는 우메다 쇼핑을 약 1시간 35분 확보하고 HEP FIVE 16:25 후 신세카이·츠텐카쿠 야경으로 구성합니다. 성인 2매는 주유패스가 확실히 유리하며, Plan B를 선택하면 아이들도 성인용 주유패스를 사는 편이 유리합니다. 원더크루즈는 <b>10/17 21:00 가족 4명 예약 완료</b>입니다.</div>
+          <div class="pass-verdict"><b>이번 일정의 확정 구매안:</b> 가족 4명 모두 1일권을 구매해 총 14,000엔입니다. Plan A는 우메다 쇼핑과 HEP FIVE 17:00, Plan B는 HEP FIVE 16:25 후 신세카이·츠텐카쿠 야경으로 구성합니다. 기본 일정만으로 아이 요금은 패스와 현장권 차이가 크지 않지만, 매표 절차를 줄이고 공중정원이나 츠텐카쿠를 현장에서 추가할 수 있는 유연성을 선택했습니다. 원더크루즈는 <b>10/17 21:00 가족 4명 예약 완료</b>입니다.</div>
           <div class="official-links"><a href="https://osaka-amazing-pass.com/kr/howto_about_1day.html" target="_blank" rel="noopener noreferrer">공식 가격·유효기간</a><a href="https://osaka-amazing-pass.com/kr/service_free.html" target="_blank" rel="noopener noreferrer">공식 이용시설</a><a href="https://osaka-amazing-pass.com/kr/howto_guide.html" target="_blank" rel="noopener noreferrer">공식 이용방법</a></div>
         </div>
       </article>
@@ -873,8 +966,8 @@
       <div class="guide-grid">
         <article class="guide-card">
           <h3>오사카 주유패스</h3>
-          <p>하루나 이틀 동안 시내 관광지를 여러 곳 방문할 때 유리해요. 이용 가능한 교통과 무료·할인 시설을 실제 일정과 비교한 뒤 선택하세요.</p>
-          <div class="fit"><b>적합:</b> 관광지를 촘촘히 도는 날</div>
+          <p>Day 2 가족 4명 모두 1일권을 사용하기로 확정했습니다. 기본 명소에 더해 공중정원이나 츠텐카쿠를 현장에서 선택해도 추가 입장료 부담이 없습니다.</p>
+          <div class="fit"><b>확정:</b> 4매 · 총 14,000엔 · 구매 필요</div>
         </article>
         <article class="guide-card">
           <h3>간사이 조이패스</h3>
@@ -1031,7 +1124,7 @@
             </tr>
             <tr>
               <th>🚄 시내 교통</th>
-              <td style="text-align:left;">입국편 난카이 공항급행 + 귀국편 라피트 + 오사카 지하철·JR</td>
+              <td style="text-align:left;">주유패스 1일권 4매 14,000엔 + 입국편 공항급행 + 귀국편 라피트 + 기타 시내 교통</td>
               <td class="filled">약 21만원<br><small>공항 이동 7,160엔 포함</small></td>
             </tr>
             <tr>
@@ -1099,7 +1192,7 @@
 
       <div class="travel-card-grid">
         <article class="travel-card recommend"><span class="travel-badge">이번 가족 1순위</span><h3>신한 SOL트래블 체크</h3><ul><li>신한 이용자라 계좌·앱 관리가 편리</li><li>30개 통화 환율우대, 해외 결제·ATM 관련 카드사 수수료 면제</li><li>일본 3대 편의점 5% 할인 프로모션은 2026년 말까지 안내</li><li>현지 ATM 운영사 수수료는 별도일 수 있음</li></ul><p><a href="https://www.shinhancard.com/pconts/html/card/travel/travel_check.html" target="_blank" rel="noopener noreferrer">공식 안내 확인</a></p></article>
-        <article class="travel-card recommend"><span class="travel-badge">일본 쇼핑용</span><h3>SOL트립앤J JCB</h3><ul><li>기존 SOL트래블 외화예금의 엔화 잔액을 함께 사용</li><li>돈키호테·일본 3대 편의점 50% 할인은 국내 실적 30만원 필요</li><li>유니클로·무인양품 5%는 2026년 말까지 전월실적 없이 제공</li><li>JCB망을 추가해 기존 SOL Mastercard와 결제망 분산</li></ul><p><a href="https://www.shinhancard.com/pconts/html/card/apply/check/1237542_2206.html" target="_blank" rel="noopener noreferrer">신한카드 공식 안내</a></p></article>
+        <article class="travel-card recommend"><span class="travel-badge">발급·수령·등록 완료</span><h3>SOL트립앤J JCB</h3><ul><li>본인 명의 카드 발급·수령·사용등록 완료</li><li>기존 SOL트래블 외화예금의 엔화 잔액을 함께 사용</li><li>돈키호테·일본 3대 편의점 50% 할인은 9월 국내 실적 30만원 필요</li><li>유니클로·무인양품 5%는 2026년 말까지 전월실적 없이 제공</li><li>JCB망을 추가해 기존 SOL Mastercard와 결제망 분산</li></ul><p><a href="https://www.shinhancard.com/pconts/html/card/apply/check/1237542_2206.html" target="_blank" rel="noopener noreferrer">신한카드 공식 안내</a></p></article>
         <article class="travel-card"><h3>부부 토스뱅크 체크</h3><ul><li>본인과 배우자가 각자 본인 명의 카드·외화통장을 준비</li><li>부족한 돈 자동환전을 켜면 원화계좌에서 필요한 엔화만 자동환전</li><li>해외 결제 수수료 면제, ATM은 월 5회 또는 누적 US$700까지 카드사 수수료 면제</li><li>남은 엔화를 원화로 되돌릴 때도 환율우대 100%</li></ul><p><a href="https://www.tossbank.com/articles/checkcard-payment-fee-free" target="_blank" rel="noopener noreferrer">토스뱅크 공식 안내</a></p></article>
         <article class="travel-card"><h3>신한 RPM Platinum# · 공항용</h3><ul><li>인천공항 공식 발렛 무료 대상 확인·결제용으로 반드시 지참</li><li>탑승권과 실물카드 제시 시 제휴매장 아메리카노 무료: 월 1회 2잔·연 6회 안내</li><li>커피는 전월 신한 Platinum# 1회 이상 이용 조건, 발렛은 보유 상품 조건·잔여횟수 별도 확인</li><li>일본 결제 주력카드가 아니라 공항 혜택과 최종 비상 신용카드 역할</li></ul><p><a href="https://www.shinhancard.com/pconts/html/card/apply/credit/1188292_2207.html" target="_blank" rel="noopener noreferrer">RPM 공식 혜택·제휴매장 확인</a></p></article>
       </div>
@@ -1318,13 +1411,13 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
         <div class="day-body">
           <ul class="timeline">
             <li><div class="t-time">07:30</div><div class="t-thumb icon">🚶</div><div class="t-body"><div class="t-title">리가레 난바 출발</div><div class="t-desc">여권 또는 아이 나이를 확인할 수 있는 자료, 주유패스 QR, 원더크루즈 예약 화면, 보조배터리를 챙겨 도톤보리 방향으로 출발합니다.</div></div></li>
-            <li class="highlight-row"><div class="t-time">07:50–08:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tonkotsu%20ramen%202.jpg?width=200" alt="이치란 돈코츠라멘"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 3</span>이치란 도톤보리점 별관 아침 &amp; 패스 준비</div><div class="t-desc">혼잡을 줄이기 위해 08:00 전후 입장을 목표로 합니다. 기본 돈코츠라멘은 아이들 맵기를 빼고 부모만 비법소스를 추가하세요. 성인 주유패스 QR과 어린이 승차권·입장권 운영안을 확인하고 보조배터리를 챙깁니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E8%98%AD+%E9%81%93%E9%A0%93%E5%A0%80%E5%BA%97%E5%88%A5%E9%A4%A8" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://en.ichiran.com/shop/kinki/dotonbori-south/index.html" target="_blank" rel="noopener noreferrer">공식 영업정보</a></div></div></li>
+            <li class="highlight-row"><div class="t-time">07:50–08:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tonkotsu%20ramen%202.jpg?width=200" alt="이치란 돈코츠라멘"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 3</span>이치란 도톤보리점 별관 아침 &amp; 패스 준비</div><div class="t-desc">혼잡을 줄이기 위해 08:00 전후 입장을 목표로 합니다. 기본 돈코츠라멘은 아이들 맵기를 빼고 부모만 비법소스를 추가하세요. 대표 휴대폰에서 가족 4매의 주유패스 실시간 화면과 원더크루즈 예약을 확인하고 보조배터리를 챙깁니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E8%98%AD+%E9%81%93%E9%A0%93%E5%A0%80%E5%BA%97%E5%88%A5%E9%A4%A8" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://en.ichiran.com/shop/kinki/dotonbori-south/index.html" target="_blank" rel="noopener noreferrer">공식 영업정보</a></div></div></li>
             <li><div class="t-time">08:30–09:20</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">도톤보리 → 오사카비즈니스파크역 → 고자부네 매표소</div><div class="t-desc">신사이바시에서 나가호리쓰루미료쿠치선으로 오사카비즈니스파크역까지 이동한 뒤 극락교 방향으로 걷습니다. 09:20 전후 도착해 09:30 매표 시작을 기다리세요.</div></div></li>
-            <li><div class="t-time">09:30–09:40</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">고자부네 4명분 시간 지정 <span class="meal-tag">11:20 전후 1순위</span></div><div class="t-desc">주유패스 QR을 제시하고 필요한 어린이권은 함께 구매해 네 명이 같은 편을 받습니다. 첫 배를 쫓기보다 11:20 전후편을 먼저 요청하면 천수각을 여유 있게 볼 수 있습니다. 원하는 편이 없으면 받은 시간에 맞춰 아래 세 구간의 순서만 바꾸세요.</div></div></li>
+            <li><div class="t-time">09:30–09:40</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">고자부네 4명분 시간 지정 <span class="meal-tag">11:20 전후 1순위</span></div><div class="t-desc">가족 4매의 주유패스 QR을 제시해 네 명이 같은 편을 받습니다. 별도 어린이권 구매가 없어 접수가 단순합니다. 첫 배를 쫓기보다 11:20 전후편을 먼저 요청하고, 원하는 편이 없으면 받은 시간에 맞춰 아래 세 구간의 순서만 바꾸세요.</div></div></li>
             <li><div class="t-time">09:45–10:35</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osaka%20Castle%2001bs3200.jpg?width=200" alt="오사카성 천수각"></div><div class="t-body"><div class="t-title">오사카성 천수각 <span class="meal-tag">09:00 개관</span></div><div class="t-desc">전시와 8층 전망을 약 50분 관람합니다. 중학생 이하는 여권 등 나이 확인 자료가 있으면 기본 입장이 무료이며, 성인은 주유패스 QR을 사용합니다.</div></div></li>
             <li><div class="t-time">10:35–10:55</div><div class="t-thumb icon">🧱</div><div class="t-body"><div class="t-title">도요토미 석벽관</div><div class="t-desc">천수각 입장에 포함된 지하 석벽 전시를 같은 날 관람합니다. 10:55에는 나와 선착장으로 이동해 승선 10분 전까지 대기하세요.</div></div></li>
             <li><div class="t-time">11:20–11:40</div><div class="t-thumb icon">⛵</div><div class="t-body"><div class="t-title">오사카성 고자부네 놀잇배 <span class="meal-tag">지정편 · 약 20분</span></div><div class="t-desc">해자에서 높은 석벽과 천수각을 올려다봅니다. 실제 승선 시각이 달라지면 천수각·석벽관 관람시간을 앞뒤로 조절하되 승선 10분 전 대기를 우선합니다.</div></div></li>
-            <li><div class="t-time">11:50–12:50</div><div class="t-thumb icon">🏯</div><div class="t-body"><div class="t-title">YAGURA 가을 특별공개 &amp; 니시노마루 정원</div><div class="t-desc">2026년 10월 17일 공개되는 다몬망루·센간망루 내부와 화승총 복제품 체험을 봅니다. 특별공개권에는 니시노마루 정원이 포함됩니다. 주유패스는 무료, 중학생 이하 현장권은 300엔입니다.</div></div></li>
+            <li><div class="t-time">11:50–12:50</div><div class="t-thumb icon">🏯</div><div class="t-body"><div class="t-title">YAGURA 가을 특별공개 &amp; 니시노마루 정원</div><div class="t-desc">2026년 10월 17일 공개되는 다몬망루·센간망루 내부와 화승총 복제품 체험을 봅니다. 특별공개권에는 니시노마루 정원이 포함되며 가족 4명 모두 주유패스로 입장합니다.</div></div></li>
             <li><div class="t-time">12:50–13:40</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">다니마치욘초메역 → 히가시우메다역</div><div class="t-desc">니시노마루 쪽으로 나온 뒤 다니마치선을 이용합니다. 공중정원은 일정에서 제외하므로 오사카역 북서쪽까지 왕복하지 않고 한신·한큐 상권으로 바로 들어갑니다.</div></div></li>
             <li class="highlight-row"><div class="t-time">13:45–14:45</div><div class="t-thumb icon">🍽️</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 4</span>우메다 로컬 점심 <span class="meal-tag">그릴 론 1순위</span></div><div class="t-desc">한신우메다 본점 지하 2층의 그릴 론에서 햄버그·새우튀김·크림고로케·오므라이스를 가족 취향대로 고릅니다. 대기가 길면 신우메다식도거리의 가마타케우동·하나다코를 대안으로 둡니다.</div></div></li>
             <li><div class="t-time">14:45–16:35</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">우메다 집중 쇼핑 <span class="meal-tag">공중정원 대체 일정</span></div><div class="t-desc">한신·한큐 백화점 식품관과 화장품·여성 패션을 먼저 보고, 한큐 삼번가 키디랜드에서 산리오·미피·스누피·지브리·캐릭터 굿즈를 둘러봅니다. 시간이 남으면 HEP FIVE 쇼핑몰까지 이어가되 16:35에는 관람차로 이동하세요.</div></div></li>
@@ -1379,10 +1472,10 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
             <li><div class="t-time">20:20–21:20</div><div class="t-thumb icon">🚤</div><div class="t-body"><div class="t-title">원더크루즈 접수·21:00 야경 운항</div><div class="t-desc">약 15분의 지연 여유를 남기고 20:20 선착장 도착을 목표로 합니다. 늦어도 20:40에는 예약 화면과 패스 QR을 제시해 승선권을 받은 뒤 21:00~21:20 운항을 이용하세요.</div></div></li>
           </ul>
         </div>
-        <div class="day-tip"><span class="icon">⚖️</span><div><b>Plan B 선택 기준</b>도톤보리 자유시간을 없애 우메다 쇼핑을 약 1시간 35분으로 늘렸습니다. 츠텐카쿠는 19:00 전후로 늦추되 19:50 퇴장을 절대 마감으로 잡고, 원더크루즈에는 약 15분의 지연 여유를 남깁니다. 츠텐카쿠 어린이 일반 전망대 요금 800엔이 추가되므로 아이들도 3,500엔 주유패스를 사는 편이 1인 약 310~510엔 유리합니다. Plan B를 최종 선택하면 Day 4 신세카이 일정은 대체 지역으로 조정해야 합니다.</div></div>
-        <div class="day-tip"><span class="icon">🚇</span><div><b>Day 2 교통</b>공통 구간은 신사이바시(N15)→오사카비즈니스파크(N21), 다니마치욘초메(T23)→히가시우메다(T20)입니다. Plan A는 우메다(M16)→난바(M20), Plan B는 우메다(M16)→도부츠엔마에(M22), 에비스초(K18)→닛폰바시(K17)를 이용합니다. 모두 Osaka Metro입니다. 성인은 주유패스, 아이들이 현장 입장권 방식을 선택하면 어린이 엔조이 에코카드 1일권 310엔을 사용하세요. JR 추천 경로는 선택하지 않습니다. <a href="https://osaka-amazing-pass.com/en/service_about_train.html" target="_blank" rel="noopener noreferrer">주유패스 공식 이용 노선</a></div></div>
+        <div class="day-tip"><span class="icon">⚖️</span><div><b>Plan B 선택 기준</b>도톤보리 자유시간을 없애 우메다 쇼핑을 약 1시간 35분으로 늘렸습니다. 츠텐카쿠는 19:00 전후로 늦추되 19:50 퇴장을 절대 마감으로 잡고, 원더크루즈에는 약 15분의 지연 여유를 남깁니다. 가족 4명 모두 주유패스를 사용하므로 츠텐카쿠를 선택해도 별도 입장권 구매가 없습니다. Plan B를 최종 선택하면 Day 4는 난바 쇼핑 일정으로 전환합니다.</div></div>
+        <div class="day-tip"><span class="icon">🚇</span><div><b>Day 2 교통</b>공통 구간은 신사이바시(N15)→오사카비즈니스파크(N21), 다니마치욘초메(T23)→히가시우메다(T20)입니다. Plan A는 우메다(M16)→난바(M20), Plan B는 우메다(M16)→도부츠엔마에(M22), 에비스초(K18)→닛폰바시(K17)를 이용합니다. 모두 Osaka Metro이며 가족 4명 모두 주유패스로 이동합니다. 어린이 엔조이 에코카드는 구매하지 않고 JR 추천 경로도 선택하지 않습니다. <a href="https://osaka-amazing-pass.com/en/service_about_train.html" target="_blank" rel="noopener noreferrer">주유패스 공식 이용 노선</a></div></div>
         <div class="day-tip"><span class="icon">🚂</span><div><b>오사카성 로드트레인·일렉트릭카 정보</b>로드트레인은 모리노미야역·JO-TERRACE OSAKA와 천수각 북쪽 극락교를 연결하며, 편도 성인 400엔·초등학생 200엔, 통상 9:30~17:00 운행입니다. 남서쪽에서는 별도 일렉트릭카가 바바초~사쿠라몬을 약 10분 간격으로 운행하며 성인 300엔·초등학생 200엔입니다. 두 교통수단 1일권은 성인 1,000엔·어린이 600엔입니다. 주유패스로 무료 탑승하는 시설은 아니지만 1일권을 200엔 할인받는 특전이 있습니다. 이번 일정은 오사카비즈니스파크역→극락교로 들어가 서쪽 니시노마루 정원→다니마치욘초메역으로 빠지는 방향이라 로드트레인을 타면 동쪽으로 되돌아가게 됩니다. 따라서 정규 일정에서는 제외하고, 아이들이 많이 지쳤거나 현장에서 관람 순서를 바꿀 때만 선택하세요. 매월 첫째 목요일과 짝수월 넷째 목요일 휴무, 악천후·행사 시 운휴 가능성이 있어 당일 운행표 확인이 필요합니다. <a href="https://www.osakacastlepark.jp/pdf/OsakaCastleMainTower_BFmap_jp.pdf" target="_blank" rel="noopener noreferrer">공식 노선 지도</a></div></div>
-        <div class="day-tip"><span class="icon">🎫</span><div><b>공중정원 제외 후 주유패스 가치</b>천수각·석벽관 1,200엔 + 고자부네 1,800엔 + YAGURA·정원 900엔 + HEP FIVE 1,000엔 + 원더크루즈 2,000엔 = 성인 일반요금 약 6,900엔 상당이며 지하철도 포함됩니다. 성인 2명은 주유패스가 확실히 유리합니다. 아이들은 YAGURA까지 현장 구매하면 에코카드를 포함해 1인 약 3,310~3,510엔으로 성인용 주유패스 3,500엔과 거의 같으므로, 전망대 추가 여부와 매표 편의에 따라 구매 직전에 결정하세요.</div></div>
+        <div class="day-tip"><span class="icon">🎫</span><div><b>가족 4매 구매 가치</b>천수각·석벽관 1,200엔 + 고자부네 1,800엔 + YAGURA·정원 900엔 + HEP FIVE 1,000엔 + 원더크루즈 2,000엔 = 성인 일반요금 약 6,900엔 상당이며 지하철도 포함됩니다. 아이들은 기본 일정에서 현장권과 패스 가격 차이가 작지만, 4매로 통일하면 매표 대기를 줄이고 공중정원 또는 츠텐카쿠를 즉석에서 추가할 수 있습니다. 총 구매액은 14,000엔입니다.</div></div>
 
         <div class="plan-label alt">PLAN B 선택 시 · DAY 4 난바 쇼핑 대체 일정</div>
         <div class="route-flow plan-route">
@@ -2123,7 +2216,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.52</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.54</div>
   </footer>
 
   <script>
@@ -2340,6 +2433,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
         airport: ['flight-info'],
         stay: ['stay-info'],
         prep: ['trip-prep', 'tips'],
+        packing: ['packing-list'],
         icoca: ['icoca-guide'],
         itinerary: ['meals', 'day1', 'day2', 'day3', 'day4'],
         planb: ['day2-planb'],
@@ -2390,6 +2484,40 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.652432
       document.querySelectorAll('[data-open-guide-tab]').forEach(function (button) {
         button.addEventListener('click', function () { showTab(button.dataset.openGuideTab, true, true); });
       });
+      var packingBoxes = Array.from(document.querySelectorAll('[data-pack]'));
+      var packingCount = document.getElementById('packing-count');
+      var packingFill = document.getElementById('packing-bar-fill');
+      var packingStorageKey = 'osaka-guide-packing-v1';
+      function readPacking() {
+        try { return JSON.parse(localStorage.getItem(packingStorageKey) || '{}'); } catch (error) { return {}; }
+      }
+      function writePacking(state) {
+        try { localStorage.setItem(packingStorageKey, JSON.stringify(state)); } catch (error) {}
+      }
+      function updatePackingProgress() {
+        var checked = packingBoxes.filter(function (box) { return box.checked; }).length;
+        var total = packingBoxes.length;
+        var percent = total ? Math.round(checked / total * 100) : 0;
+        if (packingCount) packingCount.textContent = '준비 ' + checked + ' / ' + total + ' · ' + percent + '%';
+        if (packingFill) packingFill.style.width = percent + '%';
+      }
+      var packingState = readPacking();
+      packingBoxes.forEach(function (box) {
+        box.checked = Boolean(packingState[box.dataset.pack]);
+        box.addEventListener('change', function () {
+          packingState[box.dataset.pack] = box.checked;
+          writePacking(packingState);
+          updatePackingProgress();
+        });
+      });
+      var packingReset = document.getElementById('packing-reset');
+      if (packingReset) packingReset.addEventListener('click', function () {
+        packingState = {};
+        packingBoxes.forEach(function (box) { box.checked = false; });
+        writePacking(packingState);
+        updatePackingProgress();
+      });
+      updatePackingProgress();
       showTab(location.hash.slice(1), false, false);
     });
   </script>
