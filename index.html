@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.65 -->
+<!-- 오사카 가족여행 가이드북 v4.66 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -531,7 +531,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.65</div>
+    <div class="page-version">GUIDE v4.66</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1083,10 +1083,10 @@
             </tr>
             <tr>
               <th>점심</th>
-              <td class="filled">규카츠 모토무라 난바미도스지점</td>
+              <td class="filled">쿠라스시 난바파크스사우스</td>
               <td class="filled">이즈모 루쿠아 오사카점</td>
               <td class="filled">USJ 테마식당</td>
-              <td class="filled">쿠라스시 난바파크스사우스</td>
+              <td class="filled">규카츠 모토무라 난바미도스지점</td>
             </tr>
             <tr>
               <th>저녁</th>
@@ -1238,11 +1238,16 @@ var map_day1 = L.map('leaflet-day1', {zoomControl:false, attributionControl:true
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
 }).addTo(map_day1);
-L.polyline([[34.6654716,135.4988018],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {color:'#BD4226', weight:4, opacity:0.85}).addTo(map_day1);
+L.polyline([[34.6654716,135.4988018],[34.66163,135.50181],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {color:'#BD4226', weight:4, opacity:0.85}).addTo(map_day1);
 
 L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#BD4226;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">H</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">호텔</div></div>',
+  iconSize: [140,42], iconAnchor: [70,13]
+})}).addTo(map_day1);
+L.marker([34.66163,135.50181], {icon: L.divIcon({
+  className: '',
+  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#BD4226;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">1</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">쿠라스시</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day1);
 L.marker([34.6732406,135.5009613], {icon: L.divIcon({
@@ -1260,7 +1265,7 @@ L.marker([34.6692979,135.5026443], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#BD4226;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">4</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">돈키호테</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day1);
-map_day1.fitBounds([[34.6654716,135.4988018],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {padding:[38,38]});
+map_day1.fitBounds([[34.6654716,135.4988018],[34.66163,135.50181],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {padding:[38,38]});
 
 var map_day2 = L.map('leaflet-day2', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -1312,7 +1317,7 @@ var map_day4 = L.map('leaflet-day4', {zoomControl:false, attributionControl:true
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
 }).addTo(map_day4);
-L.polyline([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,135.50181],[34.6654716,135.4988018]], {color:'#7C4A62', weight:4, opacity:0.85}).addTo(map_day4);
+L.polyline([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,135.50030],[34.6654716,135.4988018]], {color:'#7C4A62', weight:4, opacity:0.85}).addTo(map_day4);
 
 L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
@@ -1324,12 +1329,12 @@ L.marker([34.6653511,135.5062417], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#7C4A62;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">1</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">구로몬시장</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day4);
-L.marker([34.66163,135.50181], {icon: L.divIcon({
+L.marker([34.66720,135.50030], {icon: L.divIcon({
   className: '',
-  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#7C4A62;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">2</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">난바 파크스·쿠라스시</div></div>',
+  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#7C4A62;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">2</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">규카츠 모토무라</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day4);
-map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,135.50181]], {padding:[38,38]});
+map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,135.50030]], {padding:[38,38]});
     });
     </script>
 
@@ -1355,13 +1360,13 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
           <span class="route-stop">간사이공항</span><span class="route-arrow">→</span>
           <span class="route-stop">공항급행 · 난카이 난바</span><span class="route-arrow">→</span>
           <span class="route-stop">리가레 난바 · 짐 보관</span><span class="route-arrow">→</span>
-          <span class="route-stop">규카츠</span><span class="route-arrow">→</span>
+          <span class="route-stop">쿠라스시 난바파크스사우스</span><span class="route-arrow">→</span>
           <span class="route-stop">다이마루 백화점</span><span class="route-arrow">→</span>
           <span class="route-stop">도톤보리</span><span class="route-arrow">→</span>
           <span class="route-stop">돈키호테</span>
         </div>
         <div class="real-map-item">
-          <div class="real-map-label"><span class="rm-dot" style="background:#BD4226;"></span><b>Day 1 지도</b>&nbsp;다이마루 → 도톤보리 → 돈키호테</div>
+          <div class="real-map-label"><span class="rm-dot" style="background:#BD4226;"></span><b>Day 1 지도</b>&nbsp;쿠라스시 → 다이마루 → 도톤보리 → 돈키호테</div>
           <div id="leaflet-day1" class="real-map"></div>
         </div>
 
@@ -1373,7 +1378,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
             <li><div class="t-time">11:10–12:00</div><div class="t-thumb icon">✈️</div><div class="t-body"><div class="t-title">간사이공항 T1 도착</div><div class="t-desc">등록 완료한 Visit Japan Web 가족 QR을 준비해 입국·세관 수속 후 수하물을 찾습니다. QR이 열리지 않을 때를 대비해 부모 휴대폰 두 대에 오프라인 저장본을 준비하세요.</div></div></li>
             <li><div class="t-time">12:00–13:20</div><div class="t-thumb icon">🚆</div><div class="t-body"><div class="t-title">간사이공항 → 난바 · ICOCA + 난카이 공항급행</div><div class="t-desc">입국심사와 수하물 수령 후 JR 간사이공항역에서 성인 ICOCA 2장과 어린이용 2장을 구매합니다. 성인 카드만 각각 1,000엔 추가 충전한 뒤 난카이 공항급행 자유석으로 이동합니다. 붐비면 다음 편 승차 위치에 먼저 줄 서고, 가족은 2명씩 나눠 앉아도 좋습니다.</div></div></li>
             <li><div class="t-time">13:25–13:40</div><div class="t-thumb icon">🛏️</div><div class="t-body"><div class="t-title">리가레 난바 본관 먼저 방문 · 짐 보관</div><div class="t-desc">난카이 난바역 도착 후 캐리어를 끌고 식당에 가지 않고 난바나카 1-7-4 숙소에 먼저 맡깁니다. 객실 체크인은 16:00부터이므로 짐만 보관하고 바로 점심으로 이동하세요.</div></div></li>
-            <li class="highlight-row"><div class="t-time">13:45–14:45</div><div class="t-thumb"><img src="https://tblg.k-img.com/restaurant/images/Rvw/203370/640x640_rect_5c1a7e6f0c96c808d86f2e57fd5872db.jpg" alt="규카츠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 1</span>규카츠 모토무라 난바미도스지점 (점심)</div><div class="t-desc">숙소에 짐을 맡긴 뒤 가볍게 이동합니다. 미디엄레어 규카츠를 개인 돌판에 원하는 만큼 익혀 먹고, 만 6세 이상 정식 주문 안내를 고려해 가장 작은 정식 4개를 기준으로 잡으세요. 입국이 늦으면 예약에 얽매이지 말고 난바점·난바분점 대기시간을 비교합니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%89%9B%E3%81%8B%E3%81%A4%E3%82%82%E3%81%A8%E6%9D%91+%E9%9B%A3%E6%B3%A2%E5%BE%A1%E5%A0%82%E7%AD%8B%E5%BA%97" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.gyukatsu-motomura.com/store/Namba" target="_blank" rel="noopener noreferrer">공식 난바점 안내</a></div></div></li>
+            <li class="highlight-row"><div class="t-time">13:45–14:45</div><div class="t-thumb icon">🍣</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 1</span>쿠라스시 난바파크스사우스점 (점심)</div><div class="t-desc">숙소에 짐을 맡긴 뒤 난바 파크스 남쪽 매장으로 이동합니다. 접시 5개마다 빗쿠라폰 게임에 도전할 수 있어 아이들과 첫 식사로 즐기기 좋습니다. 입국이 늦어지면 앱 또는 매장 접수로 대기시간을 확인하고, 14:45에는 식사를 마쳐 신사이바시 일정으로 이동하세요. <a href="https://www.google.com/maps/search/?api=1&amp;query=Kura+Sushi+Namba+Parks+South" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
             <li><div class="t-time">15:00–17:00</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">다이마루 백화점 (포켓몬 센터 DX &amp; 닌텐도 스토어)</div><div class="t-desc">호텔에서 신사이바시스지 아케이드 통과 도보 12분, 포켓몬과 마리오 캐릭터 굿즈 쇼핑. 1717년 교토에서 시작된 일본 대표 백화점 체인으로, 신사이바시 본점은 아르데코 양식 건물로도 유명해요.</div></div></li>
             <li><div class="t-time">17:30–19:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Glico%20Man%20sign%2C%20Dotonbori.JPG?width=200" alt="도톤보리 야경"></div><div class="t-body"><div class="t-title">도톤보리 거닐기 &amp; 글리코상 포토타임</div><div class="t-desc">글리코상 앞 가족사진과 운하 산책을 여유 있게 즐깁니다. 크루즈는 주유패스를 쓰는 Day 2의 원더크루즈로 옮겼습니다.</div></div></li>
             <li class="highlight-row"><div class="t-time">19:00–20:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Gyu-kaku%20yakiniku%20restaurant%20(20).jpg?width=200" alt="야키니쿠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 2</span>마쓰사카규 야키니쿠 M 호젠지요코초점 (저녁)</div><div class="t-desc">도톤보리 산책 뒤 이동하기 좋은 마쓰사카규 전문점입니다. 4인 개별실이 있어 가족 식사 1순위로 예약하고, 가격 부담을 낮추려면 야키니쿠 리키마루 센니치마에점을 대안으로 둡니다. 식후 타코야키는 한 접시만 나눠 먹습니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=Matsusakagyu+Yakiniku+M+Hozenji+Yokocho" target="_blank" rel="noopener noreferrer">M 지도</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=Yakiniku+Rikimaru+Sennichimae+Osaka" target="_blank" rel="noopener noreferrer">리키마루 지도</a></div></div></li>
@@ -1623,7 +1628,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
           <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">4</span></div>
           <div class="d-titles">
             <div class="d-date">10월 19일 · 월요일</div>
-            <h3>구로몬시장·난바 쇼핑·쿠라스시 &amp; 안전 귀국</h3>
+            <h3>구로몬시장·난바 쇼핑·규카츠 &amp; 안전 귀국</h3>
           </div>
         </div>
         <div class="photo-duo">
@@ -1641,7 +1646,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
           <span class="route-stop">호텔</span><span class="route-arrow">→</span>
           <span class="route-stop">구로몬시장</span><span class="route-arrow">→</span>
           <span class="route-stop">다카시마야·난바 쇼핑</span><span class="route-arrow">→</span>
-          <span class="route-stop">쿠라스시 난바파크스사우스</span><span class="route-arrow">→</span>
+          <span class="route-stop">규카츠 모토무라 난바미도스지점</span><span class="route-arrow">→</span>
           <span class="route-stop">호텔(짐 픽업)</span><span class="route-arrow">→</span>
           <span class="route-stop">난카이 난바·라피트</span><span class="route-arrow">→</span>
           <span class="route-stop">간사이공항</span><span class="route-arrow">→</span>
@@ -1649,7 +1654,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
           <span class="route-stop">광명 자택</span>
         </div>
         <div class="real-map-item">
-          <div class="real-map-label"><span class="rm-dot" style="background:#7C4A62;"></span><b>Day 4 지도</b>&nbsp;구로몬시장 → 다카시마야·난바 파크스 → 숙소</div>
+          <div class="real-map-label"><span class="rm-dot" style="background:#7C4A62;"></span><b>Day 4 지도</b>&nbsp;구로몬시장 → 다카시마야·규카츠 → 숙소</div>
           <div id="leaflet-day4" class="real-map"></div>
         </div>
 
@@ -1659,7 +1664,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
             <li class="highlight-row"><div class="t-time">09:00–09:40</div><div class="t-thumb icon">🍣</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 9</span>구로몬 산페이 아침</div><div class="t-desc">08:00부터 영업하는 구로몬시장 해산물 매장입니다. 카이센동·초밥을 먹거나 아이들은 계란초밥·구운 생선·반찬류를 골라 간단히 먹습니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=Kuromon+Sanpei+Osaka" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
             <li><div class="t-time">09:40–10:00</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kuromon-ichiba%20in%20201408.JPG?width=200" alt="구로몬시장"></div><div class="t-body"><div class="t-title">구로몬시장 산책</div><div class="t-desc">신선한 해산물·과일·간식거리를 구경한 뒤 난바 쇼핑 시간을 위해 10시에 이동합니다.</div></div></li>
             <li><div class="t-time">10:00–11:15</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">다카시마야 오사카점 B1 · 난바 CITY</div><div class="t-desc">백화점 지하 식품관에서 일심당 과일모찌·551호라이·선물용 과자를 보고, 난바 CITY에서 패션·잡화를 둘러봅니다. 냉장 제품은 귀국 이동시간을 고려해 마지막에 받으세요.</div></div></li>
-            <li class="highlight-row"><div class="t-time">11:20–12:20</div><div class="t-thumb icon">🍣</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 10</span>쿠라스시 난바파크스사우스점</div><div class="t-desc">접시 5개마다 빗쿠라폰 게임에 도전할 수 있어 아이들과 마지막 점심으로 즐기기 좋습니다. 대기를 줄이기 위해 앱 또는 매장 접수 후 호출 시간을 확인하고, 12:20에는 식사를 마칩니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=Kura+Sushi+Namba+Parks+South" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
+            <li class="highlight-row"><div class="t-time">11:20–12:20</div><div class="t-thumb"><img src="https://tblg.k-img.com/restaurant/images/Rvw/203370/640x640_rect_5c1a7e6f0c96c808d86f2e57fd5872db.jpg" alt="규카츠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 10</span>규카츠 모토무라 난바미도스지점</div><div class="t-desc">미디엄레어 규카츠를 개인 돌판에 원하는 만큼 익혀 먹습니다. 만 6세 이상 정식 주문 안내를 고려해 가장 작은 정식 4개를 기준으로 잡고, 대기를 줄이기 위해 11시대 초반 입장을 목표로 합니다. 12:20에는 식사를 마쳐 마지막 쇼핑과 짐 수령 시간을 확보하세요. <a href="https://www.google.com/maps/search/?api=1&amp;query=%E7%89%9B%E3%81%8B%E3%81%A4%E3%82%82%E3%81%A8%E6%9D%91+%E9%9B%A3%E6%B3%A2%E5%BE%A1%E5%A0%82%E7%AD%8B%E5%BA%97" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.gyukatsu-motomura.com/store/Namba" target="_blank" rel="noopener noreferrer">공식 난바점 안내</a></div></div></li>
             <li><div class="t-time">12:20–13:00</div><div class="t-thumb icon">🎁</div><div class="t-body"><div class="t-title">난바 파크스·다카시마야 최종 쇼핑</div><div class="t-desc">빠진 선물과 간식을 보충합니다. 식당 대기가 생기면 이 구간부터 줄이고, 면세 물품은 수하물 무게와 밀봉 상태를 확인하세요.</div></div></li>
             <li><div class="t-time">13:00–13:25</div><div class="t-thumb icon">🧳</div><div class="t-body"><div class="t-title">숙소 짐 수령 · 난카이 난바역 이동</div><div class="t-desc">13:25 역 도착을 마감으로 잡습니다. 식사 대기가 길면 최종 쇼핑을 생략하고 바로 숙소로 복귀하세요.</div></div></li>
             <li><div class="t-time">14:00 전후–14:40 전후</div><div class="t-thumb icon">🚆</div><div class="t-body"><div class="t-title">난카이 난바역 → 간사이공항역 · 라피트</div><div class="t-desc">18:00 국제선 출발이므로 난바 14:00 전후 출발편을 1순위로 지정해 공항에 약 3시간 20분 전에 도착합니다. 9월 19일 구매 시 실제 10월 19일 시간표를 확인하고 14:00편이 없으면 더 이른 열차를 선택하세요. 14:30 전후 열차는 최후 후보입니다.</div></div></li>
@@ -1668,7 +1673,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
             <li><div class="t-time">19:55–21:10</div><div class="t-thumb icon">🚗</div><div class="t-body"><div class="t-title">인천공항 T1 → 광명 트리우스 이동</div><div class="t-desc">입국 수속과 수하물 수령 후 주차장에서 출차, 자가용 기준 약 40~60분 소요. 여행 마무리!</div></div></li>
           </ul>
         </div>
-        <div class="day-tip"><span class="icon">🧳</span><div><b>마지막날 안전 기준</b>쿠라스시 대기가 30분을 넘으면 최종 쇼핑을 줄이거나 가까운 대체 식당으로 바꿉니다. 13:00 숙소 복귀·13:25 난카이 난바역 도착·15:10 전후 공항 도착 기준을 지키세요.</div></div>
+        <div class="day-tip"><span class="icon">🧳</span><div><b>마지막날 안전 기준</b>규카츠 대기가 30분을 넘으면 난바점·난바분점 대기를 비교하거나 가까운 대체 식당으로 바꿉니다. 13:00 숙소 복귀·13:25 난카이 난바역 도착·15:10 전후 공항 도착 기준을 지키세요.</div></div>
       </div>
     </section>
 
@@ -2247,7 +2252,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66163,
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.65</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.66</div>
   </footer>
 
   <script>
