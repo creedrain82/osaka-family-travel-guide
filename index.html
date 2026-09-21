@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.75 -->
+<!-- 오사카 가족여행 가이드북 v4.76 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -542,7 +542,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.75</div>
+    <div class="page-version">GUIDE v4.76</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1364,9 +1364,13 @@ var shoppingPlaces = [
   {id:'D2', name:'Forest Drug', lat:34.6693740, lng:135.5031440, color:'#3C6E5C'},
   {id:'K1', name:'돈키 도톤보리', lat:34.6692979, lng:135.5026443, color:'#BD4226'},
   {id:'K2', name:'돈키 미도스지', lat:34.6692540, lng:135.4999040, color:'#BD4226'},
+  {id:'K3', name:'돈키 센니치마에', lat:34.6646517, lng:135.5030246, color:'#BD4226'},
   {id:'C1', name:'FamilyMart', lat:34.6648759, lng:135.4992383, color:'#2874A6'},
-  {id:'C2', name:'7-Eleven', lat:34.6600600, lng:135.5013500, color:'#2874A6'},
-  {id:'C3', name:'Lawson 도톤보리', lat:34.6685900, lng:135.5064200, color:'#2874A6'}
+  {id:'C2', name:'FM 요쓰바시난바', lat:34.6653578, lng:135.4982360, color:'#2874A6'},
+  {id:'C3', name:'FM 난바라쿠자', lat:34.6660760, lng:135.4990387, color:'#2874A6'},
+  {id:'C4', name:'FM 센니치마에도리', lat:34.6668495, lng:135.5010507, color:'#2874A6'},
+  {id:'C5', name:'7-Eleven', lat:34.6600600, lng:135.5013500, color:'#2874A6'},
+  {id:'C6', name:'Lawson 도톤보리', lat:34.6685900, lng:135.5064200, color:'#2874A6'}
 ];
 shoppingPlaces.forEach(function(place){
   L.marker([place.lat, place.lng], {icon: L.divIcon({
@@ -2072,11 +2076,15 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
         <article class="shopping-location-card"><span class="shop-no" style="background:#3C6E5C">D2</span><div><h3>Forest Drug 소에몬초점</h3><p>소에몬초 7-18 1층. D1과 가격을 비교한 뒤 더 저렴한 한 매장에서 면세 최소금액을 모아 결제하는 후보입니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Forest+Drug+Souemoncho+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
         <article class="shopping-location-card"><span class="shop-no" style="background:#BD4226">K1</span><div><h3>돈키호테 도톤보리점</h3><p>소에몬초 7-13, 강변 관람차 건물. Day 1 야간 동선에 가장 자연스럽지만 관광객이 몰릴 수 있어 K2를 대안으로 둡니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Don+Quijote+Dotonbori+Osaka" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=110" target="_blank" rel="noopener noreferrer">공식 매장</a></div></article>
         <article class="shopping-location-card"><span class="shop-no" style="background:#BD4226">K2</span><div><h3>돈키호테 도톤보리 미도스지점</h3><p>니시신사이바시 2-5-9, 24시간 영업 안내 지점. K1이 혼잡할 때 신사이바시 쇼핑 후 내려오는 대체점으로 활용합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Don+Quijote+Dotonbori+Midosuji" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.donki-global.com/kr/store/shop_detail.php?shop_id=373" target="_blank" rel="noopener noreferrer">공식 매장</a></div></article>
-        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C1</span><div><h3>FamilyMart 난바나카키타점</h3><p>난바나카 1-6-5, 24시간 영업 안내. 숙소에서 가장 가까운 축이라 USJ 전날 아침 간편식·생수·ATM 확인에 우선합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=FamilyMart+Nambanaka+Kita+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
-        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C2</span><div><h3>7-Eleven 오사카 난바나카 3초메 미나미점</h3><p>숙소 남동쪽의 세븐일레븐 후보. 세븐은행 ATM, 도시락·주먹밥·아이 간식을 함께 해결할 때 이용합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=SEVEN-ELEVEN+OSAKA+NAMBANAKA+3CHOME+MINAMI" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
-        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C3</span><div><h3>Lawson 도톤보리 1초메점</h3><p>도톤보리 동쪽 편의점 후보. 디저트·가라아게군과 Lawson Bank ATM이 필요할 때 일정 중 들르기 좋습니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lawson+Dotonbori+1-Chome+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#BD4226">K3</span><div><h3>돈키호테 난바센니치마에점</h3><p>난바센니치마에 12-7, Google 지도 기준 09:00~다음 날 04:00. 숙소와 난바역에서 가깝고 도톤보리점보다 한산하다는 최근 후기가 있어 실구매 1순위 후보입니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Don+Quijote+Namba+Sennichimae+Osaka" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.donki.com/store/shop_detail.php?shop_id=419" target="_blank" rel="noopener noreferrer">공식 매장</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C1</span><div><h3>FamilyMart 난바나카키타점</h3><p>난바나카 1-6-5, 24시간. 숙소 남쪽의 큰 매장으로 USJ 전날 아침 간편식·생수 구매에 유리하고 유초은행 ATM이 있습니다.</p><a href="https://maps.app.goo.gl/FhrL17aCiboRr4Q29" target="_blank" rel="noopener noreferrer">제공받은 Google 지도</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C2</span><div><h3>FamilyMart 요쓰바시난바역앞점</h3><p>난바나카 1-3-10, 24시간. 숙소 서쪽과 오사카메트로 난바역 접근에 가장 편하며 E-net ATM을 이용할 수 있습니다.</p><a href="https://maps.app.goo.gl/D2gvWB4Ptnb5jVN39" target="_blank" rel="noopener noreferrer">제공받은 Google 지도</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C3</span><div><h3>FamilyMart 난바라쿠자점</h3><p>난바 4-5-30, 24시간. 숙소에서 도톤보리·신사이바시 방향으로 걸어갈 때 들르기 좋고 E-net ATM이 있습니다.</p><a href="https://maps.app.goo.gl/Zdw8hP61s1SE8Xrh6" target="_blank" rel="noopener noreferrer">제공받은 Google 지도</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C4</span><div><h3>FamilyMart 난바센니치마에도리점</h3><p>난바 3-5-17 호쿄쿠세이빌딩 1층, 24시간. 다카시마야·난바 중심가 쇼핑 중 접근하기 좋고 E-net ATM이 있습니다.</p><a href="https://maps.app.goo.gl/gtEiG8ugPK9BaqEN8" target="_blank" rel="noopener noreferrer">제공받은 Google 지도</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C5</span><div><h3>7-Eleven 오사카 난바나카 3초메 미나미점</h3><p>숙소 남동쪽의 세븐일레븐 후보. 세븐은행 ATM, 도시락·주먹밥·아이 간식을 함께 해결할 때 이용합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=SEVEN-ELEVEN+OSAKA+NAMBANAKA+3CHOME+MINAMI" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C6</span><div><h3>Lawson 도톤보리 1초메점</h3><p>도톤보리 동쪽의 24시간 편의점 후보. 디저트·가라아게군과 Lawson Bank ATM이 필요할 때 일정 중 들르기 좋습니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lawson+Dotonbori+1-Chome+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
       </div>
-      <div class="guide-note"><b>현장 사용법:</b> D1·D2는 가격을 먼저 비교하고 한곳에 면세 구매를 집중합니다. 돈키호테는 K1 혼잡 시 K2로 이동하고, 편의점은 숙소 가까운 C1을 기본으로 두되 원하는 PB 상품과 ATM에 따라 C2·C3를 선택하세요. 영업시간·면세·재고는 방문 당일 지도와 매장에서 다시 확인합니다.</div>
+      <div class="guide-note"><b>현장 사용법:</b> D1·D2는 가격을 먼저 비교하고 한곳에 면세 구매를 집중합니다. 돈키호테는 숙소 가까운 K3를 먼저 보고, 도톤보리 야경 동선은 K1, 신사이바시 동선은 K2로 나눕니다. 편의점은 숙소 양옆 C1·C2를 기본으로, 도톤보리 이동 중에는 C3·C4를 이용하세요. C5·C6은 세븐·로손 전용 상품과 ATM이 필요할 때 선택합니다. 영업시간·면세·재고는 방문 당일 다시 확인합니다.</div>
       <div class="guide-grid">
         <article class="guide-card recommended"><span class="guide-badge">숙소 동선 1순위</span><h3>칼디 커피팜 난바CITY점</h3><p>커피와 일본 한정 조미료·카레·수입 과자·와인을 함께 구경하는 식품 편집숍입니다. 난바CITY 본관 1층이라 숙소와 난카이 난바역 이동 중 들르기 편해요.</p><div class="fit"><b>주소:</b> 난바 5-1-60 난바CITY 본관 1F</div><p><a href="https://www.google.com/maps/search/?api=1&amp;query=KALDI+Coffee+Farm+Namba+CITY" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://map.kaldi.co.jp/kaldi/articleList?accmd=0&amp;account=kaldi&amp;adr=27128" target="_blank" rel="noopener noreferrer">공식 매장 안내</a></p></article>
         <article class="guide-card recommended"><span class="guide-badge">Day 1 아이들 쇼핑</span><h3>땡큐마트 아메리카무라점</h3><p>산리오·애니메이션 캐릭터 협업 잡화와 액세서리를 390엔대 중심으로 고르는 매장입니다. 신사이바시 BIGSTEP 지하 1층이라 도톤보리와 Day 1 동선에서 걸어가기 좋아요.</p><div class="fit"><b>영업:</b> 11:00–20:00</div><p><a href="https://www.google.com/maps/search/?api=1&amp;query=THANK+YOU+MART+America+Village+Osaka" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://thankyoumart.jp/pages/255/" target="_blank" rel="noopener noreferrer">공식 매장 안내</a></p></article>
@@ -2308,7 +2316,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.75</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.76</div>
   </footer>
 
   <script>
