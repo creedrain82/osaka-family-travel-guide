@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.74 -->
+<!-- 오사카 가족여행 가이드북 v4.75 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -350,6 +350,17 @@
   .real-map{width:100%;height:340px;background:var(--paper-deep);}
   .leaflet-control-attribution{font-size:9px !important;}
 
+  .shopping-map-legend{display:flex;flex-wrap:wrap;gap:8px 16px;padding:11px 16px;background:var(--paper-deep);border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);}
+  .shopping-map-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .shopping-map-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+  .shopping-location-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0 32px;}
+  .shopping-location-card{display:grid;grid-template-columns:42px 1fr;gap:12px;padding:15px;background:var(--paper-card);border:1px solid var(--line);border-radius:13px;}
+  .shopping-location-card .shop-no{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:12px;}
+  .shopping-location-card h3{margin:0 0 5px;font-size:14.5px;color:var(--ink);}
+  .shopping-location-card p{margin:0 0 6px;font-size:12.2px;line-height:1.6;color:var(--ink-soft);}
+  .shopping-location-card a{font-size:12px;font-weight:700;}
+  @media(max-width:620px){.shopping-location-grid{grid-template-columns:1fr}.real-map.shopping-map{height:390px;}}
+
   /* ---------- DAY CARD ---------- */
   .day{margin-bottom:54px;}
   .day-card{
@@ -531,7 +542,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.74</div>
+    <div class="page-version">GUIDE v4.75</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1342,6 +1353,29 @@ L.marker([34.66720,135.50030], {icon: L.divIcon({
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day4);
 map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,135.50030]], {padding:[38,38]});
+
+var map_shopping = L.map('leaflet-shopping', {zoomControl:true, attributionControl:true, scrollWheelZoom:false});
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
+}).addTo(map_shopping);
+var shoppingPlaces = [
+  {id:'H', name:'리가레 난바', lat:34.6654716, lng:135.4988018, color:'#233D63'},
+  {id:'D1', name:'잇신드럭', lat:34.6694923, lng:135.5031529, color:'#3C6E5C'},
+  {id:'D2', name:'Forest Drug', lat:34.6693740, lng:135.5031440, color:'#3C6E5C'},
+  {id:'K1', name:'돈키 도톤보리', lat:34.6692979, lng:135.5026443, color:'#BD4226'},
+  {id:'K2', name:'돈키 미도스지', lat:34.6692540, lng:135.4999040, color:'#BD4226'},
+  {id:'C1', name:'FamilyMart', lat:34.6648759, lng:135.4992383, color:'#2874A6'},
+  {id:'C2', name:'7-Eleven', lat:34.6600600, lng:135.5013500, color:'#2874A6'},
+  {id:'C3', name:'Lawson 도톤보리', lat:34.6685900, lng:135.5064200, color:'#2874A6'}
+];
+shoppingPlaces.forEach(function(place){
+  L.marker([place.lat, place.lng], {icon: L.divIcon({
+    className:'',
+    html:'<div style="text-align:center;"><div style="display:inline-flex;background:'+place.color+';color:#fff;min-width:28px;height:28px;padding:0 5px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:800;font-size:10.5px;box-sizing:border-box;">'+place.id+'</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:10.5px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">'+place.name+'</div></div>',
+    iconSize:[126,44], iconAnchor:[63,14]
+  })}).addTo(map_shopping);
+});
+map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,place.lng];}), {padding:[36,36]});
     });
     </script>
 
@@ -2028,6 +2062,21 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,
       </div>
       <p class="budget-note">돈키호테·다이마루·구로몬시장·신사이바시 등 일정 곳곳에서 자연스럽게 만날 수 있는 대표 아이템들이에요.</p>
       <div class="section-head"><div class="kicker">Shopping Spots Near Namba</div><h2>난바·도톤보리 쇼핑 매장</h2></div>
+      <div class="real-map-item">
+        <div class="real-map-label"><span class="rm-dot" style="background:#233D63"></span><b>숙소 기준 난바·도톤보리 쇼핑 지도</b></div>
+        <div id="leaflet-shopping" class="real-map shopping-map" aria-label="난바와 도톤보리의 드럭스토어, 돈키호테, 편의점 위치 지도"></div>
+        <div class="shopping-map-legend"><span><i style="background:#233D63"></i>H 숙소</span><span><i style="background:#3C6E5C"></i>D 드럭스토어</span><span><i style="background:#BD4226"></i>K 돈키호테</span><span><i style="background:#2874A6"></i>C 편의점</span></div>
+      </div>
+      <div class="shopping-location-grid">
+        <article class="shopping-location-card"><span class="shop-no" style="background:#3C6E5C">D1</span><div><h3>잇신드럭 (一心ドラッグ)</h3><p>소에몬초 7-19. D2와 바로 붙어 있어 의약품·화장품 묶음 가격을 비교하기 좋습니다. 영업·면세 가능 여부는 당일 확인하세요.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=%E4%B8%80%E5%BF%83%E3%83%89%E3%83%A9%E3%83%83%E3%82%B0+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#3C6E5C">D2</span><div><h3>Forest Drug 소에몬초점</h3><p>소에몬초 7-18 1층. D1과 가격을 비교한 뒤 더 저렴한 한 매장에서 면세 최소금액을 모아 결제하는 후보입니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Forest+Drug+Souemoncho+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#BD4226">K1</span><div><h3>돈키호테 도톤보리점</h3><p>소에몬초 7-13, 강변 관람차 건물. Day 1 야간 동선에 가장 자연스럽지만 관광객이 몰릴 수 있어 K2를 대안으로 둡니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Don+Quijote+Dotonbori+Osaka" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=110" target="_blank" rel="noopener noreferrer">공식 매장</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#BD4226">K2</span><div><h3>돈키호테 도톤보리 미도스지점</h3><p>니시신사이바시 2-5-9, 24시간 영업 안내 지점. K1이 혼잡할 때 신사이바시 쇼핑 후 내려오는 대체점으로 활용합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Don+Quijote+Dotonbori+Midosuji" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://www.donki-global.com/kr/store/shop_detail.php?shop_id=373" target="_blank" rel="noopener noreferrer">공식 매장</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C1</span><div><h3>FamilyMart 난바나카키타점</h3><p>난바나카 1-6-5, 24시간 영업 안내. 숙소에서 가장 가까운 축이라 USJ 전날 아침 간편식·생수·ATM 확인에 우선합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=FamilyMart+Nambanaka+Kita+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C2</span><div><h3>7-Eleven 오사카 난바나카 3초메 미나미점</h3><p>숙소 남동쪽의 세븐일레븐 후보. 세븐은행 ATM, 도시락·주먹밥·아이 간식을 함께 해결할 때 이용합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=SEVEN-ELEVEN+OSAKA+NAMBANAKA+3CHOME+MINAMI" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+        <article class="shopping-location-card"><span class="shop-no" style="background:#2874A6">C3</span><div><h3>Lawson 도톤보리 1초메점</h3><p>도톤보리 동쪽 편의점 후보. 디저트·가라아게군과 Lawson Bank ATM이 필요할 때 일정 중 들르기 좋습니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lawson+Dotonbori+1-Chome+Osaka" target="_blank" rel="noopener noreferrer">Google 지도 열기</a></div></article>
+      </div>
+      <div class="guide-note"><b>현장 사용법:</b> D1·D2는 가격을 먼저 비교하고 한곳에 면세 구매를 집중합니다. 돈키호테는 K1 혼잡 시 K2로 이동하고, 편의점은 숙소 가까운 C1을 기본으로 두되 원하는 PB 상품과 ATM에 따라 C2·C3를 선택하세요. 영업시간·면세·재고는 방문 당일 지도와 매장에서 다시 확인합니다.</div>
       <div class="guide-grid">
         <article class="guide-card recommended"><span class="guide-badge">숙소 동선 1순위</span><h3>칼디 커피팜 난바CITY점</h3><p>커피와 일본 한정 조미료·카레·수입 과자·와인을 함께 구경하는 식품 편집숍입니다. 난바CITY 본관 1층이라 숙소와 난카이 난바역 이동 중 들르기 편해요.</p><div class="fit"><b>주소:</b> 난바 5-1-60 난바CITY 본관 1F</div><p><a href="https://www.google.com/maps/search/?api=1&amp;query=KALDI+Coffee+Farm+Namba+CITY" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://map.kaldi.co.jp/kaldi/articleList?accmd=0&amp;account=kaldi&amp;adr=27128" target="_blank" rel="noopener noreferrer">공식 매장 안내</a></p></article>
         <article class="guide-card recommended"><span class="guide-badge">Day 1 아이들 쇼핑</span><h3>땡큐마트 아메리카무라점</h3><p>산리오·애니메이션 캐릭터 협업 잡화와 액세서리를 390엔대 중심으로 고르는 매장입니다. 신사이바시 BIGSTEP 지하 1층이라 도톤보리와 Day 1 동선에서 걸어가기 좋아요.</p><div class="fit"><b>영업:</b> 11:00–20:00</div><p><a href="https://www.google.com/maps/search/?api=1&amp;query=THANK+YOU+MART+America+Village+Osaka" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://thankyoumart.jp/pages/255/" target="_blank" rel="noopener noreferrer">공식 매장 안내</a></p></article>
@@ -2259,7 +2308,7 @@ map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.74</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.75</div>
   </footer>
 
   <script>
