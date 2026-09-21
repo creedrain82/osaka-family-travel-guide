@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.77 -->
+<!-- 오사카 가족여행 가이드북 v4.78 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -542,7 +542,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.77</div>
+    <div class="page-version">GUIDE v4.78</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -2316,7 +2316,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.77</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.78</div>
   </footer>
 
   <script>
@@ -2359,6 +2359,41 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
         var don='https://tblg.k-img.com/restaurant/images/Rvw/86061/640x640_rect_86061230.jpg';
         var morning='https://tblg.k-img.com/restaurant/images/Rvw/284139/640x640_rect_14408437fb35a82679d792f04bef050e.jpg';
         var dessert='https://commons.wikimedia.org/wiki/Special:FilePath/Uncle%20tetsu%20cheesecake.jpg?width=700';
+        var photoUrlMap={
+          '이치란 도톤보리점 별관':'https://cdn.sarah30.com/reviews/photos/001/066/715/original/7ca87f17a5609a20a9db84fe9c95d4e94a65c75c.jpg?1683373623=&d=large',
+          '규카츠 모토무라':'https://tblg.k-img.com/restaurant/images/Rvw/196595/640x640_rect_78b0d14191a03526e192d16efc1d86ac.jpg',
+          '이즈모 루쿠아점':'https://rimage.gnst.jp/livejapan.com/public/article/detail/a/20/00/a2000707/img/zh-tw/a2000707_parts_623c7b1e4de86.jpg?20220324222653=&q=80',
+          '하브스':'https://assets.st-note.com/img/1776177073-f9RH5uPElTYbsqyKnv2DmUXw.png?width=1200',
+          '그리니에':'https://tblg.k-img.com/restaurant/images/Rvw/220336/640x640_rect_24ee8f85e554715a336326fd88c0b7ec.jpg',
+          '이모야 킨지로 그랑프론트 오사카점':'https://www.gfo-sc.jp/files/20240123/da7e22c2b78c0a00312b875b40e3de308898ca89.jpeg',
+          '타바네노시 신사이바시점':'https://images.keizai.biz/namba_keizai/photonews/1729154046_b.jpg',
+          '무켄':'https://osaka.goguynet.jp/wp-content/uploads/sites/265/2023/06/IMG-5745.jpg',
+          '키야스 소혼포':'https://tblg.k-img.com/restaurant/images/Rvw/285428/640x640_rect_7d2142ff92ada1266afe2de3fb14419d.jpg',
+          '일심당 다카시마야 오사카점 B1 과일모찌':'https://tblg.k-img.com/restaurant/images/Rvw/244319/640x640_rect_c71bc14c57ff14579d3bb585f2e2481c.jpg',
+          '리쿠로오지산노미세':'https://news.walkerplus.com/article/120832/667877_615.jpg'
+        };
+        var photoHintMap={
+          '킨류라멘':'金龍ラーメン 道頓堀 ラーメン', '카무쿠라':'どうとんぼり神座 ラーメン 白菜',
+          '닭백탕 라멘 텐도':'鶏白湯ラーメン 天道 大阪', '무기토 멘스케':'麦と麺助 中津 ラーメン',
+          '마루데 산카쿠':'鯛白湯らーめん ○de▽ 大阪', '라멘 토키야':'時屋 つけ麺 大阪',
+          '산쿠':'烈志笑魚油 麺香房 三く ラーメン', '코무기토 이키루미치':'小麦と生きる道 まぜそば 大阪',
+          '앗치치혼포 도톤보리 본점':'あっちち本舗 道頓堀本店 たこ焼き', '와나카':'たこ焼道楽 わなか 千日前本店',
+          '쿠쿠루 소에몬초점':'たこ家道頓堀くくる 宗右衛門町店 たこ焼き', '하나다코':'はなだこ 新梅田食道街 ねぎマヨ',
+          '오코노미야키 미즈노':'お好み焼 美津の 山芋焼 道頓堀', '치보':'千房 道頓堀 お好み焼き',
+          '보테쥬 난바점':'ぼてぢゅう 難波 お好み焼き 焼きそば', '모미지':'お好み焼き もみじ 大阪',
+          '겐로쿠즈시 도톤보리점':'元禄寿司 道頓堀店 回転寿司', '스시 사카바 사시스 난바점':'すし酒場さしす なんば 寿司',
+          '겐카이돈':'海鮮レアカツ 玄海 心斎橋', '쿠로몬 토레피치 시장 남쿠로몬점':'黒門市場 海鮮丼 河嶺',
+          '이즈모 난바점':'いづも 難波 うなぎ 玉子丼', '지유켄 난바본점':'自由軒 難波本店 名物カレー',
+          '다루식당 우메다점':'ダル食堂 梅田 マウンテンカレー', '원조 쿠시카츠 다루마 신세카이 총본점':'串かつだるま 新世界総本店',
+          '마쓰사카규 야키니쿠 M 호젠지요코초점':'松阪牛焼肉M 法善寺横丁店', '야키니쿠 와비사비 호젠지요코초 본점':'焼肉割烹 WABI SABI 法善寺',
+          '야키니쿠 하나미치':'焼肉 華道 難波', '이타마에 야키니쿠 이치마사':'板前焼肉 一雅 宗右衛門町',
+          '아부리야 센니치마에점':'あぶりや 千日前店 焼肉', '야키니쿠 로쿠노미야 난바신사이바시스지점':'焼肉 六甲 難波 心斎橋',
+          '야키니쿠 리키마루 센니치마에점':'焼肉 力丸 千日前店', '브루클린 로스팅 컴퍼니':'Brooklyn Roasting Company 北浜 テラス'
+        };
+        function photoPlaceholder(name){
+          var safe=String(name).replace(/[&<>"']/g,'');
+          return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="640" height="420"><rect width="100%" height="100%" fill="#eee7dc"/><text x="50%" y="46%" text-anchor="middle" fill="#5d5146" font-family="sans-serif" font-size="24">'+safe+'</text><text x="50%" y="58%" text-anchor="middle" fill="#8b7a69" font-family="sans-serif" font-size="16">현장 사진 확인</text></svg>');
+        }
         var areaGroups=[
           ['난바·도톤보리 · Day 1·4',[
             '이치란 도톤보리점 별관','킨류라멘','카무쿠라','닭백탕 라멘 텐도','츠루동탄 소에몬초점','우동 타마타마','앗치치혼포 도톤보리 본점','와나카','쿠쿠루 소에몬초점',
@@ -2506,7 +2541,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
           var section=document.createElement('section'); section.className='restaurant-category';
           section.innerHTML='<h3>'+cat[0]+'</h3><p>'+cat[1]+'</p><div class="restaurant-grid"></div>';
           var grid=section.querySelector('.restaurant-grid');
-          cat[2].forEach(function(r){var card=document.createElement('a');var area=areaMap[r[0]]||'오사카 시내 · 위치 확인';var onRoute=area.indexOf('Day ')>-1;var imageQuery=r[0]+' 오사카 대표메뉴 맛집';var imageUrl='https://tse1.mm.bing.net/th?q='+encodeURIComponent(imageQuery)+'&w=640&h=420&c=7&rs=1&p=0';card.className='restaurant-card';card.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r[0]+' 오사카');card.target='_blank';card.rel='noopener noreferrer';card.setAttribute('aria-label',r[0]+' Google 지도에서 찾기');card.innerHTML='<img src="'+imageUrl+'" data-fallback="'+r[1]+'" alt="'+r[0]+' 대표 메뉴" onerror="this.onerror=null;this.src=this.dataset.fallback"><div class="restaurant-info"><span class="restaurant-area'+(onRoute?' on-route':'')+'">📌 '+area+'</span><h4>'+r[0]+'</h4><p>'+r[2]+'</p><span class="map-link-label">📍 Google 지도에서 위치 보기</span></div>';grid.appendChild(card);});
+          cat[2].forEach(function(r){var card=document.createElement('a');var area=areaMap[r[0]]||'오사카 시내 · 위치 확인';var onRoute=area.indexOf('Day ')>-1;var areaName=area.split('·')[0].trim();var categoryName=cat[0].replace(/^[^ ]+\s*/, '');var imageQuery=photoHintMap[r[0]]||('"'+r[0]+'" '+areaName+' '+categoryName+' 食べログ 写真');var imageUrl=photoUrlMap[r[0]]||('https://tse1.mm.bing.net/th?q='+encodeURIComponent(imageQuery)+'&w=640&h=420&c=7&rs=1&p=0');var fallback=photoPlaceholder(r[0]);card.className='restaurant-card';card.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r[0]+' '+areaName+' Osaka');card.target='_blank';card.rel='noopener noreferrer';card.setAttribute('aria-label',r[0]+' Google 지도에서 찾기');card.innerHTML='<img src="'+imageUrl+'" data-fallback="'+fallback+'" alt="'+r[0]+' 대표 메뉴" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src=this.dataset.fallback"><div class="restaurant-info"><span class="restaurant-area'+(onRoute?' on-route':'')+'">📌 '+area+'</span><h4>'+r[0]+'</h4><p>'+r[2]+'</p><span class="map-link-label">📍 Google 지도에서 위치 보기</span></div>';grid.appendChild(card);});
           if (snackGuide && cat[0].indexOf('디저트')>-1) snackGuide.appendChild(section); else foodGuide.appendChild(section);
         });
       }
