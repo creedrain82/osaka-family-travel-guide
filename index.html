@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.81 -->
+<!-- 오사카 가족여행 가이드북 v4.82 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -542,7 +542,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.81</div>
+    <div class="page-version">GUIDE v4.82</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1296,7 +1296,13 @@ L.marker([34.6656768,135.4323185], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#C8983B;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">★</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">유니버설 스튜디오 재팬</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day2);
-map_day2.setView([34.6656768,135.4323185], 14);
+L.polyline([[34.6656768,135.4323185],[34.6654716,135.4988018]], {color:'#C8983B', weight:4, opacity:0.85, dashArray:'7 7'}).addTo(map_day2);
+L.marker([34.6654716,135.4988018], {icon: L.divIcon({
+  className: '',
+  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#233D63;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">H</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">난바 숙소</div></div>',
+  iconSize: [140,42], iconAnchor: [70,13]
+})}).addTo(map_day2);
+map_day2.fitBounds([[34.6656768,135.4323185],[34.6654716,135.4988018]], {padding:[38,38]});
 
 var map_day3 = L.map('leaflet-day3', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -1574,7 +1580,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
           <span class="route-stop">난바 (호텔 복귀)</span>
         </div>
         <div class="real-map-item">
-          <div class="real-map-label"><span class="rm-dot" style="background:#C8983B;"></span><b>Day 3 지도</b>&nbsp;유니버설 스튜디오 재팬</div>
+          <div class="real-map-label"><span class="rm-dot" style="background:#C8983B;"></span><b>Day 3 지도</b>&nbsp;난바 ↔ 유니버설 스튜디오 재팬</div>
           <div id="leaflet-day2" class="real-map"></div>
         </div>
 
@@ -1592,6 +1598,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
             <li class="highlight-row"><div class="t-time">17:40–18:40</div><div class="t-thumb icon">🍄</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 8</span>키노피오 카페 저녁 <span class="meal-tag">일정 확정</span></div><div class="t-desc">닌텐도 월드 방문의 핵심 식사로 확정합니다. 마리오 버거·요시 스파게티·슈퍼버섯 피자볼·키즈 세트 중 가족 취향대로 고르고, 접수 시간이 늦다면 닌텐도 쇼핑을 먼저 한 뒤 지정시간에 식사합니다. 10월 18일 영업시간은 아직 미발표이므로 방문 당일 앱에서 마지막 주문 시각을 확인하세요.</div></div></li>
             <li><div class="t-time">18:40–19:10</div><div class="t-thumb icon">🥚</div><div class="t-body"><div class="t-title">요시 어드벤처 또는 닌텐도 쇼핑</div><div class="t-desc">식사 후 대기시간이 짧으면 요시를 타고, 피곤하거나 대기가 길면 캐릭터 사진과 기념품 쇼핑으로 마무리합니다.</div></div></li>
             <li><div class="t-time">19:00 전후</div><div class="t-thumb icon">🎃</div><div class="t-body"><div class="t-title">할로윈 야간 체험 여부 결정</div><div class="t-desc">10월 18일은 할로윈 호러 나이트 기간입니다. 아이들이 좀비·큰 소리를 무서워하면 식사 후 바로 퇴장하고, 괜찮다면 보호자와 함께 짧게 분위기만 본 뒤 나옵니다.</div></div></li>
+            <li class="highlight-row"><div class="t-time">20:00–21:00</div><div class="t-thumb icon">🚆</div><div class="t-body"><div class="t-title">USJ 출발 → 도톤보리·숙소 복귀</div><div class="t-desc"><b>유니버설시티역 → JR 유메사키선 니시쿠조역 → 한신 난바선 오사카난바역</b> 순으로 이동합니다. 열차 자체는 약 20분, 퇴장 인파·역 이동·환승·도보를 포함해 약 40~60분을 잡으세요. 오사카난바역에서 도톤보리까지 도보 약 8~12분, 리가레 난바까지는 약 3분입니다. <a href="https://www.google.com/maps/dir/?api=1&amp;origin=Universal+Studios+Japan&amp;destination=Dotonbori%2C+Osaka&amp;travelmode=transit" target="_blank" rel="noopener noreferrer">Google 지도 대중교통 경로</a></div></div></li>
           </ul>
         </div>
         <div class="day-tip"><span class="icon">💡</span><div><b>USJ 티켓 준비 완료</b>10월 18일용 클룩 1데이 스튜디오 패스 4매와 와그 익스프레스 패스 4 가족 4매는 휴대폰 저장과 종이 출력까지 완료했습니다. 닌텐도 월드 16:30 입장, 마리오 카트 16:30~17:00, 동키콩 17:00~17:30 지정이므로 늦어도 16:15까지 구역 입구에 도착하세요.</div></div>
@@ -2307,7 +2314,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.81</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.82</div>
   </footer>
 
   <script>
@@ -2550,7 +2557,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
       var scheduleLinks = {
         day1: [['route','트리우스광명 경기도 광명시 광이로 95','인천국제공항 제1여객터미널','driving'],['place','인천국제공항 제1여객터미널'],['place','인천국제공항 제1여객터미널'],['place','간사이국제공항 제1터미널'],['route','간사이공항역','난카이 난바역','transit'],['place','Regale Namba Osaka'],['place','Kura Sushi Namba Parks South'],['route','Kura Sushi Namba Parks South','Daimaru Shinsaibashi','walking'],['route','Daimaru Shinsaibashi','Dotonbori Glico Sign','walking'],['place','Yakiniku Hanamichi Osaka'],['route','Yakiniku Hanamichi Osaka','Don Quijote Dotonbori','walking']],
         day2: [['place','Ichiran Dotonbori Annex Osaka'],['route','Ichiran Dotonbori Annex Osaka','Osaka Business Park Station','transit'],['place','Osaka Castle Museum'],['place','Osaka Castle Gozabune Boat'],['place','Osaka Castle Gozabune Boat'],['place','Nishinomaru Garden Osaka Castle'],['route','Nishinomaru Garden Osaka Castle','Umeda Sky Building','transit'],['place','Umeda Sky Building'],['route','Umeda Sky Building','Grill Ron Hanshin Umeda','walking'],['place','Grill Ron Hanshin Umeda'],['route','Grill Ron Hanshin Umeda','Kiddy Land Osaka Umeda','walking'],['route','Kiddy Land Osaka Umeda','HEP FIVE Ferris Wheel','walking'],['place','HEP FIVE Ferris Wheel'],['route','HEP FIVE Ferris Wheel','Wonder Cruise Nipponbashi Pier','transit'],['place','Wonder Cruise Nipponbashi Pier Osaka'],['place','Wonder Cruise Nipponbashi Pier Osaka']],
-        day3: [['route','Regale Namba Osaka','Universal Studios Japan','transit'],['place','Universal Studios Japan'],['place','Super Nintendo World Japan'],['place','Kinopio Cafe Universal Studios Japan'],['place','Universal Wonderland USJ'],['place','Wizarding World of Harry Potter Japan'],['route','Universal Studios Japan','Namba Osaka yakiniku','transit']],
+        day3: [['route','Regale Namba Osaka','Universal Studios Japan','transit'],['place','Universal Studios Japan'],['place','Super Nintendo World Japan'],['place','Kinopio Cafe Universal Studios Japan'],['place','Universal Wonderland USJ'],['place','Wizarding World of Harry Potter Japan'],['route','Universal Studios Japan','Dotonbori Osaka','transit']],
         day4: [['place','Regale Namba Osaka'],['place','Kuromon Sanpei Osaka'],['place','Kuromon Ichiba Market'],['place','Takashimaya Osaka Store'],['place','Gyukatsu Motomura Namba Midosuji Osaka'],['place','Namba Parks Osaka'],['route','Namba Parks Osaka','Regale Namba Osaka','walking'],['route','Nankai Namba Station','Kansai Airport Terminal 1','transit'],['place','Kansai Airport Terminal 1'],['place','Kansai Airport Terminal 1'],['route','Incheon Airport Terminal 1','트리우스광명 경기도 광명시 광이로 95','driving']]
       };
       Object.keys(scheduleLinks).forEach(function (dayId) {
