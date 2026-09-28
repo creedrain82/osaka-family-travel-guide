@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.84 -->
+<!-- 오사카 가족여행 가이드북 v4.85 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -543,7 +543,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.84</div>
+    <div class="page-version">GUIDE v4.85</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -554,6 +554,7 @@
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="airport">공항/교통</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="stay">숙박</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="prep">여행 준비</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="tickets">QR·티켓</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="packing">준비물 체크</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="icoca">ICOCA</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="itinerary">날짜별 일정</button>
@@ -569,6 +570,25 @@
   <div class="wrap">
 
     <p class="tab-intro" data-guide-tab="overview">원하는 항목만 골라 보세요. 긴 가이드를 한 번에 스크롤하지 않아도 됩니다.</p>
+
+    <!-- ============ QR & DIGITAL TICKETS ============ -->
+    <section id="ticket-wallet" data-guide-tab="tickets">
+      <div class="section-head"><div class="kicker">QR &amp; Digital Tickets</div><h2>QR·티켓 바로가기</h2></div>
+      <p class="guide-note">현장에서 실시간 QR을 바로 열기 위한 링크 모음입니다. <b>스크린샷이 아니라 실제 티켓 화면</b>을 사용하고, 출발 전 로그인 상태·데이터 연결·화면 밝기·보조배터리를 확인하세요.</p>
+      <div class="prep-grid">
+        <article class="prep-card">
+          <h3>🚄 라피트 디지털 티켓</h3>
+          <p><b>귀국편 · 구매·좌석 지정 완료</b></p>
+          <ul>
+            <li>공식 Ticket Wallet에서 승차권과 특급권 확인</li>
+            <li>구매에 사용한 계정으로 로그인 필요</li>
+            <li>열차·좌석·티켓 번호는 로그인 후 확인</li>
+          </ul>
+          <p><a href="https://nk-digital-ticket.nankai.co.jp/tabs/ticket" target="_blank" rel="noopener noreferrer"><b>🎫 라피트 Ticket Wallet 열기</b></a></p>
+        </article>
+      </div>
+      <p class="guide-note"><b>사용 순서:</b> 링크 열기 → 구매에 사용한 계정으로 로그인 → 승차권/특급권 탭 확인 → 사용 직전에 티켓을 활성화 → 난카이 난바 전용 개찰구에서 실시간 QR 제시. 이메일과 영수증 화면 자체는 승차권이 아닙니다.</p>
+    </section>
 
     <!-- ============ FLIGHT ============ -->
     <section id="flight-info" data-guide-tab="airport">
@@ -2374,7 +2394,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.84</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.85</div>
   </footer>
 
   <script>
@@ -2641,6 +2661,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
         airport: ['flight-info'],
         stay: ['stay-info'],
         prep: ['trip-prep', 'tips'],
+        tickets: ['ticket-wallet'],
         packing: ['packing-list'],
         icoca: ['icoca-guide'],
         itinerary: ['meals', 'day1', 'day2', 'day3', 'day4'],
