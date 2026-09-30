@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v4.96 -->
+<!-- 오사카 가족여행 가이드북 v4.97 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -543,7 +543,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v4.96</div>
+    <div class="page-version">GUIDE v4.97</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -718,6 +718,7 @@
             <li>진료 시 영수증·진단서·처방전을 촬영 보관</li>
           </ul>
           <p><a href="https://mitravels.mibankins.com/" target="_blank" rel="noopener noreferrer"><b>🛡️ 마이뱅크 여행자보험 열기</b></a></p>
+          <p><b>🔐 Drive 보험 문서 바로 열기:</b> <a href="https://drive.google.com/file/d/1XpNbjc2Ty_hdweH91F6LxsDClUIaLYUX/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">대원</a> · <a href="https://drive.google.com/file/d/1AnHUGVlPl_zgscq25F--wDjCCcJjsY2E/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">경아</a> · <a href="https://drive.google.com/file/d/1xjqolVacUL1uc_dHTgvAAvG_DrI6Wahl/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">시아</a> · <a href="https://drive.google.com/file/d/1lBgeal5pFmAQ1E1kpHaChtgt54ANsTwX/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">리아</a></p>
           <p><a href="https://drive.google.com/file/d/14OqEr7N5duD1tOR1kTPdOYcS5nxdBFxA/view?usp=drivesdk" target="_blank" rel="noopener noreferrer"><b>🆘 긴급연락처·분실 대응 PDF</b></a></p>
         </article>
         <article class="prep-card">
@@ -1422,8 +1423,8 @@
     document.addEventListener('DOMContentLoaded', function() {
 
 var map_day1 = L.map('leaflet-day1', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
 }).addTo(map_day1);
 L.polyline([[34.6654716,135.4988018],[34.6684287,135.50246],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {color:'#BD4226', weight:4, opacity:0.85}).addTo(map_day1);
 
@@ -1455,8 +1456,8 @@ L.marker([34.6692979,135.5026443], {icon: L.divIcon({
 map_day1.fitBounds([[34.6654716,135.4988018],[34.6684287,135.50246],[34.6732406,135.5009613],[34.6689339,135.5010679],[34.6692979,135.5026443]], {padding:[38,38]});
 
 var map_day2 = L.map('leaflet-day2', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
 }).addTo(map_day2);
 
 
@@ -1474,8 +1475,8 @@ L.marker([34.6654716,135.4988018], {icon: L.divIcon({
 map_day2.fitBounds([[34.6656768,135.4323185],[34.6654716,135.4988018]], {padding:[38,38]});
 
 var map_day3 = L.map('leaflet-day3', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
 }).addTo(map_day3);
 L.polyline([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.7040684,135.5000945],[34.652432,135.506143],[34.66915,135.50595],[34.6654716,135.4988018]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
 
@@ -1507,8 +1508,8 @@ L.marker([34.66915,135.50595], {icon: L.divIcon({
 map_day3.fitBounds([[34.6654716,135.4988018],[34.6872571,135.5258546],[34.7040684,135.5000945],[34.652432,135.506143],[34.66915,135.50595]], {padding:[38,38]});
 
 var map_day4 = L.map('leaflet-day4', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
 }).addTo(map_day4);
 L.polyline([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,135.50030],[34.6654716,135.4988018]], {color:'#7C4A62', weight:4, opacity:0.85}).addTo(map_day4);
 
@@ -1530,8 +1531,8 @@ L.marker([34.66720,135.50030], {icon: L.divIcon({
 map_day4.fitBounds([[34.6654716,135.4988018],[34.6653511,135.5062417],[34.66720,135.50030]], {padding:[38,38]});
 
 var map_shopping = L.map('leaflet-shopping', {zoomControl:true, attributionControl:true, scrollWheelZoom:false});
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; OpenStreetMap contributors &copy; CARTO', subdomains: 'abcd', maxZoom: 20
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
 }).addTo(map_shopping);
 var shoppingPlaces = [
   {id:'H', name:'리가레 난바', lat:34.6654716, lng:135.4988018, color:'#233D63'},
@@ -2544,7 +2545,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.96</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v4.97</div>
   </footer>
 
   <script>
