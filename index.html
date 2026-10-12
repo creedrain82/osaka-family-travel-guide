@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.01 -->
+<!-- 오사카 가족여행 가이드북 v5.02 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -361,6 +361,10 @@
   .shopping-location-card p{margin:0 0 6px;font-size:12.2px;line-height:1.6;color:var(--ink-soft);}
   .shopping-location-card a{font-size:12px;font-weight:700;}
   @media(max-width:620px){.shopping-location-grid{grid-template-columns:1fr}.real-map.shopping-map{height:390px;}}
+  .wife-shopping-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}.wife-shopping-summary div{padding:14px;border:1px solid var(--line);border-radius:13px;background:var(--paper-card);text-align:center}.wife-shopping-summary b{display:block;color:var(--indigo);font-size:21px}.wife-shopping-summary span{font-size:10.5px;color:var(--ink-soft)}
+  .wife-region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0 30px}.wife-region{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--paper-card)}.wife-region h3{margin:0 0 7px;font-size:17px;color:var(--indigo)}.wife-region p{margin:0 0 10px;font-size:11.5px;line-height:1.65;color:var(--ink-soft)}.wife-region a{font-size:11.5px;font-weight:800}
+  .wife-category{margin:22px 0;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--paper-card)}.wife-category h3{margin:0 0 6px;font-size:19px}.wife-category>p{margin:0 0 13px;color:var(--ink-soft);font-size:11.5px;line-height:1.65}.wife-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.wife-item{display:grid;grid-template-columns:20px 1fr auto;gap:8px;align-items:start;padding:10px;border-radius:10px;background:rgba(246,239,225,.62);font-size:11.5px;line-height:1.5;cursor:pointer}.wife-item input{width:16px;height:16px;margin:1px 0 0;accent-color:var(--pine)}.wife-item b{display:block;font-size:12.5px;color:var(--ink)}.wife-item small{display:block;color:var(--ink-soft);font-size:10.5px}.wife-item em{font-style:normal;color:var(--rust);font-size:10.5px;font-weight:800;white-space:nowrap}.wife-item:has(input:checked){opacity:.58;text-decoration:line-through;background:rgba(60,110,92,.1)}.wife-warning{margin-top:14px;padding:13px 15px;border-left:4px solid var(--gold);background:#fff8e8;font-size:11.5px;line-height:1.7;color:var(--ink-soft)}
+  @media(max-width:680px){.wife-shopping-summary{grid-template-columns:repeat(2,1fr)}.wife-region-grid,.wife-checklist{grid-template-columns:1fr}}
 
   /* ---------- DAY CARD ---------- */
   .day{margin-bottom:54px;}
@@ -543,7 +547,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.01</div>
+    <div class="page-version">GUIDE v5.02</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -562,6 +566,7 @@
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="food">맛집</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="snacks">간식</button>
       <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="shopping">쇼핑</button>
+      <button class="guide-tab" type="button" role="tab" aria-selected="false" data-tab="wife-shopping">아내 쇼핑</button>
     </div>
   </nav>
 
@@ -1561,6 +1566,27 @@ shoppingPlaces.forEach(function(place){
   })}).addTo(map_shopping);
 });
 map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,place.lng];}), {padding:[36,36]});
+
+var map_wife_shopping = L.map('leaflet-wife-shopping', {zoomControl:true, attributionControl:true, scrollWheelZoom:false});
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
+}).addTo(map_wife_shopping);
+var wifeShoppingPlaces = [
+  {id:'N1', name:'난바·다카시마야', lat:34.66484, lng:135.50132, color:'#BD4226'},
+  {id:'N2', name:'도톤보리·드럭스토어', lat:34.66940, lng:135.50295, color:'#BD4226'},
+  {id:'S', name:'신사이바시·MooKEN', lat:34.67410, lng:135.50145, color:'#C8983B'},
+  {id:'U1', name:'한큐 우메다 B1', lat:34.70274, lng:135.49816, color:'#3C6E5C'},
+  {id:'U2', name:'그랑프론트·이모야 킨지로', lat:34.70298, lng:135.49450, color:'#3C6E5C'}
+];
+wifeShoppingPlaces.forEach(function(place){
+  L.marker([place.lat, place.lng], {icon: L.divIcon({
+    className:'',
+    html:'<div style="text-align:center;"><div style="display:inline-flex;background:'+place.color+';color:#fff;min-width:28px;height:28px;padding:0 5px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:800;font-size:10.5px;box-sizing:border-box;">'+place.id+'</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:10.5px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">'+place.name+'</div></div>',
+    iconSize:[150,44], iconAnchor:[75,14]
+  })}).addTo(map_wife_shopping);
+});
+L.polyline(wifeShoppingPlaces.map(function(place){return [place.lat,place.lng];}), {color:'#7C4A62', weight:3, opacity:.72, dashArray:'7 7'}).addTo(map_wife_shopping);
+map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place.lat,place.lng];}), {padding:[36,36]});
     });
     </script>
 
@@ -2296,6 +2322,101 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
       <span class="rule"></span>
     </div>
 
+    <!-- ============ WIFE'S SHOPPING LIST ============ -->
+    <section id="wife-shopping-guide">
+      <div class="section-head">
+        <div class="kicker">Family Selected Shopping</div>
+        <h2>아내가 고른 쇼핑리스트</h2>
+      </div>
+      <p class="budget-note">손글씨 메모 4장을 품목과 구매지역 기준으로 다시 정리했습니다. 체크 상태는 이 기기의 브라우저에 저장됩니다. <b>메모 가격은 조사 당시 참고가</b>이므로 실제 가격·용량·면세·재고는 현장에서 확인하세요.</p>
+      <div class="wife-shopping-summary">
+        <div><b>4</b><span>구매 권역</span></div><div><b>21</b><span>드럭스토어 후보</span></div><div><b>10</b><span>선물·기념품 후보</span></div><div><b>12</b><span>디저트 후보</span></div>
+      </div>
+
+      <div class="real-map-item">
+        <div class="real-map-label"><span class="rm-dot" style="background:#7C4A62"></span><b>아내 쇼핑 권역 지도</b>&nbsp;난바·도톤보리 → 신사이바시 → 우메다 / 공항은 별도</div>
+        <div id="leaflet-wife-shopping" class="real-map shopping-map" aria-label="아내 쇼핑리스트의 난바, 도톤보리, 신사이바시, 우메다 구매지역 지도"></div>
+        <div class="shopping-map-legend"><span><i style="background:#BD4226"></i>N 난바·도톤보리</span><span><i style="background:#C8983B"></i>S 신사이바시</span><span><i style="background:#3C6E5C"></i>U 우메다</span><span><i style="background:#2874A6"></i>K 간사이공항(지도 밖)</span></div>
+      </div>
+
+      <div class="wife-region-grid">
+        <article class="wife-region"><h3>N · 난바·도톤보리</h3><p><b>Day 1·4 집중:</b> 돈키호테 난바센니치마에점, 잇신드럭·Forest Drug 가격 비교, 다이코쿠드럭, 551호라이 난바본점, 난바 마루이 리쿠로 아저씨, 다카시마야 오사카점 B1 과일샌드.</p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Regale+Namba+Osaka&amp;destination=Takashimaya+Osaka&amp;waypoints=Don+Quijote+Namba+Sennichimae%7C551+Horai+Namba%7CNamba+Marui&amp;travelmode=walking" target="_blank" rel="noopener noreferrer">난바 묶음 동선</a></article>
+        <article class="wife-region"><h3>S · 신사이바시</h3><p><b>Day 1 산책 중:</b> MooKEN 슈크림, 타바네노시 말차 크레페, 엑셀시오르 카페 계열 디저트 후보. MooKEN은 신사이바시스지 1-5-26으로 대기·품절 가능성이 큽니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=MooKEN+Shinsaibashi+Osaka" target="_blank" rel="noopener noreferrer">MooKEN 지도</a> · <a href="https://www.google.com/maps/search/?api=1&amp;query=%E6%B5%85%E8%8D%89%E8%8C%B6%E5%B1%8B+%E3%81%9F%E3%81%B0%E3%81%AD%E3%81%AE%E3%81%97+%E5%BF%83%E6%96%8E%E6%A9%8B" target="_blank" rel="noopener noreferrer">타바네노시 지도</a></article>
+        <article class="wife-region"><h3>U · 우메다</h3><p><b>Day 2 쇼핑 핵심:</b> 한큐 우메다 B1의 일심당 과일모찌·선물 과자, 그랑프론트 오사카 우메키타광장 B1의 이모야 킨지로. 메모의 밀푀유·그루니에는 상호와 매대 위치를 현장 안내에서 재확인합니다.</p><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hankyu+Umeda+Main+Store&amp;destination=Imoya+Kinjiro+Grand+Front+Osaka&amp;travelmode=walking" target="_blank" rel="noopener noreferrer">우메다 묶음 동선</a> · <a href="https://www.hankyu-dept.co.jp/honten/floor/floorb1.html" target="_blank" rel="noopener noreferrer">한큐 B1 공식</a></article>
+        <article class="wife-region"><h3>K · 간사이공항</h3><p><b>Day 4 출국 후:</b> 뉴욕 퍼펙트 치즈를 국제선 출국장 면세구역에서 재고 확인. 메모에는 18~21번 게이트 부근·약 1,800엔으로 기록되어 있으나 출국 당일 매장·가격을 확인합니다.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Kansai+Airport+Terminal+1+Duty+Free" target="_blank" rel="noopener noreferrer">간사이공항 지도</a></article>
+      </div>
+
+      <article class="wife-category">
+        <h3>💊 드럭스토어·뷰티</h3><p>난바·도톤보리의 잇신드럭·Forest Drug·다이코쿠드럭·돈키호테에서 비교 후 한곳에 면세 금액을 모읍니다.</p>
+        <div class="wife-checklist">
+          <label class="wife-item"><input type="checkbox" data-wife-item="cabagin"><span><b>카베진 코와 α 300정</b><small>위장약 · 메모 1,694엔 / 돈키 2,398엔</small></span><em>우선</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="biore-uv"><span><b>비오레 UV 선크림</b><small>메모 772엔 / 돈키 968엔</small></span><em>비교</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="biore-cleanse"><span><b>비오레 더 클렌즈 오일</b><small>파란 패키지 · 메모 약 1,100엔</small></span><em>뷰티</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="ebisu"><span><b>에비스 칫솔</b><small>메모 218엔 / 돈키 351엔</small></span><em>생활</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="tsubaki"><span><b>TSUBAKI 헤어팩</b><small>프리미엄 리페어 계열 · 메모 957엔</small></span><em>헤어</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="vc-mask"><span><b>VC 마스크팩</b><small>메모 657엔 / 돈키 777엔</small></span><em>팩</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="pabron"><span><b>파브론 감기약</b><small>골드A 계열 추정 · 1인 1개 메모, 성분·수량 확인</small></span><em>의약품</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="kyusoku"><span><b>휴족시간</b><small>여행 중 바로 사용할 냉각 젤 시트</small></span><em>필수</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="vrohto"><span><b>V로토 프리미엄 안약</b><small>연령·렌즈 착용 가능 여부 확인</small></span><em>안약</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="hisamitsu"><span><b>히사미츠 파스</b><small>메모 약 598엔 / 돈키 665엔</small></span><em>파스</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="roihi"><span><b>로이히츠보코 EX</b><small>골드 컬러 패키지 메모 · 온감/크기 확인</small></span><em>파스</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="stomatitis"><span><b>구내염 패치</b><small>다이코쿠드럭 메모 약 1,500엔</small></span><em>상비</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="muhi-baby"><span><b>무히 베이비</b><small>48mL 메모 약 550엔 · 대상 연령 확인</small></span><em>아이</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="suisai"><span><b>suisai 효소 세안 파우더</b><small>개별 캡슐형 세안제</small></span><em>뷰티</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="ninocure"><span><b>니노큐아</b><small>팔꿈치·무릎 등 거칠어진 피부용 크림</small></span><em>바디</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="ibikist"><span><b>이비키스트</b><small>코골이 방지용 스프레이 메모 · 사용법 확인</small></span><em>현장확인</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="melano-wash"><span><b>멜라노CC 딥 클리어 효소 세안</b><small>튜브형 세안폼</small></span><em>뷰티</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="transino"><span><b>트란시노 화이트C 프리미엄</b><small>기미 개선 내복약 · 복용약·금기 상담</small></span><em>약사확인</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="sana-eye"><span><b>SANA 두유 아이크림</b><small>메모 약 1,798엔</small></span><em>뷰티</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="hair-spray"><span><b>내추럴 G 스프레이</b><small>방수·고정용으로 적힌 필기 품목 · 정확한 상품명 현장 확인</small></span><em>판독주의</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="cream-choco"><span><b>비아쿠 크림치즈·허쉬 반숙초콜릿</b><small>필기 상품명 기준 · 식품 코너에서 패키지 대조</small></span><em>판독주의</em></label>
+        </div>
+        <div class="wife-warning"><b>의약품 주의:</b> 감기약·진통제·안약·내복약은 성분 중복과 복용 연령을 약사에게 확인하세요. 면세 소비품은 일본 체류 중 개봉·사용 제한이 생길 수 있으므로 여행 중 쓸 휴족시간 등은 면세품과 별도 결제하는 편이 안전합니다.</div>
+      </article>
+
+      <article class="wife-category">
+        <h3>🎁 오사카 선물·기념품</h3><p>난바와 우메다 백화점, 귀국일 간사이공항에서 나눠 사면 부피와 품절 위험을 줄일 수 있습니다.</p>
+        <div class="wife-checklist">
+          <label class="wife-item"><input type="checkbox" data-wife-item="hana-langue"><span><b>오사카 하나 랑그</b><small>꽃 모양 랑그드샤 · 백화점·기념품점</small></span><em>난바/우메다</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="mochimaro"><span><b>오사카 모찌마로카 만주</b><small>필기명 기준 · 현장에서 패키지 이름 확인</small></span><em>판독주의</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="horai-baum"><span><b>호라이 캐러멜리제 바움쿠헨</b><small>필기 추천 선물</small></span><em>기념품</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="osaka-cheese"><span><b>오사카 치즈 크런치 초콜릿</b><small>상자 크기·개별포장 확인</small></span><em>나눔용</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="okoshi"><span><b>오사카 오코시</b><small>쌀과자 계열의 전통 선물</small></span><em>상온</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="koibato"><span><b>고이바토 잼잼 한정</b><small>한신 우메다 B1 메모 · 상호·상품 현장 확인</small></span><em>우메다</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="ny-cheese"><span><b>뉴욕 퍼펙트 치즈</b><small>간사이공항 출국장 · 메모 약 1,800엔</small></span><em>공항</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="meltykiss"><span><b>메이지 멜티키스</b><small>로이스 대신 후보 · 기온에 따른 녹음 주의</small></span><em>마트</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="551"><span><b>551호라이 부타만</b><small>메모 1개 약 230엔 · 바로 먹을 수량만</small></span><em>난바</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="wanaka-senbei"><span><b>와나카 타코센베</b><small>에비센베+타코야키 조합 · 메모 약 300엔</small></span><em>난바</em></label>
+        </div>
+      </article>
+
+      <article class="wife-category">
+        <h3>🍰 디저트·당일 간식</h3><p>우메다는 Day 2, 신사이바시는 Day 1, 난바는 Day 4에 배치합니다. 생과일·생크림 제품은 귀국 직전보다 현장에서 바로 먹는 용도로 봅니다.</p>
+        <div class="wife-checklist">
+          <label class="wife-item"><input type="checkbox" data-wife-item="millefeuille"><span><b>한큐 B1 밀푀유 ‘크루미에’</b><small>메모 약 1,000엔 · 매대명 현장 확인</small></span><em>우메다</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="imokin"><span><b>이모야 킨지로 갓 튀긴 이모켄피</b><small>120g 500엔 / 300g 1,000엔 · 우메키타광장 B1</small></span><em>우메다</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="tabanenosh"><span><b>타바네노시 말차 크레페</b><small>브륄레 표면+말차크림</small></span><em>신사이바시</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="mooken"><span><b>MooKEN 슈크림</b><small>10개보다 20개 추천 메모 · 품절 주의</small></span><em>신사이바시</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="dango"><span><b>미타라시 당고</b><small>15ban dango 약 1,200엔 / Amato Maeda 약 900엔 메모</small></span><em>비교</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="brulee-ice"><span><b>크림브륄레 아이스크림</b><small>엑셀시오르 카페 신사이바시점 메모</small></span><em>신사이바시</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="rikuro"><span><b>리쿠로 아저씨 치즈케이크</b><small>메모 965엔 · 난바 마루이 1F</small></span><em>난바</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="fruit-sand"><span><b>다카시마야 B1 과일샌드</b><small>폐점 전 할인 메모 · 당일 섭취</small></span><em>난바</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="grenier"><span><b>그루니에 크림브륄레 밀푀유</b><small>메모 약 980엔 · 우메다 매장 위치 재확인</small></span><em>우메다</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="issindo"><span><b>일심당 과일모찌</b><small>한큐 우메다 B1 · 432~800엔, 유바리멜론 635엔 메모</small></span><em>우메다</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="milk-brand"><span><b>도톤보리 밀크 브랜드</b><small>메모 약 500엔 · 정확한 매장명 현장 확인</small></span><em>도톤보리</em></label>
+          <label class="wife-item"><input type="checkbox" data-wife-item="extra-dessert"><span><b>현장 한정 디저트 1개</b><small>한큐·한신·다카시마야 시즌 매대에서 가족 합의 후 선택</small></span><em>예비</em></label>
+        </div>
+      </article>
+
+      <div class="source-box"><b>확인된 최신 매장:</b> <a href="https://imokin.co.jp/shop/osaka" target="_blank" rel="noopener noreferrer">이모야 킨지로 공식 안내</a> 기준 그랑프론트 오사카점은 우메키타광장 B1, 10:00~21:00이며 갓 튀긴 이모켄피 120g 500엔·300g 1,000엔입니다. <a href="https://www.hankyu-dept.co.jp/honten/floor/floorb1.html" target="_blank" rel="noopener noreferrer">한큐 우메다 B1 공식 층 안내</a>에는 일심당이 등록되어 있고, <a href="https://www.rikuro.co.jp/newsother/5769.html" target="_blank" rel="noopener noreferrer">리쿠로 공식 공지</a> 기준 난바 마루이점은 2026년 4월 24일 1층에 개점했습니다. 나머지 필기 상품은 방문 당일 Google 지도·매장 안내에서 재확인하세요.</div>
+    </section>
+
+    <div class="torii-divider">
+      <span class="rule"></span>
+      <svg viewBox="0 0 40 40" fill="none"><path d="M4 12 L36 12 M4 12 L2 8 M36 12 L38 8 M8 16 L32 16 M12 16 L12 36 M28 16 L28 36" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span class="rule"></span>
+    </div>
+
     <!-- ============ SHOPPING GUIDE ============ -->
     <section id="shopping-guide">
       <div class="section-head">
@@ -2554,7 +2675,7 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.01</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.02</div>
   </footer>
 
   <script>
@@ -2828,7 +2949,8 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
         usj: ['usj-complete'],
         food: ['food-guide'],
         snacks: ['snack-guide', 'convenience-guide'],
-        shopping: ['shopping-guide']
+        shopping: ['shopping-guide'],
+        'wife-shopping': ['wife-shopping-guide']
       };
       Object.keys(tabGroups).forEach(function (tabName) {
         tabGroups[tabName].forEach(function (id) {
@@ -2843,6 +2965,17 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
 
       var buttons = Array.from(document.querySelectorAll('.guide-tab'));
       var panels = Array.from(document.querySelectorAll('[data-guide-tab]:not(.guide-tab)'));
+      var wifeChecks = Array.from(document.querySelectorAll('[data-wife-item]'));
+      var wifeStorageKey = 'osaka-wife-shopping-v1';
+      var wifeSaved = {};
+      try { wifeSaved = JSON.parse(localStorage.getItem(wifeStorageKey) || '{}'); } catch (e) { wifeSaved = {}; }
+      wifeChecks.forEach(function (input) {
+        input.checked = !!wifeSaved[input.dataset.wifeItem];
+        input.addEventListener('change', function () {
+          wifeSaved[input.dataset.wifeItem] = input.checked;
+          try { localStorage.setItem(wifeStorageKey, JSON.stringify(wifeSaved)); } catch (e) {}
+        });
+      });
       function showTab(tabName, updateHash, moveToTabs) {
         if (!tabGroups[tabName]) tabName = 'overview';
         buttons.forEach(function (button) {
@@ -2857,7 +2990,11 @@ map_shopping.fitBounds(shoppingPlaces.map(function(place){return [place.lat,plac
         });
         if (updateHash) history.replaceState(null, '', '#' + tabName);
         if (moveToTabs) document.querySelector('.guide-tabs-shell').scrollIntoView({behavior:'smooth', block:'start'});
-        setTimeout(function () { window.dispatchEvent(new Event('resize')); }, 80);
+        setTimeout(function () {
+          window.dispatchEvent(new Event('resize'));
+          if (tabName === 'shopping' && typeof map_shopping !== 'undefined') map_shopping.invalidateSize();
+          if (tabName === 'wife-shopping' && typeof map_wife_shopping !== 'undefined') map_wife_shopping.invalidateSize();
+        }, 80);
       }
       buttons.forEach(function (button, index) {
         button.addEventListener('click', function () { showTab(button.dataset.tab, true, true); });
