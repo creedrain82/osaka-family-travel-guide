@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.02 -->
+<!-- 오사카 가족여행 가이드북 v5.03 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -364,7 +364,8 @@
   .wife-shopping-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 18px}.wife-shopping-summary div{padding:14px;border:1px solid var(--line);border-radius:13px;background:var(--paper-card);text-align:center}.wife-shopping-summary b{display:block;color:var(--indigo);font-size:21px}.wife-shopping-summary span{font-size:10.5px;color:var(--ink-soft)}
   .wife-region-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:18px 0 30px}.wife-region{padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--paper-card)}.wife-region h3{margin:0 0 7px;font-size:17px;color:var(--indigo)}.wife-region p{margin:0 0 10px;font-size:11.5px;line-height:1.65;color:var(--ink-soft)}.wife-region a{font-size:11.5px;font-weight:800}
   .wife-category{margin:22px 0;padding:20px;border:1px solid var(--line);border-radius:16px;background:var(--paper-card)}.wife-category h3{margin:0 0 6px;font-size:19px}.wife-category>p{margin:0 0 13px;color:var(--ink-soft);font-size:11.5px;line-height:1.65}.wife-checklist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.wife-item{display:grid;grid-template-columns:20px 1fr auto;gap:8px;align-items:start;padding:10px;border-radius:10px;background:rgba(246,239,225,.62);font-size:11.5px;line-height:1.5;cursor:pointer}.wife-item input{width:16px;height:16px;margin:1px 0 0;accent-color:var(--pine)}.wife-item b{display:block;font-size:12.5px;color:var(--ink)}.wife-item small{display:block;color:var(--ink-soft);font-size:10.5px}.wife-item em{font-style:normal;color:var(--rust);font-size:10.5px;font-weight:800;white-space:nowrap}.wife-item:has(input:checked){opacity:.58;text-decoration:line-through;background:rgba(60,110,92,.1)}.wife-warning{margin-top:14px;padding:13px 15px;border-left:4px solid var(--gold);background:#fff8e8;font-size:11.5px;line-height:1.7;color:var(--ink-soft)}
-  @media(max-width:680px){.wife-shopping-summary{grid-template-columns:repeat(2,1fr)}.wife-region-grid,.wife-checklist{grid-template-columns:1fr}}
+  .wife-photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:13px 0 17px}.wife-photo-card{overflow:hidden;border:1px solid var(--line);border-radius:12px;background:#fff;text-decoration:none;color:inherit;transition:transform .15s ease,box-shadow .15s ease}.wife-photo-card:hover{transform:translateY(-2px);box-shadow:0 7px 18px rgba(42,33,24,.12)}.wife-photo-card img{display:block;width:100%;height:125px;object-fit:cover;background:#f4efe6}.wife-photo-card.product img{object-fit:contain;padding:7px;box-sizing:border-box}.wife-photo-card span{display:block;padding:8px 9px 3px;font-size:11.5px;font-weight:800;line-height:1.35}.wife-photo-card small{display:block;padding:0 9px 9px;color:var(--ink-soft);font-size:9.5px;line-height:1.35}.wife-photo-note{margin:-7px 0 12px;color:var(--ink-soft);font-size:10px;line-height:1.55}
+  @media(max-width:860px){.wife-photo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:680px){.wife-shopping-summary{grid-template-columns:repeat(2,1fr)}.wife-region-grid,.wife-checklist{grid-template-columns:1fr}.wife-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wife-photo-card img{height:118px}}
 
   /* ---------- DAY CARD ---------- */
   .day{margin-bottom:54px;}
@@ -547,7 +548,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.02</div>
+    <div class="page-version">GUIDE v5.03</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -2348,6 +2349,15 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
       <article class="wife-category">
         <h3>💊 드럭스토어·뷰티</h3><p>난바·도톤보리의 잇신드럭·Forest Drug·다이코쿠드럭·돈키호테에서 비교 후 한곳에 면세 금액을 모읍니다.</p>
+        <div class="wife-photo-grid" aria-label="드럭스토어 상품 사진">
+          <a class="wife-photo-card product" href="https://hc.kowa.co.jp/otc/22816" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://www.kowa.co.jp/img/health_medical/photo04.jpg" alt="카베진 코와 알파 플러스 300정 포장"><span>카베진 300정</span><small>KOWA 공식 제품</small></a>
+          <a class="wife-photo-card product" href="https://www.kao.co.jp/bioreuv/microuv/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://img06.weeecdn.com/item/image/894/640/3CE1FCDF05B66AC5.jpeg%21c750x0.jpeg" alt="비오레 UV 아쿠아리치 워터리 에센스 포장"><span>비오레 UV</span><small>제조사 설명·유통 이미지 대조</small></a>
+          <a class="wife-photo-card product" href="https://product.rakuten.co.jp/product/-/c642dd307a4ac00559fdec4647b5fc39/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://r.r10s.jp/ran/img/1001/0004/901/872/459/957/10010004901872459957_1.jpg" alt="츠바키 프리미엄 EX 리페어 마스크 금색 용기"><span>TSUBAKI 헤어팩</span><small>Rakuten 상품 이미지</small></a>
+          <a class="wife-photo-card product" href="https://kyusokujikan.lion.co.jp/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://japanwithlovestore.com/cdn/shop/files/585816a53c7b2e7e89c809db8769f7d8_grande.webp?v=1769449339" alt="휴족시간 발바닥과 종아리용 냉각시트 포장"><span>휴족시간</span><small>LION 공식 설명·유통 이미지 대조</small></a>
+          <a class="wife-photo-card product" href="https://www.shop.rohto.co.jp/category/skincare/melanocc/173242.html" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://mrmax.jp/static_files/product_images/4987241173242_01.jpg" alt="멜라노CC 딥클리어 효소 세안 노란색 튜브"><span>멜라노CC 세안</span><small>Rohto 공식 설명·유통 이미지 대조</small></a>
+          <a class="wife-photo-card product" href="https://sundrug-online.com/en/products/4987107631961" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://sundrug-online.com/cdn/shop/files/4987107631961.jpg?crop=center&amp;height=600&amp;width=600" alt="트란시노 화이트C 프리미엄 은색과 파란색 상자"><span>트란시노 화이트C</span><small>Sun Drug 상품 이미지</small></a>
+        </div>
+        <p class="wife-photo-note">사진은 포장 식별용입니다. 리뉴얼·용량에 따라 실제 진열 상품이 달라질 수 있으며, 사진을 누르면 확인한 제조사 또는 유통 페이지가 열립니다.</p>
         <div class="wife-checklist">
           <label class="wife-item"><input type="checkbox" data-wife-item="cabagin"><span><b>카베진 코와 α 300정</b><small>위장약 · 메모 1,694엔 / 돈키 2,398엔</small></span><em>우선</em></label>
           <label class="wife-item"><input type="checkbox" data-wife-item="biore-uv"><span><b>비오레 UV 선크림</b><small>메모 772엔 / 돈키 968엔</small></span><em>비교</em></label>
@@ -2376,6 +2386,12 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
       <article class="wife-category">
         <h3>🎁 오사카 선물·기념품</h3><p>난바와 우메다 백화점, 귀국일 간사이공항에서 나눠 사면 부피와 품절 위험을 줄일 수 있습니다.</p>
+        <div class="wife-photo-grid" aria-label="오사카 선물과 기념품 사진">
+          <a class="wife-photo-card product" href="https://www.atpress.ne.jp/news/374086" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://www.atpress.ne.jp/releases/374086/LL_img_374086_3.jpg?format=webp&amp;ts=1741688987" alt="꽃 모양 쿠키 오사카 하나랑그 선물 상자"><span>오사카 하나랑그</span><small>제조사 보도자료 이미지</small></a>
+          <a class="wife-photo-card" href="https://www.551horai.co.jp/menu/butaman/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/2d/29/87/551.jpg?h=-1&amp;s=1&amp;w=1400" alt="찜기에 담긴 551 호라이 부타만과 빨간 포장"><span>551호라이 부타만</span><small>공식 메뉴·Tripadvisor 사진 대조</small></a>
+          <a class="wife-photo-card" href="https://www.rikuro.co.jp/shoplist/5794.html" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://news.walkerplus.com/article/120832/667877_615.jpg" alt="리쿠로 아저씨의 갓 구운 치즈케이크"><span>리쿠로 치즈케이크</span><small>공식 매장·Walkerplus 사진 대조</small></a>
+        </div>
+        <p class="wife-photo-note">공항 한정 상품은 당일 매대와 재고 변동이 커서 확실하게 식별된 제품만 사진으로 넣었습니다.</p>
         <div class="wife-checklist">
           <label class="wife-item"><input type="checkbox" data-wife-item="hana-langue"><span><b>오사카 하나 랑그</b><small>꽃 모양 랑그드샤 · 백화점·기념품점</small></span><em>난바/우메다</em></label>
           <label class="wife-item"><input type="checkbox" data-wife-item="mochimaro"><span><b>오사카 모찌마로카 만주</b><small>필기명 기준 · 현장에서 패키지 이름 확인</small></span><em>판독주의</em></label>
@@ -2392,6 +2408,15 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
       <article class="wife-category">
         <h3>🍰 디저트·당일 간식</h3><p>우메다는 Day 2, 신사이바시는 Day 1, 난바는 Day 4에 배치합니다. 생과일·생크림 제품은 귀국 직전보다 현장에서 바로 먹는 용도로 봅니다.</p>
+        <div class="wife-photo-grid" aria-label="오사카 디저트와 간식 사진">
+          <a class="wife-photo-card" href="https://imokin.co.jp/shop/osaka" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://imokin.co.jp/images/shop/osaka/pic_osusume01.webp" alt="이모야 킨지로 오사카점의 갓 튀긴 고구마 스틱"><span>이모야 킨지로</span><small>공식 오사카점 이미지</small></a>
+          <a class="wife-photo-card" href="https://retty.me/area/PRE27/ARE94/SUB62310/100001758928/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://img.retty.me/img_ebisu/restaurant/100001758928/archive/3445258-672ca1000b28f.png" alt="타바네노시 말차 브륄레 크레페"><span>타바네노시</span><small>Retty 매장 사진</small></a>
+          <a class="wife-photo-card" href="https://www.google.com/maps/search/?api=1&amp;query=MooKEN+Shinsaibashi+Osaka" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://osaka.goguynet.jp/wp-content/uploads/sites/265/2023/06/IMG-5745.jpg" alt="MooKEN 슈크림 매장 진열"><span>MooKEN 슈크림</span><small>Google 지도·지역매체 대조</small></a>
+          <a class="wife-photo-card" href="https://tabelog.com/osaka/A2701/A270101/27130931/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://tblg.k-img.com/restaurant/images/Rvw/210515/640x640_rect_7d2a7faaf607d16cefae4f798aff69a1.jpg" alt="그루니에 크림브륄레 밀푀유"><span>그루니에 밀푀유</span><small>타베로그 이용자 사진</small></a>
+          <a class="wife-photo-card" href="https://tabelog.com/osaka/A2701/A270101/27069537/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://tblg.k-img.com/restaurant/images/Rvw/221368/640x640_rect_b97739552f21c9a56891c5feb0d5174a.jpg" alt="일심당 한큐 우메다점의 여러 과일 다이후쿠"><span>일심당 과일모찌</span><small>타베로그 이용자 사진</small></a>
+          <a class="wife-photo-card" href="https://www.rikuro.co.jp/shoplist/5794.html" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://news.walkerplus.com/article/120832/667877_615.jpg" alt="리쿠로 아저씨 치즈케이크"><span>리쿠로 치즈케이크</span><small>난바 마루이 1F</small></a>
+        </div>
+        <p class="wife-photo-note">매장 메뉴 사진은 Google 지도·타베로그·Retty·지역 블로그를 함께 대조했습니다. 계절 메뉴와 진열 모습은 방문일에 달라질 수 있습니다.</p>
         <div class="wife-checklist">
           <label class="wife-item"><input type="checkbox" data-wife-item="millefeuille"><span><b>한큐 B1 밀푀유 ‘크루미에’</b><small>메모 약 1,000엔 · 매대명 현장 확인</small></span><em>우메다</em></label>
           <label class="wife-item"><input type="checkbox" data-wife-item="imokin"><span><b>이모야 킨지로 갓 튀긴 이모켄피</b><small>120g 500엔 / 300g 1,000엔 · 우메키타광장 B1</small></span><em>우메다</em></label>
@@ -2675,7 +2700,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.02</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.03</div>
   </footer>
 
   <script>
