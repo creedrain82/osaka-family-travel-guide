@@ -1,0 +1,19 @@
+{
+  "name": "오사카 가족여행 가이드북",
+  "short_name": "오사카 가이드",
+  "description": "2026년 오사카 가족여행 일정·준비·경비 가이드",
+  "start_url": "./?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F6EFE1",
+  "theme_color": "#1F3A5F",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "assets/app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.22 -->
+<!-- 오사카 가족여행 가이드북 v5.23 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1F3A5F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>오사카 가족여행 가이드북</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
@@ -495,6 +500,9 @@
   footer{padding:50px 20px 60px;text-align:center;}
   footer .msg{font-family:'Gowun Batang',serif;font-size:20px;color:var(--ink);margin-bottom:8px;}
   footer .sub{font-size:13px;color:var(--ink-soft);}
+  .offline-status{position:fixed;right:14px;bottom:14px;z-index:10000;max-width:calc(100vw - 28px);padding:9px 13px;border-radius:999px;background:var(--indigo);color:#fff;font-size:12px;font-weight:700;box-shadow:0 5px 18px rgba(21,41,69,.28);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .25s,transform .25s;}
+  .offline-status.show{opacity:1;transform:translateY(0);}
+  .offline-status.offline{background:#8b3a2b;}
 
   @media(max-width:600px){
     .hero h1{font-size:32px;}
@@ -550,7 +558,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.22</div>
+    <div class="page-version">GUIDE v5.23</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -855,7 +863,7 @@
       <p class="guide-note"><b>가족 저장 원칙:</b> USJ 입장권과 익스프레스 패스는 정적인 바우처이므로 <b>원본 PDF·부모 휴대폰 2대·종이 출력</b>의 3중 백업을 준비합니다. QR만 잘라내거나 편집하지 말고 티켓 전체 화면을 보존하세요. 반대로 주유패스와 라피트는 웹 티켓의 실시간 화면이 필요하므로 출력본을 백업으로 사용할 수 없습니다. 대표 휴대폰의 배터리·데이터·화면 밝기를 확인하고 보조배터리를 준비하세요.</p>
       <div class="prep-grid">
         <article class="prep-card"><h3>🧳 가족 공통 짐</h3><ul><li>여권 4권·예약 QR·영문 보험증서</li><li>10월용 얇은 겉옷·접이식 우산·편한 운동화</li><li>상비약·멀미약·보조배터리·충전 케이블</li><li>아이별 이름표와 비상 연락처 카드</li></ul></article>
-        <article class="prep-card"><h3>📲 휴대폰 필수 저장</h3><ul><li>항공·숙소 원본 PDF와 USJ 입장권·익스프레스 전체 바우처 저장</li><li>Visit Japan Web 가족 4명 QR과 등록 완료 화면을 부모 휴대폰에 오프라인 저장</li><li>주유패스는 캡처·복제 불가: 대표 휴대폰의 실시간 화면만 사용</li><li>라피트는 Ticket Wallet의 실시간 QR 사용</li><li>Google 지도·번역·USJ 공식 앱 설치</li><li>카드 해외원화결제(DCC) 차단, JPY 결제 원칙 공유</li><li>정적 예약자료는 부모 두 휴대폰과 종이 파일에 중복 보관</li></ul></article>
+        <article class="prep-card"><h3>📲 휴대폰 필수 저장</h3><ul><li>항공·숙소 원본 PDF와 USJ 입장권·익스프레스 전체 바우처 저장</li><li>Visit Japan Web 가족 4명 QR과 등록 완료 화면을 부모 휴대폰에 오프라인 저장</li><li>가이드 페이지를 온라인에서 한 번 연 뒤 하단의 ‘오프라인 준비 완료’를 확인하고, 비행기 모드에서 새로 열어 최종 점검</li><li>주유패스는 캡처·복제 불가: 대표 휴대폰의 실시간 화면만 사용</li><li>라피트는 Ticket Wallet의 실시간 QR 사용</li><li>Google 지도·번역·USJ 공식 앱 설치 및 숙소·공항·USJ 권역 오프라인 지도 다운로드</li><li>카드 해외원화결제(DCC) 차단, JPY 결제 원칙 공유</li><li>정적 예약자료는 부모 두 휴대폰과 종이 파일에 중복 보관</li></ul><p class="next"><b>오프라인 범위:</b> 가이드 본문·일정·체크리스트는 사용 가능. Google 지도 길찾기, Drive 문서, 실시간 QR·운영정보는 데이터 연결 필요.</p></article>
       </div>
       <p class="guide-note">상태가 바뀌면 완료 항목과 남은 할 일을 함께 갱신합니다. 보험·통신·입국 절차와 시설 운영시간은 결제 전과 출발 1주 전에 공식 안내를 다시 확인하세요.</p>
     </section>
@@ -2762,8 +2770,10 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.22</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.23</div>
   </footer>
+
+  <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -3125,6 +3135,34 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
       });
       updatePackingProgress();
       showTab(location.hash.slice(1), false, false);
+
+      var offlineStatus = document.getElementById('offline-status');
+      var offlineTimer;
+      function showOfflineStatus(message, isOffline, persist) {
+        if (!offlineStatus) return;
+        clearTimeout(offlineTimer);
+        offlineStatus.textContent = message;
+        offlineStatus.classList.toggle('offline', Boolean(isOffline));
+        offlineStatus.classList.add('show');
+        if (!persist) offlineTimer = setTimeout(function () { offlineStatus.classList.remove('show'); }, 4500);
+      }
+      function updateConnectionStatus() {
+        if (navigator.onLine) showOfflineStatus('온라인 · 오프라인 가이드 준비됨', false, false);
+        else showOfflineStatus('오프라인 모드 · 저장된 가이드 표시 중', true, true);
+      }
+      window.addEventListener('online', updateConnectionStatus);
+      window.addEventListener('offline', updateConnectionStatus);
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js').then(function () {
+          return navigator.serviceWorker.ready;
+        }).then(function () {
+          updateConnectionStatus();
+        }).catch(function () {
+          showOfflineStatus('오프라인 저장 실패 · 인터넷 연결 후 새로고침', true, true);
+        });
+      } else if (!navigator.onLine) {
+        updateConnectionStatus();
+      }
     });
   </script>
 
