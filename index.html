@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.31 -->
+<!-- 오사카 가족여행 가이드북 v5.32 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -588,7 +588,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.31</div>
+    <div class="page-version">GUIDE v5.32</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -2840,7 +2840,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.31</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.32</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3298,7 +3298,8 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
             var ids = new Set(expenseRecords.map(function (item) { return item.id; })); restored.forEach(function (item) {
               if (ids.has(item.id)) return;
               var sameAmount = expenseRecords.filter(function (existing) { return existing.date === item.date && existing.currency === item.currency && expenseNumber(existing.amount) === expenseNumber(item.amount); });
-              var matched = sameAmount.length === 1 ? sameAmount[0] : sameAmount.find(function (existing) { return existing.time && item.time && existing.time === item.time; });
+              var matched = sameAmount.find(function (existing) { return existing.time && item.time && existing.time === item.time; });
+              if (!matched && sameAmount.length === 1 && (!sameAmount[0].time || !item.time)) matched = sameAmount[0];
               if (matched) {
                 if (!matched.time && item.time) matched.time = item.time;
                 if (!matched.actualKrw && item.actualKrw) matched.actualKrw = item.actualKrw;
