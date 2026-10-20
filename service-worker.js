@@ -1,5 +1,5 @@
-/* 오사카 가족여행 오프라인 서비스 워커 v1.15 */
-const CACHE_NAME = 'osaka-family-guide-v5.37';
+/* 오사카 가족여행 오프라인 서비스 워커 v1.16 */
+const CACHE_NAME = 'osaka-family-guide-v5.38';
 const CORE_FILES = [
   './',
   './index.html',

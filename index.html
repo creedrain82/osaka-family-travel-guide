@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.37 -->
+<!-- 오사카 가족여행 가이드북 v5.38 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -308,21 +308,29 @@
   .expense-category-summary{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 16px;}
   .expense-category-summary span{padding:5px 10px;border-radius:999px;background:var(--paper-deep);font-size:11px;color:var(--ink-soft);}
   .expense-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper-card);}
-  .expense-table{width:100%;min-width:760px;border-collapse:collapse;font-size:12px;}
+  .expense-table{width:100%;min-width:760px;border-collapse:collapse;table-layout:fixed;font-size:12px;}
   .expense-table th,.expense-table td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;}
   .expense-table th{background:var(--indigo);color:#fff;font-weight:600;white-space:nowrap;}
-  .expense-table td.amount{text-align:right;white-space:nowrap;font-weight:700;}
+  .expense-table td{overflow-wrap:anywhere;}
+  .expense-table td.amount{text-align:right;white-space:normal;font-weight:700;}
   .expense-table tr:last-child td{border-bottom:0;}
-  .expense-row-actions{display:flex;gap:5px;white-space:nowrap;}
+  .expense-row-actions{display:flex;gap:5px;flex-wrap:wrap;}
   .expense-mini{border:1px solid var(--line);border-radius:7px;background:#fffdf8;color:var(--indigo);padding:5px 8px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
   .expense-mini.delete{color:#8b3a2b;}
   .expense-editing-row{background:#fff8e8;}
   .expense-inline-control{box-sizing:border-box;width:100%;min-width:74px;min-height:34px;border:1px solid #b9a98e;border-radius:7px;background:#fff;color:var(--ink);font:inherit;font-size:12px;padding:5px 6px;}
   .expense-inline-control.wide{min-width:150px;}.expense-inline-control.memo{min-width:170px;}
   .expense-inline-amount{display:grid;grid-template-columns:66px minmax(82px,1fr);gap:5px;min-width:155px;}
+  .expense-inline-editor-cell{padding:14px !important;}
+  .expense-inline-editor{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;width:100%;}
+  .expense-inline-item{display:flex;flex-direction:column;gap:4px;min-width:0;}
+  .expense-inline-item label{font-size:10px;font-weight:700;color:var(--ink-soft);}
+  .expense-inline-item .expense-inline-control{min-width:0;}
+  .expense-inline-editor .expense-inline-amount{min-width:0;}
+  .expense-inline-editor-actions{grid-column:1/-1;display:flex;gap:7px;justify-content:flex-end;}
   .expense-mini.save{background:var(--pine);border-color:var(--pine);color:#fff;}
   .expense-empty{text-align:center !important;color:var(--ink-soft);padding:28px !important;}
-  @media(max-width:720px){.expense-summary{grid-template-columns:repeat(2,1fr);}.expense-form{grid-template-columns:repeat(2,1fr);padding:14px;}.expense-field.wide{grid-column:span 2;}.expense-plan{width:100%;margin-left:0;justify-content:space-between;}.expense-stat strong{font-size:17px;}}
+  @media(max-width:720px){.expense-summary{grid-template-columns:repeat(2,1fr);}.expense-form{grid-template-columns:repeat(2,1fr);padding:14px;}.expense-field.wide{grid-column:span 2;}.expense-plan{width:100%;margin-left:0;justify-content:space-between;}.expense-stat strong{font-size:17px;}.expense-inline-editor{grid-template-columns:repeat(2,minmax(0,1fr));}.expense-inline-editor-cell{padding:10px !important;}}
 
   /* ---------- FOOD GUIDE ---------- */
   .food-city-title{
@@ -593,7 +601,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.37</div>
+    <div class="page-version">GUIDE v5.38</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -2845,7 +2853,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.37</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.38</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3247,23 +3255,22 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         row.appendChild(cell);
         return cell;
       }
-      function expenseInlineControl(row, field, value, type, options, className) {
-        var cell = document.createElement('td');
-        var control = options ? document.createElement('select') : document.createElement('input');
-        control.className = 'expense-inline-control' + (className ? ' ' + className : '');
-        control.dataset.expenseField = field;
+      function expenseEditorField(editor, labelText, field, value, type, options) {
+        var item = document.createElement('div'); item.className = 'expense-inline-item';
+        var label = document.createElement('label'); label.textContent = labelText;
+        var control = options ? document.createElement('select') : document.createElement('input'); control.className = 'expense-inline-control'; control.dataset.expenseField = field;
         if (options) options.forEach(function (optionValue) { var option = document.createElement('option'); option.value = optionValue; option.textContent = optionValue; control.appendChild(option); });
         else control.type = type || 'text';
-        control.value = value == null ? '' : value;
-        cell.appendChild(control); row.appendChild(cell); return control;
+        control.value = value == null ? '' : value; item.appendChild(label); item.appendChild(control); editor.appendChild(item); return control;
       }
-      function expenseInlineAmount(row, record) {
-        var cell = document.createElement('td'); cell.className = 'amount';
+      function expenseEditorAmount(editor, record) {
+        var item = document.createElement('div'); item.className = 'expense-inline-item';
+        var label = document.createElement('label'); label.textContent = '결제금액';
         var wrap = document.createElement('div'); wrap.className = 'expense-inline-amount';
         var currency = document.createElement('select'); currency.className = 'expense-inline-control'; currency.dataset.expenseField = 'currency';
         ['JPY','KRW'].forEach(function (value) { var option = document.createElement('option'); option.value = value; option.textContent = value; currency.appendChild(option); }); currency.value = record.currency || 'JPY';
         var amount = document.createElement('input'); amount.type = 'number'; amount.min = '0'; amount.step = '1'; amount.className = 'expense-inline-control'; amount.dataset.expenseField = 'amount'; amount.value = record.amount;
-        wrap.appendChild(currency); wrap.appendChild(amount); cell.appendChild(wrap); row.appendChild(cell);
+        wrap.appendChild(currency); wrap.appendChild(amount); item.appendChild(label); item.appendChild(wrap); editor.appendChild(item);
       }
       function expenseRender() {
         if (!expenseList) return;
@@ -3280,18 +3287,21 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
             var actionWrap = document.createElement('div'); actionWrap.className = 'expense-row-actions';
             if (record.id === expenseEditingId) {
               row.className = 'expense-editing-row'; row.dataset.expenseRow = record.id;
-              expenseInlineControl(row, 'date', record.date, 'date');
-              expenseInlineControl(row, 'time', record.time || '00:00', 'time');
-              expenseInlineControl(row, 'merchant', record.merchant, 'text', null, 'wide');
-              expenseInlineControl(row, 'category', record.category || '기타', null, ['식비','교통','쇼핑','관광·체험','편의점·간식','기타']);
-              expenseInlineControl(row, 'payment', record.payment || '기타 카드', null, ['현금','SOL Mastercard','SOL트립앤J JCB','KB 트래블러스','토스','카카오페이','기타 카드']);
-              expenseInlineControl(row, 'scope', record.scope || '가족 공통', null, ['가족 공통','개인 쇼핑']);
-              expenseInlineAmount(row, record);
-              expenseInlineControl(row, 'actualKrw', record.actualKrw || '', 'number');
-              expenseInlineControl(row, 'memo', record.memo || '', 'text', null, 'memo');
+              var editorCell = document.createElement('td'); editorCell.colSpan = 10; editorCell.className = 'expense-inline-editor-cell';
+              var editor = document.createElement('div'); editor.className = 'expense-inline-editor';
+              expenseEditorField(editor, '날짜', 'date', record.date, 'date');
+              expenseEditorField(editor, '시간', 'time', record.time || '00:00', 'time');
+              expenseEditorField(editor, '사용처', 'merchant', record.merchant, 'text');
+              expenseEditorField(editor, '분류', 'category', record.category || '기타', null, ['식비','교통','쇼핑','관광·체험','편의점·간식','기타']);
+              expenseEditorField(editor, '결제수단', 'payment', record.payment || '기타 카드', null, ['현금','SOL Mastercard','SOL트립앤J JCB','KB 트래블러스','토스','카카오페이','기타 카드']);
+              expenseEditorField(editor, '비용 구분', 'scope', record.scope || '가족 공통', null, ['가족 공통','개인 쇼핑']);
+              expenseEditorAmount(editor, record);
+              expenseEditorField(editor, '실제 원화 승인액', 'actualKrw', record.actualKrw || '', 'number');
+              expenseEditorField(editor, '메모', 'memo', record.memo || '', 'text');
               var save = document.createElement('button'); save.type = 'button'; save.className = 'expense-mini save'; save.textContent = '저장'; save.dataset.expenseSave = record.id;
               var cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'expense-mini'; cancel.textContent = '취소'; cancel.dataset.expenseInlineCancel = record.id;
-              actionWrap.appendChild(save); actionWrap.appendChild(cancel);
+              var editorActions = document.createElement('div'); editorActions.className = 'expense-inline-editor-actions'; editorActions.appendChild(save); editorActions.appendChild(cancel); editor.appendChild(editorActions);
+              editorCell.appendChild(editor); row.appendChild(editorCell); expenseList.appendChild(row); return;
             } else {
               expenseCell(row, record.date || '-');
               expenseCell(row, record.time || '-');
