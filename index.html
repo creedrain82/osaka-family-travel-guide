@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.48 -->
+<!-- 오사카 가족여행 가이드북 v5.49 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -309,11 +309,12 @@
   .expense-category-summary{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 16px;}
   .expense-category-summary span{padding:5px 10px;border-radius:999px;background:var(--paper-deep);font-size:11px;color:var(--ink-soft);}
   .expense-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper-card);}
-  .expense-table{width:100%;min-width:760px;border-collapse:collapse;table-layout:fixed;font-size:12px;}
+  .expense-table{width:100%;min-width:700px;border-collapse:collapse;table-layout:fixed;font-size:12px;}
   .expense-table th,.expense-table td{padding:10px 9px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;}
   .expense-table th{background:var(--indigo);color:#fff;font-weight:600;white-space:nowrap;}
   .expense-table td{overflow-wrap:anywhere;}
   .expense-table td.amount{text-align:right;white-space:normal;font-weight:700;}
+  .expense-table td.date-time{white-space:pre-line;line-height:1.45;}
   .expense-table tr:last-child td{border-bottom:0;}
   .expense-row-actions{display:flex;gap:5px;flex-wrap:wrap;}
   .expense-mini{border:1px solid var(--line);border-radius:7px;background:#fffdf8;color:var(--indigo);padding:5px 8px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
@@ -602,7 +603,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.48</div>
+    <div class="page-version">GUIDE v5.49</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1537,7 +1538,7 @@
         <label class="expense-plan">현지 사용 예산 <input id="expense-plan" type="number" inputmode="numeric" min="0" step="1000" value="1145000">원</label>
       </div>
       <div id="expense-category-summary" class="expense-category-summary" aria-label="분류별 합계"></div>
-      <div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>날짜</th><th>시간</th><th>사용처·품목</th><th>결제금액</th><th>원화 반영액</th><th>분류</th><th>결제수단</th><th>구분</th><th>메모</th><th>관리</th></tr></thead><tbody id="expense-list"><tr><td colspan="10" class="expense-empty">아직 입력한 지출이 없습니다.</td></tr></tbody></table></div>
+      <div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>날짜·시간</th><th>사용처·품목</th><th>결제금액</th><th>원화 반영액</th><th>분류</th><th>결제수단</th><th>구분</th><th>메모</th><th>관리</th></tr></thead><tbody id="expense-list"><tr><td colspan="9" class="expense-empty">아직 입력한 지출이 없습니다.</td></tr></tbody></table></div>
       <p class="guide-note"><b>계산 기준:</b> PC에서 백업한 10월 16~19일 카드·카카오페이·현금 명세 38건과 실제 원화 결제액을 공용 기준 자료로 사용합니다. 세븐은행 30,000엔 출금은 돈의 이동이므로 지출 합계에서 제외합니다. 사전 확정 결제액 3,522,815원은 항공·숙박·주유패스·라피트·USJ 입장권/익스프레스·파워업 밴드·보험·eSIM 합계이며 직접 수정할 수 있습니다. 엔화 입력 후 실제 원화 승인액이 없으면 실제 환전 가중평균 <b>100엔=863.94원</b>으로 환산합니다. 현금 잔액은 결제수단을 ‘현금’으로 선택한 엔화 지출만 30,000엔에서 차감합니다.</p>
     </section>
 
@@ -2859,7 +2860,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.48</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.49</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3377,7 +3378,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         if (!expenseRecords.length) {
           var emptyRow = document.createElement('tr');
           var emptyCell = expenseCell(emptyRow, '아직 입력한 지출이 없습니다.', 'expense-empty');
-          emptyCell.colSpan = 10;
+          emptyCell.colSpan = 9;
           expenseList.appendChild(emptyRow);
         } else {
           expenseRecords.slice().sort(function (a, b) { var aKey = String(a.date || '') + 'T' + String(a.time || '00:00'); var bKey = String(b.date || '') + 'T' + String(b.time || '00:00'); return bKey.localeCompare(aKey) || expenseNumber(b.createdAt) - expenseNumber(a.createdAt); }).forEach(function (record) {
@@ -3386,7 +3387,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
             var actionWrap = document.createElement('div'); actionWrap.className = 'expense-row-actions';
             if (record.id === expenseEditingId) {
               row.className = 'expense-editing-row'; row.dataset.expenseRow = record.id;
-              var editorCell = document.createElement('td'); editorCell.colSpan = 10; editorCell.className = 'expense-inline-editor-cell';
+              var editorCell = document.createElement('td'); editorCell.colSpan = 9; editorCell.className = 'expense-inline-editor-cell';
               var editor = document.createElement('div'); editor.className = 'expense-inline-editor';
               expenseEditorField(editor, '날짜', 'date', record.date, 'date');
               expenseEditorField(editor, '시간', 'time', record.time || '00:00', 'time');
@@ -3402,8 +3403,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
               var editorActions = document.createElement('div'); editorActions.className = 'expense-inline-editor-actions'; editorActions.appendChild(save); editorActions.appendChild(cancel); editor.appendChild(editorActions);
               editorCell.appendChild(editor); row.appendChild(editorCell); expenseList.appendChild(row); return;
             } else {
-              expenseCell(row, record.date || '-');
-              expenseCell(row, record.time || '-');
+              expenseCell(row, (record.date || '-') + '\n' + (record.time || '-'), 'date-time');
               expenseCell(row, record.merchant || '-');
               expenseCell(row, (record.currency === 'KRW' ? '₩' : '¥') + expenseFormat(record.amount), 'amount');
               expenseCell(row, '₩' + expenseFormat(expenseKrw(record)), 'amount');
