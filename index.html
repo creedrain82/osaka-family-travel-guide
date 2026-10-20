@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.36 -->
+<!-- 오사카 가족여행 가이드북 v5.37 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -316,6 +316,11 @@
   .expense-row-actions{display:flex;gap:5px;white-space:nowrap;}
   .expense-mini{border:1px solid var(--line);border-radius:7px;background:#fffdf8;color:var(--indigo);padding:5px 8px;font:inherit;font-size:11px;font-weight:700;cursor:pointer;}
   .expense-mini.delete{color:#8b3a2b;}
+  .expense-editing-row{background:#fff8e8;}
+  .expense-inline-control{box-sizing:border-box;width:100%;min-width:74px;min-height:34px;border:1px solid #b9a98e;border-radius:7px;background:#fff;color:var(--ink);font:inherit;font-size:12px;padding:5px 6px;}
+  .expense-inline-control.wide{min-width:150px;}.expense-inline-control.memo{min-width:170px;}
+  .expense-inline-amount{display:grid;grid-template-columns:66px minmax(82px,1fr);gap:5px;min-width:155px;}
+  .expense-mini.save{background:var(--pine);border-color:var(--pine);color:#fff;}
   .expense-empty{text-align:center !important;color:var(--ink-soft);padding:28px !important;}
   @media(max-width:720px){.expense-summary{grid-template-columns:repeat(2,1fr);}.expense-form{grid-template-columns:repeat(2,1fr);padding:14px;}.expense-field.wide{grid-column:span 2;}.expense-plan{width:100%;margin-left:0;justify-content:space-between;}.expense-stat strong{font-size:17px;}}
 
@@ -588,7 +593,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.36</div>
+    <div class="page-version">GUIDE v5.37</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -2840,7 +2845,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.36</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.37</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3227,7 +3232,6 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         } catch (error) {}
       }
       function expenseResetForm() {
-        expenseEditingId = null;
         expenseForm.reset();
         var now = new Date();
         var today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
@@ -3243,6 +3247,24 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         row.appendChild(cell);
         return cell;
       }
+      function expenseInlineControl(row, field, value, type, options, className) {
+        var cell = document.createElement('td');
+        var control = options ? document.createElement('select') : document.createElement('input');
+        control.className = 'expense-inline-control' + (className ? ' ' + className : '');
+        control.dataset.expenseField = field;
+        if (options) options.forEach(function (optionValue) { var option = document.createElement('option'); option.value = optionValue; option.textContent = optionValue; control.appendChild(option); });
+        else control.type = type || 'text';
+        control.value = value == null ? '' : value;
+        cell.appendChild(control); row.appendChild(cell); return control;
+      }
+      function expenseInlineAmount(row, record) {
+        var cell = document.createElement('td'); cell.className = 'amount';
+        var wrap = document.createElement('div'); wrap.className = 'expense-inline-amount';
+        var currency = document.createElement('select'); currency.className = 'expense-inline-control'; currency.dataset.expenseField = 'currency';
+        ['JPY','KRW'].forEach(function (value) { var option = document.createElement('option'); option.value = value; option.textContent = value; currency.appendChild(option); }); currency.value = record.currency || 'JPY';
+        var amount = document.createElement('input'); amount.type = 'number'; amount.min = '0'; amount.step = '1'; amount.className = 'expense-inline-control'; amount.dataset.expenseField = 'amount'; amount.value = record.amount;
+        wrap.appendChild(currency); wrap.appendChild(amount); cell.appendChild(wrap); row.appendChild(cell);
+      }
       function expenseRender() {
         if (!expenseList) return;
         expenseList.textContent = '';
@@ -3254,20 +3276,37 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         } else {
           expenseRecords.slice().sort(function (a, b) { var aKey = String(a.date || '') + 'T' + String(a.time || '00:00'); var bKey = String(b.date || '') + 'T' + String(b.time || '00:00'); return bKey.localeCompare(aKey) || expenseNumber(b.createdAt) - expenseNumber(a.createdAt); }).forEach(function (record) {
             var row = document.createElement('tr');
-            expenseCell(row, record.date || '-');
-            expenseCell(row, record.time || '-');
-            expenseCell(row, record.merchant || '-');
-            expenseCell(row, record.category || '기타');
-            expenseCell(row, record.payment || '-');
-            expenseCell(row, record.scope || '가족 공통');
-            expenseCell(row, (record.currency === 'KRW' ? '₩' : '¥') + expenseFormat(record.amount), 'amount');
-            expenseCell(row, '₩' + expenseFormat(expenseKrw(record)), 'amount');
-            expenseCell(row, record.memo || '-');
             var actionCell = document.createElement('td');
             var actionWrap = document.createElement('div'); actionWrap.className = 'expense-row-actions';
-            var edit = document.createElement('button'); edit.type = 'button'; edit.className = 'expense-mini'; edit.textContent = '수정'; edit.dataset.expenseEdit = record.id;
-            var remove = document.createElement('button'); remove.type = 'button'; remove.className = 'expense-mini delete'; remove.textContent = '삭제'; remove.dataset.expenseDelete = record.id;
-            actionWrap.appendChild(edit); actionWrap.appendChild(remove); actionCell.appendChild(actionWrap); row.appendChild(actionCell); expenseList.appendChild(row);
+            if (record.id === expenseEditingId) {
+              row.className = 'expense-editing-row'; row.dataset.expenseRow = record.id;
+              expenseInlineControl(row, 'date', record.date, 'date');
+              expenseInlineControl(row, 'time', record.time || '00:00', 'time');
+              expenseInlineControl(row, 'merchant', record.merchant, 'text', null, 'wide');
+              expenseInlineControl(row, 'category', record.category || '기타', null, ['식비','교통','쇼핑','관광·체험','편의점·간식','기타']);
+              expenseInlineControl(row, 'payment', record.payment || '기타 카드', null, ['현금','SOL Mastercard','SOL트립앤J JCB','KB 트래블러스','토스','카카오페이','기타 카드']);
+              expenseInlineControl(row, 'scope', record.scope || '가족 공통', null, ['가족 공통','개인 쇼핑']);
+              expenseInlineAmount(row, record);
+              expenseInlineControl(row, 'actualKrw', record.actualKrw || '', 'number');
+              expenseInlineControl(row, 'memo', record.memo || '', 'text', null, 'memo');
+              var save = document.createElement('button'); save.type = 'button'; save.className = 'expense-mini save'; save.textContent = '저장'; save.dataset.expenseSave = record.id;
+              var cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'expense-mini'; cancel.textContent = '취소'; cancel.dataset.expenseInlineCancel = record.id;
+              actionWrap.appendChild(save); actionWrap.appendChild(cancel);
+            } else {
+              expenseCell(row, record.date || '-');
+              expenseCell(row, record.time || '-');
+              expenseCell(row, record.merchant || '-');
+              expenseCell(row, record.category || '기타');
+              expenseCell(row, record.payment || '-');
+              expenseCell(row, record.scope || '가족 공통');
+              expenseCell(row, (record.currency === 'KRW' ? '₩' : '¥') + expenseFormat(record.amount), 'amount');
+              expenseCell(row, '₩' + expenseFormat(expenseKrw(record)), 'amount');
+              expenseCell(row, record.memo || '-');
+              var edit = document.createElement('button'); edit.type = 'button'; edit.className = 'expense-mini'; edit.textContent = '수정'; edit.dataset.expenseEdit = record.id;
+              var remove = document.createElement('button'); remove.type = 'button'; remove.className = 'expense-mini delete'; remove.textContent = '삭제'; remove.dataset.expenseDelete = record.id;
+              actionWrap.appendChild(edit); actionWrap.appendChild(remove);
+            }
+            actionCell.appendChild(actionWrap); row.appendChild(actionCell); expenseList.appendChild(row);
           });
         }
         var totalKrw = expenseRecords.reduce(function (sum, record) { return sum + expenseKrw(record); }, 0);
@@ -3311,24 +3350,30 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         expenseForm.addEventListener('submit', function (event) {
           event.preventDefault();
           var record = {
-            id: expenseEditingId || ('expense-' + Date.now() + '-' + Math.random().toString(16).slice(2)), date: expenseDate.value, time: expenseTime.value,
+            id: 'expense-' + Date.now() + '-' + Math.random().toString(16).slice(2), date: expenseDate.value, time: expenseTime.value,
             merchant: expenseMerchant.value.trim(), category: expenseCategory.value, payment: expensePayment.value, scope: expenseScope.value,
             currency: expenseCurrency.value, amount: expenseNumber(expenseAmount.value), actualKrw: expenseNumber(expenseActualKrw.value), memo: expenseMemo.value.trim(), createdAt: Date.now()
           };
           if (!record.merchant || record.amount <= 0) return;
-          if (expenseEditingId) {
-            var index = expenseRecords.findIndex(function (item) { return item.id === expenseEditingId; });
-            if (index >= 0) { record.createdAt = expenseRecords[index].createdAt || record.createdAt; expenseRecords[index] = record; }
-          } else expenseRecords.push(record);
+          expenseRecords.push(record);
           expenseSave(); expenseResetForm(); expenseRender();
         });
         expenseCancel.addEventListener('click', expenseResetForm);
         expenseList.addEventListener('click', function (event) {
-          var editId = event.target.dataset.expenseEdit, deleteId = event.target.dataset.expenseDelete;
+          var action = event.target.closest('button'); if (!action) return;
+          var editId = action.dataset.expenseEdit, deleteId = action.dataset.expenseDelete, saveId = action.dataset.expenseSave, cancelId = action.dataset.expenseInlineCancel;
           if (editId) {
             var record = expenseRecords.find(function (item) { return item.id === editId; }); if (!record) return;
-            expenseEditingId = record.id; expenseDate.value = record.date; expenseTime.value = record.time || '12:00'; expenseMerchant.value = record.merchant; expenseCategory.value = record.category; expensePayment.value = record.payment; expenseScope.value = record.scope; expenseCurrency.value = record.currency; expenseAmount.value = record.amount; expenseActualKrw.value = record.actualKrw || ''; expenseMemo.value = record.memo || ''; expenseSubmit.textContent = '수정 저장'; expenseCancel.hidden = false; expenseForm.scrollIntoView({behavior:'smooth', block:'start'});
+            expenseEditingId = record.id; expenseRender();
           }
+          if (saveId) {
+            var row = action.closest('[data-expense-row]'); var target = expenseRecords.find(function (item) { return item.id === saveId; }); if (!row || !target) return;
+            function inlineValue(field) { var control = row.querySelector('[data-expense-field="' + field + '"]'); return control ? control.value : ''; }
+            var merchant = inlineValue('merchant').trim(), amount = expenseNumber(inlineValue('amount')); if (!merchant || amount <= 0) { alert('사용처와 결제금액을 확인하세요.'); return; }
+            target.date = inlineValue('date'); target.time = inlineValue('time'); target.merchant = merchant; target.category = inlineValue('category'); target.payment = inlineValue('payment'); target.scope = inlineValue('scope'); target.currency = inlineValue('currency'); target.amount = amount; target.actualKrw = expenseNumber(inlineValue('actualKrw')); target.memo = inlineValue('memo').trim();
+            expenseEditingId = null; expenseSave(); expenseRender();
+          }
+          if (cancelId) { expenseEditingId = null; expenseRender(); }
           if (deleteId && confirm('이 지출 기록을 삭제할까요?')) { expenseRecords = expenseRecords.filter(function (item) { return item.id !== deleteId; }); expenseSave(); expenseRender(); }
         });
         expensePlan.addEventListener('change', function () { try { localStorage.setItem(expensePlanKey, String(expenseNumber(expensePlan.value))); } catch (error) {} expenseRender(); });
