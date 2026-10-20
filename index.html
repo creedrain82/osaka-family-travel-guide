@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.45 -->
+<!-- 오사카 가족여행 가이드북 v5.46 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -601,7 +601,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.45</div>
+    <div class="page-version">GUIDE v5.46</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1534,7 +1534,7 @@
         <label class="expense-plan">현지 사용 예산 <input id="expense-plan" type="number" inputmode="numeric" min="0" step="1000" value="1145000">원</label>
       </div>
       <div id="expense-category-summary" class="expense-category-summary" aria-label="분류별 합계"></div>
-      <div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>날짜</th><th>시간</th><th>사용처</th><th>분류</th><th>결제수단</th><th>구분</th><th>결제금액</th><th>원화 반영액</th><th>메모</th><th>관리</th></tr></thead><tbody id="expense-list"><tr><td colspan="10" class="expense-empty">아직 입력한 지출이 없습니다.</td></tr></tbody></table></div>
+      <div class="expense-table-wrap"><table class="expense-table"><thead><tr><th>날짜</th><th>시간</th><th>사용처·품목</th><th>결제금액</th><th>원화 반영액</th><th>분류</th><th>결제수단</th><th>구분</th><th>메모</th><th>관리</th></tr></thead><tbody id="expense-list"><tr><td colspan="10" class="expense-empty">아직 입력한 지출이 없습니다.</td></tr></tbody></table></div>
       <p class="guide-note"><b>계산 기준:</b> 10월 16~19일 카드·카카오페이·현금 명세 38건과 실제 원화 결제액이 가이드에 기본 등록되어 있습니다. 기존 휴대폰 기록은 유지하고 같은 날짜·시간·금액 거래는 중복 없이 합칩니다. 세븐은행 30,000엔 출금은 돈의 이동이므로 지출 합계에서 제외합니다. 사전 확정 결제액 3,522,815원은 항공·숙박·주유패스·라피트·USJ 입장권/익스프레스·파워업 밴드·보험·eSIM 합계이며 직접 수정할 수 있습니다. 엔화 입력 후 실제 원화 승인액이 없으면 실제 환전 가중평균 <b>100엔=863.94원</b>으로 환산합니다. 현금 잔액은 결제수단을 ‘현금’으로 선택한 엔화 지출만 30,000엔에서 차감합니다.</p>
     </section>
 
@@ -2856,7 +2856,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.45</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.46</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3301,11 +3301,11 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
               expenseEditorField(editor, '날짜', 'date', record.date, 'date');
               expenseEditorField(editor, '시간', 'time', record.time || '00:00', 'time');
               expenseEditorField(editor, '사용처', 'merchant', record.merchant, 'text');
+              expenseEditorAmount(editor, record);
+              expenseEditorField(editor, '실제 원화 승인액', 'actualKrw', record.actualKrw || '', 'number');
               expenseEditorField(editor, '분류', 'category', record.category || '기타', null, ['식비','교통','쇼핑','관광·체험','편의점·간식','기타']);
               expenseEditorField(editor, '결제수단', 'payment', record.payment || '기타 카드', null, ['현금','SOL Mastercard','SOL트립앤J JCB','KB 트래블러스','토스','카카오페이','기타 카드']);
               expenseEditorField(editor, '비용 구분', 'scope', record.scope || '가족 공통', null, ['가족 공통','개인 쇼핑']);
-              expenseEditorAmount(editor, record);
-              expenseEditorField(editor, '실제 원화 승인액', 'actualKrw', record.actualKrw || '', 'number');
               expenseEditorField(editor, '메모', 'memo', record.memo || '', 'text');
               var save = document.createElement('button'); save.type = 'button'; save.className = 'expense-mini save'; save.textContent = '저장'; save.dataset.expenseSave = record.id;
               var cancel = document.createElement('button'); cancel.type = 'button'; cancel.className = 'expense-mini'; cancel.textContent = '취소'; cancel.dataset.expenseInlineCancel = record.id;
@@ -3315,11 +3315,11 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
               expenseCell(row, record.date || '-');
               expenseCell(row, record.time || '-');
               expenseCell(row, record.merchant || '-');
+              expenseCell(row, (record.currency === 'KRW' ? '₩' : '¥') + expenseFormat(record.amount), 'amount');
+              expenseCell(row, '₩' + expenseFormat(expenseKrw(record)), 'amount');
               expenseCell(row, record.category || '기타');
               expenseCell(row, record.payment || '-');
               expenseCell(row, record.scope || '가족 공통');
-              expenseCell(row, (record.currency === 'KRW' ? '₩' : '¥') + expenseFormat(record.amount), 'amount');
-              expenseCell(row, '₩' + expenseFormat(expenseKrw(record)), 'amount');
               expenseCell(row, record.memo || '-');
               var edit = document.createElement('button'); edit.type = 'button'; edit.className = 'expense-mini'; edit.textContent = '수정'; edit.dataset.expenseEdit = record.id;
               var remove = document.createElement('button'); remove.type = 'button'; remove.className = 'expense-mini delete'; remove.textContent = '삭제'; remove.dataset.expenseDelete = record.id;
