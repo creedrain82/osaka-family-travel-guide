@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.35 -->
+<!-- 오사카 가족여행 가이드북 v5.36 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -588,7 +588,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.35</div>
+    <div class="page-version">GUIDE v5.36</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -2840,7 +2840,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.35</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.36</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3142,7 +3142,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
       var expenseStorageKey = 'osaka-guide-expenses-v1';
       var expensePlanKey = 'osaka-guide-expense-plan-v1';
       var expensePrepaidKey = 'osaka-guide-expense-prepaid-v1';
-      var expenseStatementSeedKey = 'osaka-guide-statement-seed-v535';
+      var expenseStatementSeedKey = 'osaka-guide-statement-seed-v536';
       var expenseStatementSeed = [
         ['statement-20261016-0840-5500','2026-10-16','08:40','인천공항 탕소동 105GATE앞점','식비','KRW',5500,5500,'카드 명세 자동 추가'],
         ['statement-20261016-1259-940','2026-10-16','12:59','HORAI NANKAI NAMBA STATION','편의점·간식','JPY',940,8068,'카드 명세 자동 추가'],
@@ -3159,12 +3159,12 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         ['statement-20261017-1110-1200','2026-10-17','11:10','SQ MAX CORPORATION COL','기타','JPY',1200,10256,'카드 명세 자동 추가 · 사용처 확인 필요'],
         ['statement-20261017-1115-671','2026-10-17','11:15','CONVENIENCE LAWSON','편의점·간식','JPY',671,5729,'카드 명세 자동 추가'],
         ['statement-20261017-1324-1200','2026-10-17','13:24','SQ MAX CORPORATION COL','기타','JPY',1200,10256,'카드 명세 자동 추가 · 사용처 확인 필요'],
-        ['statement-20261017-1441-972','2026-10-17','14:41','HANKYU','쇼핑','JPY',972,8195,'카드 명세 자동 추가'],
+        ['statement-20261017-1441-972','2026-10-17','14:41','HANKYU','쇼핑','JPY',972,8195,'카드 명세 자동 추가','SOL Mastercard'],
         ['statement-20261017-1449-1500','2026-10-17','14:49','GRENIER UMEDA','편의점·간식','JPY',1500,12823,'카드 명세 자동 추가'],
         ['statement-20261017-1504-1610','2026-10-17','15:04','SHOPPING CENTER HH AUTI','쇼핑','JPY',1610,13756,'카드 명세 자동 추가 · 사용처 확인 필요'],
         ['statement-20261017-1710-1011','2026-10-17','17:10','MARUI','쇼핑','JPY',1011,8634,'카드 명세 자동 추가'],
         ['statement-20261017-1758-10259','2026-10-17','17:58','NAMBA PARKS NAMBA CITY','쇼핑','JPY',10259,87658,'카드 명세 자동 추가'],
-        ['statement-20261017-1836-1980','2026-10-17','18:36','NAMBA CITY','쇼핑','JPY',1980,16694,'카드 명세 자동 추가'],
+        ['statement-20261017-1836-1980','2026-10-17','18:36','NAMBA CITY','쇼핑','JPY',1980,16694,'카드 명세 자동 추가','SOL Mastercard'],
         ['statement-20261017-2014-8840','2026-10-17','20:14','GYUKATSUDAIFUKUNAMBA','식비','JPY',8840,75537,'카드 명세 자동 추가'],
         ['statement-20261017-2318-61620','2026-10-17','23:18','DON QUIXOTE','쇼핑','JPY',61620,526520,'카드 명세 자동 추가'],
         ['statement-20261018-0000-3347','2026-10-18','00:00','FAMILYMART','편의점·간식','JPY',3347,28593,'카드 명세 자동 추가'],
@@ -3216,9 +3216,10 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
               var existing = expenseRecords.find(function (item) { return item.id === seed[0] || (item.date === seed[1] && item.time === seed[2] && item.currency === seed[5] && expenseNumber(item.amount) === seed[6]); });
               if (existing) {
                 if (!expenseNumber(existing.actualKrw)) existing.actualKrw = seed[7];
+                existing.payment = seed[9] || 'SOL트립앤J JCB';
                 return;
               }
-              expenseRecords.push({id:seed[0],date:seed[1],time:seed[2],merchant:seed[3],category:seed[4],payment:seed[9] || '기타 카드',scope:'가족 공통',currency:seed[5],amount:seed[6],actualKrw:seed[7],memo:seed[8],createdAt:1792000000000 + index});
+              expenseRecords.push({id:seed[0],date:seed[1],time:seed[2],merchant:seed[3],category:seed[4],payment:seed[9] || 'SOL트립앤J JCB',scope:'가족 공통',currency:seed[5],amount:seed[6],actualKrw:seed[7],memo:seed[8],createdAt:1792000000000 + index});
             });
             expenseSave();
             localStorage.setItem(expenseStatementSeedKey, 'done');
