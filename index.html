@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.46 -->
+<!-- 오사카 가족여행 가이드북 v5.47 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -303,6 +303,7 @@
   .expense-btn{border:0;border-radius:9px;padding:10px 15px;background:var(--indigo);color:#fff;font:inherit;font-size:13px;font-weight:700;cursor:pointer;}
   .expense-btn.alt{background:var(--pine);}.expense-btn.soft{background:var(--paper-deep);color:var(--ink);border:1px solid var(--line);}.expense-btn.danger{background:#8b3a2b;}
   .expense-toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:14px 0;}
+  .expense-sync-status{font-size:11px;color:var(--ink-soft);padding:5px 9px;border-radius:999px;background:var(--paper-deep);}
   .expense-plan{display:flex;align-items:center;gap:8px;margin-left:auto;font-size:12px;color:var(--ink-soft);}
   .expense-plan input{width:125px;min-height:38px;border:1px solid var(--line);border-radius:8px;padding:6px 9px;font:inherit;text-align:right;}
   .expense-category-summary{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0 16px;}
@@ -601,7 +602,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.46</div>
+    <div class="page-version">GUIDE v5.47</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -1529,6 +1530,8 @@
         <button id="expense-export" class="expense-btn alt" type="button">CSV 백업</button>
         <button id="expense-import-button" class="expense-btn soft" type="button">CSV 복원</button>
         <input id="expense-import" type="file" accept=".csv,text/csv" hidden>
+        <button id="expense-sync-now" class="expense-btn soft" type="button">공용 내역 새로고침</button>
+        <span id="expense-sync-status" class="expense-sync-status" role="status" aria-live="polite">공용 내역 연결 중</span>
         <button id="expense-clear" class="expense-btn danger" type="button">전체 기록 삭제</button>
         <label class="expense-plan">사전 확정 결제액 <input id="expense-prepaid" type="number" inputmode="numeric" min="0" step="1000" value="3522815">원</label>
         <label class="expense-plan">현지 사용 예산 <input id="expense-plan" type="number" inputmode="numeric" min="0" step="1000" value="1145000">원</label>
@@ -2856,7 +2859,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.46</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.47</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
@@ -3158,7 +3161,10 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
       var expenseStorageKey = 'osaka-guide-expenses-v1';
       var expensePlanKey = 'osaka-guide-expense-plan-v1';
       var expensePrepaidKey = 'osaka-guide-expense-prepaid-v1';
-      var expenseStatementSeedKey = 'osaka-guide-statement-seed-v542';
+      var expenseSyncEndpoint = 'https://script.google.com/macros/s/AKfycbyxt4uTJiiShfcRSZbl8MhppkfvH5dAtyGW25DXABWeTGZ3BJuesOzjL6sRrr0R7Cs/exec';
+      var expenseSyncTokenKey = 'osaka-guide-expense-sync-token-v1';
+      var expenseSyncPendingKey = 'osaka-guide-expense-sync-pending-v1';
+      var expenseStatementSeedKey = 'osaka-guide-pc-backup-sync-v547';
       var expenseStatementSeed = [
         ['othercard-20261016-0809-lotteria-10300','2026-10-16','08:09','인천공항 롯데리아','식비','KRW',10300,10300,'기타 카드 결제','기타 카드'],
         ['statement-20261016-0840-5500','2026-10-16','08:40','인천공항 탕소동 105GATE앞점','식비','KRW',5500,5500,'카드 명세 자동 추가'],
@@ -3217,14 +3223,90 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
       var expenseList = document.getElementById('expense-list');
       var expensePlan = document.getElementById('expense-plan');
       var expensePrepaid = document.getElementById('expense-prepaid');
+      var expenseSyncStatus = document.getElementById('expense-sync-status');
+      var expenseRemoteReady = false;
+      var expenseRemoteLoading = false;
+      var expenseRemoteWriteTimer = null;
       function expenseNumber(value) { var number = Number(value); return Number.isFinite(number) ? number : 0; }
       function expenseKrw(record) {
         if (expenseNumber(record.actualKrw) > 0) return expenseNumber(record.actualKrw);
         return record.currency === 'KRW' ? expenseNumber(record.amount) : Math.round(expenseNumber(record.amount) * (1123117 / 130000));
       }
       function expenseFormat(number) { return Math.round(expenseNumber(number)).toLocaleString('ko-KR'); }
-      function expenseSave() {
+      function expenseSetSyncStatus(message) { if (expenseSyncStatus) expenseSyncStatus.textContent = message; }
+      function expenseSave(syncRemote) {
         try { localStorage.setItem(expenseStorageKey, JSON.stringify(expenseRecords)); } catch (error) {}
+        if (syncRemote) {
+          try { localStorage.setItem(expenseSyncPendingKey, '1'); } catch (error) {}
+          expenseScheduleRemoteWrite();
+        }
+      }
+      function expenseRemotePayload() { return JSON.stringify({records:expenseRecords}); }
+      function expenseReadRemoteRecords(callback) {
+        if (expenseRemoteLoading) return;
+        expenseRemoteLoading = true;
+        var callbackName = 'osakaExpenseSync_' + Date.now() + '_' + Math.random().toString(16).slice(2);
+        var script = document.createElement('script');
+        var finished = false;
+        var timeout = setTimeout(function () { finish(new Error('timeout')); }, 12000);
+        function finish(error, payload) {
+          if (finished) return;
+          finished = true; expenseRemoteLoading = false; clearTimeout(timeout);
+          try { delete window[callbackName]; } catch (ignore) { window[callbackName] = undefined; }
+          if (script.parentNode) script.parentNode.removeChild(script);
+          callback(error, payload);
+        }
+        window[callbackName] = function (payload) { finish(null, payload); };
+        script.onerror = function () { finish(new Error('network')); };
+        script.src = expenseSyncEndpoint + '?callback=' + encodeURIComponent(callbackName) + '&t=' + Date.now();
+        document.head.appendChild(script);
+      }
+      function expenseRemoteRead() {
+        expenseSetSyncStatus('공용 내역 확인 중');
+        expenseReadRemoteRecords(function (error, payload) {
+          if (error || !payload || !Array.isArray(payload.records)) { expenseSetSyncStatus('오프라인 · 기기에 임시 저장'); return; }
+          expenseRemoteReady = true;
+          var pending = false; try { pending = localStorage.getItem(expenseSyncPendingKey) === '1'; } catch (ignore) {}
+          if (pending) { expenseRemoteWrite(); return; }
+          expenseRecords = payload.records;
+          expenseSave(false); expenseRender();
+          expenseSetSyncStatus('공용 내역 동기화됨 · ' + expenseRecords.length + '건');
+        });
+      }
+      function expenseScheduleRemoteWrite() {
+        if (!expenseRemoteReady) return;
+        clearTimeout(expenseRemoteWriteTimer);
+        expenseRemoteWriteTimer = setTimeout(expenseRemoteWrite, 350);
+      }
+      function expenseRemoteWrite() {
+        if (!expenseRemoteReady) return;
+        var token = ''; try { token = localStorage.getItem(expenseSyncTokenKey) || ''; } catch (ignore) {}
+        if (!token) {
+          token = prompt('공용 지출내역을 수정하려면 가족 편집 코드를 입력하세요.') || '';
+          if (!token) { expenseSetSyncStatus('기기에만 저장됨 · 편집 코드 필요'); return; }
+          try { localStorage.setItem(expenseSyncTokenKey, token); } catch (ignore) {}
+        }
+        var expected = expenseRemotePayload();
+        expenseSetSyncStatus('공용 내역 저장 중');
+        fetch(expenseSyncEndpoint, {
+          method:'POST', mode:'no-cors',
+          headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+          body:new URLSearchParams({token:token,payload:expected}).toString()
+        }).then(function () {
+          setTimeout(function () { expenseRemoteVerify(expected); }, 900);
+        }).catch(function () { expenseSetSyncStatus('오프라인 · 재연결 시 전송'); });
+      }
+      function expenseRemoteVerify(expected) {
+        expenseReadRemoteRecords(function (error, payload) {
+          if (error || !payload || !Array.isArray(payload.records)) { expenseSetSyncStatus('전송 확인 대기 · 새로고침 필요'); return; }
+          if (JSON.stringify({records:payload.records}) !== expected) {
+            try { localStorage.removeItem(expenseSyncTokenKey); } catch (ignore) {}
+            expenseSetSyncStatus('동기화 실패 · 편집 코드를 다시 입력하세요');
+            return;
+          }
+          try { localStorage.removeItem(expenseSyncPendingKey); } catch (ignore) {}
+          expenseSetSyncStatus('공용 내역 저장 완료 · ' + payload.records.length + '건');
+        });
       }
       function expenseRead() {
         try {
@@ -3236,14 +3318,22 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
             expenseStatementSeed.forEach(function (seed, index) {
               var existing = expenseRecords.find(function (item) { return item.id === seed[0] || (item.date === seed[1] && item.time === seed[2] && item.currency === seed[5] && expenseNumber(item.amount) === seed[6]); });
               if (existing) {
-                if (!expenseNumber(existing.actualKrw)) existing.actualKrw = seed[7];
+                existing.id = seed[0];
+                existing.date = seed[1];
+                existing.time = seed[2];
+                existing.merchant = seed[3];
+                existing.category = seed[4];
+                existing.currency = seed[5];
+                existing.amount = seed[6];
+                existing.actualKrw = seed[7];
+                existing.memo = seed[8];
                 existing.payment = seed[9] || 'SOL트립앤J JCB';
-                if (seed[10]) existing.scope = seed[10];
+                existing.scope = seed[10] || '가족 공통';
                 return;
               }
               expenseRecords.push({id:seed[0],date:seed[1],time:seed[2],merchant:seed[3],category:seed[4],payment:seed[9] || 'SOL트립앤J JCB',scope:seed[10] || '가족 공통',currency:seed[5],amount:seed[6],actualKrw:seed[7],memo:seed[8],createdAt:1792000000000 + index});
             });
-            expenseSave();
+            expenseSave(false);
             localStorage.setItem(expenseStatementSeedKey, 'done');
           }
         } catch (error) {}
@@ -3375,7 +3465,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
           };
           if (!record.merchant || record.amount <= 0) return;
           expenseRecords.push(record);
-          expenseSave(); expenseResetForm(); expenseRender();
+          expenseSave(true); expenseResetForm(); expenseRender();
         });
         expenseCancel.addEventListener('click', expenseResetForm);
         expenseList.addEventListener('click', function (event) {
@@ -3390,10 +3480,10 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
             function inlineValue(field) { var control = row.querySelector('[data-expense-field="' + field + '"]'); return control ? control.value : ''; }
             var merchant = inlineValue('merchant').trim(), amount = expenseNumber(inlineValue('amount')); if (!merchant || amount <= 0) { alert('사용처와 결제금액을 확인하세요.'); return; }
             target.date = inlineValue('date'); target.time = inlineValue('time'); target.merchant = merchant; target.category = inlineValue('category'); target.payment = inlineValue('payment'); target.scope = inlineValue('scope'); target.currency = inlineValue('currency'); target.amount = amount; target.actualKrw = expenseNumber(inlineValue('actualKrw')); target.memo = inlineValue('memo').trim();
-            expenseEditingId = null; expenseSave(); expenseRender();
+            expenseEditingId = null; expenseSave(true); expenseRender();
           }
           if (cancelId) { expenseEditingId = null; expenseRender(); }
-          if (deleteId && confirm('이 지출 기록을 삭제할까요?')) { expenseRecords = expenseRecords.filter(function (item) { return item.id !== deleteId; }); expenseSave(); expenseRender(); }
+          if (deleteId && confirm('이 지출 기록을 삭제할까요?')) { expenseRecords = expenseRecords.filter(function (item) { return item.id !== deleteId; }); expenseSave(true); expenseRender(); }
         });
         expensePlan.addEventListener('change', function () { try { localStorage.setItem(expensePlanKey, String(expenseNumber(expensePlan.value))); } catch (error) {} expenseRender(); });
         expensePrepaid.addEventListener('change', function () { try { localStorage.setItem(expensePrepaidKey, String(expenseNumber(expensePrepaid.value))); } catch (error) {} expenseRender(); });
@@ -3420,11 +3510,15 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
                 if (!matched.actualKrw && item.actualKrw) matched.actualKrw = item.actualKrw;
                 if (!matched.memo && item.memo) matched.memo = item.memo;
               } else expenseRecords.push(item);
-            }); expenseSave(); expenseRender(); expenseImport.value = '';
+            }); expenseSave(true); expenseRender(); expenseImport.value = '';
           }; reader.readAsText(file, 'utf-8');
         });
-        document.getElementById('expense-clear').addEventListener('click', function () { if (!expenseRecords.length || !confirm('저장된 지출 기록을 모두 삭제할까요? CSV 백업 여부를 먼저 확인하세요.')) return; expenseRecords = []; expenseSave(); expenseResetForm(); expenseRender(); });
+        document.getElementById('expense-clear').addEventListener('click', function () { if (!expenseRecords.length || !confirm('저장된 지출 기록을 모두 삭제할까요? CSV 백업 여부를 먼저 확인하세요.')) return; expenseRecords = []; expenseSave(true); expenseResetForm(); expenseRender(); });
+        document.getElementById('expense-sync-now').addEventListener('click', expenseRemoteRead);
         expenseRender();
+        expenseRemoteRead();
+        window.addEventListener('focus', function () { if (document.visibilityState === 'visible') expenseRemoteRead(); });
+        document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible') expenseRemoteRead(); });
       }
       function showTab(tabName, updateHash, moveToTabs) {
         if (!tabGroups[tabName]) tabName = 'overview';
