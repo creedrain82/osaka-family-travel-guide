@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- 오사카 가족여행 가이드북 v5.42 -->
+<!-- 오사카 가족여행 가이드북 v5.43 -->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -601,7 +601,7 @@
 
   <!-- ============ HERO ============ -->
   <div class="hero">
-    <div class="page-version">GUIDE v5.42</div>
+    <div class="page-version">GUIDE v5.43</div>
     <h1>오사카 여행<span class="hero-date">2026.10.16(금) – 10.19(월)</span></h1>
   </div>
 
@@ -788,7 +788,7 @@
           <ul>
             <li>10/16 14:00–14:15 스시로 도톤보리점 · 테이블석</li>
             <li>10/16 19:30 이타마에 야키니쿠 이치마사</li>
-            <li>10/17 13:00 규카츠 모토무라 우메다 EST점 · 좌석 1시간</li>
+            <li>10/17 13:00 규카츠 모토무라 우메다 EST점 · 예약했으나 실제 미이용</li>
             <li>10/19 11:30 이즈모 난바점</li>
             <li>스시로는 도착 즉시 매장에서 체크인 · 호출 후 30분 경과 시 접수 무효</li>
             <li>나머지 식당은 예약시간 10분 전 도착·취소 조건 확인</li>
@@ -1336,14 +1336,14 @@
             <tr>
               <th>점심</th>
               <td class="filled">스시로 도톤보리점 · 14:00 예약</td>
-              <td class="filled">규카츠 모토무라 우메다 EST점 · 13:00 예약</td>
+              <td class="empty">– (오사카성 이동·관람)</td>
               <td class="filled">USJ 테마식당</td>
               <td class="filled">이즈모 난바점 · 11:30 예약</td>
             </tr>
             <tr>
               <th>저녁</th>
               <td class="filled">이치마사 · 19:30 예약</td>
-              <td class="filled">신세카이 쿠시카츠</td>
+              <td class="filled">규카츠 다이후쿠 난바 · 19:30</td>
               <td class="filled">키노피오 카페</td>
               <td class="empty">– (공항/기내)</td>
             </tr>
@@ -1599,7 +1599,7 @@ var map_day3 = L.map('leaflet-day3', {zoomControl:false, attributionControl:true
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors', maxZoom: 19
 }).addTo(map_day3);
-L.polyline([[34.6654716,135.4988018],[34.66855,135.50232],[34.68175,135.5339],[34.6872571,135.5258546],[34.68175,135.5339],[34.7040684,135.5000945],[34.652432,135.506143],[34.66915,135.50595],[34.6654716,135.4988018]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
+L.polyline([[34.6654716,135.4988018],[34.66855,135.50232],[34.68175,135.5339],[34.6872571,135.5258546],[34.68175,135.5339],[34.7040684,135.5000945],[34.6658,135.5010],[34.66915,135.50595],[34.6654716,135.4988018]], {color:'#3C6E5C', weight:4, opacity:0.85}).addTo(map_day3);
 
 L.marker([34.6654716,135.4988018], {icon: L.divIcon({
   className: '',
@@ -1626,9 +1626,9 @@ L.marker([34.7040684,135.5000945], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">2</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">HEP FIVE</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
-L.marker([34.652432,135.506143], {icon: L.divIcon({
+L.marker([34.6658,135.5010], {icon: L.divIcon({
   className: '',
-  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">3</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">신세카이·츠텐카쿠</div></div>',
+  html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">3</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">난바·칼디·다이후쿠</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
 L.marker([34.66915,135.50595], {icon: L.divIcon({
@@ -1636,7 +1636,7 @@ L.marker([34.66915,135.50595], {icon: L.divIcon({
   html: '<div style="text-align:center;"><div style="display:inline-flex;background:#3C6E5C;color:#fff;width:26px;height:26px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.35);align-items:center;justify-content:center;font-family:sans-serif;font-weight:700;font-size:11.5px;">4</div><div style="margin-top:2px;font-family:sans-serif;font-weight:700;font-size:11px;color:#2A2118;text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;white-space:nowrap;">원더크루즈</div></div>',
   iconSize: [140,42], iconAnchor: [70,13]
 })}).addTo(map_day3);
-map_day3.fitBounds([[34.6654716,135.4988018],[34.68175,135.5339],[34.6872571,135.5258546],[34.7040684,135.5000945],[34.652432,135.506143],[34.66915,135.50595]], {padding:[38,38]});
+map_day3.fitBounds([[34.6654716,135.4988018],[34.68175,135.5339],[34.6872571,135.5258546],[34.7040684,135.5000945],[34.6658,135.5010],[34.66915,135.50595]], {padding:[38,38]});
 
 var map_day4 = L.map('leaflet-day4', {zoomControl:false, attributionControl:true, scrollWheelZoom:false});
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -1770,7 +1770,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
           <div class="day-stamp"><span class="d-no">DAY</span><span class="d-day">2</span></div>
           <div class="d-titles">
             <div class="d-date">10월 17일 · 토요일</div>
-            <h3>주유패스 확정 일정 · 오사카성·우메다·신세카이</h3>
+            <h3>실제 일정 · 오사카성·우메다·난바·도톤보리</h3>
           </div>
         </div>
         <img class="day-photo" alt="오사카성 전경"
@@ -1778,51 +1778,42 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
              onerror="this.onerror=null;this.src='https://commons.wikimedia.org/wiki/Special:FilePath/Osaka%20castle%20tenshu.jpg?width=1200';">
         <div class="day-photo-credit">오사카성 · Wikimedia Commons</div>
 
-        <div class="plan-label">확정 일정 · 오사카성 핵심만 보고 우메다 쇼핑 확대</div>
+        <div class="plan-label">실제 일정 · 늦은 출발, 오사카성 핵심 관람 후 난바 복귀</div>
         <div class="route-flow plan-route">
           <span class="r-label">동선</span>
-          <span class="route-stop">난바·하나마루켄</span><span class="route-arrow">→</span>
-          <span class="route-stop">닛폰바시→나가호리바시 환승→모리노미야</span><span class="route-arrow">→</span>
-          <span class="route-stop">로드트레인 왕복·고자부네 시간 확보</span><span class="route-arrow">→</span>
-          <span class="route-stop">천수각·고자부네</span><span class="route-arrow">→</span>
-          <span class="route-stop">모토무라 EST점 13:00 예약</span><span class="route-arrow">→</span>
-          <span class="route-stop">HEP FIVE·키디랜드·한큐·한신 B1</span><span class="route-arrow">→</span>
-          <span class="route-stop">신세카이·쿠시카츠·츠텐카쿠</span><span class="route-arrow">→</span>
-          <span class="route-stop">원더크루즈 21:00</span>
+          <span class="route-stop">09:30 숙소 출발</span><span class="route-arrow">→</span>
+          <span class="route-stop">하나마루켄</span><span class="route-arrow">→</span>
+          <span class="route-stop">모리노미야·로드트레인</span><span class="route-arrow">→</span>
+          <span class="route-stop">오사카성·고자부네</span><span class="route-arrow">→</span>
+          <span class="route-stop">한큐·HEP FIVE</span><span class="route-arrow">→</span>
+          <span class="route-stop">난바·숙소 휴식·칼디</span><span class="route-arrow">→</span>
+          <span class="route-stop">규카츠 다이후쿠</span><span class="route-arrow">→</span>
+          <span class="route-stop">원더크루즈·돈키호테</span>
         </div>
         <div class="real-map-item">
-          <div class="real-map-label"><span class="rm-dot" style="background:#3C6E5C;"></span><b>Day 2 확정 지도</b>&nbsp;난바·하나마루켄 → 모리노미야·로드트레인 왕복 → 오사카성 → 우메다 → 신세카이·츠텐카쿠 → 원더크루즈</div>
+          <div class="real-map-label"><span class="rm-dot" style="background:#3C6E5C;"></span><b>Day 2 실제 동선</b>&nbsp;난바·하나마루켄 → 모리노미야·오사카성 → 우메다 → 난바 → 원더크루즈·돈키호테</div>
           <div id="leaflet-day3" class="real-map"></div>
         </div>
 
         <div class="day-body">
           <ul class="timeline">
-            <li><div class="t-time">07:30–07:50</div><div class="t-thumb icon">🚶</div><div class="t-body"><div class="t-title">리가레 난바 → 하나마루켄 난바·호젠지점</div><div class="t-desc">여권 또는 아이 나이를 확인할 수 있는 자료, 주유패스 QR, 원더크루즈 예약 화면과 보조배터리를 챙겨 숙소에서 호젠지 방향으로 걸어갑니다. 주소는 난바 1-2-1이며 숙소에서 약 10~15분 거리라 아침 첫 구간은 지하철보다 도보가 단순합니다. <a href="https://maps.app.goo.gl/JduJBATaExiH6Dr27" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
-            <li class="highlight-row"><div class="t-time">07:50–08:30</div><div class="t-thumb"><img src="https://tse1.mm.bing.net/th?q=%E8%8A%B1%E4%B8%B8%E8%BB%92+%E9%9B%A3%E6%B3%A2+%E6%B3%95%E5%96%84%E5%AF%BA+%E3%81%97%E3%81%82%E3%82%8F%E3%81%9B%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3&amp;w=640&amp;h=420&amp;c=7&amp;rs=1&amp;p=0" alt="하나마루켄 시아와세 라멘"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 3</span>하나마루켄 난바·호젠지점 아침 &amp; 패스 준비</div><div class="t-desc">24시간 영업하는 돈코츠 쇼유 라멘집입니다. 대표 메뉴는 시아와세 라멘 980엔, 시아와세 차슈멘 1,300엔, 뼈 없는 토로코츠 한 줄을 올린 라멘 1,330엔이며 가격은 현장에서 재확인하세요. 좌석이 17석(카운터 15·테이블 2)뿐이고 예약을 받지 않으므로 08:00 전후 일찍 방문합니다. 가족이 한 테이블에 앉기 어렵다면 카운터로 나눠 앉는 선택도 준비하세요. 대표 휴대폰에서 주유패스 4매와 원더크루즈 예약 화면을 확인합니다. <a href="https://maps.app.goo.gl/JduJBATaExiH6Dr27" target="_blank" rel="noopener noreferrer">Google 지도</a> · <a href="https://arakawa-fs.jp/shop/%E8%8A%B1%E4%B8%B8%E8%BB%92-%E9%9B%A3%E6%B3%A2%E3%83%BB%E6%B3%95%E5%96%84%E5%AF%BA%E5%BA%97/" target="_blank" rel="noopener noreferrer">공식 매장 정보</a></div></div></li>
-            <li><div class="t-time">08:30–09:05</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">하나마루켄 → 닛폰바시역 → 모리노미야역</div><div class="t-desc">식사 후 닛폰바시역 K17까지 약 5분 걸어 사카이스지선으로 나가호리바시 K16까지 한 정거장 이동합니다. 같은 역에서 나가호리쓰루미료쿠치선 N16으로 환승해 모리노미야 N20에서 내리고, 3-B 출구에서 분수대 옆 로드트레인 승강장까지 약 3~5분 걷습니다. 전 구간 주유패스 적용이며 JR과 버스는 이용하지 않습니다.</div></div></li>
-            <li><div class="t-time">09:05–09:50</div><div class="t-thumb icon">🚂</div><div class="t-body"><div class="t-title">모리노미야 → 오사카성 로드트레인 <span class="meal-tag">첫 운행 기준</span></div><div class="t-desc">09:30 전후 첫 운행을 기준으로 극락교·호코쿠신사 방면까지 타서 성내 장거리 도보를 줄입니다. 로드트레인은 주유패스 비포함이며 왕복 가족 4명 2,400엔입니다. 약 30분 간격이므로 당일 운행표를 먼저 확인하세요.</div></div></li>
-            <li><div class="t-time">09:50–10:00</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">고자부네 4명분 시간 지정 <span class="meal-tag">11:20 전후 1순위</span></div><div class="t-desc">극락교 쪽 매표소에서 가족 4매의 주유패스 QR을 제시해 네 명이 같은 편을 받습니다. 11:20 전후편을 먼저 요청하고, 원하는 편이 없으면 받은 시간에 맞춰 천수각 관람시간만 조정하세요.</div></div></li>
-            <li><div class="t-time">10:00–10:50</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osaka%20Castle%2001bs3200.jpg?width=200" alt="오사카성 천수각"></div><div class="t-body"><div class="t-title">오사카성 천수각 <span class="meal-tag">09:00 개관</span></div><div class="t-desc">전시와 8층 전망을 약 50분 관람합니다. 중학생 이하는 여권 등 나이 확인 자료가 있으면 기본 입장이 무료이며, 성인은 주유패스 QR을 사용합니다.</div></div></li>
-            <li><div class="t-time">10:50–11:10</div><div class="t-thumb icon">☕</div><div class="t-body"><div class="t-title">고자부네 승선장 이동·화장실·휴식</div><div class="t-desc">도요토미 석벽관은 관람하지 않습니다. 천수각에서 나온 뒤 바로 승선장 쪽으로 이동해 화장실과 음료를 해결하고, 늦어도 11:10에는 승선 대기 장소에 도착합니다.</div></div></li>
-            <li><div class="t-time">11:20–11:40</div><div class="t-thumb icon">⛵</div><div class="t-body"><div class="t-title">오사카성 고자부네 놀잇배 <span class="meal-tag">지정편 · 약 20분</span></div><div class="t-desc">해자에서 높은 석벽과 천수각을 올려다봅니다. 실제 승선 시각이 달라지면 천수각 관람시간을 조절하되 승선 10분 전 대기를 우선합니다.</div></div></li>
-            <li><div class="t-time">11:40–12:10</div><div class="t-thumb icon">🚂</div><div class="t-body"><div class="t-title">고자부네 하선 → 로드트레인으로 모리노미야 복귀</div><div class="t-desc">YAGURA 특별공개와 니시노마루 정원은 생략합니다. 극락교 승강장에서 다음 로드트레인을 타고 모리노미야로 되돌아가 다니마치욘초메역까지 걷는 구간을 없앱니다. <b>13:00 식당 예약을 위해 12:10 모리노미야 출발을 마감</b>으로 잡습니다.</div></div></li>
-            <li><div class="t-time">12:10–12:50</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">모리노미야역 → 히가시우메다역 → 우메다 EST</div><div class="t-desc">모리노미야 N20에서 나가호리쓰루미료쿠치선을 타고 다니마치6초메 N18에서 다니마치선 T24로 환승해 히가시우메다 T20에서 내립니다. 역에서 우메다 EST까지 약 10~15분 걸어 <b>12:50까지 식당에 도착</b>합니다. 전 구간 주유패스 적용이며 버스·JR은 이용하지 않습니다.</div></div></li>
-            <li class="highlight-row"><div class="t-time">13:00–14:00</div><div class="t-thumb"><img src="https://tblg.k-img.com/restaurant/images/Rvw/203370/640x640_rect_5c1a7e6f0c96c808d86f2e57fd5872db.jpg" alt="규카츠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 4 · 예약 완료</span>규카츠 모토무라 우메다 EST점</div><div class="t-desc"><b>2026년 10월 17일 13:00, 가족 4명, 좌석 1시간 예약 확정.</b> 주소는 오사카시 기타구 가쿠다초 3-25 EST E구역 1층입니다. 루쿠아점은 예약이 되지 않아 EST점으로 변경했습니다. 미디엄레어 규카츠를 개인 돌판에 원하는 만큼 익혀 먹고 14:00에는 퇴점합니다. <a href="https://www.google.com/maps/search/?api=1&amp;query=Gyukatsu+Motomura+Umeda+EST" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
-            <li><div class="t-time">14:05–14:35</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/HEP%20Five%20Ferris%20Wheel.jpg?width=200" alt="HEP FIVE 관람차"></div><div class="t-body"><div class="t-title">HEP FIVE 관람차 <span class="meal-tag">패스 무료</span></div><div class="t-desc">EST점에서 가까운 HEP FIVE를 식사 직후 먼저 이용해 불필요한 왕복을 줄입니다. 대기와 탑승을 합쳐 약 30분으로 잡고 14:35에는 키디랜드로 이동합니다.</div></div></li>
-            <li><div class="t-time">14:40–16:15</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">키디랜드·한큐 중심 쇼핑·휴식 <span class="meal-tag">1시간 35분</span></div><div class="t-desc">키디랜드를 필수로 먼저 보고 한큐백화점의 화장품·여성 패션을 이어 봅니다. 아이들이 지치면 짧은 카페 휴식을 포함하고 16:15에는 한신백화점 방향으로 이동합니다.</div></div></li>
-            <li><div class="t-time">16:15–16:50</div><div class="t-thumb icon">🦑</div><div class="t-body"><div class="t-title">한신백화점 B1 이카야키·식품관</div><div class="t-desc">신세카이로 내려가기 전 남쪽에 있는 한신 B1을 마지막으로 들러 한신명물 이카야키와 식품관을 봅니다. 이카야키는 배고픔에 따라 가족이 나눠 먹고 <b>16:50에는 반드시 지하철로 출발</b>합니다.</div></div></li>
-            <li><div class="t-time">16:50–17:30</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">우메다 → 도부츠엔마에역 · 신세카이 이동</div><div class="t-desc">미도스지선으로 이동합니다. JR은 이용하지 않으며 가족 4명 모두 주유패스로 승차합니다. 17:30 도착을 목표로 하되 지연되면 쿠시카츠 식사시간을 먼저 줄입니다.</div></div></li>
-            <li><div class="t-time">17:30–17:45</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">츠텐카쿠 현장 입장시간 배정 <span class="meal-tag">19:00 전후 요청</span></div><div class="t-desc">주유패스 이용자는 당일 현장 창구에서 입장시간을 배정받습니다. 가족 4매의 주유패스 QR을 제시해 18:50~19:10 회차를 요청하세요. <b>19:20 이후 회차만 남았거나 19:45 퇴장이 어렵다면 츠텐카쿠를 포기하고 원더크루즈를 우선</b>합니다.</div></div></li>
-            <li class="highlight-row"><div class="t-time">17:45–18:35</div><div class="t-thumb icon">🍢</div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 5</span>신세카이 쿠시카츠 저녁</div><div class="t-desc">다루마 신세카이 총본점을 1순위로 보고 대기가 길면 오우미야 본점으로 즉시 전환합니다. 18:35에는 식사를 마치고 츠텐카쿠 입장에 대비하세요.</div></div></li>
-            <li><div class="t-time">19:00–19:45</div><div class="t-thumb icon">🌃</div><div class="t-body"><div class="t-title">츠텐카쿠 일반 전망대 야경 <span class="meal-tag">현장 시간 배정 · 패스 무료</span></div><div class="t-desc">배정받은 시간이 맞을 때만 입장해 신세카이 야경을 보고 <b>19:45 퇴장을 절대 마감</b>으로 잡습니다. 특별 야외전망대·타워 슬라이더·Dive&amp;Walk는 제외합니다.</div></div></li>
-            <li><div class="t-time">19:50–20:20</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">에비스초역 → 니폰바시 선착장</div><div class="t-desc">사카이스지선으로 닛폰바시역까지 한 정거장 이동해 선착장으로 갑니다. 약 15분의 지연 여유를 포함한 시간입니다.</div></div></li>
-            <li><div class="t-time">20:20–21:00</div><div class="t-thumb icon">🎟️</div><div class="t-body"><div class="t-title">원더크루즈 승선 접수 <span class="meal-tag">4명 예약 완료</span></div><div class="t-desc">예약확정 메일과 주유패스 QR을 제시해 승선권을 받은 뒤 강변 대기열에 섭니다. 안내상 최소 10분 전 도착이지만 40분 여유를 확보합니다.</div></div></li>
-            <li><div class="t-time">21:00–21:20</div><div class="t-thumb icon">🚤</div><div class="t-body"><div class="t-title">원더크루즈 도톤보리 야경 <span class="meal-tag">예약 완료 · 패스 무료</span></div><div class="t-desc">2026년 10월 17일 21:00 가족 4명 예약 확정. 니폰바시 선착장에서 도톤보리 수로를 왕복하며 글리코상과 네온사인을 감상합니다.</div></div></li>
+            <li><div class="t-time">09:30</div><div class="t-thumb icon">🚶</div><div class="t-body"><div class="t-title">리가레 난바 출발</div><div class="t-desc">주유패스 QR과 원더크루즈 예약 화면을 준비하고 숙소에서 호젠지 방향으로 출발했습니다.</div></div></li>
+            <li class="highlight-row"><div class="t-time">10:00–10:30</div><div class="t-thumb"><img src="https://tse1.mm.bing.net/th?q=%E8%8A%B1%E4%B8%B8%E8%BB%92+%E9%9B%A3%E6%B3%A2+%E6%B3%95%E5%96%84%E5%AF%BA+%E3%81%97%E3%81%82%E3%82%8F%E3%81%9B%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3&amp;w=640&amp;h=420&amp;c=7&amp;rs=1&amp;p=0" alt="하나마루켄 시아와세 라멘"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 3</span>하나마루켄 난바·호젠지점</div><div class="t-desc">10:00 라멘으로 아침 겸 첫 식사를 하고 10:30 오사카성으로 출발했습니다. <a href="https://maps.app.goo.gl/JduJBATaExiH6Dr27" target="_blank" rel="noopener noreferrer">Google 지도</a></div></div></li>
+            <li><div class="t-time">10:30–11:00</div><div class="t-thumb icon">🚇</div><div class="t-body"><div class="t-title">하나마루켄 → 모리노미야역</div><div class="t-desc">닛폰바시·나가호리바시를 거쳐 모리노미야로 이동해 11:00 도착했습니다.</div></div></li>
+            <li><div class="t-time">11:30–13:00</div><div class="t-thumb icon">🚂</div><div class="t-body"><div class="t-title">로드트레인 → 오사카성 관람</div><div class="t-desc">11:30 로드트레인으로 성 안쪽까지 이동해 장거리 도보를 줄이고 오사카성 천수각을 관람했습니다. 석벽관·YAGURA·니시노마루는 생략했습니다.</div></div></li>
+            <li><div class="t-time">13:00–13:20</div><div class="t-thumb icon">⛵</div><div class="t-body"><div class="t-title">오사카성 고자부네 놀잇배</div><div class="t-desc">13:00 지정편을 이용해 해자에서 석벽과 천수각을 감상했습니다.</div></div></li>
+            <li><div class="t-time">13:30–14:30</div><div class="t-thumb icon">🚂</div><div class="t-body"><div class="t-title">로드트레인 → 모리노미야 복귀 → 우메다 이동</div><div class="t-desc">13:30 로드트레인으로 모리노미야에 복귀한 뒤 지하철을 이용해 14:30 우메다역에 도착했습니다.</div></div></li>
+            <li><div class="t-time">14:30–16:00</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">한큐백화점 구경</div><div class="t-desc">한큐백화점의 식품관과 쇼핑 매장을 둘러봤습니다. 키디랜드와 한신백화점은 방문하지 않았습니다.</div></div></li>
+            <li><div class="t-time">16:00–16:30</div><div class="t-thumb"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/HEP%20Five%20Ferris%20Wheel.jpg?width=200" alt="HEP FIVE 관람차"></div><div class="t-body"><div class="t-title">HEP FIVE 관람차 <span class="meal-tag">패스 이용</span></div><div class="t-desc">16:00 HEP FIVE 관람차에 탑승해 우메다 도심 전망을 감상했습니다.</div></div></li>
+            <li><div class="t-time">17:00–19:10</div><div class="t-thumb icon">🛏️</div><div class="t-body"><div class="t-title">난바 복귀 · 아이들 숙소 휴식 · 칼디 쇼핑</div><div class="t-desc">17:00 난바역으로 돌아와 아이들은 숙소에서 쉬고, 어른은 칼디에서 쇼핑했습니다. 신세카이와 츠텐카쿠는 방문하지 않았습니다.</div></div></li>
+            <li class="highlight-row"><div class="t-time">19:30–20:30</div><div class="t-thumb"><img src="https://tblg.k-img.com/restaurant/images/Rvw/203370/640x640_rect_5c1a7e6f0c96c808d86f2e57fd5872db.jpg" alt="규카츠"></div><div class="t-body"><div class="t-title"><span class="meal-tag">식사 4</span>규카츠 다이후쿠 난바</div><div class="t-desc">19:30 규카츠 다이후쿠에서 가족 저녁 식사를 했습니다. 카드 명세의 20:14 결제 기록과 연결되는 실제 방문입니다.</div></div></li>
+            <li><div class="t-time">21:00–21:20</div><div class="t-thumb icon">🚤</div><div class="t-body"><div class="t-title">원더크루즈 도톤보리 야경 <span class="meal-tag">예약 이용 · 패스</span></div><div class="t-desc">21:00 예약편으로 도톤보리 수로를 왕복하며 글리코상과 네온사인을 감상했습니다.</div></div></li>
+            <li><div class="t-time">21:30–23:20</div><div class="t-thumb icon">🛍️</div><div class="t-body"><div class="t-title">돈키호테 도톤보리점 쇼핑</div><div class="t-desc">21:30부터 돈키호테 도톤보리점에서 쇼핑하고 23:30 숙소로 복귀했습니다.</div></div></li>
           </ul>
         </div>
-        <div class="day-tip"><span class="icon">✅</span><div><b>확정 운영 기준</b>YAGURA·니시노마루는 제외하고 로드트레인 왕복으로 오사카성 도보를 최소화합니다. 규카츠 EST점 13:00 예약과 <b>원더크루즈 21:00 예약을 고정</b>하고, 20:20 선착장 도착을 지킵니다. 츠텐카쿠는 19:00 전후 입장시간을 현장에서 받을 수 있을 때만 이용하며, 늦은 회차만 남으면 미련 없이 생략합니다.</div></div>
-        <div class="day-tip"><span class="icon">🚇</span><div><b>Day 2 교통</b>숙소→하나마루켄은 도보, 닛폰바시 K17→나가호리바시 K16/N16 환승→모리노미야 N20, 모리노미야 N20→다니마치6초메 N18/T24→히가시우메다 T20, 우메다→도부츠엔마에, 에비스초→닛폰바시를 Osaka Metro와 주유패스로 이동합니다. 버스와 JR은 이용하지 않습니다.</div></div>
-        <div class="day-tip"><span class="icon">🚂</span><div><b>로드트레인 왕복 확정</b>모리노미야↔극락교·호코쿠신사 방면을 왕복해 성내 도보와 천수각→다니마치욘초메 장거리 보행을 줄입니다. 편도 성인 400엔·어린이 200엔으로 가족 왕복은 <b>2,400엔 별도</b>이며 주유패스에는 포함되지 않습니다. 통상 09:30~17:00, 약 30분 간격이나 악천후·행사 시 운휴할 수 있으므로 당일 승강장 운행표를 확인하세요. <a href="https://www.osakacastlepark.jp/pdf/OsakaCastleMainTower_BFmap_jp.pdf" target="_blank" rel="noopener noreferrer">공식 노선 지도</a></div></div>
+        <div class="day-tip"><span class="icon">✅</span><div><b>실제 이용 결과</b>늦은 출발에 맞춰 오사카성은 로드트레인 왕복·천수각·13:00 고자부네만 이용했습니다. 우메다에서는 한큐백화점과 HEP FIVE만 보고, 키디랜드·한신·신세카이·츠텐카쿠는 생략했습니다.</div></div>
+        <div class="day-tip"><span class="icon">🚇</span><div><b>실제 이동</b>난바 → 모리노미야 → 우메다 → 난바 순으로 이동한 뒤, 저녁에는 규카츠 다이후쿠와 21:00 원더크루즈·돈키호테 도톤보리점을 이용했습니다.</div></div>
+        <div class="day-tip"><span class="icon">🚂</span><div><b>로드트레인 활용</b>11:30 성 방향, 13:30 모리노미야 방향으로 왕복해 성내 도보를 줄였습니다. 가족 왕복 요금은 별도 지출 기록과 대조해 정리합니다.</div></div>
       </div>
     </section>
 
@@ -2151,26 +2142,26 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
         <article class="zone-card">
           <div class="zone-head"><span class="zone-no">2</span><div><h3>우메다</h3><p>현대적인 쇼핑과 도심 전망</p></div></div>
           <div class="place-list">
-            <div class="place-item"><div class="place-name">한신·한큐·한큐 삼번가 <span class="place-tag">집중 쇼핑 · Day 2</span></div><p>공중정원을 제외한 시간을 쇼핑에 배정합니다. 한신·한큐 백화점의 식품관·화장품·여성 패션을 보고, 한큐 삼번가 키디랜드에서 산리오·미피·스누피·지브리 등 캐릭터 상품을 둘러봅니다.</p></div>
-            <div class="place-item"><div class="place-name">헵파이브 관람차 <span class="place-tag">일정 포함 · Day 2</span></div><p>EST점 예약 식사 직후 14:05에 이용하며 주유패스로 무료입니다. 이후 키디랜드·한큐·한신 B1 순으로 남쪽을 향해 이동합니다.</p></div>
+            <div class="place-item"><div class="place-name">한큐백화점 <span class="place-tag">실제 방문 · Day 2</span></div><p>14:30 우메다역 도착 후 한큐백화점의 식품관과 쇼핑 매장을 둘러봤습니다. 키디랜드와 한신백화점은 방문하지 않았습니다.</p></div>
+            <div class="place-item"><div class="place-name">헵파이브 관람차 <span class="place-tag">실제 이용 · Day 2</span></div><p>16:00 주유패스로 관람차를 이용한 뒤 난바로 복귀했습니다.</p></div>
             <div class="place-item"><div class="place-name">우메다 스카이빌딩 공중정원 <span class="place-tag alt">이번 일정 제외</span></div><p>전망대보다 쇼핑을 우선하기로 해 Day 2 기본 일정에서 제외했습니다. 계획이 바뀔 때만 15시 이전 입장을 추가 후보로 검토합니다.</p></div>
             <div class="place-item"><div class="place-name">오사카 시립주택박물관 <span class="place-tag alt">이번 일정 제외</span></div><p>근세 오사카 거리를 실물 크기로 재현한 실내 박물관이지만 이번 여행에서는 방문하지 않습니다.</p></div>
             <div class="place-item"><div class="place-name">텐진바시스지 상점가 <span class="place-tag alt">추가 후보</span></div><p>긴 아케이드 아래 현지 상점과 식당이 이어지는 거리. 비를 피하며 로컬 쇼핑을 즐길 수 있습니다.</p></div>
-            <div class="place-item"><div class="place-name">규카츠 모토무라 우메다 EST점 <span class="place-tag">13:00 예약 · Day 2</span></div><p>10월 17일 13:00 가족 4명, 좌석 1시간 예약 완료입니다. 루쿠아점 대신 가쿠다초 3-25 EST 1층 지점으로 변경했으며 12:50 도착을 목표로 합니다.</p></div>
+            <div class="place-item"><div class="place-name">규카츠 모토무라 우메다 EST점 <span class="place-tag alt">예약했으나 미이용</span></div><p>10월 17일 13:00 예약이 있었지만 오사카성 일정이 늦어져 이용하지 않았고, 저녁에 난바의 규카츠 다이후쿠를 방문했습니다.</p></div>
           </div>
         </article>
 
         <article class="zone-card">
           <div class="zone-head"><span class="zone-no">3</span><div><h3>오사카성 &amp; 키타하마</h3><p>역사 산책과 강변 휴식</p></div></div>
           <div class="place-list">
-            <div class="place-item"><div class="place-name">오사카성 핵심 관람 <span class="place-tag">일정 포함 · Day 2</span></div><p>모리노미야에서 로드트레인으로 들어가 09:50 전후 고자부네 11:20편을 확보한 뒤 천수각과 고자부네만 관람합니다. 석벽관은 생략하고 하선 후 로드트레인으로 모리노미야에 복귀해 성내 도보를 줄인 뒤 지하철로 히가시우메다까지 이동합니다.</p></div>
+            <div class="place-item"><div class="place-name">오사카성 핵심 관람 <span class="place-tag">실제 이용 · Day 2</span></div><p>11:30 모리노미야에서 로드트레인으로 들어가 천수각을 관람하고 13:00 고자부네를 탔습니다. 13:30 로드트레인으로 모리노미야에 복귀했으며 석벽관·YAGURA·니시노마루는 생략했습니다.</p></div>
           </div>
         </article>
 
         <article class="zone-card">
           <div class="zone-head"><span class="zone-no">4</span><div><h3>덴노지 &amp; 신세카이</h3><p>레트로 골목과 남부 전망</p></div></div>
           <div class="place-list">
-            <div class="place-item"><div class="place-name">신세카이·츠텐카쿠 <span class="place-tag">일정 포함 · Day 2</span></div><p>HEP FIVE 이후 이동해 쿠시카츠 저녁을 먹고 19:00 전후 츠텐카쿠 일반 전망대 야경을 봅니다. 19:50에는 퇴장해 원더크루즈 선착장으로 이동합니다.</p></div>
+            <div class="place-item"><div class="place-name">신세카이·츠텐카쿠 <span class="place-tag alt">실제 미방문</span></div><p>가족 휴식과 난바 일정으로 변경해 이번 여행에서는 방문하지 않았습니다.</p></div>
             <div class="place-item"><div class="place-name">아베노 하루카스 300 <span class="place-tag alt">추가 후보</span></div><p>약 300m 높이 건물의 전망대에서 오사카 전경을 감상할 수 있어요. 현재 일본 최고층 건물은 아니지만 간사이를 대표하는 전망 명소입니다.</p></div>
             <div class="place-item"><div class="place-name">시텐노지 <span class="place-tag alt">추가 후보</span></div><p>일본에서 가장 오래된 불교 사찰 가운데 하나로 알려진 곳. 번화가와 다른 조용한 분위기에서 오층탑과 경내를 둘러볼 수 있어요.</p></div>
             <div class="place-item"><div class="place-name">돈돈테이 <span class="place-tag alt">식사 후보</span></div><p>텐동과 가츠동처럼 든든한 덮밥을 비교적 부담 없는 가격에 맛볼 수 있는 식사 후보입니다.</p></div>
@@ -2854,7 +2845,7 @@ map_wife_shopping.fitBounds(wifeShoppingPlaces.map(function(place){return [place
 
   <footer>
     <div class="msg">즐겁고 안전한 여행 되세요 🍁</div>
-  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.42</div>
+  <div class="sub">오사카 가족여행 · 2026.10.16(금) – 10.19(월) · v5.43</div>
   </footer>
 
   <div id="offline-status" class="offline-status" role="status" aria-live="polite"></div>
